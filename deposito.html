@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produk Deposito - BANK NUSANTARA</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+:root{--primary:#023b96;--primary-light:#1a5bc7;--secondary:#c8a951;--secondary-light:#e0c76a;--accent:#2970d4;--text-dark:#2c3e50;--text-light:#6c757d;--bg-light:#f8f9fa;--white:#ffffff;--shadow:0 4px 20px rgba(0,0,0,.1);--shadow-hover:0 8px 30px rgba(0,0,0,.15);--transition:all .3s ease;--wa:#25D366;--wa-dark:#128C7E}
+body{font-family:'Inter','Segoe UI',Tahoma,sans-serif;color:var(--text-dark);line-height:1.6;overflow-x:hidden}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* ===== TOP BAR ===== */
+.top-bar{background:var(--primary);color:#fff;padding:6px 0;font-size:12px}
+.top-bar .container{display:flex;justify-content:space-between;align-items:center}
+.top-bar a{color:#fff;text-decoration:none;margin-left:18px;transition:var(--transition)}
+.top-bar a:hover{color:var(--secondary)}
+.top-bar-left{display:flex;align-items:center;gap:18px}
+.top-bar-left i{margin-right:4px;color:var(--secondary);font-size:11px}
+
+/* ===== HEADER ===== */
+.header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08);position:sticky;top:0;z-index:1000}
+.header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.12)}
+.header .container{display:flex;justify-content:space-between;align-items:center;padding:8px 20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--primary),var(--primary-light));border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--secondary);font-size:18px;font-weight:bold;box-shadow:0 4px 12px rgba(2,59,150,.3)}
+.logo-text h1{font-size:17px;color:var(--primary);font-weight:700;letter-spacing:-.5px;line-height:1.1}
+.logo-text span{font-size:10px;color:var(--text-light);text-transform:uppercase;letter-spacing:1px}
+.nav{display:flex;align-items:center}
+.nav-menu{display:flex;list-style:none;gap:2px;align-items:center}
+.nav-menu>li>a{text-decoration:none;color:var(--text-dark);font-weight:500;padding:8px 13px;border-radius:7px;transition:var(--transition);font-size:13px;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.nav-menu>li>a:hover,.nav-menu>li>a.active{background:var(--primary);color:#fff}
+.nav-menu li{position:relative}
+.nav-menu li .dropdown{position:absolute;top:calc(100% + 6px);left:0;background:#fff;min-width:220px;box-shadow:var(--shadow-hover);border-radius:10px;padding:6px;display:none;z-index:100;opacity:0;transform:translateY(-8px);transition:all .25s ease;border:1px solid #f0f0f0}
+.nav-menu li:hover .dropdown{display:block;opacity:1;transform:translateY(0)}
+.nav-menu li .dropdown a{display:flex;align-items:center;gap:10px;padding:9px 13px;border-radius:6px;font-size:13px;color:var(--text-dark);text-decoration:none;transition:var(--transition);font-weight:500}
+.nav-menu li .dropdown a i{color:var(--secondary);font-size:11px;width:14px;text-align:center}
+.nav-menu li .dropdown a:hover{background:var(--bg-light);color:var(--primary);padding-left:16px}
+.btn-whatsapp{background:linear-gradient(135deg,var(--wa),var(--wa-dark))!important;color:#fff!important;font-weight:600!important;padding:8px 16px!important;border-radius:25px!important;margin-left:10px;box-shadow:0 4px 12px rgba(37,211,102,.3)}
+.btn-whatsapp:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(37,211,102,.5)}
+.hamburger{display:none;font-size:22px;cursor:pointer;color:var(--primary);padding:6px 10px;border-radius:6px}
+
+/* ===== HERO ===== */
+.page-hero{background:linear-gradient(135deg,#023b96 0%,#1a5bc7 60%,#2970d4 100%);padding:50px 0 60px;position:relative;overflow:hidden;color:#fff}
+.page-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:250px;height:250px;border:2px solid rgba(200,169,81,.08);border-radius:50%;pointer-events:none}
+.page-hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:200px;height:200px;border:1px solid rgba(200,169,81,.06);border-radius:50%;pointer-events:none}
+.page-hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.page-hero-text h1{font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:10px}
+.page-hero-text h1 .gold{background:linear-gradient(135deg,#c8a951,#e0c76a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-hero-text p{font-size:15px;color:rgba(255,255,255,.8);max-width:550px;line-height:1.7}
+.page-hero-text .breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.6);margin-bottom:14px}
+.page-hero-text .breadcrumb a{color:rgba(255,255,255,.8);text-decoration:none}
+.page-hero-text .breadcrumb a:hover{color:var(--secondary)}
+.page-hero-text .breadcrumb i{font-size:9px}
+.page-hero-visual{width:280px;height:180px;border-radius:20px;background:linear-gradient(135deg,rgba(200,169,81,.15),rgba(200,169,81,.05));border:1px solid rgba(200,169,81,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;backdrop-filter:blur(10px)}
+.page-hero-visual i{font-size:80px;color:rgba(200,169,81,.5)}
+
+/* ===== SECTION DEPOSITO ===== */
+.deposito-section{padding:50px 0 60px;background:linear-gradient(180deg,#f8fafc 0%,#fff 100%)}
+.section-title{text-align:center;margin-bottom:30px}
+.section-title .st-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(200,169,81,.1);color:var(--secondary);padding:5px 16px;border-radius:60px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;border:1px solid rgba(200,169,81,.2)}
+.section-title h2{font-family:'Playfair Display',serif;font-size:30px;color:var(--primary);margin-bottom:8px;font-weight:700}
+.section-title p{color:var(--text-light);font-size:14px;max-width:560px;margin:0 auto;line-height:1.6}
+.section-title .underline{width:50px;height:3px;background:linear-gradient(135deg,var(--secondary),var(--secondary-light));margin:12px auto 0;border-radius:2px}
+
+/* ===== CARD DEPOSITO UTAMA ===== */
+.dep-main-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 25px rgba(0,0,0,.07);border:1px solid rgba(0,0,0,.05);margin-bottom:24px;position:relative}
+.dep-main-top{background:linear-gradient(135deg,#023b96 0%,#1a5bc7 50%,#0d4db3 100%);padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;overflow:hidden}
+.dep-main-top::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border:2px solid rgba(200,169,81,.15);border-radius:50%;pointer-events:none}
+.dep-main-top::after{content:'';position:absolute;bottom:-30px;left:-30px;width:120px;height:120px;border:1px solid rgba(200,169,81,.1);border-radius:50%;pointer-events:none}
+.dep-main-info{display:flex;align-items:center;gap:16px;position:relative;z-index:2}
+.dep-main-icon{width:60px;height:60px;min-width:60px;border-radius:16px;background:linear-gradient(135deg,rgba(200,169,81,.25),rgba(200,169,81,.1));display:flex;align-items:center;justify-content:center;border:1px solid rgba(200,169,81,.3);backdrop-filter:blur(10px)}
+.dep-main-icon i{color:#c8a951;font-size:26px}
+.dep-main-info h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:3px}
+.dep-main-info p{font-size:12.5px;color:rgba(255,255,255,.75);margin:0}
+.dep-main-badges{display:flex;gap:8px;position:relative;z-index:2}
+.dep-main-badge{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:20px;font-size:11px;color:#fff;font-weight:600;backdrop-filter:blur(10px)}
+.dep-main-badge i{color:#c8a951;font-size:10px}
+
+/* ===== TENOR GRID (4 PILIHAN) ===== */
+.dep-tenor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:24px 28px 20px}
+.dep-tenor-card{background:#fff;border-radius:14px;padding:18px 16px;border:1.5px solid #eef2f7;transition:all .35s cubic-bezier(.25,.46,.45,.94);position:relative;overflow:hidden;cursor:default}
+.dep-tenor-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--secondary),var(--secondary-light));transform:scaleX(0);transition:transform .35s ease;transform-origin:left}
+.dep-tenor-card:hover{border-color:var(--secondary);box-shadow:0 10px 28px rgba(200,169,81,.15);transform:translateY(-4px)}
+.dep-tenor-card:hover::before{transform:scaleX(1)}
+.dep-tenor-card.popular{border-color:var(--secondary);background:linear-gradient(135deg,rgba(200,169,81,.04),rgba(200,169,81,.01))}
+.dep-tenor-card.popular::before{transform:scaleX(1)}
+.dep-popular-tag{position:absolute;top:10px;right:10px;background:linear-gradient(135deg,var(--secondary),var(--secondary-light));color:var(--primary);padding:2px 8px;border-radius:10px;font-size:8.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+.dep-tenor-month{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px dashed #eef2f7}
+.dep-tenor-month-icon{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(200,169,81,.12),rgba(200,169,81,.04));display:flex;align-items:center;justify-content:center;border:1px solid rgba(200,169,81,.2)}
+.dep-tenor-month-icon i{color:var(--secondary);font-size:14px}
+.dep-tenor-month-text .tenor-label{font-size:9px;color:#94a3b8;font-weight:700;letter-spacing:.8px;text-transform:uppercase}
+.dep-tenor-month-text .tenor-val{font-family:'Playfair Display',serif;font-size:15px;font-weight:800;color:#023b96;line-height:1.1}
+.dep-tenor-bunga{text-align:center;margin-bottom:10px}
+.dep-tenor-bunga .bunga-label{font-size:9px;color:#94a3b8;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:4px}
+.dep-tenor-bunga .bunga-val{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--primary);line-height:1}
+.dep-tenor-bunga .bunga-val small{font-size:14px;opacity:.6;font-weight:400}
+.dep-tenor-bunga .bunga-type{font-size:10px;color:#94a3b8;margin-top:3px}
+.dep-tenor-cta{display:flex;align-items:center;justify-content:center;gap:6px;padding:9px;background:linear-gradient(135deg,#023b96,#1a5bc7);color:#fff;border:none;border-radius:9px;font-size:11.5px;font-weight:700;cursor:pointer;transition:all .3s;font-family:'Inter',sans-serif;width:100%;letter-spacing:.3px;box-shadow:0 3px 10px rgba(2,59,150,.15)}
+.dep-tenor-cta:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(2,59,150,.25)}
+.dep-tenor-cta i{font-size:10px}
+
+/* ===== FITUR UNGGULAN ===== */
+.dep-fitur-section{padding:0 28px 26px}
+.dep-fitur-title{display:flex;align-items:center;gap:8px;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--primary);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #f1f5f9}
+.dep-fitur-title i{color:var(--secondary);font-size:14px}
+.dep-fitur-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.dep-fitur-item{display:flex;align-items:center;gap:10px;padding:12px 14px;background:linear-gradient(135deg,rgba(2,59,150,.03),rgba(200,169,81,.04));border-radius:10px;border:1px solid rgba(200,169,81,.12);transition:all .3s}
+.dep-fitur-item:hover{border-color:var(--secondary);transform:translateY(-2px);box-shadow:0 6px 16px rgba(200,169,81,.1)}
+.dep-fitur-icon{width:36px;height:36px;min-width:36px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dep-fitur-icon i{color:#c8a951;font-size:14px}
+.dep-fitur-text h5{font-size:12px;font-weight:700;color:#1e293b;margin-bottom:2px;line-height:1.2}
+.dep-fitur-text p{font-size:10.5px;color:#64748b;margin:0;line-height:1.4}
+
+/* ===== PERSYARATAN DEPOSITO ===== */
+.dep-req-section{background:#fff;border-radius:16px;padding:22px 26px;box-shadow:0 3px 18px rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.04);margin-bottom:20px}
+.dep-req-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #f1f5f9}
+.dep-req-header-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,rgba(200,169,81,.15),rgba(200,169,81,.05));display:flex;align-items:center;justify-content:center;border:1px solid rgba(200,169,81,.2)}
+.dep-req-header-icon i{color:var(--secondary);font-size:15px}
+.dep-req-header h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--primary);margin:0}
+.dep-req-header p{font-size:11px;color:#94a3b8;margin:2px 0 0}
+.dep-req-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.dep-req-block-title{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:#023b96;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px;padding-bottom:5px;border-bottom:1px dashed #e2e8f0}
+.dep-req-block-title i{color:var(--secondary);font-size:11px}
+.dep-req-list{list-style:none;padding:0;margin:0}
+.dep-req-list li{display:flex;align-items:flex-start;gap:8px;padding:5px 0;font-size:12.5px;color:#334155;line-height:1.5}
+.dep-req-list li i{color:#4caf50;font-size:10px;margin-top:3px;flex-shrink:0}
+
+/* ===== INFO LPS ===== */
+.dep-lps-box{background:linear-gradient(135deg,rgba(46,125,50,.05),rgba(46,125,50,.01));border:1px solid rgba(46,125,50,.15);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.dep-lps-icon{width:46px;height:46px;min-width:46px;border-radius:12px;background:linear-gradient(135deg,#2e7d32,#4caf50);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(46,125,50,.2)}
+.dep-lps-icon i{color:#fff;font-size:18px}
+.dep-lps-text h5{font-size:13px;font-weight:700;color:#2e7d32;margin-bottom:3px;display:flex;align-items:center;gap:6px}
+.dep-lps-text h5 span{background:#2e7d32;color:#fff;padding:1px 7px;border-radius:4px;font-size:10px;letter-spacing:.5px}
+.dep-lps-text p{font-size:12px;color:#475569;line-height:1.5;margin:0}
+
+/* ===== CTA BOTTOM ===== */
+.dep-cta-bottom{background:linear-gradient(135deg,#023b96 0%,#1a5bc7 100%);border-radius:18px;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#fff;position:relative;overflow:hidden}
+.dep-cta-bottom::before{content:'';position:absolute;top:-40px;right:-40px;width:150px;height:150px;border:2px solid rgba(200,169,81,.1);border-radius:50%;pointer-events:none}
+.dep-cta-bottom h4{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;margin:0 0 4px}
+.dep-cta-bottom p{font-size:13px;color:rgba(255,255,255,.8);margin:0}
+.dep-cta-bottom-actions{display:flex;gap:10px;flex-shrink:0}
+.dep-cta-btn{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;border-radius:50px;font-size:12.5px;font-weight:700;text-decoration:none;transition:all .3s;border:none;cursor:pointer;font-family:'Inter',sans-serif;letter-spacing:.3px}
+.dep-cta-btn-gold{background:linear-gradient(135deg,var(--secondary),var(--secondary-light));color:var(--primary);box-shadow:0 6px 18px rgba(200,169,81,.3)}
+.dep-cta-btn-gold:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(200,169,81,.45)}
+.dep-cta-btn-white{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(10px)}
+.dep-cta-btn-white:hover{background:rgba(255,255,255,.25);transform:translateY(-2px)}
+.dep-cta-btn i{font-size:11px}
+
+/* ===== MODAL SIMULASI DEPOSITO ===== */
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(2,26,61,.65);backdrop-filter:blur(6px);z-index:9999;align-items:center;justify-content:center;padding:20px;animation:fadeIn .25s ease}
+.modal-overlay.show{display:flex}
+.modal-box{background:#fff;border-radius:18px;max-width:520px;width:100%;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,.3);animation:slideUp .35s cubic-bezier(.25,.46,.45,.94);max-height:90vh;overflow-y:auto}
+.modal-header{background:linear-gradient(135deg,#023b96,#1a5bc7);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;color:#fff}
+.modal-header-title{display:flex;align-items:center;gap:10px}
+.modal-header-icon{width:36px;height:36px;border-radius:10px;background:rgba(200,169,81,.2);display:flex;align-items:center;justify-content:center;border:1px solid rgba(200,169,81,.3)}
+.modal-header-icon i{color:#c8a951;font-size:15px}
+.modal-header h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#fff;margin:0}
+.modal-header p{font-size:10.5px;color:rgba(255,255,255,.75);margin:2px 0 0}
+.modal-close{background:rgba(255,255,255,.15);border:none;width:32px;height:32px;border-radius:8px;color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.modal-close:hover{background:rgba(255,255,255,.25);transform:rotate(90deg)}
+.modal-body{padding:22px}
+.form-row{margin-bottom:14px}
+.form-row label{display:block;font-size:11.5px;font-weight:700;color:#023b96;margin-bottom:6px;letter-spacing:.3px;text-transform:uppercase}
+.form-row label i{color:var(--secondary);margin-right:5px}
+.form-input{width:100%;padding:11px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:14px;font-family:'Inter',sans-serif;transition:all .2s;background:#f8fafc}
+.form-input:focus{outline:none;border-color:#023b96;background:#fff;box-shadow:0 0 0 3px rgba(2,59,150,.08)}
+.form-row-inline{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-hint{font-size:10.5px;color:#94a3b8;margin-top:4px;display:flex;align-items:center;gap:4px}
+.form-hint i{font-size:9px}
+
+.simulasi-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--secondary),var(--secondary-light));color:var(--primary);border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;box-shadow:0 6px 18px rgba(200,169,81,.3);letter-spacing:.3px;margin-top:6px}
+.simulasi-btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(200,169,81,.45)}
+.simulasi-btn i{font-size:11px}
+
+/* Hasil Simulasi */
+.hasil-box{margin-top:16px;padding:16px;background:linear-gradient(135deg,rgba(200,169,81,.08),rgba(200,169,81,.02));border:1.5px solid rgba(200,169,81,.25);border-radius:12px;display:none}
+.hasil-box.show{display:block;animation:slideUp .3s ease}
+.hasil-title{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--secondary);margin-bottom:12px;letter-spacing:.5px;text-transform:uppercase}
+.hasil-title i{font-size:12px}
+.hasil-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dashed rgba(200,169,81,.25)}
+.hasil-row:nth-last-child(2){border:none}
+.hasil-row.highlight{padding-top:10px;margin-top:4px;border-top:2px solid var(--secondary);border-bottom:none}
+.hasil-row .label{font-size:12px;color:#475569}
+.hasil-row .val{font-size:13px;font-weight:700;color:#1e293b}
+.hasil-row.highlight .label{color:var(--primary);font-weight:700;font-size:12.5px}
+.hasil-row.highlight .val{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:#2e7d32;line-height:1}
+.hasil-row.sub .val{color:#c62828;font-size:12px}
+.hasil-opsi{margin-top:12px;padding:10px 12px;background:rgba(2,59,150,.04);border-radius:8px;border-left:3px solid var(--primary)}
+.hasil-opsi-title{font-size:11px;font-weight:700;color:#023b96;margin-bottom:6px;letter-spacing:.3px;text-transform:uppercase}
+.hasil-opsi-list{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.hasil-opsi-item{padding:8px 10px;background:#fff;border-radius:6px;text-align:center;border:1px solid #eef2f7}
+.hasil-opsi-item .opsi-label{font-size:9px;color:#94a3b8;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:2px}
+.hasil-opsi-item .opsi-val{font-size:12px;color:#023b96;font-weight:700}
+.hasil-disclaimer{font-size:10px;color:#94a3b8;margin-top:10px;line-height:1.5;padding:8px 10px;background:rgba(255,152,0,.06);border-radius:6px;border-left:2px solid #ff9800}
+.hasil-disclaimer i{color:#ff9800;margin-right:4px}
+
+/* ===== FOOTER ===== */
+.footer{background:#011a3d;color:rgba(255,255,255,.8);padding:60px 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-col h4{color:#fff;font-size:16px;margin-bottom:20px;position:relative}
+.footer-col h4::after{content:'';position:absolute;bottom:-8px;left:0;width:30px;height:3px;background:var(--secondary);border-radius:2px}
+.footer-col p{font-size:14px;line-height:1.8;margin-bottom:15px}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;transition:var(--transition)}
+.footer-col ul li a:hover{color:var(--secondary);padding-left:5px}
+.footer-social{display:flex;gap:12px;margin-top:20px}
+.footer-social a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff;transition:var(--transition);text-decoration:none}
+.footer-social a:hover{background:var(--secondary);color:var(--primary);transform:translateY(-3px)}
+.footer-bottom{padding:25px 0;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.5)}
+.footer-bottom-links{display:flex;gap:20px}
+.footer-bottom-links a{color:rgba(255,255,255,.5);text-decoration:none;transition:var(--transition)}
+.footer-bottom-links a:hover{color:var(--secondary)}
+
+/* ===== WA FLOAT ===== */
+.wa-float{position:fixed;bottom:30px;left:30px;z-index:998;display:flex;align-items:center;gap:0}
+.wa-float-btn{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--wa),var(--wa-dark));display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,.4);transition:all .3s;position:relative;z-index:2}
+.wa-float-btn:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,.6)}
+.wa-float-label{background:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:600;color:var(--text-dark);box-shadow:var(--shadow);margin-left:-8px;padding-left:16px;white-space:nowrap;position:relative;z-index:1}
+.wa-float-label::before{content:'';position:absolute;left:-6px;top:50%;transform:translateY(-50%);border:6px solid transparent;border-right-color:#fff}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:992px){
+    .dep-tenor-grid{grid-template-columns:repeat(2,1fr)}
+    .dep-fitur-grid{grid-template-columns:repeat(2,1fr)}
+    .page-hero-visual{display:none}
+    .page-hero-text h1{font-size:32px}
+}
+@media(max-width:768px){
+    .nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:15px;box-shadow:var(--shadow);gap:2px;max-height:75vh;overflow-y:auto}
+    .nav-menu.active{display:flex}
+    .nav-menu>li{width:100%}
+    .nav-menu>li>a{display:flex;justify-content:space-between;width:100%;padding:10px 14px}
+    .nav-menu li .dropdown{position:static;box-shadow:none;border:none;padding:0 0 0 15px;display:none;opacity:1;transform:none;margin-top:2px}
+    .nav-menu li.dropdown-open .dropdown{display:block}
+    .hamburger{display:block}
+    .btn-whatsapp{margin-left:0;margin-top:8px;width:100%;justify-content:center;padding:11px!important}
+    .top-bar{display:none}
+    .page-hero{padding:35px 0 45px}
+    .page-hero-text h1{font-size:26px}
+    .page-hero-text p{font-size:13px}
+    .deposito-section{padding:35px 0 45px}
+    .dep-main-top{flex-direction:column;align-items:flex-start;gap:12px;padding:20px}
+    .dep-main-info h3{font-size:18px}
+    .dep-main-icon{width:52px;height:52px;min-width:52px}
+    .dep-main-icon i{font-size:22px}
+    .dep-main-badges{flex-wrap:wrap}
+    .dep-tenor-grid{grid-template-columns:1fr 1fr;gap:10px;padding:18px 20px}
+    .dep-fitur-section{padding:0 20px 22px}
+    .dep-fitur-grid{grid-template-columns:1fr;gap:8px}
+    .dep-req-section{padding:18px 20px}
+    .dep-req-grid{grid-template-columns:1fr;gap:14px}
+    .dep-lps-box{flex-direction:column;text-align:center;padding:16px}
+    .dep-cta-bottom{flex-direction:column;text-align:center;padding:22px 20px}
+    .dep-cta-bottom-actions{width:100%;flex-direction:column}
+    .dep-cta-btn{width:100%;justify-content:center}
+    .footer-grid{grid-template-columns:1fr}
+    .footer-bottom{flex-direction:column;gap:15px;text-align:center}
+    .wa-float-label{display:none}
+    .wa-float{left:20px;bottom:20px}
+    .wa-float-btn{width:50px;height:50px;font-size:22px}
+    .section-title h2{font-size:24px}
+    .form-row-inline{grid-template-columns:1fr}
+    .hasil-opsi-list{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+    .page-hero-text h1{font-size:22px}
+    .dep-tenor-grid{grid-template-columns:1fr}
+    .dep-main-badges{gap:6px}
+    .dep-main-badge{padding:5px 10px;font-size:10px}
+}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- ═══════ TOP BAR ═══════ -->
+<div class="top-bar">
+    <div class="container">
+        <div class="top-bar-left">
+            <span><i class="fas fa-phone"></i> 1500-888</span>
+            <span><i class="fas fa-envelope"></i> info@bankdamara.co.id</span>
+        </div>
+        <div class="top-bar-right">
+            <a href="index.html"><i class="fas fa-map-marker-alt"></i> Temukan Kantor Kami</a>
+            <a href="index.html#pelaporan"><i class="fas fa-headset"></i> Bantuan</a>
+            <a href="#"><i class="fas fa-globe"></i> EN | ID</a>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="header" id="mainHeader">
+    <div class="container">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">BN</div>
+            <div class="logo-text">
+                <h1>BANK NUSANTARA</h1>
+                <span>Trusted Since 1985</span>
+            </div>
+        </a>
+        <nav class="nav">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="index.html#tentang">Tentang Kami <i class="fas fa-chevron-down" style="font-size:9px"></i></a>
+                    <div class="dropdown">
+                        <a href="index.html#tentang"><i class="fas fa-building"></i> Profil</a>
+                        <a href="index.html#tentang"><i class="fas fa-bullseye"></i> Visi & Misi</a>
+                        <a href="index.html#tentang"><i class="fas fa-heart"></i> Budaya</a>
+                        <a href="index.html#tentang"><i class="fas fa-user-tie"></i> Manajemen</a>
+                        <a href="index.html#tentang"><i class="fas fa-briefcase"></i> Karir</a>
+                    </div>
+                </li>
+                <li><a href="#" class="active">Produk <i class="fas fa-chevron-down" style="font-size:9px"></i></a>
+                    <div class="dropdown">
+                        <a href="tabungan.html"><i class="fas fa-piggy-bank"></i> Tabungan</a>
+                        <a href="deposito.html"><i class="fas fa-chart-line"></i> Deposito</a>
+                        <a href="pinjaman.html"><i class="fas fa-hand-holding-usd"></i> Pinjaman</a>
+                        <a href="index.html#layanan"><i class="fas fa-concierge-bell"></i> Digital</a>
+                    </div>
+                </li>
+                <li><a href="index.html#lelang"><i class="fas fa-gavel"></i> Lelang</a></li>
+                <li><a href="pelaporan.html">Pelaporan <i class="fas fa-chevron-down" style="font-size:9px"></i></a>
+                    <div class="dropdown">
+                        <a href="pelaporan.html"><i class="fas fa-newspaper"></i> Publikasi</a>
+                        <a href="pelaporan.html"><i class="fas fa-book"></i> Tahunan</a>
+                        <a href="pelaporan.html"><i class="fas fa-comment-dots"></i> Pengaduan</a>
+                    </div>
+                </li>
+                <li><a href="https://wa.me/6281234567890" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Chat CS</a></li>
+            </ul>
+            <div class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('active')">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="page-hero">
+    <div class="container">
+        <div class="page-hero-inner">
+            <div class="page-hero-text">
+                <div class="breadcrumb">
+                    <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="index.html#produk">Produk</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span style="color:var(--secondary)">Deposito</span>
+                </div>
+                <h1>Produk <span class="gold">Deposito</span> Premium</h1>
+                <p>Investasi aman dengan bunga kompetitif, fleksibel, dan dijamin LPS hingga Rp 2 Miliar. Pilihan tenor beragam untuk mencapai tujuan finansial Anda.</p>
+            </div>
+            <div class="page-hero-visual">
+                <i class="fas fa-chart-line"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ SECTION DEPOSITO ═══════ -->
+<section class="deposito-section">
+    <div class="container">
+
+        <div class="section-title">
+            <div class="st-badge"><i class="fas fa-chart-line"></i> Deposito Berjangka</div>
+            <h2>Investasi Cerdas, Bunga Maksimal</h2>
+            <p>Pilih tenor yang sesuai dengan rencana finansial Anda — 1, 3, 6, atau 12 bulan dengan bunga bersaing</p>
+            <div class="underline"></div>
+        </div>
+
+        <!-- CARD UTAMA DEPOSITO -->
+        <div class="dep-main-card">
+
+            <!-- HEADER CARD -->
+            <div class="dep-main-top">
+                <div class="dep-main-info">
+                    <div class="dep-main-icon"><i class="fas fa-coins"></i></div>
+                    <div>
+                        <h3>Deposito Berjangka BANK NUSANTARA</h3>
+                        <p>Simpanan berjangka dengan suku bunga bersaing & beragam manfaat eksklusif</p>
+                    </div>
+                </div>
+                <div class="dep-main-badges">
+                    <div class="dep-main-badge"><i class="fas fa-shield-alt"></i> Dijamin LPS</div>
+                    <div class="dep-main-badge"><i class="fas fa-lock"></i> Aman & Terpercaya</div>
+                </div>
+            </div>
+
+            <!-- GRID 4 TENOR -->
+            <div class="dep-tenor-grid">
+
+                <!-- 1 BULAN -->
+                <div class="dep-tenor-card">
+                    <div class="dep-tenor-month">
+                        <div class="dep-tenor-month-icon"><i class="fas fa-clock"></i></div>
+                        <div class="dep-tenor-month-text">
+                            <div class="tenor-label">Jangka Waktu</div>
+                            <div class="tenor-val">1 Bulan</div>
+                        </div>
+                    </div>
+                    <div class="dep-tenor-bunga">
+                        <div class="bunga-label">Suku Bunga / Tahun</div>
+                        <div class="bunga-val">4,50<small>%</small></div>
+                        <div class="bunga-type">per tahun</div>
+                    </div>
+                    <button class="dep-tenor-cta" onclick="openSimulasiDepo(1,4.5)"><i class="fas fa-calculator"></i> Hitung Bunga</button>
+                </div>
+
+                <!-- 3 BULAN -->
+                <div class="dep-tenor-card">
+                    <div class="dep-tenor-month">
+                        <div class="dep-tenor-month-icon"><i class="fas fa-calendar-day"></i></div>
+                        <div class="dep-tenor-month-text">
+                            <div class="tenor-label">Jangka Waktu</div>
+                            <div class="tenor-val">3 Bulan</div>
+                        </div>
+                    </div>
+                    <div class="dep-tenor-bunga">
+                        <div class="bunga-label">Suku Bunga / Tahun</div>
+                        <div class="bunga-val">5,25<small>%</small></div>
+                        <div class="bunga-type">per tahun</div>
+                    </div>
+                    <button class="dep-tenor-cta" onclick="openSimulasiDepo(3,5.25)"><i class="fas fa-calculator"></i> Hitung Bunga</button>
+                </div>
+
+                <!-- 6 BULAN (POPULAR) -->
+                <div class="dep-tenor-card popular">
+                    <div class="dep-popular-tag">POPULAR</div>
+                    <div class="dep-tenor-month">
+                        <div class="dep-tenor-month-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="dep-tenor-month-text">
+                            <div class="tenor-label">Jangka Waktu</div>
+                            <div class="tenor-val">6 Bulan</div>
+                        </div>
+                    </div>
+                    <div class="dep-tenor-bunga">
+                        <div class="bunga-label">Suku Bunga / Tahun</div>
+                        <div class="bunga-val">6,00<small>%</small></div>
+                        <div class="bunga-type">per tahun</div>
+                    </div>
+                    <button class="dep-tenor-cta" onclick="openSimulasiDepo(6,6.0)"><i class="fas fa-calculator"></i> Hitung Bunga</button>
+                </div>
+
+                <!-- 12 BULAN -->
+                <div class="dep-tenor-card">
+                    <div class="dep-tenor-month">
+                        <div class="dep-tenor-month-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div class="dep-tenor-month-text">
+                            <div class="tenor-label">Jangka Waktu</div>
+                            <div class="tenor-val">12 Bulan</div>
+                        </div>
+                    </div>
+                    <div class="dep-tenor-bunga">
+                        <div class="bunga-label">Suku Bunga / Tahun</div>
+                        <div class="bunga-val">6,50<small>%</small></div>
+                        <div class="bunga-type">per tahun</div>
+                    </div>
+                    <button class="dep-tenor-cta" onclick="openSimulasiDepo(12,6.5)"><i class="fas fa-calculator"></i> Hitung Bunga</button>
+                </div>
+
+            </div>
+
+            <!-- FITUR UNGGULAN -->
+            <div class="dep-fitur-section">
+                <div class="dep-fitur-title"><i class="fas fa-star"></i> Fitur Unggulan Deposito</div>
+                <div class="dep-fitur-grid">
+                    <div class="dep-fitur-item">
+                        <div class="dep-fitur-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                        <div class="dep-fitur-text">
+                            <h5>Kredit ke Rekening</h5>
+                            <p>Bunga otomatis masuk ke rekening tabungan setiap bulan</p>
+                        </div>
+                    </div>
+                    <div class="dep-fitur-item">
+                        <div class="dep-fitur-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <div class="dep-fitur-text">
+                            <h5>Transfer Bunga</h5>
+                            <p>Transfer bunga ke rekening bank lain sesuai keinginan</p>
+                        </div>
+                    </div>
+                    <div class="dep-fitur-item">
+                        <div class="dep-fitur-icon"><i class="fas fa-sync-alt"></i></div>
+                        <div class="dep-fitur-text">
+                            <h5>ARO (Auto Roll Over)</h5>
+                            <p>Bunga otomatis ditambahkan ke pokok deposito</p>
+                        </div>
+                    </div>
+                    <div class="dep-fitur-item">
+                        <div class="dep-fitur-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="dep-fitur-text">
+                            <h5>Agunan Kredit</h5>
+                            <p>Dapat dijadikan jaminan untuk fasilitas kredit</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INFO LPS -->
+        <div class="dep-lps-box">
+            <div class="dep-lps-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="dep-lps-text">
+                <h5>Dijamin LPS <span>OFFICIAL</span></h5>
+                <p>Deposito BANK NUSANTARA <strong>dijamin oleh Lembaga Penjamin Simpanan (LPS)</strong> hingga <strong>Rp 2 Miliar</strong> per nasabah per bank, selama suku bunga tidak melebihi Tingkat Bunga Penjaminan LPS yang berlaku.</p>
+            </div>
+        </div>
+
+        <!-- PERSYARATAN -->
+        <div class="dep-req-section">
+            <div class="dep-req-header">
+                <div class="dep-req-header-icon"><i class="fas fa-clipboard-list"></i></div>
+                <div>
+                    <h4>Persyaratan Pembukaan Deposito</h4>
+                    <p>Syarat mudah dan cepat — proses kurang dari 15 menit</p>
+                </div>
+            </div>
+            <div class="dep-req-grid">
+                <div class="dep-req-block">
+                    <div class="dep-req-block-title"><i class="fas fa-user"></i> Perorangan</div>
+                    <ul class="dep-req-list">
+                        <li><i class="fas fa-check-circle"></i> Fotokopi KTP / SIM / Paspor yang masih berlaku</li>
+                        <li><i class="fas fa-check-circle"></i> NPWP pribadi (jika ada)</li>
+                        <li><i class="fas fa-check-circle"></i> Setoran awal minimal <strong>Rp 10.000.000</strong></li>
+                        <li><i class="fas fa-check-circle"></i> Mengisi formulir aplikasi pembukaan deposito</li>
+                        <li><i class="fas fa-check-circle"></i> Memiliki rekening tabungan di BANK NUSANTARA</li>
+                    </ul>
+                </div>
+                <div class="dep-req-block">
+                    <div class="dep-req-block-title"><i class="fas fa-building"></i> Perusahaan / Badan</div>
+                    <ul class="dep-req-list">
+                        <li><i class="fas fa-check-circle"></i> Akta pendirian & perubahan terakhir</li>
+                        <li><i class="fas fa-check-circle"></i> SK Kemenkumham & NIB perusahaan</li>
+                        <li><i class="fas fa-check-circle"></i> NPWP perusahaan & KTP pengurus</li>
+                        <li><i class="fas fa-check-circle"></i> Surat kuasa penempatan deposito</li>
+                        <li><i class="fas fa-check-circle"></i> Setoran awal minimal <strong>Rp 50.000.000</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA BOTTOM -->
+        <div class="dep-cta-bottom">
+            <div>
+                <h4>Siap Mulai Investasi Deposito?</h4>
+                <p>Buka rekening deposito sekarang dan nikmati bunga kompetitif dengan jaminan LPS.</p>
+            </div>
+            <div class="dep-cta-bottom-actions">
+                <button class="dep-cta-btn dep-cta-btn-white" onclick="openSimulasiDepo(6,6.0)"><i class="fas fa-calculator"></i> Simulasi Bunga</button>
+                <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20membuka%20rekening%20Deposito%20BANK%20DAMARA" target="_blank" class="dep-cta-btn dep-cta-btn-gold"><i class="fab fa-whatsapp"></i> Buka Rekening</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════ MODAL SIMULASI DEPOSITO ═══════ -->
+<div class="modal-overlay" id="simulasiDepoModal">
+    <div class="modal-box">
+        <div class="modal-header">
+            <div class="modal-header-title">
+                <div class="modal-header-icon"><i class="fas fa-calculator"></i></div>
+                <div>
+                    <h4>Simulasi Bunga Deposito</h4>
+                    <p>Hitung estimasi keuntungan investasi Anda</p>
+                </div>
+            </div>
+            <button class="modal-close" onclick="closeSimulasiDepo()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="form-row">
+                <label><i class="fas fa-money-bill-wave"></i> Jumlah Deposito (Rp)</label>
+                <input type="text" id="depoInputPlafon" class="form-input" placeholder="Contoh: 100.000.000" oninput="formatRupiahDepo(this)">
+                <div class="form-hint"><i class="fas fa-info-circle"></i> Minimal Rp 10.000.000 (perorangan) — Rp 50.000.000 (perusahaan)</div>
+            </div>
+            <div class="form-row-inline">
+                <div class="form-row" style="margin-bottom:0">
+                    <label><i class="fas fa-calendar-alt"></i> Jangka Waktu</label>
+                    <select id="depoInputTenor" class="form-input" onchange="updateBungaDepo()">
+                        <option value="1">1 Bulan (4,50%)</option>
+                        <option value="3">3 Bulan (5,25%)</option>
+                        <option value="6" selected>6 Bulan (6,00%)</option>
+                        <option value="12">12 Bulan (6,50%)</option>
+                    </select>
+                </div>
+                <div class="form-row" style="margin-bottom:0">
+                    <label><i class="fas fa-percent"></i> Suku Bunga / Tahun</label>
+                    <input type="text" id="depoInputBunga" class="form-input" value="6.00" readonly style="background:#f1f5f9;cursor:not-allowed">
+                </div>
+            </div>
+
+            <button class="simulasi-btn" onclick="hitungSimulasiDepo()"><i class="fas fa-calculator"></i> Hitung Keuntungan</button>
+
+            <div class="hasil-box" id="hasilBoxDepo">
+                <div class="hasil-title"><i class="fas fa-coins"></i> Hasil Simulasi Deposito</div>
+                <div class="hasil-row">
+                    <span class="label">Jumlah Deposito</span>
+                    <span class="val" id="depoHasilPlafon">-</span>
+                </div>
+                <div class="hasil-row">
+                    <span class="label">Jangka Waktu</span>
+                    <span class="val" id="depoHasilTenor">-</span>
+                </div>
+                <div class="hasil-row">
+                    <span class="label">Bunga Kotor</span>
+                    <span class="val" id="depoHasilBungaKotor">-</span>
+                </div>
+                <div class="hasil-row sub">
+                    <span class="label">Pajak Bunga (20%)</span>
+                    <span class="val" id="depoHasilPajak">-</span>
+                </div>
+                <div class="hasil-row">
+                    <span class="label">Bunga Bersih</span>
+                    <span class="val" id="depoHasilBungaBersih" style="color:#2e7d32">-</span>
+                </div>
+                <div class="hasil-row highlight">
+                    <span class="label">Total Diterima</span>
+                    <span class="val" id="depoHasilTotal">-</span>
+                </div>
+
+                <div class="hasil-opsi">
+                    <div class="hasil-opsi-title"><i class="fas fa-lightbulb" style="color:#c8a951"></i> Pilihan Penerimaan Bunga</div>
+                    <div class="hasil-opsi-list">
+                        <div class="hasil-opsi-item">
+                            <div class="opsi-label">Kredit ke Rek.</div>
+                            <div class="opsi-val" id="opsiKredit">-</div>
+                        </div>
+                        <div class="hasil-opsi-item">
+                            <div class="opsi-label">Transfer</div>
+                            <div class="opsi-val" id="opsiTransfer">-</div>
+                        </div>
+                        <div class="hasil-opsi-item">
+                            <div class="opsi-label">ARO ke Pokok</div>
+                            <div class="opsi-val" id="opsiARO">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hasil-disclaimer">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Disclaimer:</strong> Simulasi ini bersifat ilustrasi. Pajak bunga 20% berlaku untuk deposito di atas Rp 7.500.000 (sesuai PP No. 131/2000). Bunga aktual dapat berubah sesuai kebijakan BANK NUSANTARA.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Tentang BANK NUSANTARA</h4>
+                <p>Bank nasional terpercaya sejak 1985 dengan layanan perbankan terbaik dan keamanan tinggi.</p>
+                <p><i class="fas fa-map-marker-alt" style="color:var(--secondary)"></i> Jl. Jend. Sudirman Kav. 88, Jakarta Pusat 10220</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/bank_damara" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Produk</h4>
+                <ul>
+                    <li><a href="tabungan.html">Tabungan</a></li>
+                    <li><a href="deposito.html">Deposito</a></li>
+                    <li><a href="pinjaman.html">Pinjaman</a></li>
+                    <li><a href="index.html#layanan">Layanan Digital</a></li>
+                    <li><a href="index.html#lelang">Lelang Agunan</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Perusahaan</h4>
+                <ul>
+                    <li><a href="index.html#tentang">Profil</a></li>
+                    <li><a href="index.html#tentang">Visi & Misi</a></li>
+                    <li><a href="index.html#tentang">Manajemen</a></li>
+                    <li><a href="index.html#tentang">Karir</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Pelaporan</h4>
+                <ul>
+                    <li><a href="pelaporan.html">Publikasi</a></li>
+                    <li><a href="pelaporan.html">Laporan Tahunan</a></li>
+                    <li><a href="pelaporan.html">Pengaduan</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="https://wa.me/6281234567890" target="_blank">Hubungi Kami</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 BANK NUSANTARA. Seluruh hak cipta dilindungi. Terdaftar dan diawasi OJK.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Kebijakan Privasi</a>
+                <a href="#">Syarat & Ketentuan</a>
+                <a href="#">Keamanan</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ═══════ WA FLOAT ═══════ -->
+<div class="wa-float">
+    <a href="https://wa.me/6281234567890" target="_blank" class="wa-float-btn"><i class="fab fa-whatsapp"></i></a>
+    <div class="wa-float-label">Butuh bantuan? Chat kami!</div>
+</div>
+
+<!-- ═══════ SCRIPT ═══════ -->
+<script>
+// Header scroll
+window.addEventListener('scroll',function(){
+    document.getElementById('mainHeader').classList.toggle('scrolled',window.scrollY>50);
+});
+
+// Mobile dropdown
+document.querySelectorAll('.nav-menu > li > a').forEach(function(l){
+    l.addEventListener('click',function(e){
+        if(window.innerWidth<=768 && this.nextElementSibling && this.nextElementSibling.classList.contains('dropdown')){
+            e.preventDefault();
+            this.parentElement.classList.toggle('dropdown-open');
+        }
+    });
+});
+
+// ===== DEPOSITO SIMULASI LOGIC =====
+var bungaMap={'1':4.5,'3':5.25,'6':6.0,'12':6.5};
+
+function formatRupiahDepo(input){
+    var v=input.value.replace(/[^\d]/g,'');
+    if(v===''){input.value='';return}
+    input.value=Number(v).toLocaleString('id-ID');
+}
+
+function parseRupiahDepo(str){
+    if(!str) return 0;
+    return parseInt(str.replace(/[^\d]/g,''));
+}
+
+function formatToRupiahDepo(num){
+    return 'Rp '+Number(num).toLocaleString('id-ID',{maximumFractionDigits:0});
+}
+
+function updateBungaDepo(){
+    var tenor=document.getElementById('depoInputTenor').value;
+    document.getElementById('depoInputBunga').value=bungaMap[tenor].toFixed(2);
+}
+
+function openSimulasiDepo(tenor,bunga){
+    document.getElementById('depoInputTenor').value=tenor;
+    document.getElementById('depoInputBunga').value=bunga.toFixed(2);
+    document.getElementById('depoInputPlafon').value='';
+    document.getElementById('hasilBoxDepo').classList.remove('show');
+    document.getElementById('simulasiDepoModal').classList.add('show');
+    document.body.style.overflow='hidden';
+}
+
+function closeSimulasiDepo(){
+    document.getElementById('simulasiDepoModal').classList.remove('show');
+    document.body.style.overflow='';
+}
+
+// Close modal on overlay click
+document.getElementById('simulasiDepoModal').addEventListener('click',function(e){
+    if(e.target===this) closeSimulasiDepo();
+});
+
+function hitungSimulasiDepo(){
+    var plafon=parseRupiahDepo(document.getElementById('depoInputPlafon').value);
+    var tenor=parseInt(document.getElementById('depoInputTenor').value);
+    var bungaTahunan=parseFloat(document.getElementById('depoInputBunga').value);
+
+    if(plafon<10000000){
+        alert('Minimal deposito Rp 10.000.000 untuk perorangan');
+        return;
+    }
+
+    // Rumus bunga deposito: Pokok x Bunga% x (tenor/12)
+    var bungaKotor=plafon * (bungaTahunan/100) * (tenor/12);
+
+    // Pajak 20% untuk deposito di atas 7,5 juta
+    var pajak=plafon>7500000 ? bungaKotor*0.20 : 0;
+    var bungaBersih=bungaKotor-pajak;
+    var totalDiterima=plafon+bungaBersih;
+
+    // Per bulan
+    var bungaPerBulan=bungaBersih/tenor;
+
+    // ARO ke pokok (bunga bersih ditambahkan ke pokok)
+    var pokokARO=plafon+bungaBersih;
+
+    document.getElementById('depoHasilPlafon').textContent=formatToRupiahDepo(plafon);
+    document.getElementById('depoHasilTenor').textContent=tenor+' Bulan ('+bungaTahunan+'% p.a.)';
+    document.getElementById('depoHasilBungaKotor').textContent=formatToRupiahDepo(bungaKotor);
+    document.getElementById('depoHasilPajak').textContent='-'+formatToRupiahDepo(pajak);
+    document.getElementById('depoHasilBungaBersih').textContent=formatToRupiahDepo(bungaBersih);
+    document.getElementById('depoHasilTotal').textContent=formatToRupiahDepo(totalDiterima);
+
+    // Opsi penerimaan
+    document.getElementById('opsiKredit').textContent=formatToRupiahDepo(bungaPerBulan)+'/bln';
+    document.getElementById('opsiTransfer').textContent=formatToRupiahDepo(bungaPerBulan)+'/bln';
+    document.getElementById('opsiARO').textContent=formatToRupiahDepo(pokokARO);
+
+    var hasilBox=document.getElementById('hasilBoxDepo');
+    hasilBox.classList.remove('show');
+    setTimeout(function(){hasilBox.classList.add('show')},50);
+}
+</script>
+
+</body>
+</html>

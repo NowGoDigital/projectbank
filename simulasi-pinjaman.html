@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulasi Pinjaman - BANK NUSANTARA</title>
+<meta name="description" content="Simulasi pinjaman BANK NUSANTARA dengan perhitungan bunga Flat, Efektif, dan Anuitas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   ROOT VARIABLES — INDEX.HTML STYLE
+   ═══════════════════════════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%;overflow-x:hidden}
+:root{
+  --primary:#023b96;
+  --primary-light:#1a5bc7;
+  --primary-dark:#0a1628;
+  --primary-mid:#1e3a6e;
+  --secondary:#c8a951;
+  --secondary-light:#e0c76a;
+  --accent:#2970d4;
+  --text-dark:#2c3e50;
+  --text-light:#6c757d;
+  --text:#1a1a2e;
+  --bg-light:#f8f9fa;
+  --white:#ffffff;
+  --shadow:0 4px 20px rgba(0,0,0,0.1);
+  --shadow-hover:0 8px 30px rgba(0,0,0,0.15);
+  --shadow-sim:0 10px 40px rgba(10,22,40,.1);
+  --shadow-sim-hover:0 20px 60px rgba(10,22,40,.18);
+  --transition:all 0.3s ease;
+  --wa:#25D366;
+  --wa-dark:#128C7E;
+  --accent-deep:#a07c1c;
+  --gold-gradient:linear-gradient(135deg,#c9a227 0%,#e6b830 50%,#d4a853 100%);
+  --navy-gradient:linear-gradient(135deg,#0a1628 0%,#142952 50%,#1e3a6e 100%);
+  --bg-gradient:linear-gradient(135deg,#f5f0e8 0%,#ece4d4 30%,#e8e0d0 60%,#f0ebe3 100%);
+  --border:rgba(20,41,82,.1);
+  --success:#10b981;
+  --font-mono:'JetBrains Mono','Roboto Mono','Menlo',monospace;
+}
+body{font-family:'Inter','Plus Jakarta Sans','Segoe UI',Tahoma,sans-serif;color:var(--text-dark);line-height:1.6;overflow-x:hidden;font-size:15px;max-width:100vw;background:var(--bg-gradient)}
+
+/* ═══════════════════════════════════════════════════════════
+   TOP BAR — EXACT COPY FROM INDEX.HTML
+   ═══════════════════════════════════════════════════════════ */
+.top-bar{background:var(--primary);color:#fff;padding:6px 0;font-size:12px}
+.top-bar .container{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 20px}
+.top-bar a{color:#fff;text-decoration:none;margin-left:18px;transition:var(--transition)}
+.top-bar a:hover{color:var(--secondary)}
+.top-bar-left{display:flex;align-items:center;gap:18px}
+.top-bar-left i{margin-right:4px;color:var(--secondary);font-size:11px}
+
+/* ═══════════════════════════════════════════════════════════
+   HEADER / NAVBAR — EXACT COPY FROM INDEX.HTML
+   ═══════════════════════════════════════════════════════════ */
+.header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08);position:sticky;top:0;z-index:1000;transition:var(--transition)}
+.header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.12)}
+.header .container{display:flex;justify-content:space-between;align-items:center;padding:8px 20px;max-width:1200px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--primary),var(--primary-light));border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--secondary);font-size:18px;font-weight:bold;box-shadow:0 4px 12px rgba(2,59,150,.3);flex-shrink:0}
+.logo-text h1{font-size:17px;color:var(--primary);font-weight:700;letter-spacing:-.5px;line-height:1.1}
+.logo-text span{font-size:10px;color:var(--text-light);text-transform:uppercase;letter-spacing:1px}
+.nav{display:flex;align-items:center}
+.nav-menu{display:flex;list-style:none;gap:2px;align-items:center}
+.nav-menu>li>a{text-decoration:none;color:var(--text-dark);font-weight:500;padding:8px 13px;border-radius:7px;transition:var(--transition);font-size:13px;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.nav-menu>li>a:hover,.nav-menu>li>a.active{background:var(--primary);color:#fff}
+.nav-menu li{position:relative}
+.nav-menu li .dropdown{position:absolute;top:calc(100% + 6px);left:0;background:#fff;min-width:220px;box-shadow:var(--shadow-hover);border-radius:10px;padding:6px;display:none;z-index:100;opacity:0;transform:translateY(-8px);transition:all .25s ease;border:1px solid #f0f0f0}
+.nav-menu li:hover .dropdown{display:block;opacity:1;transform:translateY(0)}
+.nav-menu li .dropdown a{display:flex;align-items:center;gap:10px;padding:9px 13px;border-radius:6px;font-size:13px;color:var(--text-dark);text-decoration:none;transition:var(--transition);font-weight:500}
+.nav-menu li .dropdown a i{color:var(--secondary);font-size:11px;width:14px;text-align:center}
+.nav-menu li .dropdown a:hover{background:var(--bg-light);color:var(--primary);padding-left:16px}
+.btn-whatsapp{background:linear-gradient(135deg,var(--wa),var(--wa-dark))!important;color:#fff!important;font-weight:600!important;padding:8px 16px!important;border-radius:25px!important;margin-left:10px;box-shadow:0 4px 12px rgba(37,211,102,.3);position:relative;overflow:hidden}
+.btn-whatsapp::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:rgba(255,255,255,.2);border-radius:50%;transform:translate(-50%,-50%);transition:all .5s}
+.btn-whatsapp:hover::before{width:200px;height:200px}
+.btn-whatsapp:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(37,211,102,.5);color:#fff!important}
+.btn-whatsapp .wa-pulse{width:8px;height:8px;background:#fff;border-radius:50%;position:relative;animation:waPulse 1.8s ease-in-out infinite}
+@keyframes waPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}50%{box-shadow:0 0 0 6px rgba(255,255,255,0)}}
+.hamburger{display:none;font-size:22px;cursor:pointer;color:var(--primary);padding:6px 10px;border-radius:6px;transition:var(--transition)}
+.hamburger:hover{background:var(--bg-light)}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO SECTION (SIMULASI)
+   ═══════════════════════════════════════════════════════════ */
+.hero-sim{padding:2.5rem 2rem 1.5rem;text-align:center;position:relative}
+.breadcrumb{display:flex;justify-content:center;gap:.5rem;font-size:.85rem;color:var(--text-light);margin-bottom:.75rem;flex-wrap:wrap}
+.breadcrumb a{color:var(--primary);text-decoration:none;font-weight:600}
+.breadcrumb a:hover{color:var(--secondary)}
+.hero-sim h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4.5vw,3rem);font-weight:700;color:var(--primary);margin-bottom:.5rem;line-height:1.2}
+.hero-sim h1 span{background:linear-gradient(135deg,#c8a951 0%,#e0c76a 35%,#f5e08a 55%,#c8a951 80%,#b8943e 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:goldShimmer 4s linear infinite}
+@keyframes goldShimmer{to{background-position:200% center}}
+.hero-tagline{max-width:520px;margin:1rem auto 0;position:relative;padding:1rem 2rem}
+.hero-tagline::before,.hero-tagline::after{content:'';display:block;width:80px;height:2px;background:linear-gradient(135deg,var(--secondary),var(--secondary-light));margin:0 auto;border-radius:2px}
+.hero-tagline::before{margin-bottom:.85rem}
+.hero-tagline::after{margin-top:.85rem}
+.hero-tagline p{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;font-style:italic;color:var(--primary);line-height:1.6;letter-spacing:.02em}
+.hero-tagline p strong{color:var(--accent-deep);font-weight:700;font-style:normal;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-tagline .tagline-icon{display:inline-flex;align-items:center;gap:.5rem;justify-content:center;margin-bottom:.35rem}
+.hero-tagline .tagline-icon i{color:var(--secondary);font-size:.65rem}
+
+/* ═══════════════════════════════════════════════════════════
+   SIMULATION LAYOUT (UNCHANGED CORE)
+   ═══════════════════════════════════════════════════════════ */
+.container-sim{max-width:1200px;margin:0 auto;padding:0 20px 3rem}
+.sim-layout{display:grid;grid-template-columns:0.85fr 1.55fr;gap:1.5rem;align-items:start}
+.glass{background:rgba(255,255,255,.9);backdrop-filter:blur(20px);border:1px solid rgba(201,162,39,.15);border-radius:20px;box-shadow:var(--shadow-sim);padding:1.25rem;transition:all .3s;overflow:hidden;max-width:100%}
+.glass:hover{box-shadow:var(--shadow-sim-hover);border-color:rgba(201,162,39,.25)}
+.section-head{display:flex;align-items:center;gap:.65rem;margin-bottom:.85rem;padding-bottom:.65rem;border-bottom:1px solid var(--border)}
+.section-head-icon{width:36px;height:36px;background:var(--navy-gradient);border-radius:10px;display:grid;place-items:center;color:var(--secondary);font-size:.9rem;box-shadow:0 4px 12px rgba(10,22,40,.25);flex-shrink:0;border:1px solid rgba(201,162,39,.2)}
+.section-head h2{font-family:'Poppins',sans-serif;font-size:1.05rem;color:var(--primary-dark);font-weight:700}
+.section-head p{font-size:.75rem;color:var(--text-light);margin-top:1px}
+.form-group{margin-bottom:1rem}
+.form-label{display:block;margin-bottom:.4rem;font-weight:600;font-size:.82rem;color:var(--primary-dark)}
+.form-label i{color:var(--secondary);margin-right:.3rem}
+.form-hint{font-size:.7rem;color:var(--text-light);margin-top:.3rem;display:block}
+.input-wrap{position:relative;display:flex;align-items:center}
+.input-wrap .prefix,.input-wrap .suffix{position:absolute;color:var(--text-light);font-weight:600;font-size:.9rem;pointer-events:none;display:flex;align-items:center;gap:.3rem;z-index:2}
+.input-wrap .prefix{left:.85rem}
+.input-wrap .suffix{right:.85rem}
+.input-wrap i.field-icon{color:var(--secondary);font-size:.95rem}
+.input-wrap input[type="text"],.input-wrap input[type="number"],.input-wrap select{width:100%;padding:.75rem 1rem .75rem 4.2rem;border:2px solid var(--border);border-radius:11px;font-size:.92rem;font-family:var(--font-mono);font-weight:500;background:#fff;transition:all .3s;color:var(--text);letter-spacing:.02em;max-width:100%}
+.input-wrap input.with-suffix{padding-right:2.75rem}
+.input-wrap select{padding-left:3rem;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c9a227'><path d='M7 10l5 5 5-5z'/></svg>");background-repeat:no-repeat;background-position:right .85rem center;background-size:18px;font-family:'Inter','Plus Jakarta Sans',sans-serif}
+.input-wrap input:focus,.input-wrap select:focus{outline:none;border-color:var(--secondary);box-shadow:0 0 0 3px rgba(201,162,39,.15)}
+.input-wrap input::placeholder{color:#94a3b8;font-weight:400}
+.tenor-info{display:inline-flex;align-items:center;gap:.35rem;margin-top:.35rem;padding:.25rem .6rem;background:linear-gradient(135deg,#f5f0e8,#ece4d4);border-radius:50px;font-size:.72rem;font-weight:600;color:var(--primary);border:1px solid rgba(201,162,39,.15)}
+.tenor-info i{color:var(--secondary);font-size:.7rem}
+.method-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:1rem}
+.method-tab{padding:.7rem .3rem;background:#fff;border:2px solid var(--border);border-radius:10px;cursor:pointer;text-align:center;transition:all .3s;font-family:inherit;min-width:0}
+.method-tab:hover{border-color:var(--secondary);transform:translateY(-2px)}
+.method-tab.active{background:var(--navy-gradient);color:#fff;border-color:var(--primary);box-shadow:0 6px 20px rgba(10,22,40,.3)}
+.method-tab i{font-size:1rem;margin-bottom:.15rem;display:block}
+.method-tab.active i{color:var(--secondary)}
+.method-tab .m-name{font-weight:700;font-size:.75rem;display:block}
+.method-tab .m-desc{font-size:.62rem;opacity:.75;margin-top:1px;display:block}
+.method-tab[data-method="compare"].active{background:linear-gradient(135deg,#1a1a2e,#142952);border-color:var(--secondary)}
+.btn-calc{width:100%;padding:.85rem;background:var(--gold-gradient);color:var(--primary-dark);border:none;border-radius:11px;font-size:.9rem;font-weight:800;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:.5rem;font-family:inherit;box-shadow:0 6px 20px rgba(201,162,39,.35)}
+.btn-calc:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,162,39,.5)}
+.result-panel{position:sticky;top:90px}
+.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:1rem}
+.summary-card{padding:.75rem .85rem;background:linear-gradient(135deg,#fff,#faf7f2);border:1px solid var(--border);border-radius:12px;position:relative;overflow:hidden;transition:all .3s;min-width:0}
+.summary-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.summary-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold-gradient)}
+.summary-card.highlight{grid-column:span 3;background:var(--navy-gradient);color:#fff;border:none;padding:1rem 1.25rem;border:1px solid rgba(201,162,39,.25)}
+.summary-card.highlight::before{display:none}
+.summary-card.highlight .sc-label{color:rgba(255,255,255,.85)}
+.summary-card.highlight .sc-value{color:var(--secondary);font-size:1.5rem}
+.sc-label{font-size:.7rem;color:var(--text-light);margin-bottom:.15rem;display:flex;align-items:center;gap:.3rem;font-weight:500;white-space:nowrap}
+.sc-label i{color:var(--secondary);font-size:.75rem}
+.sc-value{font-family:var(--font-mono);font-size:1rem;font-weight:600;color:var(--primary-dark);margin-top:.2rem;letter-spacing:.02em;white-space:nowrap;font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis}
+.table-wrap{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1rem;max-width:100%}
+.table-head{padding:.75rem 1rem;background:var(--navy-gradient);color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;border-bottom:2px solid rgba(201,162,39,.3)}
+.table-head h4{font-size:.9rem;display:flex;align-items:center;gap:.4rem;font-family:'Poppins',sans-serif;font-weight:600;min-width:0}
+.table-head h4 i{color:var(--secondary);flex-shrink:0}
+.table-actions{display:flex;gap:.4rem;flex-shrink:0}
+.btn-sm{padding:.3rem .7rem;font-size:.72rem;border-radius:50px;background:rgba(201,162,39,.2);color:var(--secondary);border:1px solid rgba(201,162,39,.3);cursor:pointer;transition:all .3s;font-family:inherit;display:inline-flex;align-items:center;gap:.3rem;font-weight:600;white-space:nowrap}
+.btn-sm:hover{background:rgba(201,162,39,.35)}
+.table-scroll{max-height:450px;overflow-y:auto;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%}
+.table-scroll::-webkit-scrollbar{width:6px;height:6px}
+.table-scroll::-webkit-scrollbar-thumb{background:var(--secondary);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:.83rem;font-variant-numeric:tabular-nums;min-width:520px}
+thead{background:#faf7f2;position:sticky;top:0;z-index:2}
+th{padding:.7rem .9rem;text-align:left;font-weight:700;color:var(--primary-dark);font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--border);font-family:'Poppins',sans-serif;white-space:nowrap}
+th.num{text-align:right;font-family:var(--font-mono);letter-spacing:.03em;padding-right:1rem}
+td{padding:.6rem .9rem;border-bottom:1px solid var(--border);color:var(--text);vertical-align:middle}
+tbody tr{transition:background .2s}
+tbody tr:nth-child(even){background:#faf7f2}
+tbody tr:hover{background:rgba(201,162,39,.08)}
+td.bln{text-align:center;font-weight:700;color:var(--primary-dark);font-family:var(--font-mono);width:50px}
+td.bln .bln-badge{display:inline-block;min-width:30px;padding:3px 8px;background:linear-gradient(135deg,#f5f0e8,#ece4d4);color:var(--primary);border-radius:6px;font-size:.78rem;font-weight:600;border:1px solid rgba(201,162,39,.15)}
+td.num{font-family:var(--font-mono);font-size:.82rem;font-weight:500;text-align:right;letter-spacing:.03em;white-space:nowrap;font-variant-numeric:tabular-nums;padding-right:1rem}
+td.pokok{color:var(--primary)}
+td.bunga{color:var(--accent-deep);font-weight:600}
+td.saldo{color:var(--text-light);font-weight:500}
+tr.row-total{background:var(--navy-gradient)!important;color:#fff;font-weight:700}
+tr.row-total td{color:#fff;border-top:2px solid var(--secondary);padding-top:.8rem;padding-bottom:.8rem}
+tr.row-total td.num{color:var(--secondary);font-weight:700}
+tr.row-total td.bln .bln-badge{background:rgba(201,162,39,.25);color:var(--secondary);border-color:rgba(201,162,39,.3)}
+.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1rem}
+.compare-card{padding:1.15rem;border-radius:18px;color:#fff;position:relative;overflow:hidden;transition:all .3s;min-width:0}
+.compare-card:hover{transform:translateY(-4px)}
+.compare-card.flat{background:var(--navy-gradient)}
+.compare-card.efektif{background:linear-gradient(135deg,#142952,#1e3a6e)}
+.compare-card.anuitas{background:linear-gradient(135deg,#0a1628,#142952)}
+.cc-icon{width:40px;height:40px;background:rgba(201,162,39,.2);border-radius:11px;display:grid;place-items:center;font-size:1.05rem;margin-bottom:.75rem;position:relative;z-index:1;color:var(--secondary);border:1px solid rgba(201,162,39,.2)}
+.cc-name{font-size:.95rem;font-weight:700;margin-bottom:.2rem;position:relative;z-index:1;font-family:'Poppins',sans-serif}
+.cc-desc{font-size:.7rem;opacity:.8;margin-bottom:.7rem;position:relative;z-index:1}
+.cc-row{display:flex;justify-content:space-between;padding:.35rem 0;border-top:1px solid rgba(255,255,255,.12);font-size:.78rem;position:relative;z-index:1;gap:.5rem}
+.cc-row:last-child{border-top:2px solid rgba(201,162,39,.4);margin-top:.35rem;padding-top:.6rem}
+.cc-row .val{font-family:var(--font-mono);font-weight:600;font-size:.82rem;letter-spacing:.03em;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--secondary)}
+.cc-badge{position:absolute;top:.75rem;right:.75rem;background:var(--gold-gradient);color:var(--primary-dark);padding:.2rem .5rem;border-radius:50px;font-size:.6rem;font-weight:800;letter-spacing:.5px;z-index:1}
+.info-section{margin-top:2.5rem}
+.info-section .info-title{text-align:center;margin-bottom:1rem}
+.info-section .info-title h2{font-family:'Poppins',sans-serif;font-size:1.5rem;color:var(--primary-dark);font-weight:700;margin-bottom:.3rem}
+.info-section .info-title p{color:var(--text-light);font-size:.82rem;max-width:600px;margin:0 auto;line-height:1.5}
+.info-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;align-items:stretch}
+.info-card{background:rgba(255,255,255,.9);border:1px solid rgba(201,162,39,.12);border-radius:14px;padding:1rem;transition:all .3s;position:relative;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.info-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-sim-hover);border-color:rgba(201,162,39,.25)}
+.info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.info-card.flat::before{background:var(--navy-gradient)}
+.info-card.efektif::before{background:var(--gold-gradient)}
+.info-card.anuitas::before{background:linear-gradient(90deg,#142952,#c9a227)}
+.ic-icon{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-size:1rem;margin-bottom:.7rem;flex-shrink:0}
+.info-card.flat .ic-icon{background:var(--navy-gradient);color:var(--secondary);border:1px solid rgba(201,162,39,.2)}
+.info-card.efektif .ic-icon{background:var(--gold-gradient);color:var(--primary-dark)}
+.info-card.anuitas .ic-icon{background:linear-gradient(135deg,#142952,#c9a227);color:#fff}
+.info-card h3{font-family:'Poppins',sans-serif;font-size:.95rem;color:var(--primary-dark);margin-bottom:.3rem;font-weight:700}
+.info-card>p{color:var(--text-light);font-size:.75rem;margin-bottom:.55rem;line-height:1.45}
+.info-card ul{list-style:none;font-size:.72rem;color:var(--text);margin-bottom:.55rem}
+.info-card ul li{padding:.15rem 0 .15rem 1.15rem;position:relative;line-height:1.4}
+.info-card ul li::before{content:'✓';position:absolute;left:0;color:var(--secondary);font-weight:700;font-size:.7rem}
+.formula{background:linear-gradient(135deg,#faf7f2,#f5f0e8);border-left:3px solid var(--secondary);padding:.4rem .6rem;border-radius:6px;font-family:var(--font-mono);font-size:.68rem;font-weight:600;color:var(--primary-dark);margin-top:auto;word-break:break-word;line-height:1.4;letter-spacing:.02em}
+.cta-section{margin-top:2.5rem;background:var(--navy-gradient);border-radius:22px;padding:2rem 1.75rem;text-align:center;color:#fff;position:relative;overflow:hidden;border:1px solid rgba(201,162,39,.2)}
+.cta-section h2{font-family:'Poppins',sans-serif;font-size:1.6rem;margin-bottom:.5rem;position:relative;font-weight:700}
+.cta-section h2 span{color:var(--secondary)}
+.cta-section p{opacity:.9;margin-bottom:1.5rem;max-width:600px;margin-left:auto;margin-right:auto;position:relative;line-height:1.6;font-size:.9rem}
+.cta-buttons{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;position:relative}
+.cta-buttons .btn-sim-primary{background:var(--gold-gradient);color:var(--primary-dark);box-shadow:0 8px 25px rgba(201,162,39,.4);font-weight:700;padding:.75rem 1.5rem;border-radius:50px;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .3s;border:none;cursor:pointer;font-family:inherit;font-size:.9rem}
+.cta-buttons .btn-sim-primary:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(201,162,39,.55)}
+.cta-buttons .btn-sim-outline{background:transparent;color:var(--secondary);border:2px solid var(--secondary);padding:.75rem 1.5rem;border-radius:50px;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .3s;font-family:inherit;font-size:.9rem;font-weight:600}
+.cta-buttons .btn-sim-outline:hover{background:var(--secondary);color:var(--primary-dark);transform:translateY(-2px)}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER — EXACT COPY FROM INDEX.HTML
+   ═══════════════════════════════════════════════════════════ */
+.footer{background:#011a3d;color:rgba(255,255,255,.8);padding:60px 0 0;margin-top:2.5rem}
+.footer .container{max-width:1200px;margin:0 auto;padding:0 20px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-col h4{color:#fff;font-size:16px;margin-bottom:20px;position:relative}
+.footer-col h4::after{content:'';position:absolute;bottom:-8px;left:0;width:30px;height:3px;background:var(--secondary);border-radius:2px}
+.footer-col p{font-size:14px;line-height:1.8;margin-bottom:15px}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;transition:var(--transition)}
+.footer-col ul li a:hover{color:var(--secondary);padding-left:5px}
+.footer-social{display:flex;gap:12px;margin-top:20px}
+.footer-social a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff;transition:var(--transition)}
+.footer-social a:hover{background:var(--secondary);color:var(--primary);transform:translateY(-3px)}
+.footer-bottom{padding:25px 0;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.5)}
+.footer-bottom-links{display:flex;gap:20px}
+.footer-bottom-links a{color:rgba(255,255,255,.5);text-decoration:none;transition:var(--transition)}
+.footer-bottom-links a:hover{color:var(--secondary)}
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLL TOP & WA FLOAT — EXACT COPY FROM INDEX.HTML
+   ═══════════════════════════════════════════════════════════ */
+.scroll-top{position:fixed;bottom:30px;right:30px;width:50px;height:50px;background:var(--primary);color:#fff;border:none;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:var(--shadow-hover);transition:var(--transition);z-index:999}
+.scroll-top:hover{background:var(--secondary);color:var(--primary);transform:translateY(-5px)}
+.scroll-top.show{display:flex}
+.wa-float{position:fixed;bottom:30px;left:30px;z-index:998;display:flex;align-items:center;gap:0;opacity:0;transform:translateY(20px);transition:all .4s;pointer-events:none}
+.wa-float.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.wa-float-btn{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--wa),var(--wa-dark));display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,.4);transition:all .3s;position:relative;z-index:2}
+.wa-float-btn:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,.6)}
+.wa-float-btn::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--wa);opacity:0;animation:waFloatPulse 2s ease-in-out infinite}
+@keyframes waFloatPulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.4);opacity:0}}
+.wa-float-label{background:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:600;color:var(--text-dark);box-shadow:var(--shadow);margin-left:-8px;padding-left:16px;white-space:nowrap;position:relative;z-index:1}
+.wa-float-label::before{content:'';position:absolute;left:-6px;top:50%;transform:translateY(-50%);border:6px solid transparent;border-right-color:#fff}
+
+/* ═══════════════════════════════════════════════════════════
+   PRINT STYLES
+   ═══════════════════════════════════════════════════════════ */
+.print-header{display:none}
+.print-params{display:none}
+.print-footer-note{display:none}
+@page{size:A4 portrait;margin:8mm 6mm}
+@media print{
+  html,body{background:#fff!important;color:#1a1a2e!important;font-size:11px!important;line-height:1.35!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;overflow:visible!important;max-width:none!important}
+  .top-bar,.header,.scroll-top,.wa-float,.btn-calc,.cta-section,.footer,.method-tabs,.form-group,.breadcrumb,.hero-tagline,.table-actions,.info-section,.hero-sim,.nav-menu,.hamburger,#compareView{display:none!important}
+  .container-sim{max-width:100%!important;margin:0!important;padding:0!important;overflow:visible!important}
+  .sim-layout{display:block!important}
+  .result-panel{position:static!important;background:#fff!important;border:none!important;border-radius:0!important;box-shadow:none!important;padding:0!important;margin:0!important;backdrop-filter:none!important;overflow:visible!important}
+  .glass{overflow:visible!important}
+  .print-header{display:block!important;padding-bottom:6px!important;margin-bottom:6px!important;border-bottom:2px solid #c9a227!important}
+  .print-header-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+  .print-brand{display:flex;align-items:center;gap:8px}
+  .print-brand-logo{width:36px;height:36px;background:linear-gradient(135deg,#0a1628,#1e3a6e);border-radius:8px;display:grid;place-items:center;color:#e6b830;font-family:'Poppins',sans-serif;font-weight:800;font-size:13px;border:1px solid rgba(201,162,39,.3)}
+  .print-brand-name{font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;color:#0a1628;letter-spacing:.5px}
+  .print-brand-tag{display:block;font-size:8px;color:#c9a227;letter-spacing:2px;font-weight:600;text-transform:uppercase;margin-top:-2px}
+  .print-date{text-align:right;font-family:'JetBrains Mono',monospace;font-size:9px;color:#4a4a5e;line-height:1.4}
+  .print-date strong{display:block;color:#0a1628;font-size:10px;font-weight:600}
+  .print-title{text-align:center;margin-top:4px}
+  .print-title h1{font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;color:#0a1628;margin:0;letter-spacing:.5px}
+  .print-title .print-method{font-size:10px;color:#c9a227;font-weight:600;margin-top:2px;text-transform:uppercase;letter-spacing:1px}
+  .print-params{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:4px!important;margin-bottom:6px!important;padding:6px!important;background:#f5f0e8!important;border:1px solid #d4a853!important;border-radius:4px!important;page-break-inside:avoid}
+  .print-param-item{background:#fff!important;padding:6px 10px!important;border-radius:3px!important;border-left:3px solid #c9a227!important}
+  .print-param-label{display:block;font-size:8px;color:#4a4a5e;font-weight:600;text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px}
+  .print-param-value{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#0a1628;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+  .print-param-sub{display:block;font-size:8px;color:#a07c1c;margin-top:1px;font-weight:600}
+  .section-head{display:none!important}
+  .summary-grid{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:4px!important;margin-bottom:6px!important;page-break-inside:avoid}
+  .summary-card{padding:5px 8px!important;background:#fff!important;border:1px solid #d4a853!important;border-radius:4px!important;box-shadow:none!important;min-width:0!important;overflow:visible!important}
+  .summary-card::before{display:none!important}
+  .summary-card.highlight{grid-column:span 3!important;background:#0a1628!important;color:#fff!important;border:1px solid #c9a227!important;padding:8px 12px!important}
+  .summary-card.highlight .sc-label{color:#fff!important;font-size:9px!important}
+  .summary-card.highlight .sc-value{color:#e6b830!important;font-size:18px!important;font-weight:700!important}
+  .sc-label{font-size:8px!important;color:#4a4a5e!important;margin-bottom:1px!important;font-weight:600!important;text-transform:uppercase;letter-spacing:.3px}
+  .sc-label i{display:none!important}
+  .sc-value{font-family:'JetBrains Mono',monospace!important;font-size:11px!important;font-weight:600!important;color:#0a1628!important;margin-top:1px!important;letter-spacing:.02em!important;white-space:nowrap!important;font-variant-numeric:tabular-nums!important}
+  .table-wrap{background:#fff!important;border:1px solid #c9a227!important;border-radius:0!important;overflow:visible!important;margin-bottom:0!important;max-width:none!important}
+  .table-head{background:#0a1628!important;color:#fff!important;padding:5px 10px!important;border-bottom:2px solid #c9a227!important;border-radius:0!important}
+  .table-head h4{font-size:11px!important;font-weight:700!important}
+  .table-head h4 i{color:#e6b830!important}
+  .table-scroll{max-height:none!important;overflow:visible!important;width:100%!important}
+  table{width:100%!important;border-collapse:collapse!important;font-size:9px!important;page-break-inside:auto!important;table-layout:auto!important;min-width:0!important}
+  thead{background:#f5f0e8!important;position:static!important;display:table-header-group!important}
+  tbody{display:table-row-group!important}
+  th:first-child{width:28px!important;min-width:28px!important;max-width:28px!important;text-align:center!important;padding:4px 3px!important;font-size:7px!important}
+  td.bln{text-align:center!important;font-weight:600!important;color:#0a1628!important;width:28px!important;padding:2px 3px!important;font-family:'JetBrains Mono',monospace!important}
+  td.bln .bln-badge{background:#f5f0e8!important;color:#0a1628!important;border:1px solid #d4a853!important;border-radius:3px!important;font-size:8px!important;padding:1px 4px!important;min-width:auto!important}
+  th.num{text-align:right!important;padding:4px 6px 4px 4px!important;font-size:7px!important;font-family:'Poppins',sans-serif!important}
+  td.num{font-family:'JetBrains Mono',monospace!important;font-size:9px!important;font-weight:500!important;text-align:right!important;padding:2px 6px 2px 4px!important;white-space:nowrap!important}
+  th{padding:4px 6px!important;font-size:7px!important;font-weight:700!important;color:#0a1628!important;text-transform:uppercase!important;border-bottom:1.5px solid #c9a227!important;white-space:nowrap!important}
+  td{padding:2px 6px!important;border-bottom:1px solid #ece4d4!important;color:#1a1a2e!important;font-size:9px!important}
+  tr{page-break-inside:avoid!important}
+  tbody tr:nth-child(even){background:#faf7f2!important}
+  tbody tr:hover{background:transparent!important}
+  td.pokok{color:#142952!important}
+  td.bunga{color:#a07c1c!important;font-weight:600!important}
+  td.saldo{color:#4a4a5e!important}
+  tr.row-total{background:#0a1628!important;color:#fff!important}
+  tr.row-total td{color:#fff!important;border-top:2px solid #c9a227!important;padding:4px 6px!important;font-weight:700!important;font-size:9px!important}
+  tr.row-total td.num{color:#e6b830!important;font-weight:700!important}
+  tr.row-total td.bln .bln-badge{background:rgba(201,162,39,.25)!important;color:#e6b830!important;border-color:#c9a227!important}
+  .print-footer-note{display:block!important;margin-top:8px!important;padding-top:6px!important;border-top:1px dashed #c9a227!important;font-size:8px!important;color:#4a4a5e!important;text-align:center;line-height:1.5!important;font-style:italic}
+  .print-footer-note strong{color:#0a1628;font-style:normal}
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — TABLET (≤ 1100px)
+   ═══════════════════════════════════════════════════════════ */
+@media(max-width:1100px){
+  .sim-layout{grid-template-columns:1fr;gap:1.25rem}
+  .result-panel{position:static}
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — INDEX.HTML NAVBAR BREAKPOINTS (EXACT COPY)
+   ═══════════════════════════════════════════════════════════ */
+@media(max-width:1024px){
+  .nav-menu{gap:0;overflow-x:auto;scrollbar-width:none}
+  .nav-menu::-webkit-scrollbar{display:none}
+  .nav-menu>li>a{padding:7px 10px;font-size:12px}
+  .btn-whatsapp{padding:7px 12px!important;font-size:12px!important}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:768px){
+  /* Top bar hide on mobile — same as index.html */
+  .top-bar{display:none}
+
+  /* Navbar mobile — exact from index.html */
+  .nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:15px;box-shadow:var(--shadow);gap:2px;overflow-x:visible;max-height:75vh;overflow-y:auto}
+  .nav-menu.active{display:flex}
+  .nav-menu>li{width:100%}
+  .nav-menu>li>a{display:flex;justify-content:space-between;width:100%;padding:10px 14px}
+  .nav-menu li .dropdown{position:static;box-shadow:none;border:none;padding:0 0 0 15px;display:none;opacity:1;transform:none;margin-top:2px}
+  .nav-menu li.dropdown-open .dropdown{display:block}
+  .hamburger{display:block}
+  .btn-whatsapp{margin-left:0;margin-top:8px;width:100%;justify-content:center;padding:11px!important}
+
+  /* Footer mobile */
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:15px;text-align:center}
+
+  /* WA float */
+  .wa-float-label{display:none}
+  .wa-float{left:20px;bottom:20px}
+  .wa-float-btn{width:50px;height:50px;font-size:22px}
+
+  /* Simulation mobile */
+  .hero-sim{padding:1.25rem 1rem .85rem}
+  .breadcrumb{font-size:.75rem;margin-bottom:.5rem}
+  .hero-sim h1{font-size:clamp(1.4rem,5.5vw,1.8rem);margin-bottom:.3rem}
+  .hero-tagline{padding:.65rem 1rem;margin-top:.65rem}
+  .hero-tagline p{font-size:.9rem}
+  .hero-tagline::before,.hero-tagline::after{width:55px}
+  .container-sim{padding:0 .75rem 1.75rem;max-width:100%;overflow-x:hidden}
+  .glass{padding:1rem;border-radius:16px}
+  .glass:hover{transform:none}
+  .section-head{margin-bottom:.7rem;padding-bottom:.5rem;gap:.5rem}
+  .section-head-icon{width:32px;height:32px;font-size:.82rem}
+  .section-head h2{font-size:.92rem}
+  .section-head p{font-size:.68rem}
+  .form-group{margin-bottom:.8rem}
+  .form-label{font-size:.78rem;margin-bottom:.3rem}
+  .form-hint{font-size:.63rem}
+  .input-wrap .prefix,.input-wrap .suffix{font-size:.82rem}
+  .input-wrap .prefix{left:.75rem}
+  .input-wrap .suffix{right:.75rem}
+  .input-wrap i.field-icon{font-size:.85rem}
+  .input-wrap input[type="text"],.input-wrap input[type="number"],.input-wrap select{padding:.68rem .85rem .68rem 3.6rem;font-size:.85rem;border-radius:10px}
+  .input-wrap input.with-suffix{padding-right:2.4rem}
+  .input-wrap select{padding-left:2.6rem}
+  .tenor-info{font-size:.66rem;padding:.2rem .5rem}
+  .method-tabs{grid-template-columns:repeat(2,1fr);gap:.4rem}
+  .method-tab{padding:.6rem .3rem;border-radius:9px}
+  .method-tab i{font-size:.9rem;margin-bottom:.1rem}
+  .method-tab .m-name{font-size:.72rem}
+  .method-tab .m-desc{font-size:.58rem}
+  .btn-calc{padding:.75rem;font-size:.85rem;border-radius:10px}
+  .summary-grid{grid-template-columns:1fr 1fr;gap:.45rem}
+  .summary-card{padding:.6rem .7rem;border-radius:10px}
+  .summary-card:hover{transform:none}
+  .summary-card.highlight{grid-column:span 2;padding:.75rem .85rem}
+  .summary-card.highlight .sc-value{font-size:1.25rem}
+  .sc-label{font-size:.62rem;gap:.2rem}
+  .sc-label i{font-size:.62rem}
+  .sc-value{font-size:.82rem}
+  .table-wrap{border-radius:12px;margin-bottom:.75rem}
+  .table-head{padding:.6rem .75rem}
+  .table-head h4{font-size:.82rem}
+  .btn-sm{padding:.25rem .55rem;font-size:.65rem}
+  .table-scroll{max-height:380px}
+  table{font-size:.75rem;min-width:480px}
+  th{padding:.5rem .65rem;font-size:.62rem}
+  td{padding:.45rem .65rem}
+  td.bln{width:40px}
+  td.bln .bln-badge{font-size:.7rem;padding:2px 6px;min-width:26px}
+  td.num{font-size:.72rem;padding-right:.7rem}
+  th.num{padding-right:.7rem}
+  .compare-grid{grid-template-columns:1fr;gap:.6rem}
+  .compare-card{padding:1rem;border-radius:14px}
+  .compare-card:hover{transform:none}
+  .info-section{margin-top:1.5rem}
+  .info-section .info-title{margin-bottom:.75rem}
+  .info-section .info-title h2{font-size:1.2rem}
+  .info-section .info-title p{font-size:.76rem;padding:0 .5rem}
+  .info-grid{grid-template-columns:1fr;gap:.65rem}
+  .info-card{padding:.85rem;border-radius:12px}
+  .info-card:hover{transform:none}
+  .cta-section{padding:1.5rem 1.15rem;border-radius:18px;margin-top:1.5rem}
+  .cta-section h2{font-size:1.25rem}
+  .cta-section p{font-size:.8rem;margin-bottom:1.15rem}
+  .cta-buttons{gap:.55rem;flex-direction:column}
+  .cta-buttons a,.cta-buttons button{width:100%;justify-content:center;padding:.7rem 1.15rem;font-size:.82rem}
+}
+
+@media(max-width:576px){
+  body{font-size:14px}
+  .hero-sim{padding:1rem .85rem .7rem}
+  .breadcrumb{font-size:.7rem;gap:.35rem;margin-bottom:.4rem}
+  .hero-sim h1{font-size:1.35rem}
+  .hero-tagline{padding:.55rem .85rem;margin-top:.55rem}
+  .hero-tagline p{font-size:.84rem}
+  .hero-tagline::before,.hero-tagline::after{width:45px;height:1.5px}
+  .hero-tagline::before{margin-bottom:.55rem}
+  .hero-tagline::after{margin-top:.55rem}
+  .container-sim{padding:0 .65rem 1.5rem}
+  .glass{padding:.85rem;border-radius:14px}
+  .section-head{gap:.45rem;margin-bottom:.6rem;padding-bottom:.4rem}
+  .section-head-icon{width:30px;height:30px;font-size:.78rem;border-radius:8px}
+  .section-head h2{font-size:.85rem}
+  .section-head p{font-size:.62rem}
+  .form-group{margin-bottom:.7rem}
+  .form-label{font-size:.74rem;margin-bottom:.25rem}
+  .form-hint{font-size:.6rem;margin-top:.2rem}
+  .input-wrap .prefix{left:.7rem}
+  .input-wrap .suffix{right:.7rem}
+  .input-wrap .prefix,.input-wrap .suffix{font-size:.76rem;gap:.2rem}
+  .input-wrap i.field-icon{font-size:.8rem}
+  .input-wrap input[type="text"],.input-wrap input[type="number"],.input-wrap select{padding:.62rem .7rem .62rem 3.2rem;font-size:.8rem;border-radius:9px}
+  .input-wrap input.with-suffix{padding-right:2.15rem}
+  .input-wrap select{padding-left:2.4rem;background-position:right .65rem center;background-size:16px}
+  .tenor-info{font-size:.62rem;padding:.18rem .45rem;margin-top:.2rem;gap:.2rem}
+  .method-tabs{gap:.35rem;margin-bottom:.75rem}
+  .method-tab{padding:.5rem .25rem;border-radius:8px}
+  .method-tab i{font-size:.85rem;margin-bottom:.05rem}
+  .method-tab .m-name{font-size:.68rem}
+  .method-tab .m-desc{font-size:.55rem}
+  .btn-calc{padding:.7rem;font-size:.8rem;border-radius:10px}
+  .summary-grid{grid-template-columns:1fr;gap:.4rem;margin-bottom:.65rem}
+  .summary-card{padding:.55rem .65rem;border-radius:9px}
+  .summary-card.highlight{grid-column:span 1;padding:.7rem .8rem;border-radius:10px}
+  .summary-card.highlight .sc-value{font-size:1.15rem}
+  .sc-label{font-size:.6rem}
+  .sc-value{font-size:.78rem}
+  .table-wrap{border-radius:10px;margin-bottom:.6rem}
+  .table-head{padding:.5rem .65rem}
+  .table-head h4{font-size:.76rem;gap:.25rem}
+  .btn-sm{padding:.2rem .45rem;font-size:.6rem;border-radius:40px;gap:.2rem}
+  .table-scroll{max-height:340px}
+  table{font-size:.7rem;min-width:460px}
+  th{padding:.45rem .55rem;font-size:.58rem;letter-spacing:.3px}
+  td{padding:.4rem .55rem}
+  td.bln{width:36px}
+  td.bln .bln-badge{font-size:.66rem;padding:2px 5px;min-width:24px;border-radius:5px}
+  td.num{font-size:.66rem;padding-right:.6rem}
+  th.num{padding-right:.6rem}
+  .info-section{margin-top:1.25rem}
+  .info-section .info-title h2{font-size:1.05rem}
+  .info-section .info-title p{font-size:.7rem}
+  .info-grid{gap:.55rem}
+  .info-card{padding:.75rem;border-radius:11px}
+  .ic-icon{width:34px;height:34px;font-size:.88rem;margin-bottom:.5rem}
+  .info-card h3{font-size:.85rem;margin-bottom:.2rem}
+  .info-card>p{font-size:.68rem;margin-bottom:.4rem}
+  .info-card ul{font-size:.65rem;margin-bottom:.4rem}
+  .info-card ul li{padding:.1rem 0 .1rem 1rem}
+  .formula{font-size:.6rem;padding:.3rem .45rem}
+  .cta-section{padding:1.15rem .85rem;border-radius:15px;margin-top:1.25rem}
+  .cta-section h2{font-size:1.05rem;margin-bottom:.35rem}
+  .cta-section p{font-size:.74rem;margin-bottom:.85rem}
+  .cta-buttons a,.cta-buttons button{padding:.62rem 1rem;font-size:.78rem}
+  .footer{padding:40px 0 0;margin-top:1.25rem}
+  .footer-col h4{font-size:.8rem;margin-bottom:.35rem}
+  .footer-col p,.footer-col a{font-size:.72rem}
+  .footer-bottom{font-size:.66rem}
+  .scroll-top{width:44px;height:44px;font-size:16px;bottom:20px;right:20px}
+}
+
+@media(max-width:400px){
+  body{font-size:13.5px}
+  .hero-sim{padding:.85rem .7rem .6rem}
+  .breadcrumb{font-size:.65rem}
+  .hero-sim h1{font-size:1.2rem}
+  .hero-tagline{padding:.5rem .7rem}
+  .hero-tagline p{font-size:.78rem}
+  .hero-tagline::before,.hero-tagline::after{width:38px}
+  .container-sim{padding:0 .55rem 1.35rem}
+  .glass{padding:.72rem;border-radius:12px}
+  .section-head h2{font-size:.8rem}
+  .section-head p{font-size:.58rem}
+  .section-head-icon{width:28px;height:28px;font-size:.72rem;border-radius:7px}
+  .form-label{font-size:.7rem}
+  .form-hint{font-size:.57rem}
+  .input-wrap .prefix{left:.6rem}
+  .input-wrap .suffix{right:.6rem}
+  .input-wrap .prefix,.input-wrap .suffix{font-size:.72rem}
+  .input-wrap i.field-icon{font-size:.75rem}
+  .input-wrap input[type="text"],.input-wrap input[type="number"],.input-wrap select{padding:.58rem .6rem .58rem 2.9rem;font-size:.76rem;border-radius:8px}
+  .input-wrap input.with-suffix{padding-right:1.9rem}
+  .input-wrap select{padding-left:2.15rem}
+  .tenor-info{font-size:.58rem;padding:.15rem .4rem}
+  .method-tab{padding:.45rem .2rem}
+  .method-tab i{font-size:.78rem}
+  .method-tab .m-name{font-size:.64rem}
+  .method-tab .m-desc{font-size:.5rem}
+  .btn-calc{padding:.65rem;font-size:.76rem}
+  .summary-card{padding:.5rem .6rem}
+  .summary-card.highlight{padding:.6rem .7rem}
+  .summary-card.highlight .sc-value{font-size:1rem}
+  .sc-label{font-size:.56rem}
+  .sc-value{font-size:.72rem}
+  .table-head{padding:.45rem .55rem}
+  .table-head h4{font-size:.7rem}
+  .btn-sm{padding:.18rem .4rem;font-size:.56rem}
+  .table-scroll{max-height:300px}
+  table{font-size:.66rem;min-width:440px}
+  th{padding:.4rem .45rem;font-size:.54rem}
+  td{padding:.35rem .45rem}
+  td.bln{width:32px}
+  td.bln .bln-badge{font-size:.6rem;padding:1px 4px;min-width:22px}
+  td.num{font-size:.62rem;padding-right:.5rem}
+  th.num{padding-right:.5rem}
+  tr.row-total td{padding:.5rem .45rem!important;font-size:.62rem!important}
+  .info-card{padding:.65rem}
+  .info-card h3{font-size:.8rem}
+  .info-card>p{font-size:.64rem}
+  .info-card ul{font-size:.6rem}
+  .cta-section{padding:1rem .7rem}
+  .cta-section h2{font-size:.95rem}
+  .cta-section p{font-size:.68rem}
+  .footer-col p,.footer-col a{font-size:.68rem}
+  .footer-bottom{font-size:.6rem}
+}
+
+@media(max-width:360px){
+  .hero-sim h1{font-size:1.1rem}
+  .hero-tagline p{font-size:.72rem}
+  .hero-tagline::before,.hero-tagline::after{width:32px}
+  .container-sim{padding:0 .5rem 1.2rem}
+  .glass{padding:.62rem}
+  .input-wrap input[type="text"],.input-wrap input[type="number"],.input-wrap select{padding-left:2.6rem;font-size:.72rem}
+  .input-wrap .prefix,.input-wrap .suffix{font-size:.68rem}
+  .method-tab .m-name{font-size:.6rem}
+  .method-tab .m-desc{font-size:.48rem}
+  .summary-card.highlight .sc-value{font-size:.9rem}
+  .sc-value{font-size:.68rem}
+  .table-scroll{max-height:280px}
+  table{min-width:420px}
+  td.num{font-size:.58rem}
+  th{font-size:.5rem}
+}
+
+/* Animation */
+.fade-up{opacity:0;transform:translateY(30px);transition:all .6s ease-out}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     TOP BAR — EXACT COPY FROM INDEX.HTML
+     ═══════════════════════════════════════════════════════════ -->
+<div class="top-bar">
+  <div class="container">
+    <div class="top-bar-left">
+      <span><i class="fas fa-phone"></i> 1500-888</span>
+      <span><i class="fas fa-envelope"></i> info@banknusantara.co.id</span>
+    </div>
+    <div class="top-bar-right">
+      <a href="index.html#lelang"><i class="fas fa-map-marker-alt"></i> Temukan Kantor Kami</a>
+      <a href="index.html#pelaporan"><i class="fas fa-headset"></i> Bantuan</a>
+      <a href="#"><i class="fas fa-globe"></i> EN | ID</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER / NAVBAR — EXACT COPY FROM INDEX.HTML (links adjusted)
+     ═══════════════════════════════════════════════════════════ -->
+<header class="header" id="mainHeader">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">BN</div>
+      <div class="logo-text">
+        <h1>BANK NUSANTARA</h1>
+        <span>Trusted Since 1985</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Beranda</a></li>
+        <li>
+          <a href="index.html#tentang" class="nav-link">Tentang Kami <i class="fas fa-chevron-down" style="font-size:9px"></i></a>
+          <div class="dropdown">
+            <a href="index.html#tentang" data-tab="profil"><i class="fas fa-building"></i> Profil</a>
+            <a href="index.html#tentang" data-tab="visi"><i class="fas fa-bullseye"></i> Visi & Misi</a>
+            <a href="index.html#tentang" data-tab="budaya"><i class="fas fa-heart"></i> Budaya</a>
+            <a href="index.html#tentang" data-tab="manajemen"><i class="fas fa-user-tie"></i> Manajemen</a>
+            <a href="index.html#tentang" data-tab="karir"><i class="fas fa-briefcase"></i> Karir</a>
+          </div>
+        </li>
+        <li>
+          <a href="index.html#produk" class="nav-link">Produk <i class="fas fa-chevron-down" style="font-size:9px"></i></a>
+          <div class="dropdown">
+            <a href="index.html#produk"><i class="fas fa-piggy-bank"></i> Tabungan</a>
+            <a href="index.html#produk"><i class="fas fa-chart-line"></i> Deposito</a>
+            <a href="index.html#produk"><i class="fas fa-hand-holding-usd"></i> Pinjaman</a>
+            <a href="index.html#layanan"><i class="fas fa-concierge-bell"></i> Digital</a>
+          </div>
+        </li>
+        <li><a href="simulasi-pinjaman.html" class="nav-link active"><i class="fas fa-calculator"></i> Simulasi</a></li>
+        <li><a href="index.html#lelang" class="nav-link"><i class="fas fa-gavel"></i> Lelang</a></li>
+        <li>
+          <a href="index.html#pelaporan" class="nav-link">Pelaporan <i class="fas fa-chevron-down" style="font-size:9px"></i></a>
+          <div class="dropdown">
+            <a href="index.html#pelaporan"><i class="fas fa-newspaper"></i> Publikasi</a>
+            <a href="index.html#pelaporan"><i class="fas fa-book"></i> Tahunan</a>
+            <a href="index.html#pelaporan"><i class="fas fa-comment-dots"></i> Pengaduan</a>
+          </div>
+        </li>
+        <li><a href="https://wa.me/6281234567890" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Chat CS <span class="wa-pulse"></span></a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO SECTION
+     ═══════════════════════════════════════════════════════════ -->
+<section class="hero-sim">
+  <div class="breadcrumb">
+    <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
+    <span>/</span>
+    <span>Simulasi Pinjaman</span>
+  </div>
+  <h1>Simulasi <span>Pinjaman</span> Cerdas</h1>
+  <div class="hero-tagline">
+    <div class="tagline-icon">
+      <i class="fas fa-diamond"></i>
+      <i class="fas fa-diamond"></i>
+      <i class="fas fa-diamond"></i>
+    </div>
+    <p>Hitung kebutuhan keuangan Anda dengan <strong>Bijak</strong></p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SIMULATION CONTENT
+     ═══════════════════════════════════════════════════════════ -->
+<div class="container-sim">
+  <div class="sim-layout">
+
+    <div class="glass fade-up">
+      <div class="section-head">
+        <div class="section-head-icon"><i class="fas fa-sliders"></i></div>
+        <div>
+          <h2>Parameter Pinjaman</h2>
+          <p>Isi data pinjaman Anda</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="inputJumlah"><i class="fas fa-money-bill-wave"></i>Jumlah Pinjaman</label>
+        <div class="input-wrap">
+          <span class="prefix"><i class="fas fa-circle-dollar-to-slot field-icon"></i> Rp</span>
+          <input type="text" id="inputJumlah" value="100.000.000" inputmode="numeric" autocomplete="off">
+        </div>
+        <span class="form-hint">Min. Rp 5 Jt</span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="selectTenor"><i class="fas fa-calendar-days"></i>Jangka Waktu</label>
+        <div class="input-wrap">
+          <span class="prefix"><i class="fas fa-clock field-icon"></i></span>
+          <select id="selectTenor">
+            <option value="12">12 Bulan (1 Tahun)</option>
+            <option value="24">24 Bulan (2 Tahun)</option>
+            <option value="36" selected>36 Bulan (3 Tahun)</option>
+            <option value="48">48 Bulan (4 Tahun)</option>
+            <option value="60">60 Bulan (5 Tahun)</option>
+          </select>
+        </div>
+        <div class="tenor-info" id="tenorInfo"><i class="fas fa-info-circle"></i> 36 bulan (3 tahun)</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="inputBunga"><i class="fas fa-percent"></i>Suku Bunga / Tahun</label>
+        <div class="input-wrap">
+          <span class="prefix"><i class="fas fa-chart-simple field-icon"></i></span>
+          <input type="number" id="inputBunga" class="with-suffix" value="9.5" min="1" max="25" step="0.1">
+          <span class="suffix">%</span>
+        </div>
+        <span class="form-hint">Umum: 7% — 15% per tahun</span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label"><i class="fas fa-calculator"></i>Metode Hitung</label>
+        <div class="method-tabs">
+          <button class="method-tab active" data-method="flat"><i class="fas fa-equals"></i><span class="m-name">Flat</span><span class="m-desc">Tetap</span></button>
+          <button class="method-tab" data-method="efektif"><i class="fas fa-arrow-trend-down"></i><span class="m-name">Efektif</span><span class="m-desc">Menurun</span></button>
+          <button class="method-tab" data-method="anuitas"><i class="fas fa-chart-line"></i><span class="m-name">Anuitas</span><span class="m-desc">Balance</span></button>
+          <button class="method-tab" data-method="compare"><i class="fas fa-scale-balanced"></i><span class="m-name">Banding</span><span class="m-desc">3 Metode</span></button>
+        </div>
+      </div>
+
+      <button class="btn-calc" onclick="hitung()"><i class="fas fa-calculator"></i> Hitung Sekarang</button>
+    </div>
+
+    <div class="glass result-panel fade-up" id="resultPanel">
+
+      <div class="print-header">
+        <div class="print-header-top">
+          <div class="print-brand"><div class="print-brand-logo">BN</div><div><div class="print-brand-name">BANK NUSANTARA</div><span class="print-brand-tag">Trusted Since 1985</span></div></div>
+          <div class="print-date"><strong id="printTgl">-</strong><span>Simulasi ID: #<span id="printId">-</span></span></div>
+        </div>
+        <div class="print-title"><h1>LAPORAN SIMULASI PINJAMAN</h1><div class="print-method" id="printMethod">Metode: Flat</div></div>
+      </div>
+
+      <div class="print-params">
+        <div class="print-param-item"><span class="print-param-label">Jumlah Pinjaman</span><span class="print-param-value" id="printPokok">Rp 0</span></div>
+        <div class="print-param-item"><span class="print-param-label">Jangka Waktu</span><span class="print-param-value" id="printTenor">0 Bulan</span><span class="print-param-sub" id="printTenorSub">(0 Tahun)</span></div>
+        <div class="print-param-item"><span class="print-param-label">Suku Bunga</span><span class="print-param-value" id="printBunga">0%</span><span class="print-param-sub">per tahun</span></div>
+      </div>
+
+      <div class="section-head">
+        <div class="section-head-icon"><i class="fas fa-chart-pie"></i></div>
+        <div><h2>Hasil Simulasi</h2><p id="resultMethod">Metode: Flat</p></div>
+      </div>
+
+      <div id="singleView">
+        <div class="summary-grid">
+          <div class="summary-card highlight"><div class="sc-label"><i class="fas fa-hand-holding-dollar"></i> Cicilan per Bulan</div><div class="sc-value" id="outCicilan">Rp 0</div></div>
+          <div class="summary-card"><div class="sc-label"><i class="fas fa-wallet"></i> Pokok Pinjaman</div><div class="sc-value" id="outPokok">Rp 0</div></div>
+          <div class="summary-card"><div class="sc-label"><i class="fas fa-coins"></i> Total Bunga</div><div class="sc-value" id="outBunga">Rp 0</div></div>
+          <div class="summary-card"><div class="sc-label"><i class="fas fa-sack-dollar"></i> Total Bayar</div><div class="sc-value" id="outTotal">Rp 0</div></div>
+        </div>
+        <div class="table-wrap">
+          <div class="table-head">
+            <h4><i class="fas fa-table-list"></i> Tabel Amortisasi</h4>
+            <div class="table-actions">
+              <button class="btn-sm" onclick="doPrint()"><i class="fas fa-print"></i> Print</button>
+              <button class="btn-sm" onclick="exportCSV()"><i class="fas fa-file-csv"></i> CSV</button>
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table id="tblAmort"><thead><tr><th style="text-align:center">Bln</th><th class="num">Cicilan</th><th class="num">Pokok</th><th class="num">Bunga</th><th class="num">Sisa Pokok</th></tr></thead><tbody id="tblBody"></tbody></table>
+          </div>
+        </div>
+        <div class="print-footer-note">*Simulasi ini bersifat <strong>estimasi</strong> dan tidak mengikat. Perhitungan aktual dapat berbeda sesuai kebijakan BANK NUSANTARA.<br>Untuk pengajuan resmi, silakan hubungi cabang terdekat atau WhatsApp resmi kami.</div>
+      </div>
+
+      <div id="compareView" style="display:none"><div class="compare-grid" id="compareGrid"></div></div>
+    </div>
+  </div>
+
+  <section class="info-section fade-up">
+    <div class="info-title"><h2>Pahami 3 Metode Bunga</h2><p>Setiap metode punya karakteristik berbeda. Pilih sesuai kemampuan finansial Anda.</p></div>
+    <div class="info-grid">
+      <div class="info-card flat"><div class="ic-icon"><i class="fas fa-equals"></i></div><h3>Bunga Flat</h3><p>Bunga dari pokok awal, tetap selama pinjaman.</p><ul><li>Cicilan stabil tiap bulan</li><li>Mudah diprediksi</li><li>Cocok income tetap</li></ul><div class="formula">Bunga = Pokok × i% × Thn</div></div>
+      <div class="info-card efektif"><div class="ic-icon"><i class="fas fa-arrow-trend-down"></i></div><h3>Bunga Efektif</h3><p>Bunga dari sisa pokok, cicilan menurun.</p><ul><li>Total bunga paling kecil</li><li>Berat awal, ringan akhir</li><li>Lebih adil & transparan</li></ul><div class="formula">Bunga = Sisa × (i% ÷ 12)</div></div>
+      <div class="info-card anuitas"><div class="ic-icon"><i class="fas fa-chart-line"></i></div><h3>Bunga Anuitas</h3><p>Cicilan tetap, komposisi berubah tiap bulan.</p><ul><li>Cicilan tetap spt flat</li><li>Total bunga lebih hemat</li><li>Standar perbankan global</li></ul><div class="formula">PMT = P·i(1+i)ⁿ / ((1+i)ⁿ-1)</div></div>
+    </div>
+  </section>
+
+  <section class="cta-section fade-up">
+    <h2>Siap Mengajukan <span>Pinjaman</span>?</h2>
+    <p>Konsultasikan dengan tim ahli BANK NUSANTARA. Proses cepat, bunga kompetitif.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/6281234567890" class="btn-sim-primary" target="_blank"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+      <a href="index.html#kontak" class="btn-sim-outline"><i class="fas fa-phone"></i> Hubungi Kami</a>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER — EXACT COPY FROM INDEX.HTML
+     ═══════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Tentang BANK NUSANTARA</h4>
+        <p>Bank nasional terpercaya sejak 1985 dengan layanan perbankan terbaik dan keamanan tinggi.</p>
+        <p><i class="fas fa-map-marker-alt" style="color:var(--secondary)"></i> Jl. Jend. Sudirman Kav. 88, Jakarta Pusat 10220</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com/bank_damara" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Produk</h4>
+        <ul>
+          <li><a href="index.html#produk">Tabungan</a></li>
+          <li><a href="index.html#produk">Deposito</a></li>
+          <li><a href="index.html#produk">Pinjaman</a></li>
+          <li><a href="index.html#layanan">Layanan Digital</a></li>
+          <li><a href="index.html#lelang">Lelang Agunan</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Perusahaan</h4>
+        <ul>
+          <li><a href="index.html#tentang">Profil</a></li>
+          <li><a href="index.html#tentang">Visi & Misi</a></li>
+          <li><a href="index.html#tentang">Manajemen</a></li>
+          <li><a href="index.html#tentang">Karir</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pelaporan</h4>
+        <ul>
+          <li><a href="index.html#pelaporan">Publikasi</a></li>
+          <li><a href="index.html#pelaporan">Laporan Tahunan</a></li>
+          <li><a href="index.html#pelaporan">Pengaduan</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="https://wa.me/6281234567890" target="_blank">Hubungi Kami</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 BANK NUSANTARA. Seluruh hak cipta dilindungi. Terdaftar dan diawasi OJK.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Kebijakan Privasi</a>
+        <a href="#">Syarat & Ketentuan</a>
+        <a href="#">Keamanan</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCROLL TOP & WA FLOAT — EXACT COPY FROM INDEX.HTML
+     ═══════════════════════════════════════════════════════════ -->
+<button class="scroll-top" id="scrollTop" onclick="scrollToTop()"><i class="fas fa-chevron-up"></i></button>
+<div class="wa-float" id="waFloat">
+  <a href="https://wa.me/6281234567890" target="_blank" class="wa-float-btn"><i class="fab fa-whatsapp"></i></a>
+  <div class="wa-float-label">Butuh bantuan? Chat kami!</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════════════════ -->
+<script>
+/* ── NAVBAR: Toggle menu & dropdown (from index.html) ── */
+function toggleMenu(){document.getElementById('navMenu').classList.toggle('active')}
+document.querySelectorAll('.nav-menu > li > a').forEach(function(l){l.addEventListener('click',function(e){if(window.innerWidth<=768&&this.nextElementSibling&&this.nextElementSibling.classList.contains('dropdown')){e.preventDefault();this.parentElement.classList.toggle('dropdown-open')}})});
+
+/* ── NAVBAR: Scroll effect (from index.html) ── */
+window.addEventListener('scroll',function(){var h=document.getElementById('mainHeader');if(h)h.classList.toggle('scrolled',window.scrollY>50)});
+
+/* ── SCROLL TOP & WA FLOAT (from index.html) ── */
+window.addEventListener('scroll',function(){var st=document.getElementById('scrollTop');var wf=document.getElementById('waFloat');var sy=window.pageYOffset;if(st)st.classList.toggle('show',sy>300);if(wf)wf.classList.toggle('show',sy>400)});
+function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+
+/* ── SIMULATION LOGIC (unchanged) ── */
+const fmt=n=>'Rp '+Math.round(n).toLocaleString('id-ID');
+const inputJumlah=document.getElementById('inputJumlah');
+function formatRupiahInput(val){const angka=val.replace(/\D/g,'');if(!angka)return '';return angka.replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
+function parseRupiahInput(val){return parseInt(val.replace(/\./g,'').replace(/\D/g,''),10)||0}
+inputJumlah.addEventListener('input',e=>{const angka=e.target.value.replace(/\D/g,'');e.target.value=formatRupiahInput(angka);setTimeout(()=>e.target.setSelectionRange(e.target.value.length,e.target.value.length),0)});
+inputJumlah.addEventListener('blur',()=>{const n=parseRupiahInput(inputJumlah.value);if(n<5000000)inputJumlah.value=formatRupiahInput('5000000');else inputJumlah.value=formatRupiahInput(String(n));hitung()});
+inputJumlah.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();inputJumlah.blur();hitung()}});
+const selectTenor=document.getElementById('selectTenor');
+const tenorInfo=document.getElementById('tenorInfo');
+function updateTenorInfo(){const bln=parseInt(selectTenor.value,10);const thn=bln/12;const thnStr=Number.isInteger(thn)?thn+' tahun':thn.toFixed(1).replace('.0','')+' tahun';tenorInfo.innerHTML=`<i class="fas fa-info-circle"></i> ${bln} bulan (${thnStr})`}
+selectTenor.addEventListener('change',()=>{updateTenorInfo();hitung()});
+updateTenorInfo();
+const inputBunga=document.getElementById('inputBunga');
+inputBunga.addEventListener('change',()=>{let v=parseFloat(inputBunga.value);if(isNaN(v)||v<1)v=1;if(v>25)v=25;inputBunga.value=v;hitung()});
+let currentMethod='flat';
+document.querySelectorAll('.method-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.method-tab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');currentMethod=tab.dataset.method;hitung()})});
+function calcFlat(pokok,tenor,bungaTahun){const bungaTotal=pokok*(bungaTahun/100)*(tenor/12);const cicilan=(pokok+bungaTotal)/tenor;const pokokBln=pokok/tenor;const bungaBln=bungaTotal/tenor;const schedule=[];let sisa=pokok;for(let i=1;i<=tenor;i++){sisa-=pokokBln;schedule.push({bln:i,cicilan,pokok:pokokBln,bunga:bungaBln,sisa:Math.max(0,sisa)})}return{cicilan,pokokBln,bungaBln,totalPokok:pokok,totalBunga:bungaTotal,total:pokok+bungaTotal,schedule}}
+function calcEfektif(pokok,tenor,bungaTahun){const pokokBln=pokok/tenor;const i=bungaTahun/100/12;const schedule=[];let sisa=pokok,totalBunga=0;for(let b=1;b<=tenor;b++){const bunga=sisa*i;const cicilan=pokokBln+bunga;sisa-=pokokBln;totalBunga+=bunga;schedule.push({bln:b,cicilan,pokok:pokokBln,bunga,sisa:Math.max(0,sisa)})}return{cicilan:schedule[0].cicilan,cicilanMin:schedule[schedule.length-1].cicilan,totalPokok:pokok,totalBunga,total:pokok+totalBunga,schedule}}
+function calcAnuitas(pokok,tenor,bungaTahun){const i=bungaTahun/100/12;const pmt=i===0?pokok/tenor:pokok*i*Math.pow(1+i,tenor)/(Math.pow(1+i,tenor)-1);const schedule=[];let sisa=pokok,totalBunga=0;for(let b=1;b<=tenor;b++){const bunga=sisa*i;const byrPokok=pmt-bunga;sisa-=byrPokok;totalBunga+=bunga;schedule.push({bln:b,cicilan:pmt,pokok:byrPokok,bunga,sisa:Math.max(0,sisa)})}return{cicilan:pmt,totalPokok:pokok,totalBunga,total:pokok+totalBunga,schedule}}
+const fmtPad=n=>'Rp '+Math.round(n).toLocaleString('id-ID');
+function renderTable(schedule,totalPokok,totalBunga){const tbody=document.getElementById('tblBody');const rows=schedule.map(s=>`<tr><td class="bln"><span class="bln-badge">${s.bln}</span></td><td class="num">${fmtPad(s.cicilan)}</td><td class="num pokok">${fmtPad(s.pokok)}</td><td class="num bunga">${fmtPad(s.bunga)}</td><td class="num saldo">${fmtPad(s.sisa)}</td></tr>`).join('');const totalRow=`<tr class="row-total"><td class="bln"><span class="bln-badge">Σ</span></td><td class="num">${fmtPad(totalPokok+totalBunga)}</td><td class="num">${fmtPad(totalPokok)}</td><td class="num">${fmtPad(totalBunga)}</td><td class="num">—</td></tr>`;tbody.innerHTML=rows+totalRow}
+function renderCompare(pokok,tenor,bungaTahun){const f=calcFlat(pokok,tenor,bungaTahun);const e=calcEfektif(pokok,tenor,bungaTahun);const a=calcAnuitas(pokok,tenor,bungaTahun);const minBunga=Math.min(f.totalBunga,e.totalBunga,a.totalBunga);const grid=document.getElementById('compareGrid');grid.innerHTML=`<div class="compare-card flat">${f.totalBunga===minBunga?'<div class="cc-badge">TERMURAH</div>':''}<div class="cc-icon"><i class="fas fa-equals"></i></div><div class="cc-name">Flat</div><div class="cc-desc">Cicilan tetap setiap bulan</div><div class="cc-row"><span class="lbl">Cicilan/bln</span><span class="val">${fmt(f.cicilan)}</span></div><div class="cc-row"><span class="lbl">Total Bunga</span><span class="val">${fmt(f.totalBunga)}</span></div><div class="cc-row"><span class="lbl">Total Bayar</span><span class="val">${fmt(f.total)}</span></div></div><div class="compare-card efektif">${e.totalBunga===minBunga?'<div class="cc-badge">TERMURAH</div>':''}<div class="cc-icon"><i class="fas fa-arrow-trend-down"></i></div><div class="cc-name">Efektif</div><div class="cc-desc">Cicilan menurun tiap bulan</div><div class="cc-row"><span class="lbl">Bulan ke-1</span><span class="val">${fmt(e.schedule[0].cicilan)}</span></div><div class="cc-row"><span class="lbl">Bulan ke-${tenor}</span><span class="val">${fmt(e.schedule[e.schedule.length-1].cicilan)}</span></div><div class="cc-row"><span class="lbl">Total Bunga</span><span class="val">${fmt(e.totalBunga)}</span></div><div class="cc-row"><span class="lbl">Total Bayar</span><span class="val">${fmt(e.total)}</span></div></div><div class="compare-card anuitas">${a.totalBunga===minBunga?'<div class="cc-badge">TERMURAH</div>':''}<div class="cc-icon"><i class="fas fa-chart-line"></i></div><div class="cc-name">Anuitas</div><div class="cc-desc">Cicilan tetap, komposisi berubah</div><div class="cc-row"><span class="lbl">Cicilan/bln</span><span class="val">${fmt(a.cicilan)}</span></div><div class="cc-row"><span class="lbl">Total Bunga</span><span class="val">${fmt(a.totalBunga)}</span></div><div class="cc-row"><span class="lbl">Total Bayar</span><span class="val">${fmt(a.total)}</span></div></div>`}
+let _lastMethodName='Flat (Cicilan Tetap)';
+function hitung(){const pokok=parseRupiahInput(inputJumlah.value);const tenor=parseInt(selectTenor.value,10);const bungaTahun=parseFloat(inputBunga.value);if(!pokok||pokok<5000000){alert('Jumlah pinjaman minimal Rp 5.000.000');return}if(isNaN(bungaTahun)||bungaTahun<1||bungaTahun>25){alert('Suku bunga harus antara 1% - 25%');return}document.getElementById('singleView').style.display=currentMethod==='compare'?'none':'block';document.getElementById('compareView').style.display=currentMethod==='compare'?'block':'none';if(currentMethod==='compare'){document.getElementById('resultMethod').textContent='Mode Perbandingan 3 Metode';_lastMethodName='Perbandingan 3 Metode';renderCompare(pokok,tenor,bungaTahun);return}let res,methodName,cicilanText;if(currentMethod==='flat'){res=calcFlat(pokok,tenor,bungaTahun);methodName='Flat (Cicilan Tetap)';cicilanText=fmt(res.cicilan)}else if(currentMethod==='efektif'){res=calcEfektif(pokok,tenor,bungaTahun);methodName='Efektif (Menurun)';cicilanText=fmt(res.schedule[0].cicilan)+' → '+fmt(res.schedule[res.schedule.length-1].cicilan)}else{res=calcAnuitas(pokok,tenor,bungaTahun);methodName='Anuitas (Balance)';cicilanText=fmt(res.cicilan)}_lastMethodName=methodName;document.getElementById('resultMethod').textContent='Metode: '+methodName;document.getElementById('outCicilan').textContent=cicilanText;document.getElementById('outPokok').textContent=fmt(res.totalPokok);document.getElementById('outBunga').textContent=fmt(res.totalBunga);document.getElementById('outTotal').textContent=fmt(res.total);renderTable(res.schedule,res.totalPokok,res.totalBunga);window._lastResult=res}
+function formatTanggalID(date){const bulan=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];const d=String(date.getDate()).padStart(2,'0');const m=bulan[date.getMonth()];const y=date.getFullYear();return`${d} ${m} ${y}`}
+function doPrint(){const now=new Date();const tglStr=formatTanggalID(now);const simId='DMR-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+String(Math.floor(Math.random()*9000)+1000);document.getElementById('printTgl').textContent=tglStr;document.getElementById('printId').textContent=simId;document.getElementById('printMethod').textContent='Metode: '+_lastMethodName;const pokok=parseRupiahInput(inputJumlah.value);const tenor=parseInt(selectTenor.value,10);const bunga=parseFloat(inputBunga.value);const thn=tenor/12;const thnStr=Number.isInteger(thn)?thn+' Tahun':thn.toFixed(1).replace('.0','')+' Tahun';document.getElementById('printPokok').textContent=fmt(pokok);document.getElementById('printTenor').textContent=tenor+' Bulan';document.getElementById('printTenorSub').textContent='('+thnStr+')';document.getElementById('printBunga').textContent=String(bunga).replace('.',',')+'%';setTimeout(()=>window.print(),100)}
+function exportCSV(){if(!window._lastResult)return;const r=window._lastResult;let csv='Bulan,Cicilan,Pokok,Bunga,Sisa Pokok\n';r.schedule.forEach(s=>{csv+=`${s.bln},${Math.round(s.cicilan)},${Math.round(s.pokok)},${Math.round(s.bunga)},${Math.round(s.sisa)}\n`});const blob=new Blob([csv],{type:'text/csv'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`simulasi-pinjaman-${currentMethod}-${Date.now()}.csv`;a.click();URL.revokeObjectURL(url)}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+hitung();
+</script>
+</body>
+</html>
+

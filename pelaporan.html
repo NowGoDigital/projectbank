@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pelaporan - BANK NUSANTARA</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+:root{--primary:#023b96;--primary-light:#1a5bc7;--secondary:#c8a951;--secondary-light:#e0c76a;--accent:#2970d4;--text-dark:#2c3e50;--text-light:#6c757d;--bg-light:#f8f9fa;--white:#ffffff;--shadow:0 4px 20px rgba(0,0,0,.1);--shadow-hover:0 8px 30px rgba(0,0,0,.15);--transition:all .3s ease;--wa:#25D366;--wa-dark:#128C7E}
+body{font-family:'Inter','Segoe UI',Tahoma,sans-serif;color:var(--text-dark);line-height:1.6;overflow-x:hidden}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* ===== TOP BAR ===== */
+.top-bar{background:var(--primary);color:#fff;padding:6px 0;font-size:12px}
+.top-bar .container{display:flex;justify-content:space-between;align-items:center}
+.top-bar a{color:#fff;text-decoration:none;margin-left:18px;transition:var(--transition)}
+.top-bar a:hover{color:var(--secondary)}
+.top-bar-left{display:flex;align-items:center;gap:18px}
+.top-bar-left i{margin-right:4px;color:var(--secondary);font-size:11px}
+
+/* ===== HEADER / NAVBAR ===== */
+.header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08);position:sticky;top:0;z-index:1000}
+.header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.12)}
+.header .container{display:flex;justify-content:space-between;align-items:center;padding:8px 20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--primary),var(--primary-light));border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--secondary);font-size:18px;font-weight:bold;box-shadow:0 4px 12px rgba(2,59,150,.3)}
+.logo-text h1{font-size:17px;color:var(--primary);font-weight:700;letter-spacing:-.5px;line-height:1.1}
+.logo-text span{font-size:10px;color:var(--text-light);text-transform:uppercase;letter-spacing:1px}
+.nav{display:flex;align-items:center}
+.nav-menu{display:flex;list-style:none;gap:2px;align-items:center}
+.nav-menu>li>a{text-decoration:none;color:var(--text-dark);font-weight:500;padding:8px 13px;border-radius:7px;transition:var(--transition);font-size:13px;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.nav-menu>li>a:hover,.nav-menu>li>a.active{background:var(--primary);color:#fff}
+.nav-menu li{position:relative}
+.nav-menu li .dropdown{position:absolute;top:calc(100% + 6px);left:0;background:#fff;min-width:220px;box-shadow:var(--shadow-hover);border-radius:10px;padding:6px;display:none;z-index:100;opacity:0;transform:translateY(-8px);transition:all .25s ease;border:1px solid #f0f0f0}
+.nav-menu li:hover .dropdown{display:block;opacity:1;transform:translateY(0)}
+.nav-menu li .dropdown a{display:flex;align-items:center;gap:10px;padding:9px 13px;border-radius:6px;font-size:13px;color:var(--text-dark);text-decoration:none;transition:var(--transition);font-weight:500}
+.nav-menu li .dropdown a i{color:var(--secondary);font-size:11px;width:14px;text-align:center}
+.nav-menu li .dropdown a:hover{background:var(--bg-light);color:var(--primary);padding-left:16px}
+.btn-whatsapp{background:linear-gradient(135deg,var(--wa),var(--wa-dark))!important;color:#fff!important;font-weight:600!important;padding:8px 16px!important;border-radius:25px!important;margin-left:10px;box-shadow:0 4px 12px rgba(37,211,102,.3)}
+.btn-whatsapp:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(37,211,102,.5)}
+.hamburger{display:none;font-size:22px;cursor:pointer;color:var(--primary);padding:6px 10px;border-radius:6px}
+
+/* ===== HERO PAGE MINI ===== */
+.page-hero{background:linear-gradient(135deg,#023b96 0%,#1a5bc7 60%,#2970d4 100%);padding:45px 0 55px;position:relative;overflow:hidden;color:#fff}
+.page-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:250px;height:250px;border:2px solid rgba(200,169,81,.08);border-radius:50%;pointer-events:none}
+.page-hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:200px;height:200px;border:1px solid rgba(200,169,81,.06);border-radius:50%;pointer-events:none}
+.page-hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.page-hero-text h1{font-family:'Playfair Display',serif;font-size:36px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:8px}
+.page-hero-text h1 .gold{background:linear-gradient(135deg,#c8a951,#e0c76a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-hero-text p{font-size:14px;color:rgba(255,255,255,.8);max-width:550px;line-height:1.7}
+.page-hero-text .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.6);margin-bottom:12px}
+.page-hero-text .breadcrumb a{color:rgba(255,255,255,.8);text-decoration:none}
+.page-hero-text .breadcrumb a:hover{color:var(--secondary)}
+.page-hero-text .breadcrumb i{font-size:9px}
+.page-hero-visual{width:240px;height:160px;border-radius:18px;background:linear-gradient(135deg,rgba(200,169,81,.15),rgba(200,169,81,.05));border:1px solid rgba(200,169,81,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;backdrop-filter:blur(10px)}
+.page-hero-visual i{font-size:70px;color:rgba(200,169,81,.5)}
+
+/* ===== PELAPORAN LAYOUT (SIDEBAR + CONTENT) ===== */
+.pelaporan-section{padding:40px 0 60px;background:linear-gradient(180deg,#f8fafc 0%,#fff 100%)}
+.pelaporan-grid{display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start}
+
+/* ===== SIDEBAR ===== */
+.sidebar{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.05);position:sticky;top:80px}
+.sidebar-header{background:linear-gradient(135deg,#023b96,#1a5bc7);padding:14px 16px;display:flex;align-items:center;gap:10px}
+.sidebar-header-icon{width:34px;height:34px;border-radius:9px;background:rgba(200,169,81,.15);display:flex;align-items:center;justify-content:center;border:1px solid rgba(200,169,81,.25)}
+.sidebar-header-icon i{color:#c8a951;font-size:13px}
+.sidebar-header h4{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#fff;margin:0}
+.sidebar-header p{font-size:10px;color:rgba(255,255,255,.7);margin:2px 0 0}
+
+/* Menu Tree */
+.menu-tree{padding:8px}
+.menu-group{margin-bottom:4px}
+.menu-parent{width:100%;display:flex;align-items:center;gap:10px;padding:10px 12px;background:transparent;border:none;cursor:pointer;border-radius:8px;font-size:13px;font-weight:600;color:#1e293b;text-align:left;transition:all .2s;font-family:'Inter',sans-serif}
+.menu-parent:hover{background:#f1f5f9;color:var(--primary)}
+.menu-parent.active{background:linear-gradient(135deg,rgba(2,59,150,.08),rgba(2,59,150,.04));color:var(--primary)}
+.menu-parent-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.menu-parent-text{flex:1;font-size:12.5px;line-height:1.3}
+.menu-parent-arrow{font-size:9px;color:#94a3b8;transition:transform .3s}
+.menu-parent.expanded .menu-parent-arrow{transform:rotate(90deg);color:var(--primary)}
+
+/* Sub Menu */
+.menu-children{max-height:0;overflow:hidden;transition:max-height .35s ease;padding-left:16px}
+.menu-children.show{max-height:600px}
+.menu-child-group{margin-top:2px;margin-bottom:2px}
+.menu-child-head{display:flex;align-items:center;gap:8px;padding:8px 10px;font-size:11.5px;font-weight:600;color:#475569;cursor:pointer;border-radius:6px;transition:all .2s}
+.menu-child-head:hover{background:#f8fafc;color:var(--primary)}
+.menu-child-head i.arrow{font-size:8px;color:#94a3b8;transition:transform .25s}
+.menu-child-head.expanded i.arrow{transform:rotate(90deg);color:var(--primary)}
+.menu-child-head i.icon{color:var(--secondary);font-size:10px;width:12px;text-align:center}
+
+/* Leaf Items (tahun) */
+.menu-leaf-list{max-height:0;overflow:hidden;transition:max-height .3s ease;padding-left:20px}
+.menu-leaf-list.show{max-height:300px}
+.menu-leaf{display:flex;align-items:center;gap:8px;padding:6px 10px;font-size:12px;color:#64748b;cursor:pointer;border-radius:5px;transition:all .2s;border:none;background:transparent;width:100%;text-align:left;font-family:'Inter',sans-serif}
+.menu-leaf:hover{background:#f1f5f9;color:var(--primary)}
+.menu-leaf.active{background:var(--primary);color:#fff}
+.menu-leaf i{font-size:9px;color:var(--secondary)}
+.menu-leaf.active i{color:#c8a951}
+
+/* ===== CONTENT AREA ===== */
+.content-area{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.05)}
+.content-header{padding:18px 22px;border-bottom:1px solid #f1f5f9;display:flex;align-items:center;gap:14px}
+.content-header-icon{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,rgba(2,59,150,.08),rgba(200,169,81,.08));display:flex;align-items:center;justify-content:center;border:1px solid rgba(2,59,150,.08)}
+.content-header-icon i{color:var(--primary);font-size:18px}
+.content-header h2{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--primary);margin:0}
+.content-header p{font-size:12px;color:#94a3b8;margin:2px 0 0}
+.content-body{padding:22px}
+.content-description{font-size:13.5px;color:#475569;line-height:1.7;margin-bottom:18px;padding:14px 16px;background:linear-gradient(135deg,rgba(2,59,150,.03),rgba(200,169,81,.04));border-radius:10px;border-left:3px solid var(--secondary)}
+
+/* Report Grid */
+.report-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.report-card{display:flex;align-items:center;gap:14px;padding:14px;background:#fff;border:1px solid #eef2f7;border-radius:12px;transition:all .3s;cursor:pointer;text-decoration:none;color:inherit}
+.report-card:hover{border-color:var(--primary);box-shadow:0 6px 18px rgba(2,59,150,.1);transform:translateY(-2px)}
+.report-card-icon{width:44px;height:44px;min-width:44px;border-radius:10px;background:linear-gradient(135deg,#ffe8e8,#ffd0d0);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.report-card-icon i{color:#d32f2f;font-size:20px}
+.report-card-body{flex:1;min-width:0}
+.report-card-year{font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:2px}
+.report-card-title{font-size:13px;color:#1e293b;font-weight:700;margin-bottom:3px;line-height:1.3}
+.report-card-meta{font-size:10.5px;color:#94a3b8;display:flex;gap:10px;align-items:center}
+.report-card-meta span{display:inline-flex;align-items:center;gap:4px}
+.report-card-arrow{color:var(--primary);font-size:11px;opacity:.5;transition:all .3s}
+.report-card:hover .report-card-arrow{opacity:1;transform:translateX(3px)}
+
+/* Info Card */
+.info-card{padding:18px;background:linear-gradient(135deg,#023b96,#1a5bc7);border-radius:12px;color:#fff;margin-bottom:16px;position:relative;overflow:hidden}
+.info-card::before{content:'';position:absolute;top:-30px;right:-30px;width:100px;height:100px;border:2px solid rgba(200,169,81,.15);border-radius:50%;pointer-events:none}
+.info-card h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:6px;display:flex;align-items:center;gap:8px;position:relative;z-index:2}
+.info-card h4 i{color:#c8a951;font-size:14px}
+.info-card p{font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;margin-bottom:12px;position:relative;z-index:2}
+.info-card .info-items{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative;z-index:2}
+.info-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:10px 12px}
+.info-item-label{font-size:10px;color:rgba(255,255,255,.7);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:2px}
+.info-item-val{font-size:13px;color:#fff;font-weight:700}
+
+/* WBS Section */
+.wbs-card{background:linear-gradient(135deg,rgba(211,47,47,.04),rgba(211,47,47,.01));border:1px solid rgba(211,47,47,.15);border-radius:12px;padding:20px;margin-top:14px}
+.wbs-card h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#c62828;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.wbs-card h4 i{font-size:15px}
+.wbs-card p{font-size:13px;color:#475569;line-height:1.7;margin-bottom:14px}
+.wbs-channels{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}
+.wbs-channel{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#fff;border-radius:8px;border:1px solid rgba(211,47,47,.1)}
+.wbs-channel i{color:#c62828;font-size:14px;width:18px;text-align:center}
+.wbs-channel-text .label{font-size:10px;color:#94a3b8;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.wbs-channel-text .val{font-size:12px;color:#1e293b;font-weight:600;word-break:break-all}
+.wbs-privacy{display:flex;align-items:flex-start;gap:8px;padding:10px 12px;background:rgba(46,125,50,.05);border-radius:8px;border:1px solid rgba(46,125,50,.15);font-size:11.5px;color:#2e7d32;line-height:1.5}
+.wbs-privacy i{font-size:12px;margin-top:2px;flex-shrink:0}
+
+/* ===== FOOTER ===== */
+.footer{background:#011a3d;color:rgba(255,255,255,.8);padding:60px 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-col h4{color:#fff;font-size:16px;margin-bottom:20px;position:relative}
+.footer-col h4::after{content:'';position:absolute;bottom:-8px;left:0;width:30px;height:3px;background:var(--secondary);border-radius:2px}
+.footer-col p{font-size:14px;line-height:1.8;margin-bottom:15px}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;transition:var(--transition)}
+.footer-col ul li a:hover{color:var(--secondary);padding-left:5px}
+.footer-social{display:flex;gap:12px;margin-top:20px}
+.footer-social a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff;transition:var(--transition);text-decoration:none}
+.footer-social a:hover{background:var(--secondary);color:var(--primary);transform:translateY(-3px)}
+.footer-bottom{padding:25px 0;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.5)}
+.footer-bottom-links{display:flex;gap:20px}
+.footer-bottom-links a{color:rgba(255,255,255,.5);text-decoration:none;transition:var(--transition)}
+.footer-bottom-links a:hover{color:var(--secondary)}
+
+/* ===== WA FLOAT ===== */
+.wa-float{position:fixed;bottom:30px;left:30px;z-index:998;display:flex;align-items:center;gap:0}
+.wa-float-btn{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--wa),var(--wa-dark));display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,.4);transition:all .3s;position:relative;z-index:2}
+.wa-float-btn:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,.6)}
+.wa-float-label{background:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:600;color:var(--text-dark);box-shadow:var(--shadow);margin-left:-8px;padding-left:16px;white-space:nowrap;position:relative;z-index:1}
+.wa-float-label::before{content:'';position:absolute;left:-6px;top:50%;transform:translateY(-50%);border:6px solid transparent;border-right-color:#fff}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:992px){
+    .pelaporan-grid{grid-template-columns:240px 1fr;gap:18px}
+    .page-hero-visual{display:none}
+    .page-hero-text h1{font-size:30px}
+}
+@media(max-width:768px){
+    .nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:15px;box-shadow:var(--shadow);gap:2px;max-height:75vh;overflow-y:auto}
+    .nav-menu.active{display:flex}
+    .nav-menu>li{width:100%}
+    .nav-menu>li>a{display:flex;justify-content:space-between;width:100%;padding:10px 14px}
+    .nav-menu li .dropdown{position:static;box-shadow:none;border:none;padding:0 0 0 15px;display:none;opacity:1;transform:none;margin-top:2px}
+    .nav-menu li.dropdown-open .dropdown{display:block}
+    .hamburger{display:block}
+    .btn-whatsapp{margin-left:0;margin-top:8px;width:100%;justify-content:center;padding:11px!important}
+    .top-bar{display:none}
+    .page-hero{padding:30px 0 40px}
+    .page-hero-text h1{font-size:24px}
+    .page-hero-text p{font-size:13px}
+    .pelaporan-section{padding:25px 0 40px}
+    .pelaporan-grid{grid-template-columns:1fr;gap:16px}
+    .sidebar{position:static}
+    .content-body{padding:18px}
+    .content-header{padding:16px 18px}
+    .report-grid{grid-template-columns:1fr}
+    .info-card .info-items{grid-template-columns:1fr}
+    .wbs-channels{grid-template-columns:1fr}
+    .footer-grid{grid-template-columns:1fr}
+    .footer-bottom{flex-direction:column;gap:15px;text-align:center}
+    .wa-float-label{display:none}
+    .wa-float{left:20px;bottom:20px}
+    .wa-float-btn{width:50px;height:50px;font-size:22px}
+}
+@media(max-width:480px){
+    .page-hero-text h1{font-size:21px}
+    .content-header h2{font-size:17px}
+    .content-header-icon{width:36px;height:36px}
+    .report-card{padding:12px}
+    .report-card-icon{width:38px;height:38px;min-width:38px}
+    .report-card-icon i{font-size:17px}
+}
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.content-area{animation:fadeInUp .4s ease}
+</style>
+</head>
+<body>
+
+<!-- ═══════ TOP BAR ═══════ -->
+<div class="top-bar">
+    <div class="container">
+        <div class="top-bar-left">
+            <span><i class="fas fa-phone"></i> 1500-888</span>
+            <span><i class="fas fa-envelope"></i> info@bankdamara.co.id</span>
+        </div>
+        <div class="top-bar-right">
+            <a href="index.html"><i class="fas fa-map-marker-alt"></i> Temukan Kantor Kami</a>
+            <a href="#pelaporan"><i class="fas fa-headset"></i> Bantuan</a>
+            <a href="#"><i class="fas fa-globe"></i> EN | ID</a>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════ HEADER / NAVBAR ═══════ -->
+<header class="header" id="mainHeader">
+    <div class="container">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">BN</div>
+            <div class="logo-text">
+                <h1>BANK NUSANTARA</h1>
+                <span>Trusted Since 1985</span>
+            </div>
+        </a>
+        <nav class="nav">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="index.html#tentang">Tentang Kami <i class="fas fa-chevron-down" style="font-size:9px"></i></a>
+                    <div class="dropdown">
+                        <a href="index.html#tentang"><i class="fas fa-building"></i> Profil</a>
+                        <a href="index.html#tentang"><i class="fas fa-bullseye"></i> Visi & Misi</a>
+                        <a href="index.html#tentang"><i class="fas fa-heart"></i> Budaya</a>
+                        <a href="index.html#tentang"><i class="fas fa-user-tie"></i> Manajemen</a>
+                        <a href="index.html#tentang"><i class="fas fa-briefcase"></i> Karir</a>
+                    </div>
+                </li>
+                <li><a href="index.html#produk">Produk <i class="fas fa-chevron-down" style="font-size:9px"></i></a>
+                    <div class="dropdown">
+                        <a href="tabungan.html"><i class="fas fa-piggy-bank"></i> Tabungan</a>
+                        <a href="#"><i class="fas fa-chart-line"></i> Deposito</a>
+                        <a href="#"><i class="fas fa-hand-holding-usd"></i> Pinjaman</a>
+                        <a href="index.html#layanan"><i class="fas fa-concierge-bell"></i> Digital</a>
+                    </div>
+                </li>
+                <li><a href="index.html#lelang"><i class="fas fa-gavel"></i> Lelang</a></li>
+                <li><a href="pelaporan.html" class="active">Pelaporan <i class="fas fa-chevron-down" style="font-size:9px"></i></a>
+                    <div class="dropdown">
+                        <a href="pelaporan.html#publikasi"><i class="fas fa-newspaper"></i> Publikasi</a>
+                        <a href="pelaporan.html#tahunan"><i class="fas fa-book"></i> Tahunan</a>
+                        <a href="pelaporan.html#pengaduan"><i class="fas fa-comment-dots"></i> Pengaduan</a>
+                    </div>
+                </li>
+                <li><a href="https://wa.me/6281234567890" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Chat CS</a></li>
+            </ul>
+            <div class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('active')">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- ═══════ HERO PAGE MINI ═══════ -->
+<section class="page-hero">
+    <div class="container">
+        <div class="page-hero-inner">
+            <div class="page-hero-text">
+                <div class="breadcrumb">
+                    <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span style="color:var(--secondary)">Pelaporan</span>
+                </div>
+                <h1>Transparansi & <span class="gold">Pelaporan</span></h1>
+                <p>Akses publikasi laporan keuangan, laporan tahunan, GCG, dan saluran pengaduan konsumen BANK NUSANTARA secara transparan dan akuntabel.</p>
+            </div>
+            <div class="page-hero-visual">
+                <i class="fas fa-file-alt"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ PELAPORAN SECTION ═══════ -->
+<section class="pelaporan-section" id="pelaporan">
+    <div class="container">
+        <div class="pelaporan-grid">
+
+            <!-- ═══════ SIDEBAR ═══════ -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-header-icon"><i class="fas fa-sitemap"></i></div>
+                    <div>
+                        <h4>Menu Pelaporan</h4>
+                        <p>Pilih kategori laporan</p>
+                    </div>
+                </div>
+                <div class="menu-tree">
+
+                    <!-- GROUP 1: PUBLIKASI -->
+                    <div class="menu-group">
+                        <button class="menu-parent active expanded" data-target="content-publikasi" onclick="selectCategory(this,'content-publikasi')">
+                            <span class="menu-parent-icon" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);color:#1565c0"><i class="fas fa-newspaper"></i></span>
+                            <span class="menu-parent-text">Publikasi</span>
+                            <i class="fas fa-chevron-right menu-parent-arrow"></i>
+                        </button>
+                        <div class="menu-children show">
+                            <div class="menu-child-group">
+                                <div class="menu-child-head expanded" onclick="toggleLeaf(this)">
+                                    <i class="fas fa-chevron-right arrow"></i>
+                                    <i class="fas fa-file-invoice-dollar icon"></i>
+                                    <span>Laporan Keuangan Triwulan</span>
+                                </div>
+                                <div class="menu-leaf-list show">
+                                    <button class="menu-leaf active" onclick="showReport(this,'publikasi','triwulan','2026')"><i class="fas fa-circle"></i> Tahun 2026</button>
+                                    <button class="menu-leaf" onclick="showReport(this,'publikasi','triwulan','2025')"><i class="fas fa-circle"></i> Tahun 2025</button>
+                                    <button class="menu-leaf" onclick="showReport(this,'publikasi','triwulan','2024')"><i class="fas fa-circle"></i> Tahun 2024</button>
+                                    <button class="menu-leaf" onclick="showReport(this,'publikasi','triwulan','2023')"><i class="fas fa-circle"></i> Tahun 2023</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GROUP 2: LAPORAN TAHUNAN -->
+                    <div class="menu-group">
+                        <button class="menu-parent" data-target="content-tahunan" onclick="selectCategory(this,'content-tahunan')">
+                            <span class="menu-parent-icon" style="background:linear-gradient(135deg,rgba(200,169,81,.15),rgba(200,169,81,.05));color:#c8a951;border:1px solid rgba(200,169,81,.2)"><i class="fas fa-book"></i></span>
+                            <span class="menu-parent-text">Laporan Tahunan</span>
+                            <i class="fas fa-chevron-right menu-parent-arrow"></i>
+                        </button>
+                        <div class="menu-children">
+                            <!-- Sub 1: Laporan Tahunan -->
+                            <div class="menu-child-group">
+                                <div class="menu-child-head" onclick="toggleLeaf(this)">
+                                    <i class="fas fa-chevron-right arrow"></i>
+                                    <i class="fas fa-book-open icon"></i>
+                                    <span>Laporan Tahunan</span>
+                                </div>
+                                <div class="menu-leaf-list">
+                                    <button class="menu-leaf" onclick="showReport(this,'tahunan','tahunan','2026')"><i class="fas fa-circle"></i> Tahun 2026</button>
+                                    <button class="menu-leaf" onclick="showReport(this,'tahunan','tahunan','2025')"><i class="fas fa-circle"></i> Tahun 2025</button>
+                                    <button class="menu-leaf" onclick="showReport(this,'tahunan','tahunan','2024')"><i class="fas fa-circle"></i> Tahun 2024</button>
+                                    <button class="menu-leaf" onclick="showReport(this,'tahunan','tahunan','2023')"><i class="fas fa-circle"></i> Tahun 2023</button>
+                                </div>
+                            </div>
+                            <!-- Sub 2: Laporan Berkelanjutan -->
+                            <div class="menu-child-group">
+                                <div class="menu-child-head" onclick="toggleLeaf(this)">
+                                    <i class="fas fa-chevron-right arrow"></i>
+                                    <i class="fas fa-leaf icon"></i>
+                                    <span>Laporan Berkelanjutan</span>
+                                </div>
+                                <div class="menu-leaf-list">
+                                    <button class="menu-leaf" onclick="showReport(this,'tahunan','berkelanjutan','2026')"><i class="fas fa-circle"></i> Tahun 2026</button>
+                                    <button class="menu-leaf" onclick="showReport(this,'tahunan','berkelanjutan','2025')"><i class="fas fa-circle"></i> Tahun 2025</button>
+                                    <button class="menu-leaf" onclick="showReport(this,'tahunan','berkelanjutan','2024')"><i class="fas fa-circle"></i> Tahun 2024</button>
+                                    <button class="menu-leaf" onclick="showReport(this,'tahunan','berkelanjutan','2023')"><i class="fas fa-circle"></i> Tahun 2023</button>
+                                </div>
+                            </div>
+                            <!-- Sub 3: Laporan GCG -->
+                            <div class="menu-child-group">
+                                <div class="menu-child-head" onclick="toggleLeaf(this)">
+                                    <i class="fas fa-chevron-right arrow"></i>
+                                    <i class="fas fa-balance-scale icon"></i>
+                                    <span>Laporan GCG (Tata Kelola)</span>
+                                </div>
+                                <div class="menu-leaf-list">
+                                    <button class="menu-leaf" onclick="showReport(this,'tahunan','gcg','2026')"><i class="fas fa-circle"></i> Tahun 2026</button>
+                                    <button class="menu-leaf" onclick="showReport(this,'tahunan','gcg','2025')"><i class="fas fa-circle"></i> Tahun 2025</button>
+                                    <button class="menu-leaf" onclick="showReport(this,'tahunan','gcg','2024')"><i class="fas fa-circle"></i> Tahun 2024</button>
+                                    <button class="menu-leaf" onclick="showReport(this,'tahunan','gcg','2023')"><i class="fas fa-circle"></i> Tahun 2023</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GROUP 3: LAPORAN PENGADUAN -->
+                    <div class="menu-group">
+                        <button class="menu-parent" data-target="content-pengaduan" onclick="selectCategory(this,'content-pengaduan')">
+                            <span class="menu-parent-icon" style="background:linear-gradient(135deg,#ffebee,#ffcdd2);color:#c62828"><i class="fas fa-headset"></i></span>
+                            <span class="menu-parent-text">Laporan Pengaduan</span>
+                            <i class="fas fa-chevron-right menu-parent-arrow"></i>
+                        </button>
+                        <div class="menu-children">
+                            <div class="menu-child-group">
+                                <button class="menu-leaf" style="padding-left:10px" onclick="showReport(this,'pengaduan','konsumen','')"><i class="fas fa-circle"></i> Laporan Pengaduan Konsumen</button>
+                                <button class="menu-leaf" style="padding-left:10px" onclick="showReport(this,'pengaduan','wbs','')"><i class="fas fa-circle"></i> Whistleblowing System (WBS)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+
+            <!-- ═══════ CONTENT AREA ═══════ -->
+            <div class="content-area" id="contentArea">
+
+                <!-- CONTENT: PUBLIKASI -->
+                <div id="content-publikasi">
+                    <div class="content-header">
+                        <div class="content-header-icon"><i class="fas fa-newspaper"></i></div>
+                        <div>
+                            <h2 id="title-publikasi">Publikasi — Laporan Keuangan Triwulan</h2>
+                            <p id="subtitle-publikasi">Tahun 2026</p>
+                        </div>
+                    </div>
+                    <div class="content-body">
+                        <div class="content-description">
+                            <i class="fas fa-info-circle" style="color:#c8a951"></i>
+                            Laporan Keuangan Triwulan BANK NUSANTARA dipublikasikan sesuai ketentuan OJK untuk memberikan transparansi kinerja keuangan kepada publik.
+                        </div>
+                        <div class="report-grid" id="grid-publikasi">
+                            <!-- Diisi oleh JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENT: LAPORAN TAHUNAN -->
+                <div id="content-tahunan" style="display:none">
+                    <div class="content-header">
+                        <div class="content-header-icon"><i class="fas fa-book"></i></div>
+                        <div>
+                            <h2 id="title-tahunan">Laporan Tahunan</h2>
+                            <p id="subtitle-tahunan">Tahun 2026</p>
+                        </div>
+                    </div>
+                    <div class="content-body">
+                        <div class="content-description">
+                            <i class="fas fa-info-circle" style="color:#c8a951"></i>
+                            Dokumen resmi tahunan BANK NUSANTARA yang mencakup kinerja perusahaan, tata kelola, dan komitmen keberlanjutan.
+                        </div>
+                        <div class="report-grid" id="grid-tahunan"></div>
+                    </div>
+                </div>
+
+                <!-- CONTENT: LAPORAN PENGADUAN -->
+                <div id="content-pengaduan" style="display:none">
+                    <div class="content-header">
+                        <div class="content-header-icon" style="background:linear-gradient(135deg,#ffebee,#ffcdd2);border-color:rgba(198,40,40,.15)"><i class="fas fa-headset" style="color:#c62828"></i></div>
+                        <div>
+                            <h2 id="title-pengaduan">Laporan Pengaduan Konsumen</h2>
+                            <p id="subtitle-pengaduan">Saluran resmi pengaduan nasabah</p>
+                        </div>
+                    </div>
+                    <div class="content-body" id="body-pengaduan">
+                        <!-- Diisi oleh JS -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Tentang BANK NUSANTARA</h4>
+                <p>Bank nasional terpercaya sejak 1985 dengan layanan perbankan terbaik dan keamanan tinggi.</p>
+                <p><i class="fas fa-map-marker-alt" style="color:var(--secondary)"></i> Jl. Jend. Sudirman Kav. 88, Jakarta Pusat 10220</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/bank_damara" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Produk</h4>
+                <ul>
+                    <li><a href="tabungan.html">Tabungan</a></li>
+                    <li><a href="#">Deposito</a></li>
+                    <li><a href="#">Pinjaman</a></li>
+                    <li><a href="index.html#layanan">Layanan Digital</a></li>
+                    <li><a href="index.html#lelang">Lelang Agunan</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Perusahaan</h4>
+                <ul>
+                    <li><a href="index.html#tentang">Profil</a></li>
+                    <li><a href="index.html#tentang">Visi & Misi</a></li>
+                    <li><a href="index.html#tentang">Manajemen</a></li>
+                    <li><a href="index.html#tentang">Karir</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Pelaporan</h4>
+                <ul>
+                    <li><a href="pelaporan.html#publikasi">Publikasi</a></li>
+                    <li><a href="pelaporan.html#tahunan">Laporan Tahunan</a></li>
+                    <li><a href="pelaporan.html#pengaduan">Pengaduan</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="https://wa.me/6281234567890" target="_blank">Hubungi Kami</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 BANK NUSANTARA. Seluruh hak cipta dilindungi. Terdaftar dan diawasi OJK.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Kebijakan Privasi</a>
+                <a href="#">Syarat & Ketentuan</a>
+                <a href="#">Keamanan</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ═══════ WA FLOAT ═══════ -->
+<div class="wa-float">
+    <a href="https://wa.me/6281234567890" target="_blank" class="wa-float-btn"><i class="fab fa-whatsapp"></i></a>
+    <div class="wa-float-label">Butuh bantuan? Chat kami!</div>
+</div>
+
+<!-- ═══════ SCRIPT ═══════ -->
+<script>
+// Header scroll
+window.addEventListener('scroll',function(){
+    document.getElementById('mainHeader').classList.toggle('scrolled',window.scrollY>50);
+});
+
+// Mobile dropdown
+document.querySelectorAll('.nav-menu > li > a').forEach(function(l){
+    l.addEventListener('click',function(e){
+        if(window.innerWidth<=768 && this.nextElementSibling && this.nextElementSibling.classList.contains('dropdown')){
+            e.preventDefault();
+            this.parentElement.classList.toggle('dropdown-open');
+        }
+    });
+});
+
+// ===== SIDEBAR LOGIC =====
+// Toggle sub-menu leaf list
+function toggleLeaf(el){
+    el.classList.toggle('expanded');
+    var list=el.nextElementSibling;
+    if(list) list.classList.toggle('show');
+}
+
+// Select parent category (expand & show content)
+function selectCategory(btn,contentId){
+    // Remove active from all parents
+    document.querySelectorAll('.menu-parent').forEach(function(p){p.classList.remove('active','expanded')});
+    // Add active to clicked
+    btn.classList.add('active','expanded');
+    // Close all children
+    document.querySelectorAll('.menu-children').forEach(function(c){c.classList.remove('show')});
+    // Show children of clicked
+    var children=btn.nextElementSibling;
+    if(children) children.classList.add('show');
+    // Show content area
+    document.querySelectorAll('.content-area > div').forEach(function(c){c.style.display='none'});
+    document.getElementById(contentId).style.display='block';
+    // Re-animate
+    var ca=document.getElementById('contentArea');
+    ca.style.animation='none';
+    ca.offsetHeight;
+    ca.style.animation='fadeInUp .4s ease';
+    // Scroll ke content di mobile
+    if(window.innerWidth<=768){
+        setTimeout(function(){
+            document.getElementById(contentId).scrollIntoView({behavior:'smooth',block:'start'});
+        },150);
+    }
+}
+
+// Show report berdasarkan kategori, tipe, tahun
+function showReport(btn,category,type,year){
+    // Clear active leaf
+    document.querySelectorAll('.menu-leaf').forEach(function(l){l.classList.remove('active')});
+    btn.classList.add('active');
+
+    var titleEl=document.getElementById('title-'+category);
+    var subtitleEl=document.getElementById('subtitle-'+category);
+    var gridEl=document.getElementById('grid-'+category);
+    var bodyEl=document.getElementById('body-'+category);
+
+    if(category==='publikasi'){
+        titleEl.textContent='Publikasi — Laporan Keuangan Triwulan';
+        subtitleEl.textContent='Tahun '+year;
+        gridEl.innerHTML=buildTriwulanCards(year);
+    }
+    else if(category==='tahunan'){
+        if(type==='tahunan'){
+            titleEl.textContent='Laporan Tahunan';
+            subtitleEl.textContent='Tahun '+year;
+            gridEl.innerHTML=buildTahunanCards(year,'Laporan Tahunan','Laporan Tahunan BANK NUSANTARA tahun '+year+' memuat ringkasan kinerja, strategi, dan pencapaian perusahaan selama satu tahun buku.');
+        }
+        else if(type==='berkelanjutan'){
+            titleEl.textContent='Laporan Berkelanjutan';
+            subtitleEl.textContent='Tahun '+year;
+            gridEl.innerHTML=buildTahunanCards(year,'Laporan Berkelanjutan','Laporan Keberlanjutan (Sustainability Report) BANK NUSANTARA tahun '+year+' tentang komitmen ESG.');
+        }
+        else if(type==='gcg'){
+            titleEl.textContent='Laporan GCG (Tata Kelola)';
+            subtitleEl.textContent='Tahun '+year;
+            gridEl.innerHTML=buildTahunanCards(year,'Laporan GCG','Laporan Good Corporate Governance (GCG) BANK NUSANTARA tahun '+year+'.');
+        }
+    }
+    else if(category==='pengaduan'){
+        if(type==='konsumen'){
+            titleEl.textContent='Laporan Pengaduan Konsumen';
+            subtitleEl.textContent='Saluran resmi pengaduan nasabah';
+            bodyEl.innerHTML=buildPengaduanKonsumen();
+        }
+        else if(type==='wbs'){
+            titleEl.textContent='Whistleblowing System (WBS)';
+            subtitleEl.textContent='Saluran pelaporan pelanggaran';
+            bodyEl.innerHTML=buildWBS();
+        }
+    }
+
+    // Animate
+    var ca=document.getElementById('contentArea');
+    ca.style.animation='none';
+    ca.offsetHeight;
+    ca.style.animation='fadeInUp .4s ease';
+}
+
+// ===== BUILD CARD FUNCTIONS =====
+function buildTriwulanCards(year){
+    var q=['Triwulan I (Januari - Maret)','Triwulan II (April - Juni)','Triwulan III (Juli - September)','Triwulan IV (Oktober - Desember)'];
+    var sizes=['1.8 MB','2.1 MB','1.9 MB','2.3 MB'];
+    var html='';
+    for(var i=0;i<4;i++){
+        html+=`
+        <a href="#" class="report-card" onclick="event.preventDefault();alert('Download: Laporan Keuangan ${q[i]} ${year}')">
+            <div class="report-card-icon"><i class="fas fa-file-pdf"></i></div>
+            <div class="report-card-body">
+                <div class="report-card-year">Tahun ${year}</div>
+                <div class="report-card-title">${q[i]}</div>
+                <div class="report-card-meta">
+                    <span><i class="fas fa-file-pdf"></i> PDF</span>
+                    <span><i class="fas fa-weight"></i> ${sizes[i]}</span>
+                </div>
+            </div>
+            <i class="fas fa-arrow-right report-card-arrow"></i>
+        </a>`;
+    }
+    return html;
+}
+
+function buildTahunanCards(year,type,desc){
+    var iconMap={'Laporan Tahunan':'fa-book-open','Laporan Berkelanjutan':'fa-leaf','Laporan GCG':'fa-balance-scale'};
+    var html=`
+        <div style="grid-column:1/-1;margin-bottom:10px">
+            <div class="info-card">
+                <h4><i class="fas ${iconMap[type]||'fa-file-alt'}"></i> ${type} ${year}</h4>
+                <p>${desc}</p>
+                <div class="info-items">
+                    <div class="info-item">
+                        <div class="info-item-label">Periode</div>
+                        <div class="info-item-val">Januari - Desember ${year}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-item-label">Disahkan</div>
+                        <div class="info-item-val">Direksi & Dewan Komisaris</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="report-card" onclick="event.preventDefault();alert('Download: ${type} ${year}')">
+            <div class="report-card-icon" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb)"><i class="fas fa-file-pdf" style="color:#1565c0"></i></div>
+            <div class="report-card-body">
+                <div class="report-card-year">Versi Lengkap</div>
+                <div class="report-card-title">${type} ${year} — Full Version</div>
+                <div class="report-card-meta">
+                    <span><i class="fas fa-file-pdf"></i> PDF</span>
+                    <span><i class="fas fa-weight"></i> 8.5 MB</span>
+                </div>
+            </div>
+            <i class="fas fa-arrow-right report-card-arrow"></i>
+        </a>
+        <a href="#" class="report-card" onclick="event.preventDefault();alert('Download: ${type} ${year} Ringkasan')">
+            <div class="report-card-icon" style="background:linear-gradient(135deg,rgba(200,169,81,.15),rgba(200,169,81,.05))"><i class="fas fa-file-alt" style="color:#c8a951"></i></div>
+            <div class="report-card-body">
+                <div class="report-card-year">Versi Ringkas</div>
+                <div class="report-card-title">${type} ${year} — Ringkasan Eksekutif</div>
+                <div class="report-card-meta">
+                    <span><i class="fas fa-file-pdf"></i> PDF</span>
+                    <span><i class="fas fa-weight"></i> 2.3 MB</span>
+                </div>
+            </div>
+            <i class="fas fa-arrow-right report-card-arrow"></i>
+        </a>`;
+    return html;
+}
+
+function buildPengaduanKonsumen(){
+    return `
+        <div class="content-description">
+            <i class="fas fa-shield-alt" style="color:#c8a951"></i>
+            BANK NUSANTARA berkomitmen memberikan pelayanan terbaik. Jika Anda mengalami kendala atau ketidakpuasan terhadap produk/layanan kami, silakan sampaikan pengaduan melalui saluran resmi di bawah ini.
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px" class="pk-grid">
+            <div style="padding:14px;background:#fff;border:1px solid #eef2f7;border-radius:10px;display:flex;align-items:center;gap:12px">
+                <div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:linear-gradient(135deg,#e3f2fd,#bbdefb);display:flex;align-items:center;justify-content:center"><i class="fas fa-phone" style="color:#1565c0;font-size:16px"></i></div>
+                <div>
+                    <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:.5px;text-transform:uppercase">Call Center</div>
+                    <div style="font-size:14px;color:#023b96;font-weight:700">1500-888</div>
+                </div>
+            </div>
+            <div style="padding:14px;background:#fff;border:1px solid #eef2f7;border-radius:10px;display:flex;align-items:center;gap:12px">
+                <div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);display:flex;align-items:center;justify-content:center"><i class="fab fa-whatsapp" style="color:#2e7d32;font-size:18px"></i></div>
+                <div>
+                    <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:.5px;text-transform:uppercase">WhatsApp CS</div>
+                    <div style="font-size:14px;color:#2e7d32;font-weight:700">+62 812-3456-7890</div>
+                </div>
+            </div>
+            <div style="padding:14px;background:#fff;border:1px solid #eef2f7;border-radius:10px;display:flex;align-items:center;gap:12px">
+                <div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:linear-gradient(135deg,rgba(200,169,81,.15),rgba(200,169,81,.05));display:flex;align-items:center;justify-content:center"><i class="fas fa-envelope" style="color:#c8a951;font-size:16px"></i></div>
+                <div>
+                    <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:.5px;text-transform:uppercase">Email</div>
+                    <div style="font-size:13px;color:#023b96;font-weight:700">pengaduan@bankdamara.co.id</div>
+                </div>
+            </div>
+            <div style="padding:14px;background:#fff;border:1px solid #eef2f7;border-radius:10px;display:flex;align-items:center;gap:12px">
+                <div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:linear-gradient(135deg,#fce4ec,#f8bbd0);display:flex;align-items:center;justify-content:center"><i class="fas fa-building" style="color:#c62828;font-size:16px"></i></div>
+                <div>
+                    <div style="font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:.5px;text-transform:uppercase">Kantor Cabang</div>
+                    <div style="font-size:13px;color:#c62828;font-weight:700">Seluruh Cabang Indonesia</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding:16px;background:linear-gradient(135deg,rgba(2,59,150,.04),rgba(200,169,81,.04));border-radius:10px;border-left:3px solid var(--secondary)">
+            <h4 style="font-family:'Playfair Display',serif;font-size:14px;color:#023b96;margin-bottom:8px;display:flex;align-items:center;gap:8px"><i class="fas fa-clock" style="color:#c8a951"></i> Waktu Penyelesaian</h4>
+            <ul style="list-style:none;font-size:12.5px;color:#475569;line-height:1.8">
+                <li><i class="fas fa-check" style="color:#4caf50;font-size:10px;margin-right:6px"></i> Tanggapan awal: maksimal <strong>2 hari kerja</strong></li>
+                <li><i class="fas fa-check" style="color:#4caf50;font-size:10px;margin-right:6px"></i> Penyelesaian akhir: maksimal <strong>20 hari kerja</strong></li>
+                <li><i class="fas fa-check" style="color:#4caf50;font-size:10px;margin-right:6px"></i> Jika tidak puas: dapat meneruskan ke <strong>LAPS SJK</strong></li>
+            </ul>
+        </div>`;
+}
+
+function buildWBS(){
+    return `
+        <div class="wbs-card">
+            <h4><i class="fas fa-user-secret"></i> Whistleblowing System (WBS)</h4>
+            <p>Saluran pelaporan internal BANK NUSANTARA untuk mengungkapkan dugaan pelanggaran, kecurangan (fraud), korupsi, gratifikasi, atau tindakan tidak etis yang dilakukan oleh karyawan, direksi, atau pihak terkait dengan bank.</p>
+
+            <div class="wbs-channels">
+                <div class="wbs-channel">
+                    <i class="fas fa-envelope"></i>
+                    <div class="wbs-channel-text">
+                        <div class="label">Email WBS</div>
+                        <div class="val">wbs@bankdamara.co.id</div>
+                    </div>
+                </div>
+                <div class="wbs-channel">
+                    <i class="fas fa-globe"></i>
+                    <div class="wbs-channel-text">
+                        <div class="label">Portal Online</div>
+                        <div class="val">wbs.bankdamara.co.id</div>
+                    </div>
+                </div>
+                <div class="wbs-channel">
+                    <i class="fas fa-mail-bulk"></i>
+                    <div class="wbs-channel-text">
+                        <div class="label">Surat Tertutup</div>
+                        <div class="val">Komite Audit — Gedung Pusat Lt. 12</div>
+                    </div>
+                </div>
+                <div class="wbs-channel">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="wbs-channel-text">
+                        <div class="label">Hotline WBS</div>
+                        <div class="val">+62 21-5088-7700 (ext. 9999)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wbs-privacy">
+                <i class="fas fa-shield-alt"></i>
+                <div><strong>Jaminan Kerahasiaan:</strong> Identitas pelapor dilindungi penuh sesuai UU No. 13 Tahun 2006 tentang Perlindungan Saksi dan Korban. Laporan dapat disampaikan secara anonim.</div>
+            </div>
+        </div>
+
+        <div style="margin-top:14px;padding:16px;background:#fff;border:1px solid #eef2f7;border-radius:10px">
+            <h4 style="font-family:'Playfair Display',serif;font-size:14px;color:#023b96;margin-bottom:10px;display:flex;align-items:center;gap:8px"><i class="fas fa-list-check" style="color:#c8a951"></i> Jenis Pelaporan yang Dapat Disampaikan</h4>
+            <ul style="list-style:none;font-size:12.5px;color:#475569;line-height:1.9">
+                <li><i class="fas fa-chevron-right" style="color:#c8a951;font-size:8px;margin-right:8px"></i> Dugaan tindak pidana korupsi</li>
+                <li><i class="fas fa-chevron-right" style="color:#c8a951;font-size:8px;margin-right:8px"></i> Fraud / kecurangan keuangan</li>
+                <li><i class="fas fa-chevron-right" style="color:#c8a951;font-size:8px;margin-right:8px"></i> Gratifikasi dan benturan kepentingan</li>
+                <li><i class="fas fa-chevron-right" style="color:#c8a951;font-size:8px;margin-right:8px"></i> Pelanggaran kode etik perusahaan</li>
+                <li><i class="fas fa-chevron-right" style="color:#c8a951;font-size:8px;margin-right:8px"></i> Pelecehan, diskriminasi, atau intimidasi</li>
+                <li><i class="fas fa-chevron-right" style="color:#c8a951;font-size:8px;margin-right:8px"></i> Pelanggaran regulasi OJK/BI</li>
+            </ul>
+        </div>`;
+}
+
+// Init: load default content (Publikasi - Triwulan 2026)
+document.addEventListener('DOMContentLoaded',function(){
+    document.getElementById('grid-publikasi').innerHTML=buildTriwulanCards('2026');
+});
+</script>
+
+</body>
+</html>
