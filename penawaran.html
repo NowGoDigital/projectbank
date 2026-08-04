@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Jasa Website Bank & Lembaga Keuangan Profesional — DIGITALPro</title>
-<meta name="description" content="Jasa pembuatan website profesional untuk Bank, BPR, dan Lembaga Keuangan. Desain premium, aman, terpercaya.">
+<title>Upgrade Website Bank Anda — Tampil Modern Seperti BANK NUSANTARA</title>
+<meta name="description" content="Jasa upgrade website bank jadul jadi modern. Transformasi tampilan bank Anda sekelas BANK NUSANTARA dalam 7-14 hari.">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,224 +25,308 @@
   }
   *{font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased;}
   .font-serif{font-family:'Instrument Serif',serif; letter-spacing:-0.01em;}
-
   body{background:var(--bg); color:var(--text);}
-
-  /* Gold accent */
   .gold{color:var(--gold);}
   .gold-soft{color:var(--gold-soft);}
   .bg-gold{background:var(--gold);}
-
-  /* Gradient text subtle */
   .text-gradient{
     background:linear-gradient(135deg,#E5D4A7 0%,#C9A961 100%);
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   }
-
-  /* Surface card */
-  .surface{
-    background:var(--surface);
-    border:1px solid var(--line);
-  }
+  .surface{background:var(--surface); border:1px solid var(--line);}
   .surface-hover{transition:all .3s ease;}
-  .surface-hover:hover{
-    background:var(--surface-2);
-    border-color:rgba(201,169,97,0.25);
-    transform:translateY(-2px);
-  }
-
-  /* Gold line */
-  .gold-line{
-    width:40px;height:1px;
-    background:var(--gold);
-  }
-
-  /* Button */
-  .btn-primary{
-    background:var(--gold);
-    color:#0A1628;
-    transition:all .3s ease;
-  }
-  .btn-primary:hover{
-    background:var(--gold-soft);
-    transform:translateY(-1px);
-  }
-  .btn-ghost{
-    background:transparent;
-    border:1px solid var(--line);
-    color:var(--text);
-    transition:all .3s ease;
-  }
-  .btn-ghost:hover{
-    border-color:var(--gold);
-    color:var(--gold-soft);
-  }
-
-  /* Reveal */
-  .reveal{opacity:0; transform:translateY(24px); transition:all .8s cubic-bezier(.2,.8,.2,1);}
+  .surface-hover:hover{background:var(--surface-2); border-color:rgba(201,169,97,0.25); transform:translateY(-2px);}
+  .gold-line{width:32px; height:1px; background:var(--gold);}
+  .btn-primary{background:var(--gold); color:#0A1628; transition:all .3s ease;}
+  .btn-primary:hover{background:var(--gold-soft); transform:translateY(-1px);}
+  .btn-ghost{background:transparent; border:1px solid var(--line); color:var(--text); transition:all .3s ease;}
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold-soft);}
+  .reveal{opacity:0; transform:translateY(20px); transition:all .7s cubic-bezier(.2,.8,.2,1);}
   .reveal.active{opacity:1; transform:translateY(0);}
-
-  /* Counter */
-  .counter{font-variant-numeric:tabular-nums;}
-
-  /* Compare cards */
-  .compare-bad{
-    background:linear-gradient(180deg,rgba(220,60,60,0.06),rgba(220,60,60,0.02));
-    border:1px solid rgba(220,60,60,0.15);
-  }
-  .compare-good{
-    background:linear-gradient(180deg,rgba(201,169,97,0.08),rgba(201,169,97,0.02));
-    border:1px solid rgba(201,169,97,0.25);
-  }
-
-  /* Device frame */
-  .device-frame{
-    background:var(--surface);
-    border:1px solid var(--line);
-  }
-
-  /* Preview tabs */
-  .preview-tab{
-    transition:all .3s ease;
-    color:var(--muted);
-    border:1px solid transparent;
-  }
-  .preview-tab.active{
-    color:var(--gold);
-    border-color:var(--gold);
-    background:rgba(201,169,97,0.06);
-  }
-
-  /* FAQ */
-  .faq-item{
-    border:1px solid var(--line);
-    background:var(--surface);
-    transition:all .3s ease;
-  }
-  .faq-item.open{
-    border-color:rgba(201,169,97,0.25);
-    background:var(--surface-2);
-  }
+  .compare-bad{background:linear-gradient(180deg,rgba(220,60,60,0.05),rgba(220,60,60,0.01)); border:1px solid rgba(220,60,60,0.15);}
+  .compare-good{background:linear-gradient(180deg,rgba(201,169,97,0.06),rgba(201,169,97,0.01)); border:1px solid rgba(201,169,97,0.25);}
+  .device-frame{background:var(--surface); border:1px solid var(--line);}
+  .preview-tab{transition:all .3s ease; color:var(--muted); border:1px solid transparent;}
+  .preview-tab.active{color:var(--gold); border-color:var(--gold); background:rgba(201,169,97,0.06);}
+  .faq-item{border:1px solid var(--line); background:var(--surface); transition:all .3s ease;}
+  .faq-item.open{border-color:rgba(201,169,97,0.25); background:var(--surface-2);}
   .faq-answer{max-height:0; overflow:hidden; transition:max-height .4s ease;}
   .faq-item.open .faq-answer{max-height:500px;}
   .faq-icon{transition:transform .3s ease; color:var(--gold);}
   .faq-item.open .faq-icon{transform:rotate(45deg);}
-
-  /* Feature icon */
-  .f-icon{
-    background:rgba(201,169,97,0.08);
-    border:1px solid rgba(201,169,97,0.2);
-    transition:all .3s ease;
-  }
-  .surface-hover:hover .f-icon{
-    background:rgba(201,169,97,0.15);
-    border-color:rgba(201,169,97,0.4);
-  }
-
-  /* Divider */
+  .f-icon{background:rgba(201,169,97,0.08); border:1px solid rgba(201,169,97,0.2); transition:all .3s ease;}
+  .surface-hover:hover .f-icon{background:rgba(201,169,97,0.15); border-color:rgba(201,169,97,0.4);}
   .divider{border-top:1px solid var(--line);}
-
-  /* Scrollbar */
+  .bg-grid{
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:56px 56px;
+    opacity:0.35;
+  }
+  .price-old{text-decoration:line-through; text-decoration-color:var(--gold); text-decoration-thickness:1.5px;}
   ::-webkit-scrollbar{width:8px;}
   ::-webkit-scrollbar-track{background:var(--bg);}
   ::-webkit-scrollbar-thumb{background:var(--surface-2); border-radius:4px;}
   ::-webkit-scrollbar-thumb:hover{background:var(--gold);}
 
-  /* Subtle bg pattern */
-  .bg-grid{
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size:64px 64px;
-    opacity:0.4;
+  /* Jadul overlay effect */
+  .jadul-overlay{position:relative;}
+  .jadul-overlay::after{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg,rgba(10,22,40,0.3) 0%, rgba(10,22,40,0.6) 100%);
+    pointer-events:none;
   }
-
-  /* Price tag */
-  .price-old{
-    text-decoration:line-through;
-    text-decoration-color:var(--gold);
-    text-decoration-thickness:1.5px;
+  .jadul-stamp{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) rotate(-8deg);
+    border:3px solid #DC3C3C; color:#DC3C3C; padding:8px 20px;
+    font-weight:700; font-size:14px; letter-spacing:2px;
+    text-transform:uppercase; border-radius:4px;
+    background:rgba(10,22,40,0.8); z-index:2;
+  }
+  .modern-badge{
+    position:absolute; top:16px; right:16px;
+    background:var(--gold); color:#0A1628;
+    font-size:10px; font-weight:700; letter-spacing:1.5px;
+    padding:6px 12px; border-radius:999px; z-index:2;
   }
 </style>
 </head>
 <body class="overflow-x-hidden">
 
 <!-- ============ HERO ============ -->
-<section class="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden">
-  <!-- Subtle grid bg -->
+<section class="relative pt-16 md:pt-20 pb-14 md:pb-20 overflow-hidden">
   <div class="absolute inset-0 bg-grid"></div>
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#C9A961] opacity-[0.04] blur-[120px] rounded-full"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#C9A961] opacity-[0.04] blur-[100px] rounded-full"></div>
 
   <div class="relative max-w-5xl mx-auto px-6 text-center">
-
     <div class="reveal">
-      <!-- Eyebrow -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--line)] bg-[var(--surface)] text-xs mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--line)] bg-[var(--surface)] text-[11px] mb-6">
         <span class="w-1.5 h-1.5 rounded-full bg-[var(--gold)]"></span>
-        <span class="text-[var(--muted)] tracking-wide">PENAWARAN KHUSUS · LEMBAGA KEUANGAN</span>
+        <span class="text-[var(--muted)] tracking-widest uppercase">Upgrade Website Bank Anda</span>
       </div>
 
-      <!-- Main headline -->
-      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl leading-[1.05] font-normal mb-6 tracking-tight">
-        Jangan biarkan <em class="text-gradient">nasabah</em> memilih bank lain
+      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.08] font-normal mb-5 tracking-tight">
+        Website bank Anda <em class="text-gradient">terlihat jadul?</em>
         <br class="hidden md:block"/>
-        hanya karena Anda tidak <em class="text-gradient">ditemukan online.</em>
+        Saatnya upgrade jadi <em class="text-gradient">sekelas ini.</em>
       </h1>
 
-      <p class="text-[var(--muted)] text-base md:text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
-        Di era digital, website bukan sekadar identitas. Website adalah alat branding paling kuat untuk membangun kepercayaan nasabah — sebelum mereka melangkah ke kantor Anda.
+      <p class="text-[var(--muted)] text-sm md:text-base mb-8 max-w-2xl mx-auto leading-relaxed">
+        Transformasi website bank Anda dari tampilan lama ke tampilan modern seperti <span class="text-[var(--text)] font-medium">BANK NUSANTARA</span> — hanya dalam 7-14 hari kerja. Tanpa downtime, tanpa ribet.
       </p>
 
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row justify-center gap-3 mb-20">
-        <a href="https://wa.me/6281234567890" target="_blank" class="btn-primary px-7 py-3.5 rounded-full font-semibold text-sm inline-flex items-center justify-center gap-2">
-          Konsultasi Gratis
+      <div class="flex flex-col sm:flex-row justify-center gap-3 mb-12">
+        <a href="https://wa.me/6281234567890" target="_blank" class="btn-primary px-6 py-3 rounded-full font-semibold text-sm inline-flex items-center justify-center gap-2">
+          Lihat Harga Upgrade
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#preview" class="btn-ghost px-7 py-3.5 rounded-full font-medium text-sm inline-flex items-center justify-center gap-2">
-          Lihat Preview
+        <a href="#transformasi" class="btn-ghost px-6 py-3 rounded-full font-medium text-sm inline-flex items-center justify-center gap-2">
+          Lihat Contoh Transformasi
         </a>
       </div>
 
-      <!-- 3 Stats -->
-      <div class="grid grid-cols-3 gap-3 md:gap-6 max-w-3xl mx-auto">
-        <div class="surface rounded-2xl p-5 md:p-6 text-center">
-          <div class="font-serif text-4xl md:text-5xl gold mb-1">0/7</div>
-          <div class="text-[11px] md:text-xs text-[var(--muted)] uppercase tracking-wider">Info Layanan Digital</div>
+      <!-- 3 Stats compact -->
+      <div class="grid grid-cols-3 gap-2 md:gap-3 max-w-2xl mx-auto">
+        <div class="surface rounded-xl p-4">
+          <div class="font-serif text-2xl md:text-3xl gold mb-0.5">7-14</div>
+          <div class="text-[10px] md:text-[11px] text-[var(--muted)] uppercase tracking-wider">Hari Kerja</div>
         </div>
-        <div class="surface rounded-2xl p-5 md:p-6 text-center">
-          <div class="font-serif text-4xl md:text-5xl gold mb-1">0%</div>
-          <div class="text-[11px] md:text-xs text-[var(--muted)] uppercase tracking-wider">Trust Nasabah</div>
+        <div class="surface rounded-xl p-4">
+          <div class="font-serif text-2xl md:text-3xl gold mb-0.5">+186%</div>
+          <div class="text-[10px] md:text-[11px] text-[var(--muted)] uppercase tracking-wider">Trust Naik</div>
         </div>
-        <div class="surface rounded-2xl p-5 md:p-6 text-center">
-          <div class="font-serif text-4xl md:text-5xl gold mb-1 italic">24/7</div>
-          <div class="text-[11px] md:text-xs text-[var(--muted)] uppercase tracking-wider">Akses dari HP</div>
+        <div class="surface rounded-xl p-4">
+          <div class="font-serif text-2xl md:text-3xl gold mb-0.5">100%</div>
+          <div class="text-[10px] md:text-[11px] text-[var(--muted)] uppercase tracking-wider">Garansi</div>
         </div>
       </div>
-
-      <p class="text-xs text-[var(--muted)] mt-10 max-w-md mx-auto leading-relaxed">
-        Rata-rata bank tradisional di Indonesia masih minim kehadiran digital. Jadilah yang terdepan.
-      </p>
     </div>
   </div>
 </section>
 
-<!-- ============ MASALAH ============ -->
-<section id="masalah" class="py-20 md:py-28">
+<!-- ============ TRANSFORMASI — BEFORE/AFTER VISUAL ============ -->
+<section id="transformasi" class="py-14 md:py-20">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="text-center mb-10 reveal">
+      <div class="inline-flex items-center gap-3 mb-3">
+        <div class="gold-line"></div>
+        <span class="text-[11px] uppercase tracking-[0.2em] gold">Transformasi Nyata</span>
+        <div class="gold-line"></div>
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl leading-tight mb-3">
+        Dari <em class="text-[var(--muted)]">jadul</em> jadi <em class="text-gradient">modern</em>
+      </h2>
+      <p class="text-[var(--muted)] text-sm max-w-xl mx-auto">Inilah perbedaan tampilan website bank sebelum dan sesudah di-upgrade oleh tim kami.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4 md:gap-6 reveal">
+
+      <!-- BEFORE -->
+      <div>
+        <div class="flex items-center gap-2 mb-3 px-1">
+          <span class="w-2 h-2 rounded-full bg-[#DC3C3C]"></span>
+          <span class="text-xs text-[var(--muted)] uppercase tracking-wider">Sebelum Upgrade</span>
+        </div>
+        <div class="device-frame rounded-2xl overflow-hidden relative jadul-overlay">
+          <div class="jadul-stamp">Jadul</div>
+          <div class="flex items-center gap-1.5 px-3 py-2 bg-[var(--bg-2)] border-b border-[var(--line)]">
+            <div class="w-2 h-2 rounded-full bg-[#E07070] opacity-70"></div>
+            <div class="w-2 h-2 rounded-full bg-[#E5D4A7] opacity-70"></div>
+            <div class="w-2 h-2 rounded-full bg-[#7FB069] opacity-70"></div>
+            <div class="flex-1 ml-2 bg-[var(--bg)] rounded px-2 py-0.5 text-[10px] text-[var(--muted)]">banklama.co.id</div>
+          </div>
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" alt="Website Jadul" class="w-full">
+        </div>
+        <div class="mt-3 surface rounded-xl p-3 text-xs text-[var(--muted)]">
+          <div class="flex items-start gap-2">
+            <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DC3C3C" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Desain template lama, tidak mobile-friendly, loading lambat, tidak ada simulasi produk.
+          </div>
+        </div>
+      </div>
+
+      <!-- AFTER -->
+      <div>
+        <div class="flex items-center gap-2 mb-3 px-1">
+          <span class="w-2 h-2 rounded-full bg-[var(--gold)]"></span>
+          <span class="text-xs gold uppercase tracking-wider">Setelah Upgrade</span>
+        </div>
+        <div class="device-frame rounded-2xl overflow-hidden relative">
+          <div class="modern-badge">Modern</div>
+          <div class="flex items-center gap-1.5 px-3 py-2 bg-[var(--bg-2)] border-b border-[var(--line)]">
+            <div class="w-2 h-2 rounded-full bg-[#E07070] opacity-70"></div>
+            <div class="w-2 h-2 rounded-full bg-[#E5D4A7] opacity-70"></div>
+            <div class="w-2 h-2 rounded-full bg-[#7FB069] opacity-70"></div>
+            <div class="flex-1 ml-2 bg-[var(--bg)] rounded px-2 py-0.5 text-[10px] text-[var(--muted)] flex items-center gap-1">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#7FB069" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              bankanda.co.id
+            </div>
+          </div>
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="Bank Nusantara Modern" class="w-full">
+        </div>
+        <div class="mt-3 surface rounded-xl p-3 text-xs" style="border-color:rgba(201,169,97,0.2);">
+          <div class="flex items-start gap-2">
+            <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="text-[var(--muted)]">Desain premium Navy-Gold, responsive, fast loading, CMS lengkap, siap konversi nasabah.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live preview link -->
+    <div class="mt-8 text-center reveal">
+      <a href="https://nowgodigital.github.io/projectbank" target="_blank" class="inline-flex items-center gap-2 text-sm gold hover:gap-3 transition-all">
+        Lihat contoh live website hasil upgrade kami
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APA YANG DIUPGRADE ============ -->
+<section class="py-14 md:py-20">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="text-center mb-10 reveal">
+      <div class="inline-flex items-center gap-3 mb-3">
+        <div class="gold-line"></div>
+        <span class="text-[11px] uppercase tracking-[0.2em] gold">Paket Upgrade</span>
+        <div class="gold-line"></div>
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl leading-tight mb-3">
+        Apa saja yang <em class="text-gradient">di-upgrade?</em>
+      </h2>
+      <p class="text-[var(--muted)] text-sm max-w-xl mx-auto">Bukan cuma ganti tampilan. Ini transformasi menyeluruh website bank Anda.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+
+      <div class="surface surface-hover rounded-xl p-5 reveal">
+        <div class="f-icon w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        </div>
+        <h3 class="font-medium text-sm mb-1.5">Desain Premium</h3>
+        <p class="text-[var(--muted)] text-xs leading-relaxed">Tema Navy-Gold custom sesuai brand bank Anda.</p>
+      </div>
+
+      <div class="surface surface-hover rounded-xl p-5 reveal">
+        <div class="f-icon w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+        </div>
+        <h3 class="font-medium text-sm mb-1.5">Mobile-First</h3>
+        <p class="text-[var(--muted)] text-xs leading-relaxed">Sempurna di HP — 80% nasabah akses dari smartphone.</p>
+      </div>
+
+      <div class="surface surface-hover rounded-xl p-5 reveal">
+        <div class="f-icon w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3 class="font-medium text-sm mb-1.5">Fast Loading</h3>
+        <p class="text-[var(--muted)] text-xs leading-relaxed">Loading di bawah 2 detik. Skor PageSpeed 95+.</p>
+      </div>
+
+      <div class="surface surface-hover rounded-xl p-5 reveal">
+        <div class="f-icon w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <h3 class="font-medium text-sm mb-1.5">CMS Mandiri</h3>
+        <p class="text-[var(--muted)] text-xs leading-relaxed">Tim Anda bisa update konten sendiri, tanpa developer.</p>
+      </div>
+
+      <div class="surface surface-hover rounded-xl p-5 reveal">
+        <div class="f-icon w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2"/></svg>
+        </div>
+        <h3 class="font-medium text-sm mb-1.5">Katalog Produk</h3>
+        <p class="text-[var(--muted)] text-xs leading-relaxed">Tabungan, Deposito, Kredit ditampilkan profesional.</p>
+      </div>
+
+      <div class="surface surface-hover rounded-xl p-5 reveal">
+        <div class="f-icon w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <h3 class="font-medium text-sm mb-1.5">SSL + Security</h3>
+        <p class="text-[var(--muted)] text-xs leading-relaxed">Standar keamanan institusi keuangan, comply OJK.</p>
+      </div>
+
+      <div class="surface surface-hover rounded-xl p-5 reveal">
+        <div class="f-icon w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3 class="font-medium text-sm mb-1.5">SEO Optimal</h3>
+        <p class="text-[var(--muted)] text-xs leading-relaxed">Struktur siap ranking halaman 1 Google.</p>
+      </div>
+
+      <div class="surface surface-hover rounded-xl p-5 reveal">
+        <div class="f-icon w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </div>
+        <h3 class="font-medium text-sm mb-1.5">WA + Maps</h3>
+        <p class="text-[var(--muted)] text-xs leading-relaxed">Integrasi WhatsApp CS & Google Maps semua cabang.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ KENAPA SEKARANG ============ -->
+<section class="py-14 md:py-20">
   <div class="max-w-5xl mx-auto px-6">
-    <div class="surface rounded-3xl p-8 md:p-12 reveal">
-      <div class="flex flex-col md:flex-row items-start gap-6 md:gap-10">
+    <div class="surface rounded-2xl p-6 md:p-10 reveal">
+      <div class="flex flex-col md:flex-row items-start gap-5 md:gap-8">
         <div class="shrink-0">
-          <div class="w-14 h-14 rounded-2xl bg-[rgba(220,60,60,0.1)] border border-[rgba(220,60,60,0.25)] flex items-center justify-center">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DC3C3C" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div class="w-12 h-12 rounded-xl bg-[rgba(220,60,60,0.1)] border border-[rgba(220,60,60,0.25)] flex items-center justify-center">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DC3C3C" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           </div>
         </div>
         <div>
-          <h2 class="font-serif text-3xl md:text-4xl leading-tight mb-4">
-            Banyak Bank & BPR kehilangan <em class="text-gradient">nasabah potensial</em> hanya karena informasi sulit diakses secara digital.
+          <h2 class="font-serif text-2xl md:text-3xl leading-tight mb-3">
+            Setiap hari ditunda, <em class="text-gradient">nasabah potensial</em> lari ke bank kompetitor.
           </h2>
-          <p class="text-[var(--muted)] leading-relaxed">
-            Nasabah zaman sekarang <span class="text-[var(--text)]">Googling dulu</span> sebelum memilih bank. Tanpa website profesional, produk tabungan, deposito, kredit, dan layanan PPOB Anda tidak akan pernah mereka temukan. Kompetitor yang sudah online mengambil alih.
+          <p class="text-[var(--muted)] text-sm leading-relaxed">
+            Calon nasabah zaman sekarang <span class="text-[var(--text)]">Googling dulu</span> sebelum memilih bank. Website jadul = kredibilitas rendah = mereka pilih bank lain yang tampilannya lebih meyakinkan. Upgrade sekarang, sebelum kompetitor mengambil alih.
           </p>
         </div>
       </div>
@@ -250,425 +334,94 @@
   </div>
 </section>
 
-<!-- ============ MENGAPA WEBSITE KRUSIAL ============ -->
-<section id="mengapa" class="py-20 md:py-28">
-  <div class="max-w-6xl mx-auto px-6">
+<!-- ============ HARGA UPGRADE ============ -->
+<section id="harga" class="py-14 md:py-20">
+  <div class="max-w-3xl mx-auto px-6">
 
-    <div class="text-center mb-16 reveal">
-      <div class="inline-flex items-center gap-3 mb-4">
+    <div class="text-center mb-8 reveal">
+      <div class="inline-flex items-center gap-3 mb-3">
         <div class="gold-line"></div>
-        <span class="text-xs uppercase tracking-[0.2em] gold">Alasan Utama</span>
+        <span class="text-[11px] uppercase tracking-[0.2em] gold">Investasi</span>
         <div class="gold-line"></div>
       </div>
-      <h2 class="font-serif text-4xl md:text-5xl leading-tight mb-5">
-        Mengapa website <em class="text-gradient">krusial?</em>
+      <h2 class="font-serif text-3xl md:text-4xl leading-tight mb-3">
+        Harga upgrade <em class="text-gradient">terjangkau</em>
       </h2>
-      <p class="text-[var(--muted)] max-w-xl mx-auto">Bank dan lembaga keuangan hebat kehilangan nasabah hanya karena absen di dunia digital.</p>
+      <p class="text-[var(--muted)] text-sm max-w-xl mx-auto">Lebih murah dari biaya cetak brosur tahunan. Hasilnya terasa selama bertahun-tahun.</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-5">
-
-      <div class="surface surface-hover rounded-2xl p-7 reveal">
-        <div class="f-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3 class="font-serif text-xl mb-3">Trust Issue</h3>
-        <p class="text-[var(--muted)] text-sm leading-relaxed">
-          Nasabah Googling dulu. Tanpa website resmi, kredibilitas bank dipertanyakan. Mereka akan pilih bank lain yang terlihat lebih serius di internet.
-        </p>
-      </div>
-
-      <div class="surface surface-hover rounded-2xl p-7 reveal">
-        <div class="f-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <h3 class="font-serif text-xl mb-3">Efisiensi Waktu</h3>
-        <p class="text-[var(--muted)] text-sm leading-relaxed">
-          Stop menjawab pertanyaan yang sama berulang. Taruh info suku bunga, syarat kredit, lokasi cabang di web — nasabah datang sudah teredukasi.
-        </p>
-      </div>
-
-      <div class="surface surface-hover rounded-2xl p-7 reveal">
-        <div class="f-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/></svg>
-        </div>
-        <h3 class="font-serif text-xl mb-3">Branding Premium</h3>
-        <p class="text-[var(--muted)] text-sm leading-relaxed">
-          Desain elegan mencerminkan kualitas institusi keuangan Anda. Tampil sekelas bank nasional, meskipun Anda BPR atau lembaga keuangan lokal.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ BEFORE VS AFTER ============ -->
-<section class="py-20 md:py-28">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <div class="text-center mb-16 reveal">
-      <div class="inline-flex items-center gap-3 mb-4">
-        <div class="gold-line"></div>
-        <span class="text-xs uppercase tracking-[0.2em] gold">Perbandingan</span>
-        <div class="gold-line"></div>
-      </div>
-      <h2 class="font-serif text-4xl md:text-5xl leading-tight mb-5">
-        Sebelum <em class="text-[var(--muted)]">vs</em> sesudah
-      </h2>
-      <p class="text-[var(--muted)] max-w-xl mx-auto">Perbedaan nyata saat bank Anda memiliki website profesional.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-5 max-w-5xl mx-auto">
-
-      <!-- Bad -->
-      <div class="compare-bad rounded-2xl p-7 md:p-8 reveal">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-10 h-10 rounded-xl bg-[rgba(220,60,60,0.1)] flex items-center justify-center">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DC3C3C" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </div>
-          <h3 class="font-serif text-2xl" style="color:#E07070">Tanpa Website</h3>
-        </div>
-        <ul class="space-y-3.5">
-          <li class="flex items-start gap-3 text-sm text-[var(--muted)]">
-            <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC3C3C" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Nasabah tidak menemukan info produk tabungan, deposito, atau kredit.
-          </li>
-          <li class="flex items-start gap-3 text-sm text-[var(--muted)]">
-            <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC3C3C" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Call center banjir pertanyaan yang sama setiap hari.
-          </li>
-          <li class="flex items-start gap-3 text-sm text-[var(--muted)]">
-            <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC3C3C" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Kredibilitas dipertanyakan — terlihat tidak modern.
-          </li>
-          <li class="flex items-start gap-3 text-sm text-[var(--muted)]">
-            <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC3C3C" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Kompetitor dengan website mengambil nasabah Anda.
-          </li>
-          <li class="flex items-start gap-3 text-sm text-[var(--muted)]">
-            <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC3C3C" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Tidak bisa update info kurs, promo, atau pengumuman secara cepat.
-          </li>
-        </ul>
-      </div>
-
-      <!-- Good -->
-      <div class="compare-good rounded-2xl p-7 md:p-8 reveal">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-10 h-10 rounded-xl bg-[rgba(201,169,97,0.12)] flex items-center justify-center">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <h3 class="font-serif text-2xl gold-soft">Dengan Website</h3>
-        </div>
-        <ul class="space-y-3.5">
-          <li class="flex items-start gap-3 text-sm text-[var(--muted)]">
-            <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Nasabah bisa cek produk & simulasi kredit 24/7 dari HP.
-          </li>
-          <li class="flex items-start gap-3 text-sm text-[var(--muted)]">
-            <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            CS hanya handle pertanyaan penting — efisiensi SDM.
-          </li>
-          <li class="flex items-start gap-3 text-sm text-[var(--muted)]">
-            <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Tampil profesional & terpercaya di mata nasabah baru.
-          </li>
-          <li class="flex items-start gap-3 text-sm text-[var(--muted)]">
-            <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Website jadi alat marketing yang bekerja non-stop.
-          </li>
-          <li class="flex items-start gap-3 text-sm text-[var(--muted)]">
-            <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Update kurs, suku bunga, promo dalam hitungan menit.
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ PREVIEW ============ -->
-<section id="preview" class="py-20 md:py-28">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <div class="text-center mb-12 reveal">
-      <div class="inline-flex items-center gap-3 mb-4">
-        <div class="gold-line"></div>
-        <span class="text-xs uppercase tracking-[0.2em] gold">Showcase</span>
-        <div class="gold-line"></div>
-      </div>
-      <h2 class="font-serif text-4xl md:text-5xl leading-tight mb-5">
-        Desain premium <em class="text-gradient">khusus perbankan</em>
-      </h2>
-      <p class="text-[var(--muted)] max-w-xl mx-auto">Preview tampilan website bank di perangkat Anda. Klik tab di bawah untuk simulasi.</p>
-    </div>
-
-    <!-- Tabs -->
-    <div class="flex justify-center gap-2 mb-10 reveal">
-      <button class="preview-tab active px-5 py-2 rounded-full text-sm" data-view="desktop">
-        Desktop
-      </button>
-      <button class="preview-tab px-5 py-2 rounded-full text-sm" data-view="tablet">
-        Tablet
-      </button>
-      <button class="preview-tab px-5 py-2 rounded-full text-sm" data-view="mobile">
-        Mobile
-      </button>
-    </div>
-
-    <!-- Device mockup -->
     <div class="reveal">
-      <div class="flex justify-center">
-        <!-- Desktop -->
-        <div id="view-desktop" class="preview-view w-full max-w-5xl">
-          <div class="device-frame rounded-xl p-3 md:p-4">
-            <div class="flex items-center gap-1.5 mb-3 px-2">
-              <div class="w-2.5 h-2.5 rounded-full bg-[#E07070] opacity-70"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-[#E5D4A7] opacity-70"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-[#7FB069] opacity-70"></div>
-              <div class="flex-1 ml-3 bg-[var(--bg)] rounded px-3 py-1 text-xs text-[var(--muted)]">
-                banknusantara.co.id
-              </div>
-            </div>
-            <div class="rounded-lg overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400&q=80" alt="Bank Nusantara Desktop" class="w-full">
-            </div>
-          </div>
-        </div>
+      <div class="rounded-2xl p-6 md:p-10 relative overflow-hidden" style="background:linear-gradient(180deg, var(--surface) 0%, var(--bg-2) 100%); border:1px solid rgba(201,169,97,0.2);">
 
-        <!-- Tablet -->
-        <div id="view-tablet" class="preview-view w-full max-w-2xl hidden">
-          <div class="device-frame rounded-3xl p-3">
-            <div class="rounded-2xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&q=80" alt="Bank Nusantara Tablet" class="w-full">
-            </div>
-          </div>
-        </div>
-
-        <!-- Mobile -->
-        <div id="view-mobile" class="preview-view w-full max-w-xs hidden">
-          <div class="device-frame rounded-[2.2rem] p-2.5 relative">
-            <div class="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-1 bg-[var(--bg-2)] rounded-full z-10"></div>
-            <div class="rounded-[1.8rem] overflow-hidden pt-4">
-              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&q=80" alt="Bank Nusantara Mobile" class="w-full">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <p class="text-center text-sm text-[var(--muted)] mt-8 max-w-xl mx-auto">
-        Contoh desain yang kami bangun untuk <span class="gold">BANK NUSANTARA</span>. Desain Anda bisa disesuaikan 100% dengan brand identity bank.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FITUR ============ -->
-<section id="fitur" class="py-20 md:py-28">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <div class="text-center mb-16 reveal">
-      <div class="inline-flex items-center gap-3 mb-4">
-        <div class="gold-line"></div>
-        <span class="text-xs uppercase tracking-[0.2em] gold">Fitur Lengkap</span>
-        <div class="gold-line"></div>
-      </div>
-      <h2 class="font-serif text-4xl md:text-5xl leading-tight mb-5">
-        Semua yang bank Anda butuhkan
-      </h2>
-      <p class="text-[var(--muted)] max-w-xl mx-auto">Paket lengkap untuk tampil profesional di dunia digital. Siap pakai, siap digunakan.</p>
-    </div>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-
-      <div class="surface surface-hover rounded-2xl p-6 reveal">
-        <div class="f-icon w-11 h-11 rounded-lg flex items-center justify-center mb-4">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
-        </div>
-        <h3 class="font-medium mb-2">Responsive Mobile</h3>
-        <p class="text-[var(--muted)] text-xs leading-relaxed">Tampilan sempurna di HP tanpa perlu zoom. 80% nasabah akses dari smartphone.</p>
-      </div>
-
-      <div class="surface surface-hover rounded-2xl p-6 reveal">
-        <div class="f-icon w-11 h-11 rounded-lg flex items-center justify-center mb-4">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-        </div>
-        <h3 class="font-medium mb-2">Multi-Page Terhubung</h3>
-        <p class="text-[var(--muted)] text-xs leading-relaxed">Home, Produk, Tentang, Karir, Kontak — semua saling terintegrasi rapi.</p>
-      </div>
-
-      <div class="surface surface-hover rounded-2xl p-6 reveal">
-        <div class="f-icon w-11 h-11 rounded-lg flex items-center justify-center mb-4">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2"/><path d="M2 9.1C3.3 8 4.7 7 7 7"/></svg>
-        </div>
-        <h3 class="font-medium mb-2">Katalog Produk Bank</h3>
-        <p class="text-[var(--muted)] text-xs leading-relaxed">Detail Tabungan, Deposito, Kredit, PPOB, Transfer — lengkap dengan simulasi.</p>
-      </div>
-
-      <div class="surface surface-hover rounded-2xl p-6 reveal">
-        <div class="f-icon w-11 h-11 rounded-lg flex items-center justify-center mb-4">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-        </div>
-        <h3 class="font-medium mb-2">Direct WhatsApp</h3>
-        <p class="text-[var(--muted)] text-xs leading-relaxed">Tombol CS 1-klik. Nasabah langsung terhubung tanpa ribet.</p>
-      </div>
-
-      <div class="surface surface-hover rounded-2xl p-6 reveal">
-        <div class="f-icon w-11 h-11 rounded-lg flex items-center justify-center mb-4">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <h3 class="font-medium mb-2">Google Maps</h3>
-        <p class="text-[var(--muted)] text-xs leading-relaxed">Panduan arah langsung ke semua kantor cabang bank Anda.</p>
-      </div>
-
-      <div class="surface surface-hover rounded-2xl p-6 reveal">
-        <div class="f-icon w-11 h-11 rounded-lg flex items-center justify-center mb-4">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-        </div>
-        <h3 class="font-medium mb-2">Keamanan SSL</h3>
-        <p class="text-[var(--muted)] text-xs leading-relaxed">SSL, proteksi konten, anti-spam — standar keamanan institusi keuangan.</p>
-      </div>
-
-      <div class="surface surface-hover rounded-2xl p-6 reveal">
-        <div class="f-icon w-11 h-11 rounded-lg flex items-center justify-center mb-4">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </div>
-        <h3 class="font-medium mb-2">Fast Loading</h3>
-        <p class="text-[var(--muted)] text-xs leading-relaxed">Optimasi performa agar loading di bawah 3 detik. Nasabah tidak kabur.</p>
-      </div>
-
-      <div class="surface surface-hover rounded-2xl p-6 reveal">
-        <div class="f-icon w-11 h-11 rounded-lg flex items-center justify-center mb-4">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </div>
-        <h3 class="font-medium mb-2">SEO Optimized</h3>
-        <p class="text-[var(--muted)] text-xs leading-relaxed">Struktur website siap bersaing di halaman 1 Google untuk kata kunci perbankan.</p>
-      </div>
-
-    </div>
-
-    <!-- 4 Badges -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-8 reveal">
-      <div class="surface rounded-2xl p-5 text-center">
-        <div class="font-serif text-2xl gold-soft mb-1">100%</div>
-        <div class="text-[11px] text-[var(--muted)] uppercase tracking-wider">Garansi</div>
-      </div>
-      <div class="surface rounded-2xl p-5 text-center">
-        <div class="font-serif text-2xl gold-soft mb-1">24/7</div>
-        <div class="text-[11px] text-[var(--muted)] uppercase tracking-wider">Support</div>
-      </div>
-      <div class="surface rounded-2xl p-5 text-center">
-        <div class="font-serif text-2xl gold-soft mb-1 italic">SSL</div>
-        <div class="text-[11px] text-[var(--muted)] uppercase tracking-wider">Secured</div>
-      </div>
-      <div class="surface rounded-2xl p-5 text-center">
-        <div class="font-serif text-2xl gold-soft mb-1">7-14</div>
-        <div class="text-[11px] text-[var(--muted)] uppercase tracking-wider">Hari Kerja</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ INVESTASI ============ -->
-<section id="harga" class="py-20 md:py-28">
-  <div class="max-w-4xl mx-auto px-6">
-
-    <div class="text-center mb-12 reveal">
-      <div class="inline-flex items-center gap-3 mb-4">
-        <div class="gold-line"></div>
-        <span class="text-xs uppercase tracking-[0.2em] gold">Investasi</span>
-        <div class="gold-line"></div>
-      </div>
-      <h2 class="font-serif text-4xl md:text-5xl leading-tight mb-5">
-        Investasi <em class="text-gradient">profesionalisme</em>
-      </h2>
-      <p class="text-[var(--muted)] max-w-xl mx-auto">Satu kali bayar, aset digital milik bank Anda selamanya.</p>
-    </div>
-
-    <!-- Pricing -->
-    <div class="reveal">
-      <div class="rounded-3xl p-8 md:p-12 relative overflow-hidden" style="background:linear-gradient(180deg, var(--surface) 0%, var(--bg-2) 100%); border:1px solid rgba(201,169,97,0.2);">
-
-        <!-- Corner accent -->
         <div class="absolute top-0 right-0 w-32 h-32 bg-[#C9A961] opacity-[0.05] blur-3xl rounded-full"></div>
 
         <div class="relative">
-          <div class="text-center mb-8">
-            <span class="inline-block text-[11px] uppercase tracking-[0.2em] gold mb-3">Paket Perbankan</span>
-            <h3 class="font-serif text-3xl md:text-4xl mb-3">Website Bank Profesional</h3>
-            <p class="text-[var(--muted)] text-sm">Cocok untuk Bank BPR, BKK, LPD, dan Lembaga Keuangan lainnya</p>
+          <div class="text-center mb-6">
+            <span class="inline-block text-[10px] uppercase tracking-[0.2em] gold mb-2">Paket Upgrade Bank</span>
+            <h3 class="font-serif text-2xl md:text-3xl mb-2">Website Bank Modern</h3>
+            <p class="text-[var(--muted)] text-xs">Model yang sama seperti BANK NUSANTARA</p>
           </div>
 
-          <div class="flex flex-wrap justify-center items-end gap-3 mb-8">
-            <div class="price-old text-[var(--muted)] text-lg">Rp 18.000.000</div>
-            <div class="font-serif text-5xl md:text-6xl text-gradient">Rp 8.9<span class="text-2xl gold">jt</span></div>
-            <span class="text-xs font-semibold px-3 py-1 rounded-full" style="background:rgba(220,60,60,0.12); color:#E07070; border:1px solid rgba(220,60,60,0.25);">HEMAT 50%</span>
+          <div class="flex flex-wrap justify-center items-end gap-2 mb-6">
+            <div class="price-old text-[var(--muted)] text-sm">Rp 18.000.000</div>
+            <div class="font-serif text-4xl md:text-5xl text-gradient">Rp 8.9<span class="text-xl gold">jt</span></div>
+            <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full" style="background:rgba(220,60,60,0.12); color:#E07070; border:1px solid rgba(220,60,60,0.25);">HEMAT 50%</span>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-x-8 gap-y-3 mb-8">
-            <div class="flex items-start gap-2.5 text-sm py-1">
-              <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <span class="text-[var(--muted)]">Desain premium custom (Navy-Gold)</span>
+          <div class="grid md:grid-cols-2 gap-x-6 gap-y-2 mb-6">
+            <div class="flex items-start gap-2 text-xs py-0.5">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="text-[var(--muted)]">Desain premium Navy-Gold</span>
             </div>
-            <div class="flex items-start gap-2.5 text-sm py-1">
-              <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <span class="text-[var(--muted)]">CMS — update konten sendiri</span>
+            <div class="flex items-start gap-2 text-xs py-0.5">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="text-[var(--muted)]">CMS update mandiri</span>
             </div>
-            <div class="flex items-start gap-2.5 text-sm py-1">
-              <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <div class="flex items-start gap-2 text-xs py-0.5">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
               <span class="text-[var(--muted)]">Hingga 15 halaman</span>
             </div>
-            <div class="flex items-start gap-2.5 text-sm py-1">
-              <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <div class="flex items-start gap-2 text-xs py-0.5">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
               <span class="text-[var(--muted)]">WhatsApp + Google Maps</span>
             </div>
-            <div class="flex items-start gap-2.5 text-sm py-1">
-              <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <span class="text-[var(--muted)]">Katalog produk lengkap</span>
+            <div class="flex items-start gap-2 text-xs py-0.5">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="text-[var(--muted)]">Katalog produk + simulasi</span>
             </div>
-            <div class="flex items-start gap-2.5 text-sm py-1">
-              <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <span class="text-[var(--muted)]">SEO on-page + Analytics</span>
+            <div class="flex items-start gap-2 text-xs py-0.5">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="text-[var(--muted)]">SEO + Analytics</span>
             </div>
-            <div class="flex items-start gap-2.5 text-sm py-1">
-              <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <span class="text-[var(--muted)]">Simulasi kredit & deposito</span>
+            <div class="flex items-start gap-2 text-xs py-0.5">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="text-[var(--muted)]">Domain .co.id + hosting 1 thn</span>
             </div>
-            <div class="flex items-start gap-2.5 text-sm py-1">
-              <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <span class="text-[var(--muted)]">Domain .co.id + Hosting 1 tahun</span>
-            </div>
-            <div class="flex items-start gap-2.5 text-sm py-1">
-              <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <span class="text-[var(--muted)]">Tabel kurs mata uang</span>
-            </div>
-            <div class="flex items-start gap-2.5 text-sm py-1">
-              <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <span class="text-[var(--muted)]">Support & maintenance 3 bulan</span>
+            <div class="flex items-start gap-2 text-xs py-0.5">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="text-[var(--muted)]">Support 3 bulan</span>
             </div>
           </div>
 
-          <!-- Bonus -->
-          <div class="rounded-2xl p-5 mb-8 text-center" style="background:rgba(201,169,97,0.05); border:1px dashed rgba(201,169,97,0.3);">
-            <div class="text-xs uppercase tracking-[0.2em] gold mb-2">Bonus Spesial Hari Ini</div>
-            <p class="text-sm text-[var(--muted)]">
-              Gratis <span class="text-[var(--text)] font-medium">Halaman Pengajuan Kredit Online</span> + <span class="text-[var(--text)] font-medium">Form Buka Rekening Digital</span> (senilai Rp 3.5 Juta)
+          <div class="rounded-xl p-4 mb-6 text-center" style="background:rgba(201,169,97,0.05); border:1px dashed rgba(201,169,97,0.3);">
+            <div class="text-[10px] uppercase tracking-[0.2em] gold mb-1">Bonus Hari Ini</div>
+            <p class="text-xs text-[var(--muted)]">
+              Gratis <span class="text-[var(--text)] font-medium">Halaman Pengajuan Kredit Online</span> + <span class="text-[var(--text)] font-medium">Form Buka Rekening</span> (senilai Rp 3.5 Juta)
             </p>
           </div>
 
-          <div class="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://wa.me/6281234567890?text=Halo%20saya%20tertarik%20Paket%20Website%20Bank" target="_blank" class="btn-primary px-7 py-3.5 rounded-full font-semibold text-sm inline-flex items-center justify-center gap-2">
-              Klaim Penawaran
+          <div class="flex flex-col sm:flex-row gap-2 justify-center">
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20upgrade%20website%20bank%20saya" target="_blank" class="btn-primary px-6 py-3 rounded-full font-semibold text-sm inline-flex items-center justify-center gap-2">
+              Klaim Upgrade Sekarang
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <a href="#faq" class="btn-ghost px-7 py-3.5 rounded-full font-medium text-sm inline-flex items-center justify-center gap-2">
+            <a href="#faq" class="btn-ghost px-6 py-3 rounded-full font-medium text-sm inline-flex items-center justify-center">
               Lihat FAQ
             </a>
           </div>
 
-          <p class="text-center text-xs text-[var(--muted)] mt-6">
-            Respon cepat dalam 5 menit via WhatsApp · Promo berlaku hingga akhir bulan
+          <p class="text-center text-[11px] text-[var(--muted)] mt-4">
+            Respon 5 menit via WhatsApp · Promo berlaku hingga akhir bulan
           </p>
         </div>
       </div>
@@ -677,24 +430,24 @@
 </section>
 
 <!-- ============ TESTIMONI ============ -->
-<section class="py-20 md:py-28">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="surface rounded-3xl p-8 md:p-12 reveal text-center">
-      <div class="flex justify-center gap-0.5 gold mb-6 text-sm">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/></svg>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/></svg>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/></svg>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/></svg>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/></svg>
+<section class="py-14 md:py-20">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="surface rounded-2xl p-6 md:p-10 reveal text-center">
+      <div class="flex justify-center gap-0.5 gold mb-4 text-sm">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/></svg>
       </div>
-      <p class="font-serif text-xl md:text-2xl leading-relaxed mb-8 text-[var(--text)] italic">
-        "Website BANK NUSANTARA yang dibuat DIGITALPro benar-benar mengubah cara nasabah mengenal kami. Pengajuan kredit online naik <span class="gold not-italic font-normal">186%</span> dalam 3 bulan pertama. Profesional, cepat, dan hasilnya melebihi ekspektasi."
+      <p class="font-serif text-lg md:text-xl leading-relaxed mb-6 text-[var(--text)] italic">
+        "Upgrade website bank kami dari tampilan lama ke modern seperti ini benar-benar game changer. Pengajuan kredit online naik <span class="gold not-italic font-normal">186%</span> dalam 3 bulan. Profesional, cepat, hasilnya melebihi ekspektasi."
       </p>
-      <div class="flex items-center justify-center gap-4">
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80" class="w-14 h-14 rounded-full object-cover" alt="">
+      <div class="flex items-center justify-center gap-3">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80" class="w-12 h-12 rounded-full object-cover" alt="">
         <div class="text-left">
-          <div class="font-medium">Dr. Hendra Wijaya</div>
-          <div class="text-xs text-[var(--muted)]">Direktur Utama, BANK NUSANTARA</div>
+          <div class="font-medium text-sm">Dr. Hendra Wijaya</div>
+          <div class="text-[11px] text-[var(--muted)]">Direktur Utama, BANK NUSANTARA</div>
         </div>
       </div>
     </div>
@@ -702,115 +455,102 @@
 </section>
 
 <!-- ============ FAQ ============ -->
-<section id="faq" class="py-20 md:py-28">
+<section id="faq" class="py-14 md:py-20">
   <div class="max-w-3xl mx-auto px-6">
 
-    <div class="text-center mb-14 reveal">
-      <div class="inline-flex items-center gap-3 mb-4">
+    <div class="text-center mb-10 reveal">
+      <div class="inline-flex items-center gap-3 mb-3">
         <div class="gold-line"></div>
-        <span class="text-xs uppercase tracking-[0.2em] gold">FAQ</span>
+        <span class="text-[11px] uppercase tracking-[0.2em] gold">FAQ</span>
         <div class="gold-line"></div>
       </div>
-      <h2 class="font-serif text-4xl md:text-5xl leading-tight mb-5">
+      <h2 class="font-serif text-3xl md:text-4xl leading-tight mb-3">
         Pertanyaan <em class="text-gradient">umum</em>
       </h2>
-      <p class="text-[var(--muted)] max-w-xl mx-auto">Jawaban untuk pertanyaan yang sering ditanyakan oleh manajemen bank.</p>
     </div>
 
-    <div class="space-y-3">
+    <div class="space-y-2">
 
-      <div class="faq-item rounded-2xl p-6 reveal cursor-pointer">
+      <div class="faq-item rounded-xl p-5 reveal cursor-pointer">
         <div class="flex items-center justify-between gap-4">
-          <h3 class="font-medium">Berapa lama proses pembuatan website bank?</h3>
-          <svg class="faq-icon shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <h3 class="font-medium text-sm">Apakah website lama saya tetap bisa dipakai selama proses upgrade?</h3>
+          <svg class="faq-icon shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </div>
         <div class="faq-answer">
-          <p class="text-[var(--muted)] text-sm mt-4 leading-relaxed">
-            Untuk website bank standar (10-15 halaman) biasanya selesai dalam <span class="text-[var(--text)] font-medium">7-14 hari kerja</span>. Untuk fitur tambahan seperti simulasi kredit, form pengajuan online, atau integrasi API banking, timeline bisa 3-4 minggu.
+          <p class="text-[var(--muted)] text-xs mt-3 leading-relaxed">
+            Ya, website lama tetap online selama proses upgrade. Kami bekerja di environment staging terpisah. Setelah website baru siap dan Anda approve, baru kami migrasi ke domain utama — minim downtime.
           </p>
         </div>
       </div>
 
-      <div class="faq-item rounded-2xl p-6 reveal cursor-pointer">
+      <div class="faq-item rounded-xl p-5 reveal cursor-pointer">
         <div class="flex items-center justify-between gap-4">
-          <h3 class="font-medium">Apakah tim bank kami bisa mengupdate konten sendiri?</h3>
-          <svg class="faq-icon shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <h3 class="font-medium text-sm">Berapa lama proses upgrade?</h3>
+          <svg class="faq-icon shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </div>
         <div class="faq-answer">
-          <p class="text-[var(--muted)] text-sm mt-4 leading-relaxed">
-            Ya, pasti. Semua paket sudah termasuk CMS (Content Management System) yang user-friendly. Tim marketing atau humas bank Anda bisa update berita, suku bunga, kurs, promo sendiri. Kami juga kasih <span class="gold">training gratis 2 jam</span> via Zoom.
+          <p class="text-[var(--muted)] text-xs mt-3 leading-relaxed">
+            Standar 7-14 hari kerja untuk website bank 10-15 halaman. Untuk fitur custom seperti simulasi kredit atau integrasi API banking, bisa 3-4 minggu. Timeline detail diberikan setelah diskusi.
           </p>
         </div>
       </div>
 
-      <div class="faq-item rounded-2xl p-6 reveal cursor-pointer">
+      <div class="faq-item rounded-xl p-5 reveal cursor-pointer">
         <div class="flex items-center justify-between gap-4">
-          <h3 class="font-medium">Apakah website akan muncul di Google?</h3>
-          <svg class="faq-icon shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <h3 class="font-medium text-sm">Bagaimana dengan konten website lama saya?</h3>
+          <svg class="faq-icon shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </div>
         <div class="faq-answer">
-          <p class="text-[var(--muted)] text-sm mt-4 leading-relaxed">
-            Ya, website akan ter-index di Google. Kami sudah optimasi SEO on-page (meta tag, struktur heading, sitemap, schema markup). Untuk ranking halaman 1 Google pada kata kunci kompetitif, kami juga menawarkan jasa SEO bulanan sebagai add-on.
+          <p class="text-[var(--muted)] text-xs mt-3 leading-relaxed">
+            Kami migrasi semua konten yang masih relevan (profil, produk, berita, galeri) ke website baru. Tim kami juga bantu rewrite copy agar lebih menarik dan SEO-friendly.
           </p>
         </div>
       </div>
 
-      <div class="faq-item rounded-2xl p-6 reveal cursor-pointer">
+      <div class="faq-item rounded-xl p-5 reveal cursor-pointer">
         <div class="flex items-center justify-between gap-4">
-          <h3 class="font-medium">Apakah website aman untuk institusi keuangan?</h3>
-          <svg class="faq-icon shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <h3 class="font-medium text-sm">Apakah tim bank kami bisa update konten sendiri?</h3>
+          <svg class="faq-icon shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </div>
         <div class="faq-answer">
-          <p class="text-[var(--muted)] text-sm mt-4 leading-relaxed">
-            Sangat aman. Kami menerapkan standar keamanan tinggi: SSL certificate (HTTPS), firewall, proteksi DDOS, backup harian, anti-spam, dan proteksi konten dari copy-paste. Kami juga comply dengan standar OJK untuk website perbankan.
+          <p class="text-[var(--muted)] text-xs mt-3 leading-relaxed">
+            Ya. Semua paket sudah termasuk CMS user-friendly. Tim marketing/humas Anda bisa update berita, suku bunga, kurs, promo sendiri. Kami kasih <span class="gold">training gratis 2 jam</span> via Zoom.
           </p>
         </div>
       </div>
 
-      <div class="faq-item rounded-2xl p-6 reveal cursor-pointer">
+      <div class="faq-item rounded-xl p-5 reveal cursor-pointer">
         <div class="flex items-center justify-between gap-4">
-          <h3 class="font-medium">Bagaimana jika setelah 1-2 tahun domain/hosting habis?</h3>
-          <svg class="faq-icon shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <h3 class="font-medium text-sm">Apakah aman untuk institusi keuangan?</h3>
+          <svg class="faq-icon shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </div>
         <div class="faq-answer">
-          <p class="text-[var(--muted)] text-sm mt-4 leading-relaxed">
-            Kami akan ingatkan 1 bulan sebelum habis. Biaya perpanjangan domain + hosting sekitar <span class="gold">Rp 1.5 - 2.5 Juta/tahun</span> (tergantung paket). Anda juga bisa migrasi ke penyedia hosting lain karena seluruh source code kami serahkan 100%.
+          <p class="text-[var(--muted)] text-xs mt-3 leading-relaxed">
+            Sangat aman. Standar tinggi: SSL (HTTPS), firewall, proteksi DDOS, backup harian, anti-spam, dan proteksi konten. Kami comply dengan standar OJK untuk website perbankan.
           </p>
         </div>
       </div>
 
-      <div class="faq-item rounded-2xl p-6 reveal cursor-pointer">
+      <div class="faq-item rounded-xl p-5 reveal cursor-pointer">
         <div class="flex items-center justify-between gap-4">
-          <h3 class="font-medium">Apakah ada garansi?</h3>
-          <svg class="faq-icon shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <h3 class="font-medium text-sm">Bagaimana sistem pembayarannya?</h3>
+          <svg class="faq-icon shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </div>
         <div class="faq-answer">
-          <p class="text-[var(--muted)] text-sm mt-4 leading-relaxed">
-            Garansi 100% uang kembali jika dalam 7 hari pertama setelah desain mockup dikirim Anda merasa tidak cocok (sebelum development dimulai). Setelah website live, kami berikan <span class="gold">garansi 3 bulan</span> untuk bug fixing gratis.
+          <p class="text-[var(--muted)] text-xs mt-3 leading-relaxed">
+            <span class="text-[var(--text)]">DP 50% di awal</span>, pelunasan 50% setelah website live. Kami bisa terbitkan invoice resmi dengan NPWP perusahaan untuk administrasi bank. Pembayaran via transfer bank.
           </p>
         </div>
       </div>
 
-      <div class="faq-item rounded-2xl p-6 reveal cursor-pointer">
+      <div class="faq-item rounded-xl p-5 reveal cursor-pointer">
         <div class="flex items-center justify-between gap-4">
-          <h3 class="font-medium">Bagaimana sistem pembayarannya?</h3>
-          <svg class="faq-icon shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <h3 class="font-medium text-sm">Apakah ada garansi?</h3>
+          <svg class="faq-icon shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </div>
         <div class="faq-answer">
-          <p class="text-[var(--muted)] text-sm mt-4 leading-relaxed">
-            Sistem kami fleksibel untuk institusi: <span class="text-[var(--text)]">DP 50% di awal</span>, pelunasan 50% setelah website live. Kami bisa terbitkan invoice resmi dengan NPWP perusahaan untuk kebutuhan administrasi bank Anda. Pembayaran via transfer bank.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item rounded-2xl p-6 reveal cursor-pointer">
-        <div class="flex items-center justify-between gap-4">
-          <h3 class="font-medium">Apakah bisa request fitur khusus seperti simulasi kredit?</h3>
-          <svg class="faq-icon shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        </div>
-        <div class="faq-answer">
-          <p class="text-[var(--muted)] text-sm mt-4 leading-relaxed">
-            Tentu bisa. Kami bisa bangun fitur custom seperti: simulasi KPR/KUR, kalkulator deposito, form pengajuan kredit online, form buka rekening digital, tabel kurs real-time, login internet banking (iframe), dan integrasi dengan core banking system Anda.
+          <p class="text-[var(--muted)] text-xs mt-3 leading-relaxed">
+            Garansi 100% uang kembali jika dalam 7 hari pertama setelah mockup dikirim Anda merasa tidak cocok. Setelah live, kami berikan <span class="gold">garansi 3 bulan</span> bug fixing gratis + support 24/7.
           </p>
         </div>
       </div>
@@ -820,45 +560,44 @@
 </section>
 
 <!-- ============ CTA FINAL ============ -->
-<section class="py-20 md:py-28">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="surface rounded-3xl p-10 md:p-16 text-center reveal relative overflow-hidden">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#C9A961] opacity-[0.04] blur-[100px] rounded-full"></div>
+<section class="py-14 md:py-20">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="surface rounded-2xl p-8 md:p-12 text-center reveal relative overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-80 bg-[#C9A961] opacity-[0.04] blur-[100px] rounded-full"></div>
 
       <div class="relative">
-        <svg class="mx-auto mb-6" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.3"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="7"/><line x1="14" y1="18" x2="14" y2="4"/><line x1="18" y1="18" x2="18" y2="9"/></svg>
+        <svg class="mx-auto mb-4" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.3"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="7"/><line x1="14" y1="18" x2="14" y2="4"/><line x1="18" y1="18" x2="18" y2="9"/></svg>
 
-        <h2 class="font-serif text-3xl md:text-5xl leading-tight mb-5">
-          Jangan tunda lagi, waktunya <br class="hidden md:block"/>
-          <em class="text-gradient">bank Anda go digital.</em>
+        <h2 class="font-serif text-2xl md:text-4xl leading-tight mb-3">
+          Jangan biarkan website <em class="text-gradient">jadul</em> merusak reputasi bank Anda.
         </h2>
-        <p class="text-[var(--muted)] mb-10 max-w-xl mx-auto">
-          Konsultasi 30 menit <span class="text-[var(--text)]">gratis</span>. Kami bantu petakan kebutuhan website bank Anda — tanpa komitmen.
+        <p class="text-[var(--muted)] text-sm mb-6 max-w-lg mx-auto">
+          Konsultasi 30 menit <span class="text-[var(--text)]">gratis</span>. Kami audit website lama Anda dan kasih roadmap upgrade-nya.
         </p>
 
-        <div class="flex flex-col sm:flex-row justify-center gap-3 mb-10">
-          <a href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20konsultasi%20website%20bank" target="_blank" class="btn-primary px-7 py-3.5 rounded-full font-semibold text-sm inline-flex items-center justify-center gap-2">
+        <div class="flex flex-col sm:flex-row justify-center gap-2 mb-6">
+          <a href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20upgrade%20website%20bank%20saya" target="_blank" class="btn-primary px-6 py-3 rounded-full font-semibold text-sm inline-flex items-center justify-center gap-2">
             Chat WhatsApp Sekarang
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="tel:+6281234567890" class="btn-ghost px-7 py-3.5 rounded-full font-medium text-sm inline-flex items-center justify-center gap-2">
+          <a href="tel:+6281234567890" class="btn-ghost px-6 py-3 rounded-full font-medium text-sm inline-flex items-center justify-center gap-2">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            Telepon Langsung
+            Telepon
           </a>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-[var(--muted)]">
-          <span class="flex items-center gap-2">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-[11px] text-[var(--muted)]">
+          <span class="flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
             Respon 5 menit
           </span>
-          <span class="flex items-center gap-2">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
             Tanpa komitmen
           </span>
-          <span class="flex items-center gap-2">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Konsultasi gratis
+          <span class="flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Audit gratis
           </span>
         </div>
       </div>
@@ -867,49 +606,46 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer class="divider pt-12 pb-8">
+<footer class="divider pt-10 pb-6">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-gold">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A1628" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-5 mb-6">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-gold">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A1628" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
-        <span class="font-serif text-xl">DIGITAL<span class="gold">Pro</span></span>
+        <span class="font-serif text-lg">DIGITAL<span class="gold">Pro</span></span>
       </div>
-      <p class="text-sm text-[var(--muted)] text-center">Spesialis Website Bank, BPR & Lembaga Keuangan Profesional</p>
-      <div class="flex gap-2">
-        <a href="#" class="w-9 h-9 surface rounded-full flex items-center justify-center hover:border-[var(--gold)] transition">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="text-[var(--muted)]"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <p class="text-xs text-[var(--muted)] text-center">Spesialis Upgrade Website Bank, BPR & Lembaga Keuangan</p>
+      <div class="flex gap-1.5">
+        <a href="#" class="w-8 h-8 surface rounded-full flex items-center justify-center hover:border-[var(--gold)] transition">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-[var(--muted)]"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/></svg>
         </a>
-        <a href="#" class="w-9 h-9 surface rounded-full flex items-center justify-center hover:border-[var(--gold)] transition">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="text-[var(--muted)]"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <a href="#" class="w-8 h-8 surface rounded-full flex items-center justify-center hover:border-[var(--gold)] transition">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-[var(--muted)]"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286z"/></svg>
         </a>
-        <a href="#" class="w-9 h-9 surface rounded-full flex items-center justify-center hover:border-[var(--gold)] transition">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="text-[var(--muted)]"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <a href="#" class="w-8 h-8 surface rounded-full flex items-center justify-center hover:border-[var(--gold)] transition">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-[var(--muted)]"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
         </a>
       </div>
     </div>
-    <div class="divider pt-6 text-center text-xs text-[var(--muted)]">
-      © 2025 DIGITALPro Agency. All rights reserved. · Crafted for Indonesian Banking Industry
+    <div class="divider pt-5 text-center text-[11px] text-[var(--muted)]">
+      © 2025 DIGITALPro Agency. All rights reserved.
     </div>
   </div>
-</footer>
+</section>
 
-<!-- ============ FLOATING WA ============ -->
-<a href="https://wa.me/6281234567890" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition z-50 bg-gold" title="Chat WhatsApp">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="#0A1628"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<!-- Floating buttons -->
+<a href="https://wa.me/6281234567890" target="_blank" class="fixed bottom-5 right-5 w-12 h-12 rounded-full flex items-center justify-center shadow-xl hover:scale-105 transition z-50 bg-gold" title="Chat WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A1628"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
 </a>
 
-<a href="#" class="fixed bottom-6 left-6 w-11 h-11 surface rounded-full flex items-center justify-center hover:border-[var(--gold)] transition z-50" title="Kembali ke atas" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+<a href="#" class="fixed bottom-5 left-5 w-10 h-10 surface rounded-full flex items-center justify-center hover:border-[var(--gold)] transition z-50" title="Kembali ke atas" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
 </a>
 
 <script>
-  // ===== Reveal =====
   const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')}),{threshold:.1});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-  // ===== Preview tabs =====
   document.querySelectorAll('.preview-tab').forEach(tab=>{
     tab.addEventListener('click',()=>{
       document.querySelectorAll('.preview-tab').forEach(t=>t.classList.remove('active'));
@@ -918,8 +654,6 @@
       document.getElementById('view-'+tab.dataset.view).classList.remove('hidden');
     });
   });
-
-  // ===== FAQ =====
   document.querySelectorAll('.faq-item').forEach(item=>{
     item.addEventListener('click',()=>{
       const wasOpen=item.classList.contains('open');
@@ -927,8 +661,6 @@
       if(!wasOpen)item.classList.add('open');
     });
   });
-
-  // ===== Smooth scroll =====
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click',function(e){
       const t=document.querySelector(this.getAttribute('href'));
