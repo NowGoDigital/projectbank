@@ -3,35 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>BANK NUSANTARA — Lebih dari 40 Tahun Melayani Indonesia</title>
-<meta name="description" content="BANK NUSANTARA - Solusi keuangan lengkap: tabungan, deposito, pinjaman, transfer & PPOB. Terpercaya sejak 1982.">
+<title>DIGITALPro — Kami Bangun Website & Aplikasi Kelas Dunia untuk Bisnis Anda</title>
+<meta name="description" content="Jasa pembuatan website & aplikasi profesional. Lihat showcase BANK NUSANTARA sebagai bukti kualitas kami.">
 
-<!-- TailwindCSS -->
 <script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- Font Awesome -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
   :root{
-    --navy:#0B1D3A;
-    --navy-light:#132D5E;
+    --primary:#6C5CE7;
+    --secondary:#00CEFF;
+    --accent:#A29BFE;
+    --dark:#0A0A1F;
     --gold:#D4A843;
-    --gold-light:#F0D78C;
-    --accent:#1B98E0;
-    --dark:#060E1A;
   }
-  *{font-family:'Inter',sans-serif;}
-  .font-display{font-family:'Playfair Display',serif;}
+  *{font-family:'Poppins',sans-serif;}
+  .font-display{font-family:'Space Grotesk',sans-serif;}
 
-  /* Animated gradient */
   .gradient-bg{
-    background:linear-gradient(-45deg,#0B1D3A,#1B98E0,#D4A843,#132D5E);
+    background:linear-gradient(-45deg,#6C5CE7,#00CEFF,#A29BFE,#4834D4);
     background-size:400% 400%;
     animation:gradientShift 12s ease infinite;
   }
@@ -39,277 +32,243 @@
     0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}
   }
 
-  /* Glass */
   .glass{
-    background:rgba(255,255,255,0.06);
+    background:rgba(255,255,255,0.07);
     backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,0.1);
-  }
-  .glass-gold{
-    background:rgba(212,168,67,0.08);
-    backdrop-filter:blur(14px);
-    border:1px solid rgba(212,168,67,0.2);
+    border:1px solid rgba(255,255,255,0.12);
   }
 
-  /* Float */
   .float{animation:float 6s ease-in-out infinite;}
   .float-delay{animation:float 6s ease-in-out infinite;animation-delay:-3s;}
   @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
 
-  /* Glow gold */
-  .glow-gold{box-shadow:0 0 40px rgba(212,168,67,0.35),0 0 80px rgba(27,152,224,0.15);}
-  .glow-blue{box-shadow:0 0 40px rgba(27,152,224,0.4);}
+  .glow{box-shadow:0 0 40px rgba(108,92,231,0.5),0 0 80px rgba(0,206,255,0.3);}
+  .glow-gold{box-shadow:0 0 40px rgba(212,168,67,0.4);}
 
-  /* Gold text gradient */
-  .gold-text{
-    background:linear-gradient(135deg,#D4A843 0%,#F0D78C 50%,#D4A843 100%);
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  }
-  .blue-text{
-    background:linear-gradient(135deg,#1B98E0,#63C5F8);
+  .gradient-text{
+    background:linear-gradient(135deg,#6C5CE7 0%,#00CEFF 100%);
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   }
 
-  /* Reveal */
   .reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.2,.8,.2,1);}
   .reveal.active{opacity:1;transform:translateY(0);}
 
-  /* Card hover */
   .service-card{transition:all .4s cubic-bezier(.2,.8,.2,1);}
-  .service-card:hover{transform:translateY(-8px);border-color:rgba(212,168,67,0.4);}
-  .service-card:hover .svc-icon{transform:scale(1.12) rotate(-5deg);}
+  .service-card:hover{transform:translateY(-8px);border-color:rgba(0,206,255,0.3);}
+  .service-card:hover .svc-icon{transform:scale(1.1) rotate(-5deg);}
   .svc-icon{transition:all .4s ease;}
 
-  /* Shine btn */
   .btn-shine{position:relative;overflow:hidden;}
   .btn-shine::before{
     content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
     transition:left .6s ease;
   }
   .btn-shine:hover::before{left:100%;}
 
-  /* Gold line */
-  .gold-line{
-    width:60px;height:3px;
-    background:linear-gradient(90deg,#D4A843,#F0D78C);
-    border-radius:2px;
-  }
-
-  /* Scroll dot */
   .scroll-dot{animation:scrollDot 2s ease-in-out infinite;}
   @keyframes scrollDot{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(10px);opacity:.3}}
 
-  /* Blob */
-  .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.25;z-index:0;animation:blobMove 22s ease-in-out infinite;}
+  .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.3;z-index:0;animation:blobMove 22s ease-in-out infinite;}
   @keyframes blobMove{
     0%,100%{transform:translate(0,0) scale(1)}
     33%{transform:translate(30px,-40px) scale(1.1)}
     66%{transform:translate(-25px,25px) scale(.92)}
   }
 
-  /* Mobile menu */
   .mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s ease;}
   .mobile-menu.open{max-height:600px;}
 
-  /* Marquee */
-  .marquee{animation:marquee 40s linear infinite;}
+  .marquee{animation:marquee 35s linear infinite;}
   @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-  /* Counter */
-  .counter{font-variant-numeric:tabular-nums;}
-
-  /* Kurs table */
-  .kurs-table tr{transition:background .2s ease;}
-  .kurs-table tr:hover{background:rgba(212,168,67,0.08);}
-
-  /* Timeline */
-  .timeline-line{
-    position:absolute;left:50%;top:0;bottom:0;width:2px;
-    background:linear-gradient(180deg,#D4A843,#1B98E0,#D4A843);
-  }
-  @media(max-width:768px){.timeline-line{left:20px;}}
-
-  .timeline-dot{
-    width:16px;height:16px;border-radius:50%;
-    background:linear-gradient(135deg,#D4A843,#F0D78C);
-    border:3px solid #0B1D3A;
-    box-shadow:0 0 20px rgba(212,168,67,0.5);
-  }
-
-  /* Scrollbar */
-  ::-webkit-scrollbar{width:10px;}
-  ::-webkit-scrollbar-track{background:#060E1A;}
-  ::-webkit-scrollbar-thumb{background:linear-gradient(#D4A843,#1B98E0);border-radius:5px;}
-
-  /* Agunan card */
-  .agunan-card{transition:all .4s ease;}
-  .agunan-card:hover{transform:translateY(-6px) scale(1.02);}
-  .agunan-card:hover .agunan-overlay{opacity:1;}
-  .agunan-overlay{opacity:0;transition:opacity .4s ease;}
-
-  /* Pulse ring for CTA */
-  .pulse-ring{animation:pulseRing 2s ease-out infinite;}
-  @keyframes pulseRing{
-    0%{box-shadow:0 0 0 0 rgba(212,168,67,0.5)}
-    100%{box-shadow:0 0 0 20px rgba(212,168,67,0)}
-  }
-
-  /* Typing cursor */
-  .cursor::after{content:'|';animation:blink 1s infinite;color:#D4A843;}
+  .cursor::after{content:'|';animation:blink 1s infinite;color:#00CEFF;}
   @keyframes blink{50%{opacity:0}}
 
-  /* Culture card */
-  .culture-card{transition:all .5s ease;}
-  .culture-card:hover{transform:translateY(-10px);}
-  .culture-card:hover .culture-icon{transform:rotateY(180deg);}
-  .culture-icon{transition:transform .6s ease;}
-
-  /* Nav link underline */
   .nav-link{position:relative;}
   .nav-link::after{
     content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;
-    background:linear-gradient(90deg,#D4A843,#F0D78C);
+    background:linear-gradient(90deg,#6C5CE7,#00CEFF);
     transition:width .3s ease;
   }
   .nav-link:hover::after{width:100%;}
 
-  /* Particle canvas */
-  #particles{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;}
+  /* Showcase section special */
+  .showcase-frame{
+    background:linear-gradient(135deg,rgba(11,29,58,0.9),rgba(19,45,94,0.9));
+    border:1px solid rgba(212,168,67,0.3);
+  }
+
+  .pulse-ring{animation:pulseRing 2s ease-out infinite;}
+  @keyframes pulseRing{
+    0%{box-shadow:0 0 0 0 rgba(0,206,255,0.5)}
+    100%{box-shadow:0 0 0 20px rgba(0,206,255,0)}
+  }
+
+  /* Pricing */
+  .price-card{transition:all .4s ease;}
+  .price-card:hover{transform:translateY(-10px);}
+  .price-popular{border:2px solid transparent;background-image:linear-gradient(#0A0A1F,#0A0A1F),linear-gradient(135deg,#6C5CE7,#00CEFF);background-origin:border-box;background-clip:padding-box,border-box;}
+
+  /* FAQ */
+  .faq-item{transition:all .3s ease;}
+  .faq-item.open{background:rgba(108,92,231,0.1);border-color:rgba(108,92,231,0.4);}
+  .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .faq-item.open .faq-answer{max-height:500px;}
+  .faq-item.open .faq-icon{transform:rotate(45deg);}
+  .faq-icon{transition:transform .3s ease;}
+
+  /* Scrollbar */
+  ::-webkit-scrollbar{width:10px;}
+  ::-webkit-scrollbar-track{background:#0A0A1F;}
+  ::-webkit-scrollbar-thumb{background:linear-gradient(#6C5CE7,#00CEFF);border-radius:5px;}
+
+  /* Before/After slider visual */
+  .browser-mock{
+    background:linear-gradient(135deg,#132D5E,#0B1D3A);
+  }
+
+  /* Feature badge */
+  .feature-badge{
+    background:linear-gradient(135deg,rgba(212,168,67,0.2),rgba(240,215,140,0.1));
+    border:1px solid rgba(212,168,67,0.3);
+  }
 </style>
 </head>
-<body class="bg-[#060E1A] text-white overflow-x-hidden">
+<body class="bg-[#0A0A1F] text-white overflow-x-hidden">
 
 <!-- ============ NAVBAR ============ -->
 <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="#" class="flex items-center gap-3 font-display font-bold text-xl lg:text-2xl">
-      <div class="w-11 h-11 gradient-bg rounded-xl flex items-center justify-center glow-gold">
-        <i class="fa-solid fa-landmark text-white text-lg"></i>
+    <a href="#" class="flex items-center gap-2 font-display font-bold text-2xl">
+      <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center glow">
+        <i class="fa-solid fa-bolt text-white"></i>
       </div>
-      <div class="leading-tight">
-        <span>BANK <span class="gold-text">NUSANTARA</span></span>
-        <div class="text-[10px] font-normal text-gray-400 tracking-widest uppercase">Since 1982</div>
-      </div>
+      <span>DIGITAL<span class="gradient-text">Pro</span></span>
     </a>
 
-    <ul class="hidden lg:flex items-center gap-7 text-sm font-medium">
-      <li><a href="#tentang" class="nav-link hover:text-[#D4A843] transition">Tentang</a></li>
-      <li><a href="#misi" class="nav-link hover:text-[#D4A843] transition">Misi</a></li>
-      <li><a href="#produk" class="nav-link hover:text-[#D4A843] transition">Produk</a></li>
-      <li><a href="#layanan" class="nav-link hover:text-[#D4A843] transition">Layanan</a></li>
-      <li><a href="#agunan" class="nav-link hover:text-[#D4A843] transition">Agunan</a></li>
-      <li><a href="#transparansi" class="nav-link hover:text-[#D4A843] transition">Transparansi</a></li>
-      <li><a href="#karir" class="nav-link hover:text-[#D4A843] transition">Karir</a></li>
+    <ul class="hidden lg:flex items-center gap-8 text-sm font-medium">
+      <li><a href="#showcase" class="nav-link hover:text-cyan-400 transition">Showcase</a></li>
+      <li><a href="#layanan" class="nav-link hover:text-cyan-400 transition">Layanan</a></li>
+      <li><a href="#proses" class="nav-link hover:text-cyan-400 transition">Proses</a></li>
+      <li><a href="#harga" class="nav-link hover:text-cyan-400 transition">Harga</a></li>
+      <li><a href="#faq" class="nav-link hover:text-cyan-400 transition">FAQ</a></li>
     </ul>
 
-    <a href="#produk" class="hidden lg:inline-flex btn-shine gradient-bg px-6 py-3 rounded-full font-semibold text-sm shadow-lg hover:shadow-[#D4A843]/30 transition items-center gap-2">
-      Buka Rekening <i class="fa-solid fa-arrow-right"></i>
+    <a href="#kontak" class="hidden lg:inline-flex btn-shine gradient-bg px-6 py-3 rounded-full font-semibold text-sm shadow-lg items-center gap-2">
+      Konsultasi Gratis <i class="fa-solid fa-arrow-right"></i>
     </a>
 
-    <button id="menuBtn" class="lg:hidden text-2xl text-[#D4A843]"><i class="fa-solid fa-bars"></i></button>
+    <button id="menuBtn" class="lg:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
   </div>
 
   <div id="mobileMenu" class="mobile-menu lg:hidden glass mx-6 rounded-2xl">
     <ul class="flex flex-col p-6 gap-4 font-medium">
-      <li><a href="#tentang" class="block py-2 hover:text-[#D4A843]">Tentang</a></li>
-      <li><a href="#misi" class="block py-2 hover:text-[#D4A843]">Misi</a></li>
-      <li><a href="#produk" class="block py-2 hover:text-[#D4A843]">Produk</a></li>
-      <li><a href="#layanan" class="block py-2 hover:text-[#D4A843]">Layanan</a></li>
-      <li><a href="#agunan" class="block py-2 hover:text-[#D4A843]">Agunan</a></li>
-      <li><a href="#transparansi" class="block py-2 hover:text-[#D4A843]">Transparansi</a></li>
-      <li><a href="#karir" class="block py-2 hover:text-[#D4A843]">Karir</a></li>
-      <li><a href="#produk" class="gradient-bg px-6 py-3 rounded-full text-center font-semibold mt-2">Buka Rekening</a></li>
+      <li><a href="#showcase" class="block py-2">Showcase</a></li>
+      <li><a href="#layanan" class="block py-2">Layanan</a></li>
+      <li><a href="#proses" class="block py-2">Proses</a></li>
+      <li><a href="#harga" class="block py-2">Harga</a></li>
+      <li><a href="#faq" class="block py-2">FAQ</a></li>
+      <li><a href="#kontak" class="gradient-bg px-6 py-3 rounded-full text-center font-semibold mt-2">Konsultasi Gratis</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- ============ HERO ============ -->
-<section id="tentang" class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
-  <canvas id="particles"></canvas>
-  <div class="blob w-[500px] h-[500px] bg-[#D4A843] top-10 -left-32"></div>
-  <div class="blob w-[500px] h-[500px] bg-[#1B98E0] bottom-0 -right-32" style="animation-delay:-8s;"></div>
+<section class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
+  <div class="blob w-[500px] h-[500px] bg-purple-600 top-10 -left-24"></div>
+  <div class="blob w-[500px] h-[500px] bg-cyan-500 bottom-0 -right-24" style="animation-delay:-8s;"></div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center w-full">
+
     <div class="reveal">
-      <div class="inline-flex items-center gap-2 glass-gold px-4 py-2 rounded-full text-sm mb-6">
-        <span class="w-2 h-2 bg-[#D4A843] rounded-full animate-pulse"></span>
-        Terpercaya Sejak 1982
+      <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm mb-6">
+        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+        <span>Web & App Agency · Menerima Project 2025</span>
       </div>
 
       <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-        Mengenal <span class="gold-text">BANK NUSANTARA</span>
+        Kami Bangun <span class="gradient-text">Website & Aplikasi</span> yang Bikin Bisnis Anda
+        <span id="typewriter" class="cursor"></span>
       </h1>
 
       <p class="text-gray-300 text-lg mb-4 max-w-xl leading-relaxed">
-        Lebih dari <span class="text-[#D4A843] font-bold">40 tahun</span> melayani masyarakat Indonesia dengan integritas dan inovasi. Solusi keuangan lengkap untuk masa depan yang lebih cerah.
+        Butuh website perusahaan, toko online, atau aplikasi mobile yang <span class="text-cyan-400 font-semibold">modern, cepat, dan menghasilkan</span>?
       </p>
-
-      <p class="text-gray-400 text-sm mb-8 max-w-lg italic">
-        "Budaya bukan sekadar slogan di dinding, melainkan DNA yang hidup dalam setiap napas organisasi."
+      <p class="text-gray-400 mb-8 max-w-xl">
+        Dari UMKM sampai korporasi, kami sudah bantu <span class="text-white font-semibold">150+ brand</span> tampil lebih profesional di dunia digital. Lihat showcase <span class="text-[#D4A843] font-semibold">BANK NUSANTARA</span> di bawah 👇
       </p>
 
       <div class="flex flex-wrap gap-4 mb-10">
-        <a href="#produk" class="btn-shine gradient-bg px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-[#D4A843]/40 transition inline-flex items-center gap-2 pulse-ring">
-          Jelajahi Produk <i class="fa-solid fa-arrow-right"></i>
+        <a href="#kontak" class="btn-shine gradient-bg px-8 py-4 rounded-full font-semibold shadow-lg inline-flex items-center gap-2 pulse-ring">
+          Diskusi Project Saya <i class="fa-solid fa-arrow-right"></i>
         </a>
-        <a href="#misi" class="glass px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition inline-flex items-center gap-2">
-          <i class="fa-solid fa-play"></i> Pelajari Misi Kami
+        <a href="#showcase" class="glass px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition inline-flex items-center gap-2">
+          <i class="fa-solid fa-eye"></i> Lihat Showcase
         </a>
       </div>
 
-      <!-- Stats -->
       <div class="grid grid-cols-3 gap-6 max-w-md">
         <div>
-          <div class="font-display text-3xl font-bold gold-text counter" data-target="40">0</div>
-          <div class="text-xs text-gray-400 mt-1">Tahun Berdiri</div>
+          <div class="font-display text-3xl font-bold gradient-text">150+</div>
+          <div class="text-xs text-gray-400 mt-1">Project Selesai</div>
         </div>
         <div>
-          <div class="font-display text-3xl font-bold blue-text counter" data-target="12000">0</div>
-          <div class="text-xs text-gray-400 mt-1">Karyawan</div>
+          <div class="font-display text-3xl font-bold gradient-text">98%</div>
+          <div class="text-xs text-gray-400 mt-1">Klien Puas</div>
         </div>
         <div>
-          <div class="font-display text-3xl font-bold gold-text counter" data-target="500">0</div>
-          <div class="text-xs text-gray-400 mt-1">Kantor Cabang</div>
+          <div class="font-display text-3xl font-bold gradient-text">5★</div>
+          <div class="text-xs text-gray-400 mt-1">Rating Google</div>
         </div>
       </div>
     </div>
 
-    <!-- Hero Visual -->
+    <!-- Hero Visual: Showcase preview -->
     <div class="relative reveal">
       <div class="relative float">
-        <div class="glass rounded-3xl p-5 glow-gold">
+        <div class="showcase-frame rounded-3xl p-5 glow-gold">
           <div class="flex items-center gap-2 mb-4 px-2">
             <div class="w-3 h-3 rounded-full bg-red-500"></div>
             <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div class="w-3 h-3 rounded-full bg-green-500"></div>
             <span class="text-xs text-gray-400 ml-3">banknusantara.co.id</span>
+            <div class="ml-auto bg-[#D4A843] text-[#0B1D3A] text-[10px] font-bold px-2 py-1 rounded">LIVE</div>
           </div>
-          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="Bank Nusantara Digital" class="rounded-xl w-full">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="Showcase Bank Nusantara" class="rounded-xl w-full">
+          <div class="mt-4 flex items-center justify-between">
+            <div>
+              <div class="text-xs text-gray-400">Featured Project</div>
+              <div class="font-display font-bold text-[#D4A843]">BANK NUSANTARA</div>
+            </div>
+            <a href="#showcase" class="text-xs font-semibold text-cyan-400 inline-flex items-center gap-1 hover:gap-2 transition-all">
+              Lihat Studi Kasus <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
 
-        <!-- Floating Card 1 -->
-        <div class="absolute -top-6 -left-6 glass-gold rounded-2xl p-4 float-delay shadow-xl hidden sm:block">
+        <!-- Floating card 1 -->
+        <div class="absolute -top-6 -left-6 glass rounded-2xl p-4 float-delay shadow-xl hidden sm:block">
           <div class="flex items-center gap-3">
             <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center">
-              <i class="fa-solid fa-shield-halved text-xl text-[#D4A843]"></i>
+              <i class="fa-solid fa-chart-line text-xl"></i>
             </div>
             <div>
-              <div class="text-[10px] text-gray-400 uppercase">Dijamin LPS</div>
-              <div class="font-bold text-[#D4A843]">100% Aman</div>
+              <div class="text-[10px] text-gray-400">Conversion Rate</div>
+              <div class="font-bold text-green-400">+247% ↑</div>
             </div>
           </div>
         </div>
 
-        <!-- Floating Card 2 -->
+        <!-- Floating card 2 -->
         <div class="absolute -bottom-6 -right-4 glass rounded-2xl p-4 float shadow-xl">
           <div class="flex items-center gap-3">
-            <div class="w-12 h-12 bg-[#1B98E0] rounded-xl flex items-center justify-center">
-              <i class="fa-solid fa-users text-xl"></i>
+            <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-bolt text-xl"></i>
             </div>
             <div>
-              <div class="text-[10px] text-gray-400 uppercase">Nasabah Aktif</div>
-              <div class="font-bold">8.5 Juta+</div>
+              <div class="text-[10px] text-gray-400">Page Speed</div>
+              <div class="font-bold">98/100</div>
             </div>
           </div>
         </div>
@@ -317,548 +276,414 @@
     </div>
   </div>
 
-  <!-- Scroll indicator -->
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400 text-xs z-10">
     <span>Scroll</span>
     <div class="w-6 h-10 border-2 border-gray-500 rounded-full flex justify-center pt-2">
-      <div class="w-1 h-2 bg-[#D4A843] rounded-full scroll-dot"></div>
+      <div class="w-1 h-2 bg-cyan-400 rounded-full scroll-dot"></div>
     </div>
   </div>
 </section>
 
-<!-- ============ TRUST BAR (Marquee) ============ -->
+<!-- ============ TRUST BAR ============ -->
 <section class="py-10 border-y border-white/10 overflow-hidden">
-  <p class="text-center text-gray-400 text-xs uppercase tracking-[.25em] mb-6">Sertifikasi & Legalitas Resmi</p>
+  <p class="text-center text-gray-400 text-xs uppercase tracking-[.25em] mb-6">Teknologi yang Kami Gunakan</p>
   <div class="flex whitespace-nowrap">
-    <div class="marquee flex gap-20 items-center pr-20">
-      <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-solid fa-shield-halved text-[#D4A843] text-xl"></i> OJK Registered</div>
-      <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-solid fa-building-columns text-[#1B98E0] text-xl"></i> Bank Indonesia</div>
-      <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-solid fa-lock text-[#D4A843] text-xl"></i> LPS Certified</div>
-      <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-solid fa-certificate text-[#1B98E0] text-xl"></i> ISO 27001</div>
-      <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-solid fa-award text-[#D4A843] text-xl"></i> IDX Listed</div>
-      <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-brands fa-cc-visa text-[#1B98E0] text-xl"></i> Visa Partner</div>
-      <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-brands fa-cc-mastercard text-[#D4A843] text-xl"></i> Mastercard</div>
-      <!-- duplicate -->
-      <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-solid fa-shield-halved text-[#D4A843] text-xl"></i> OJK Registered</div>
-      <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-solid fa-building-columns text-[#1B98E0] text-xl"></i> Bank Indonesia</div>
-      <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-solid fa-lock text-[#D4A843] text-xl"></i> LPS Certified</div>
-      <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-solid fa-certificate text-[#1B98E0] text-xl"></i> ISO 27001</div>
-      <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-solid fa-award text-[#D4A843] text-xl"></i> IDX Listed</div>
-      <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-brands fa-cc-visa text-[#1B98E0] text-xl"></i> Visa Partner</div>
-      <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-brands fa-cc-mastercard text-[#D4A843] text-xl"></i> Mastercard</div>
+    <div class="marquee flex gap-16 items-center pr-16">
+      <i class="fa-brands fa-react text-4xl text-gray-500"></i>
+      <i class="fa-brands fa-node-js text-4xl text-gray-500"></i>
+      <i class="fa-brands fa-laravel text-4xl text-gray-500"></i>
+      <i class="fa-brands fa-vuejs text-4xl text-gray-500"></i>
+      <i class="fa-brands fa-aws text-4xl text-gray-500"></i>
+      <i class="fa-brands fa-figma text-4xl text-gray-500"></i>
+      <i class="fa-brands fa-docker text-4xl text-gray-500"></i>
+      <i class="fa-brands fa-wordpress text-4xl text-gray-500"></i>
+      <!-- duplikat -->
+      <i class="fa-brands fa-react text-4xl text-gray-500"></i>
+      <i class="fa-brands fa-node-js text-4xl text-gray-500"></i>
+      <i class="fa-brands fa-laravel text-4xl text-gray-500"></i>
+      <i class="fa-brands fa-vuejs text-4xl text-gray-500"></i>
+      <i class="fa-brands fa-aws text-4xl text-gray-500"></i>
+      <i class="fa-brands fa-figma text-4xl text-gray-500"></i>
+      <i class="fa-brands fa-docker text-4xl text-gray-500"></i>
+      <i class="fa-brands fa-wordpress text-4xl text-gray-500"></i>
     </div>
   </div>
 </section>
 
-<!-- ============ MILESTONE / PERJALANAN ============ -->
-<section class="py-24 relative overflow-hidden">
-  <div class="blob w-80 h-80 bg-[#D4A843] top-1/3 -right-20"></div>
-
-  <div class="max-w-6xl mx-auto px-6 relative z-10">
-    <div class="text-center mb-16 reveal">
-      <span class="text-[#D4A843] font-semibold uppercase tracking-[.25em] text-xs">Perjalanan Kami</span>
-      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Milestone <span class="gold-text">Penting</span></h2>
-      <div class="gold-line mx-auto"></div>
-      <p class="text-gray-400 max-w-xl mx-auto mt-4">Tonggak sejarah yang membentuk BANK NUSANTARA menjadi institusi keuangan terpercaya.</p>
-    </div>
-
-    <div class="relative">
-      <div class="timeline-line hidden md:block"></div>
-
-      <!-- Timeline items -->
-      <div class="space-y-12">
-
-        <div class="reveal relative flex flex-col md:flex-row items-center gap-6 md:gap-12">
-          <div class="md:w-1/2 md:text-right md:pr-12 order-2 md:order-1">
-            <div class="glass rounded-2xl p-6 inline-block">
-              <div class="text-[#D4A843] font-display font-bold text-2xl mb-2">1982</div>
-              <h3 class="font-bold text-lg mb-1">Didirikan</h3>
-              <p class="text-sm text-gray-400">BANK NUSANTARA resmi berdiri dengan visi melayani masyarakat Indonesia.</p>
-            </div>
-          </div>
-          <div class="timeline-dot z-10 order-1 md:order-2 shrink-0"></div>
-          <div class="md:w-1/2 md:pl-12 order-3 hidden md:block"></div>
-        </div>
-
-        <div class="reveal relative flex flex-col md:flex-row items-center gap-6 md:gap-12">
-          <div class="md:w-1/2 md:pr-12 order-2 md:order-1 hidden md:block"></div>
-          <div class="timeline-dot z-10 order-1 md:order-2 shrink-0"></div>
-          <div class="md:w-1/2 md:text-left md:pl-12 order-3">
-            <div class="glass rounded-2xl p-6 inline-block">
-              <div class="text-[#1B98E0] font-display font-bold text-2xl mb-2">1995</div>
-              <h3 class="font-bold text-lg mb-1">Go Public</h3>
-              <p class="text-sm text-gray-400">Terdaftar di Bursa Efek Indonesia, membuka akses bagi publik.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal relative flex flex-col md:flex-row items-center gap-6 md:gap-12">
-          <div class="md:w-1/2 md:text-right md:pr-12 order-2 md:order-1">
-            <div class="glass rounded-2xl p-6 inline-block">
-              <div class="text-[#D4A843] font-display font-bold text-2xl mb-2">2010</div>
-              <h3 class="font-bold text-lg mb-1">Digital Banking</h3>
-              <p class="text-sm text-gray-400">Peluncuran internet banking & mobile banking pertama.</p>
-            </div>
-          </div>
-          <div class="timeline-dot z-10 order-1 md:order-2 shrink-0"></div>
-          <div class="md:w-1/2 md:pl-12 order-3 hidden md:block"></div>
-        </div>
-
-        <div class="reveal relative flex flex-col md:flex-row items-center gap-6 md:gap-12">
-          <div class="md:w-1/2 md:pr-12 order-2 md:order-1 hidden md:block"></div>
-          <div class="timeline-dot z-10 order-1 md:order-2 shrink-0"></div>
-          <div class="md:w-1/2 md:text-left md:pl-12 order-3">
-            <div class="glass rounded-2xl p-6 inline-block">
-              <div class="text-[#1B98E0] font-display font-bold text-2xl mb-2">2024</div>
-              <h3 class="font-bold text-lg mb-1">Super App</h3>
-              <p class="text-sm text-gray-400">Peluncuran Nusantara Super App — semua layanan dalam satu genggaman.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ MISI ============ -->
-<section id="misi" class="py-24 relative">
-  <div class="blob w-96 h-96 bg-[#1B98E0] top-20 -left-24"></div>
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-
-    <div class="text-center mb-16 reveal">
-      <span class="text-[#D4A843] font-semibold uppercase tracking-[.25em] text-xs">Misi Kami</span>
-      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Langkah <span class="gold-text">Strategis</span></h2>
-      <div class="gold-line mx-auto"></div>
-      <p class="text-gray-400 max-w-2xl mx-auto mt-4">Mewujudkan visi melalui lima pilar misi yang saling memperkuat.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <div class="service-card glass rounded-2xl p-8 reveal">
-        <div class="svc-icon w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6 glow-gold">
-          <i class="fa-solid fa-lightbulb text-2xl text-[#D4A843]"></i>
-        </div>
-        <h3 class="font-display text-xl font-bold mb-3">Inovasi Produk & Layanan</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Menyediakan produk dan layanan perbankan yang inovatif, aman, dan mudah diakses oleh seluruh lapisan masyarakat Indonesia.</p>
-      </div>
-
-      <div class="service-card glass rounded-2xl p-8 reveal">
-        <div class="svc-icon w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6 glow-blue">
-          <i class="fa-solid fa-user-graduate text-2xl text-[#1B98E0]"></i>
-        </div>
-        <h3 class="font-display text-xl font-bold mb-3">Pengembangan SDM Unggul</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Mengembangkan sumber daya manusia yang profesional, berintegritas, dan memiliki kompetensi bertaraf internasional.</p>
-      </div>
-
-      <div class="service-card glass rounded-2xl p-8 reveal">
-        <div class="svc-icon w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6 glow-gold">
-          <i class="fa-solid fa-scale-balanced text-2xl text-[#D4A843]"></i>
-        </div>
-        <h3 class="font-display text-xl font-bold mb-3">Good Corporate Governance</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Menerapkan prinsip tata kelola perusahaan yang baik secara konsisten di seluruh lini operasional.</p>
-      </div>
-
-      <div class="service-card glass rounded-2xl p-8 reveal">
-        <div class="svc-icon w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6 glow-blue">
-          <i class="fa-solid fa-chart-line text-2xl text-[#1B98E0]"></i>
-        </div>
-        <h3 class="font-display text-xl font-bold mb-3">Nilai Tambah Pemegang Saham</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Memberikan nilai tambah optimal bagi pemegang saham melalui pertumbuhan bisnis yang sehat dan berkelanjutan.</p>
-      </div>
-
-      <div class="service-card glass rounded-2xl p-8 reveal">
-        <div class="svc-icon w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6 glow-gold">
-          <i class="fa-solid fa-hand-holding-heart text-2xl text-[#D4A843]"></i>
-        </div>
-        <h3 class="font-display text-xl font-bold mb-3">Keuangan Inklusif & CSR</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Berperan aktif dalam memperluas akses keuangan inklusif dan menjalankan program tanggung jawab sosial perusahaan.</p>
-      </div>
-
-      <div class="service-card glass-gold rounded-2xl p-8 reveal flex flex-col justify-center items-center text-center">
-        <i class="fa-solid fa-quote-left text-4xl text-[#D4A843] mb-4"></i>
-        <p class="text-gray-300 italic text-sm leading-relaxed mb-3">"Budaya bukan sekadar slogan di dinding, melainkan DNA yang hidup dalam setiap napas organisasi."</p>
-        <div class="gold-line"></div>
-        <p class="text-xs text-gray-400 mt-3 uppercase tracking-widest">Filosofi Bank Nusantara</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ BUDAYA PERUSAHAAN ============ -->
-<section class="py-24 relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-
-    <div class="text-center mb-16 reveal">
-      <span class="text-[#D4A843] font-semibold uppercase tracking-[.25em] text-xs">Budaya Perusahaan</span>
-      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Empat Nilai <span class="gold-text">Fundamental</span></h2>
-      <div class="gold-line mx-auto"></div>
-      <p class="text-gray-400 max-w-2xl mx-auto mt-4">Fondasi dalam setiap langkah dan keputusan BANK NUSANTARA.</p>
-    </div>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-      <div class="culture-card glass-gold rounded-2xl p-8 text-center reveal">
-        <div class="culture-icon w-20 h-20 mx-auto gradient-bg rounded-full flex items-center justify-center mb-5 glow-gold">
-          <i class="fa-solid fa-handshake text-3xl text-[#D4A843]"></i>
-        </div>
-        <h3 class="font-display text-xl font-bold mb-2 gold-text">Integritas</h3>
-        <p class="text-gray-400 text-sm">Jujur, transparan, dan konsisten dalam setiap tindakan.</p>
-      </div>
-
-      <div class="culture-card glass rounded-2xl p-8 text-center reveal">
-        <div class="culture-icon w-20 h-20 mx-auto gradient-bg rounded-full flex items-center justify-center mb-5 glow-blue">
-          <i class="fa-solid fa-rocket text-3xl text-[#1B98E0]"></i>
-        </div>
-        <h3 class="font-display text-xl font-bold mb-2 blue-text">Inovasi</h3>
-        <p class="text-gray-400 text-sm">Terus berinovasi untuk solusi keuangan yang lebih baik.</p>
-      </div>
-
-      <div class="culture-card glass-gold rounded-2xl p-8 text-center reveal">
-        <div class="culture-icon w-20 h-20 mx-auto gradient-bg rounded-full flex items-center justify-center mb-5 glow-gold">
-          <i class="fa-solid fa-people-group text-3xl text-[#D4A843]"></i>
-        </div>
-        <h3 class="font-display text-xl font-bold mb-2 gold-text">Kolaborasi</h3>
-        <p class="text-gray-400 text-sm">Bersama meraih hasil terbaik untuk semua pemangku kepentingan.</p>
-      </div>
-
-      <div class="culture-card glass rounded-2xl p-8 text-center reveal">
-        <div class="culture-icon w-20 h-20 mx-auto gradient-bg rounded-full flex items-center justify-center mb-5 glow-blue">
-          <i class="fa-solid fa-medal text-3xl text-[#1B98E0]"></i>
-        </div>
-        <h3 class="font-display text-xl font-bold mb-2 blue-text">Keunggulan</h3>
-        <p class="text-gray-400 text-sm">Standar tinggi dan komitmen pada kualitas terbaik.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ KOMISARIS ============ -->
+<!-- ============ PAIN POINT / MASALAH ============ -->
 <section class="py-24 relative">
-  <div class="blob w-80 h-80 bg-[#D4A843] bottom-0 left-1/4"></div>
   <div class="max-w-6xl mx-auto px-6 relative z-10">
-
     <div class="text-center mb-16 reveal">
-      <span class="text-[#D4A843] font-semibold uppercase tracking-[.25em] text-xs">Dewan Komisaris</span>
-      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Pimpinan <span class="gold-text">BANK NUSANTARA</span></h2>
-      <div class="gold-line mx-auto"></div>
-      <p class="text-gray-400 max-w-2xl mx-auto mt-4">Melakukan pengawasan dan memberikan nasihat kepada Direksi demi tata kelola yang baik.</p>
+      <span class="text-cyan-400 font-semibold uppercase tracking-[.25em] text-xs">Sering Alami Ini?</span>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Bisnis Anda <span class="gradient-text">Belum Online?</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Atau sudah punya website tapi tidak menghasilkan? Ini masalah yang biasa kami selesaikan.</p>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <div class="reveal text-center">
-        <div class="relative inline-block mb-5">
-          <div class="w-44 h-44 rounded-full overflow-hidden gradient-bg p-1 mx-auto">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" class="w-full h-full object-cover rounded-full" alt="Komisaris Utama">
-          </div>
-          <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#D4A843] text-[#0B1D3A] text-xs font-bold px-3 py-1 rounded-full">Utama</div>
-        </div>
-        <h3 class="font-display text-xl font-bold">Dr. Hendra Wijaya</h3>
-        <p class="text-[#D4A843] text-sm">Komisaris Utama</p>
-        <p class="text-gray-400 text-xs mt-2">30+ tahun pengalaman di industri perbankan nasional.</p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="glass rounded-2xl p-6 reveal border border-red-500/20">
+        <i class="fa-solid fa-triangle-exclamation text-red-400 text-2xl mb-3"></i>
+        <h3 class="font-display font-bold mb-2">Website Lama & Lambat</h3>
+        <p class="text-gray-400 text-sm">Customer pergi karena loading lebih dari 3 detik.</p>
       </div>
-
-      <div class="reveal text-center">
-        <div class="relative inline-block mb-5">
-          <div class="w-44 h-44 rounded-full overflow-hidden gradient-bg p-1 mx-auto">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" class="w-full h-full object-cover rounded-full" alt="Wakil Komisaris">
-          </div>
-          <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#1B98E0] text-white text-xs font-bold px-3 py-1 rounded-full">Wakil</div>
-        </div>
-        <h3 class="font-display text-xl font-bold">Sari Dewi, MBA</h3>
-        <p class="text-[#1B98E0] text-sm">Wakil Komisaris Utama</p>
-        <p class="text-gray-400 text-xs mt-2">Expert di bidang keuangan internasional & risk management.</p>
+      <div class="glass rounded-2xl p-6 reveal border border-red-500/20">
+        <i class="fa-solid fa-triangle-exclamation text-red-400 text-2xl mb-3"></i>
+        <h3 class="font-display font-bold mb-2">Desain Ketinggalan Jaman</h3>
+        <p class="text-gray-400 text-sm">Kesan brand terlihat murahan & tidak profesional.</p>
       </div>
-
-      <div class="reveal text-center">
-        <div class="relative inline-block mb-5">
-          <div class="w-44 h-44 rounded-full overflow-hidden gradient-bg p-1 mx-auto">
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" class="w-full h-full object-cover rounded-full" alt="Komisaris Independen">
-          </div>
-          <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#D4A843] text-[#0B1D3A] text-xs font-bold px-3 py-1 rounded-full">Independen</div>
-        </div>
-        <h3 class="font-display text-xl font-bold">Prof. Bambang Sutrisno</h3>
-        <p class="text-[#D4A843] text-sm">Komisaris Independen</p>
-        <p class="text-gray-400 text-xs mt-2">Akademisi & praktisi GCG terkemuka di Indonesia.</p>
+      <div class="glass rounded-2xl p-6 reveal border border-red-500/20">
+        <i class="fa-solid fa-triangle-exclamation text-red-400 text-2xl mb-3"></i>
+        <h3 class="font-display font-bold mb-2">Tidak Mobile-Friendly</h3>
+        <p class="text-gray-400 text-sm">80% user mobile, tapi web Anda berantakan di HP.</p>
       </div>
+      <div class="glass rounded-2xl p-6 reveal border border-red-500/20">
+        <i class="fa-solid fa-triangle-exclamation text-red-400 text-2xl mb-3"></i>
+        <h3 class="font-display font-bold mb-2">Konversi Rendah</h3>
+        <p class="text-gray-400 text-sm">Banyak visitor, tapi hampir tidak ada yang beli/booking.</p>
+      </div>
+    </div>
 
+    <div class="text-center mt-12 reveal">
+      <div class="inline-flex items-center gap-3 glass px-6 py-4 rounded-full">
+        <i class="fa-solid fa-circle-check text-green-400 text-2xl"></i>
+        <span class="font-semibold">Tenang — semua masalah di atas <span class="gradient-text font-bold">bisa kami selesaikan</span> dalam 2–8 minggu.</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PRODUK / SOLUSI KEUANGAN ============ -->
-<section id="produk" class="py-24 relative">
-  <div class="blob w-96 h-96 bg-[#1B98E0] top-10 right-0"></div>
+<!-- ============ SHOWCASE BANK NUSANTARA ============ -->
+<section id="showcase" class="py-24 relative overflow-hidden">
+  <div class="blob w-[500px] h-[500px] bg-[#D4A843] top-20 -right-32"></div>
+  <div class="blob w-[400px] h-[400px] bg-purple-600 bottom-0 -left-24" style="animation-delay:-10s;"></div>
+
   <div class="max-w-7xl mx-auto px-6 relative z-10">
-
-    <div class="text-center mb-16 reveal">
-      <span class="text-[#D4A843] font-semibold uppercase tracking-[.25em] text-xs">Produk Kami</span>
-      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Solusi Keuangan <span class="gold-text">Lengkap</span></h2>
-      <div class="gold-line mx-auto"></div>
-      <p class="text-gray-400 max-w-2xl mx-auto mt-4">Pilih produk perbankan yang tepat untuk kebutuhan Anda.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-      <div class="service-card glass rounded-2xl p-7 reveal text-center">
-        <div class="w-20 h-20 mx-auto gradient-bg rounded-2xl flex items-center justify-center mb-5 glow-gold svc-icon">
-          <i class="fa-solid fa-piggy-bank text-3xl text-[#D4A843]"></i>
-        </div>
-        <h3 class="font-display text-xl font-bold mb-2">Tabungan</h3>
-        <p class="text-gray-400 text-sm mb-4">Simpanan aman & menguntungkan dengan bunga kompetitif.</p>
-        <div class="text-[#D4A843] text-xs font-bold uppercase tracking-wider mb-3">Mulai dari Rp 50.000</div>
-        <a href="#" class="text-sm font-semibold inline-flex items-center gap-2 text-[#D4A843] hover:gap-3 transition-all">
-          Buka Tabungan <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
-
-      <div class="service-card glass rounded-2xl p-7 reveal text-center">
-        <div class="w-20 h-20 mx-auto gradient-bg rounded-2xl flex items-center justify-center mb-5 glow-blue svc-icon">
-          <i class="fa-solid fa-vault text-3xl text-[#1B98E0]"></i>
-        </div>
-        <h3 class="font-display text-xl font-bold mb-2">Deposito</h3>
-        <p class="text-gray-400 text-sm mb-4">Investasi aman & terjamin dengan return optimal.</p>
-        <div class="text-[#1B98E0] text-xs font-bold uppercase tracking-wider mb-3">Bunga s/d 5.5% p.a</div>
-        <a href="#" class="text-sm font-semibold inline-flex items-center gap-2 text-[#1B98E0] hover:gap-3 transition-all">
-          Mulai Deposito <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
-
-      <div class="service-card glass rounded-2xl p-7 reveal text-center">
-        <div class="w-20 h-20 mx-auto gradient-bg rounded-2xl flex items-center justify-center mb-5 glow-gold svc-icon">
-          <i class="fa-solid fa-hand-holding-dollar text-3xl text-[#D4A843]"></i>
-        </div>
-        <h3 class="font-display text-xl font-bold mb-2">Pinjaman</h3>
-        <p class="text-gray-400 text-sm mb-4">Solusi kredit fleksibel untuk berbagai kebutuhan Anda.</p>
-        <div class="text-[#D4A843] text-xs font-bold uppercase tracking-wider mb-3">Bunga rendah 0.89%</div>
-        <a href="#" class="text-sm font-semibold inline-flex items-center gap-2 text-[#D4A843] hover:gap-3 transition-all">
-          Ajukan Kredit <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
-
-      <div class="service-card glass rounded-2xl p-7 reveal text-center">
-        <div class="w-20 h-20 mx-auto gradient-bg rounded-2xl flex items-center justify-center mb-5 glow-blue svc-icon">
-          <i class="fa-solid fa-credit-card text-3xl text-[#1B98E0]"></i>
-        </div>
-        <h3 class="font-display text-xl font-bold mb-2">Layanan Jasa</h3>
-        <p class="text-gray-400 text-sm mb-4">Transfer & PPOB dalam satu platform yang terintegrasi.</p>
-        <div class="text-[#1B98E0] text-xs font-bold uppercase tracking-wider mb-3">24/7 Online</div>
-        <a href="#" class="text-sm font-semibold inline-flex items-center gap-2 text-[#1B98E0] hover:gap-3 transition-all">
-          Lihat Layanan <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ LAYANAN TRANSFER & PPOB ============ -->
-<section id="layanan" class="py-24 relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="gradient-bg rounded-3xl p-10 md:p-16 relative overflow-hidden reveal">
-
-      <div class="absolute top-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-      <div class="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
-
-      <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <span class="text-[#D4A843] font-semibold uppercase tracking-[.25em] text-xs">Transfer & PPOB</span>
-          <h2 class="font-display text-3xl md:text-5xl font-bold mt-3 mb-5">Layanan Jasa <span class="gold-text">Transfer & PPOB</span></h2>
-          <p class="text-gray-200 text-lg mb-8 leading-relaxed">Solusi transaksi keuangan lengkap — transfer antar bank dan pembayaran tagihan dalam satu pintu.</p>
-
-          <div class="space-y-4">
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-[#D4A843]/20 rounded-lg flex items-center justify-center shrink-0">
-                <i class="fa-solid fa-paper-plane text-[#D4A843]"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold">Transfer Online 24/7</h4>
-                <p class="text-sm text-gray-300">BI-FAST, RTGS, dan Kliring dengan biaya terjangkau.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
-                <i class="fa-solid fa-bolt"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold">Pembayaran Tagihan</h4>
-                <p class="text-sm text-gray-300">Listrik, PDAM, internet, BPJS, pajak, dan lainnya.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-[#D4A843]/20 rounded-lg flex items-center justify-center shrink-0">
-                <i class="fa-solid fa-mobile-screen text-[#D4A843]"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold">Top-up & Voucher</h4>
-                <p class="text-sm text-gray-300">Pulsa, e-wallet, game voucher, dan streaming.</p>
-              </div>
-            </div>
-          </div>
-
-          <a href="#" class="btn-shine inline-flex items-center gap-2 bg-white text-[#0B1D3A] px-8 py-4 rounded-full font-bold mt-8 shadow-xl hover:scale-105 transition">
-            Coba Sekarang <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-
-        <div class="relative">
-          <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80" alt="Transfer & PPOB" class="rounded-2xl shadow-2xl">
-          <div class="absolute -bottom-6 -left-6 glass-gold rounded-2xl p-4 shadow-xl hidden md:block">
-            <div class="flex items-center gap-3">
-              <div class="w-12 h-12 bg-[#D4A843] rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-bolt text-[#0B1D3A] text-xl"></i>
-              </div>
-              <div>
-                <div class="text-[10px] text-gray-300 uppercase">Transaksi/Hari</div>
-                <div class="font-bold text-[#D4A843]">2.4 Juta+</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ AGUNAN / LELANG ============ -->
-<section id="agunan" class="py-24 relative">
-  <div class="max-w-7xl mx-auto px-6">
 
     <div class="text-center mb-12 reveal">
-      <span class="text-[#D4A843] font-semibold uppercase tracking-[.25em] text-xs">Agunan Pilihan</span>
-      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Harga <span class="gold-text">Terjangkau</span></h2>
-      <div class="gold-line mx-auto"></div>
-      <p class="text-gray-400 max-w-2xl mx-auto mt-4">Temukan properti, kendaraan, dan aset berharga dengan harga di bawah pasaran. Telah melalui verifikasi legalitas dan appraisal profesional.</p>
+      <div class="inline-flex items-center gap-2 feature-badge px-4 py-2 rounded-full text-sm mb-4">
+        <i class="fa-solid fa-crown text-[#D4A843]"></i>
+        <span class="text-[#D4A843] font-bold">Featured Showcase</span>
+      </div>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Studi Kasus: <span class="gradient-text">BANK NUSANTARA</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Inilah contoh nyata website corporate banking yang kami bangun — dari konsep sampai live. Bayangkan bisnis Anda punya kualitas seperti ini.</p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Showcase Grid -->
+    <div class="grid lg:grid-cols-5 gap-6 mb-10">
 
-      <div class="agunan-card relative rounded-2xl overflow-hidden reveal cursor-pointer group">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80" alt="Rumah" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-        </div>
-        <div class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">LELANG</div>
-        <div class="absolute top-4 right-4 bg-[#D4A843] text-[#0B1D3A] text-xs font-bold px-3 py-1 rounded-full">-35%</div>
-        <div class="agunan-overlay absolute inset-0 bg-gradient-to-t from-[#0B1D3A]/95 to-transparent flex flex-col justify-end p-6">
-          <div class="text-[#D4A843] text-xs font-bold uppercase tracking-wider">Properti</div>
-          <h3 class="font-display text-xl font-bold mt-1">Rumah 2 Lantai, Jakarta Selatan</h3>
-          <div class="flex items-center gap-4 mt-2 text-xs text-gray-300">
-            <span><i class="fa-solid fa-bed mr-1"></i> 4 KT</span>
-            <span><i class="fa-solid fa-ruler-combined mr-1"></i> 180 m²</span>
-          </div>
-          <div class="flex items-center justify-between mt-3">
-            <div>
-              <div class="text-xs text-gray-400 line-through">Rp 2.8 M</div>
-              <div class="font-bold text-[#D4A843]">Rp 1.82 M</div>
+      <!-- Main Preview -->
+      <div class="lg:col-span-3 reveal">
+        <div class="browser-mock rounded-2xl p-4 glow-gold">
+          <div class="flex items-center gap-2 mb-3 px-1">
+            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            <div class="flex-1 ml-2 bg-black/30 rounded px-3 py-1 text-xs text-gray-400 flex items-center gap-2">
+              <i class="fa-solid fa-lock text-green-400"></i> banknusantara.co.id
             </div>
-            <button class="bg-[#D4A843] text-[#0B1D3A] px-4 py-2 rounded-full text-xs font-bold">Lihat Detail</button>
+          </div>
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80" alt="Bank Nusantara Homepage" class="rounded-lg w-full">
+          <div class="mt-4 flex items-center justify-between text-xs">
+            <span class="text-gray-400">Landing Page · Corporate Banking</span>
+            <span class="text-[#D4A843] font-semibold">Navy-Gold Theme</span>
           </div>
         </div>
       </div>
 
-      <div class="agunan-card relative rounded-2xl overflow-hidden reveal cursor-pointer group">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80" alt="Mobil" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-        </div>
-        <div class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">LELANG</div>
-        <div class="absolute top-4 right-4 bg-[#1B98E0] text-white text-xs font-bold px-3 py-1 rounded-full">-25%</div>
-        <div class="agunan-overlay absolute inset-0 bg-gradient-to-t from-[#0B1D3A]/95 to-transparent flex flex-col justify-end p-6">
-          <div class="text-[#1B98E0] text-xs font-bold uppercase tracking-wider">Kendaraan</div>
-          <h3 class="font-display text-xl font-bold mt-1">Toyota Fortuner 2022</h3>
-          <div class="flex items-center gap-4 mt-2 text-xs text-gray-300">
-            <span><i class="fa-solid fa-gauge mr-1"></i> 28.000 km</span>
-            <span><i class="fa-solid fa-gear mr-1"></i> Automatic</span>
-          </div>
-          <div class="flex items-center justify-between mt-3">
-            <div>
-              <div class="text-xs text-gray-400 line-through">Rp 620 Jt</div>
-              <div class="font-bold text-[#1B98E0]">Rp 465 Jt</div>
+      <!-- Stats & Info -->
+      <div class="lg:col-span-2 space-y-4 reveal">
+        <div class="glass-gold rounded-2xl p-6 border border-[#D4A843]/20">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-[#D4A843]/20 rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-landmark text-[#D4A843] text-xl"></i>
             </div>
-            <button class="bg-[#1B98E0] text-white px-4 py-2 rounded-full text-xs font-bold">Lihat Detail</button>
+            <div>
+              <div class="text-xs text-gray-400 uppercase tracking-wider">Klien</div>
+              <div class="font-display font-bold text-lg">BANK NUSANTARA</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300">Institusi perbankan 40+ tahun yang butuh website modern untuk menjangkau nasabah milenial.</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div class="glass rounded-xl p-4 text-center">
+            <div class="text-[#D4A843] font-display font-bold text-2xl">45</div>
+            <div class="text-[10px] text-gray-400 uppercase">Hari Pengerjaan</div>
+          </div>
+          <div class="glass rounded-xl p-4 text-center">
+            <div class="text-cyan-400 font-display font-bold text-2xl">18</div>
+            <div class="text-[10px] text-gray-400 uppercase">Halaman</div>
+          </div>
+          <div class="glass rounded-xl p-4 text-center">
+            <div class="text-[#D4A843] font-display font-bold text-2xl">+186%</div>
+            <div class="text-[10px] text-gray-400 uppercase">Lead Masuk</div>
+          </div>
+          <div class="glass rounded-xl p-4 text-center">
+            <div class="text-cyan-400 font-display font-bold text-2xl">98</div>
+            <div class="text-[10px] text-gray-400 uppercase">PageSpeed</div>
+          </div>
+        </div>
+
+        <div class="glass rounded-xl p-4">
+          <div class="text-xs text-gray-400 mb-2">Tech Stack:</div>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-[10px] bg-[#D4A843]/10 text-[#D4A843] px-3 py-1 rounded-full border border-[#D4A843]/30">Next.js</span>
+            <span class="text-[10px] bg-cyan-400/10 text-cyan-400 px-3 py-1 rounded-full border border-cyan-400/30">TailwindCSS</span>
+            <span class="text-[10px] bg-purple-400/10 text-purple-300 px-3 py-1 rounded-full border border-purple-400/30">Framer Motion</span>
+            <span class="text-[10px] bg-[#D4A843]/10 text-[#D4A843] px-3 py-1 rounded-full border border-[#D4A843]/30">Strapi CMS</span>
           </div>
         </div>
       </div>
-
-      <div class="agunan-card relative rounded-2xl overflow-hidden reveal cursor-pointer group">
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Ruko" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-        </div>
-        <div class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">LELANG</div>
-        <div class="absolute top-4 right-4 bg-[#D4A843] text-[#0B1D3A] text-xs font-bold px-3 py-1 rounded-full">-40%</div>
-        <div class="agunan-overlay absolute inset-0 bg-gradient-to-t from-[#0B1D3A]/95 to-transparent flex flex-col justify-end p-6">
-          <div class="text-[#D4A843] text-xs font-bold uppercase tracking-wider">Komersial</div>
-          <h3 class="font-display text-xl font-bold mt-1">Ruko 3 Lantai, Bandung</h3>
-          <div class="flex items-center gap-4 mt-2 text-xs text-gray-300">
-            <span><i class="fa-solid fa-ruler-combined mr-1"></i> 240 m²</span>
-            <span><i class="fa-solid fa-location-dot mr-1"></i> Strategis</span>
-          </div>
-          <div class="flex items-center justify-between mt-3">
-            <div>
-              <div class="text-xs text-gray-400 line-through">Rp 3.5 M</div>
-              <div class="font-bold text-[#D4A843]">Rp 2.1 M</div>
-            </div>
-            <button class="bg-[#D4A843] text-[#0B1D3A] px-4 py-2 rounded-full text-xs font-bold">Lihat Detail</button>
-          </div>
-        </div>
-      </div>
-
     </div>
 
-    <div class="text-center mt-10 reveal">
-      <a href="#" class="btn-shine inline-flex items-center gap-2 gradient-bg px-8 py-4 rounded-full font-semibold shadow-lg">
-        Lihat Semua Agunan <i class="fa-solid fa-arrow-right"></i>
+    <!-- Features yang diimplementasi -->
+    <div class="reveal">
+      <h3 class="font-display text-2xl font-bold mb-6 text-center">Fitur yang Kami Bangun di Showcase Ini</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass rounded-xl p-5 flex items-start gap-3">
+          <div class="w-10 h-10 bg-[#D4A843]/20 rounded-lg flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-palette text-[#D4A843]"></i>
+          </div>
+          <div>
+            <div class="font-semibold text-sm">Desain Premium</div>
+            <div class="text-xs text-gray-400 mt-1">Tema Navy-Gold yang elegan & branded.</div>
+          </div>
+        </div>
+        <div class="glass rounded-xl p-5 flex items-start gap-3">
+          <div class="w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-mobile-screen text-cyan-400"></i>
+          </div>
+          <div>
+            <div class="font-semibold text-sm">100% Responsive</div>
+            <div class="text-xs text-gray-400 mt-1">Tampil sempurna di HP, tablet, desktop.</div>
+          </div>
+        </div>
+        <div class="glass rounded-xl p-5 flex items-start gap-3">
+          <div class="w-10 h-10 bg-[#D4A843]/20 rounded-lg flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-bolt text-[#D4A843]"></i>
+          </div>
+          <div>
+            <div class="font-semibold text-sm">Animasi Halus</div>
+            <div class="text-xs text-gray-400 mt-1">Scroll reveal, marquee, & micro-interaction.</div>
+          </div>
+        </div>
+        <div class="glass rounded-xl p-5 flex items-start gap-3">
+          <div class="w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-shield-halved text-cyan-400"></i>
+          </div>
+          <div>
+            <div class="font-semibold text-sm">SEO & Security</div>
+            <div class="text-xs text-gray-400 mt-1">Siap ranking Google & aman dari serangan.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-12 reveal">
+      <p class="text-gray-400 mb-4">Mau website/aplikasi <span class="text-white font-semibold">sekeren ini</span> untuk bisnis Anda?</p>
+      <a href="#kontak" class="btn-shine inline-flex items-center gap-2 gradient-bg px-8 py-4 rounded-full font-bold shadow-lg glow">
+        <i class="fa-solid fa-rocket"></i> Ya, Saya Mau Seperti Ini!
       </a>
     </div>
   </div>
 </section>
 
-<!-- ============ TRANSPARANSI ============ -->
-<section id="transparansi" class="py-24 relative">
-  <div class="blob w-80 h-80 bg-[#D4A843] top-0 right-0"></div>
+<!-- ============ LAYANAN ============ -->
+<section id="layanan" class="py-24 relative">
+  <div class="blob w-96 h-96 bg-cyan-500 top-20 -left-20"></div>
   <div class="max-w-7xl mx-auto px-6 relative z-10">
 
     <div class="text-center mb-16 reveal">
-      <span class="text-[#D4A843] font-semibold uppercase tracking-[.25em] text-xs">Transparansi & Akuntabilitas</span>
-      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Akses <span class="gold-text">Laporan Publik</span></h2>
-      <div class="gold-line mx-auto"></div>
-      <p class="text-gray-400 max-w-2xl mx-auto mt-4">Laporan publikasi, laporan tahunan, dan saluran pengaduan resmi BANK NUSANTARA.</p>
+      <span class="text-cyan-400 font-semibold uppercase tracking-[.25em] text-xs">Yang Kami Tawarkan</span>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Layanan <span class="gradient-text">All-in-One</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Dari ide sampai live — kami handle semuanya. Anda tinggal fokus ke bisnis.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="service-card glass rounded-2xl p-8 reveal">
+        <div class="svc-icon w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6 glow">
+          <i class="fa-solid fa-laptop-code text-2xl"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3">Website Company Profile</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Website profesional yang bikin bisnis Anda terlihat kredibel di mata customer & partner.</p>
+        <div class="mt-4 text-xs text-gray-500">Mulai dari <span class="text-cyan-400 font-bold">Rp 4.9 Juta</span></div>
+      </div>
+
+      <div class="service-card glass rounded-2xl p-8 reveal">
+        <div class="svc-icon w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6 glow">
+          <i class="fa-solid fa-cart-shopping text-2xl"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3">Toko Online / E-Commerce</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Website jualan lengkap: katalog, payment gateway, resi otomatis, dashboard admin.</p>
+        <div class="mt-4 text-xs text-gray-500">Mulai dari <span class="text-cyan-400 font-bold">Rp 8.9 Juta</span></div>
+      </div>
+
+      <div class="service-card glass rounded-2xl p-8 reveal">
+        <div class="svc-icon w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6 glow">
+          <i class="fa-solid fa-mobile-screen-button text-2xl"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3">Aplikasi Mobile</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Aplikasi Android & iOS dengan UX yang intuitif dan performa native.</p>
+        <div class="mt-4 text-xs text-gray-500">Mulai dari <span class="text-cyan-400 font-bold">Rp 25 Juta</span></div>
+      </div>
+
+      <div class="service-card glass rounded-2xl p-8 reveal">
+        <div class="svc-icon w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6 glow">
+          <i class="fa-solid fa-gears text-2xl"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3">Sistem Custom (CRM/ERP)</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Aplikasi internal khusus untuk automasi bisnis, absensi, inventori, dll.</p>
+        <div class="mt-4 text-xs text-gray-500">Mulai dari <span class="text-cyan-400 font-bold">Rp 15 Juta</span></div>
+      </div>
+
+      <div class="service-card glass rounded-2xl p-8 reveal">
+        <div class="svc-icon w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6 glow">
+          <i class="fa-solid fa-pen-ruler text-2xl"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3">UI/UX Design</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Desain mockup lengkap di Figma sebelum development dimulai. Revisi sampai puas.</p>
+        <div class="mt-4 text-xs text-gray-500">Mulai dari <span class="text-cyan-400 font-bold">Rp 3.5 Juta</span></div>
+      </div>
+
+      <div class="service-card glass rounded-2xl p-8 reveal">
+        <div class="svc-icon w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6 glow">
+          <i class="fa-solid fa-magnifying-glass-chart text-2xl"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3">SEO & Digital Marketing</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Website Anda ranking #1 di Google dan mendatangkan customer organik setiap hari.</p>
+        <div class="mt-4 text-xs text-gray-500">Mulai dari <span class="text-cyan-400 font-bold">Rp 2.5 Juta/bln</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROSES KERJA ============ -->
+<section id="proses" class="py-24 relative">
+  <div class="blob w-96 h-96 bg-purple-600 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 reveal">
+      <span class="text-cyan-400 font-semibold uppercase tracking-[.25em] text-xs">Cara Kerja Kami</span>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">4 Langkah <span class="gradient-text">Sederhana</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Dari ide sampai website Anda live. Proses transparan, update rutin, tanpa drama.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div class="reveal">
+        <div class="glass rounded-2xl p-6 h-full">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center mb-4 font-display text-2xl font-bold glow">01</div>
+          <h3 class="font-display text-lg font-bold mb-2">Konsultasi</h3>
+          <p class="text-gray-400 text-sm">Ngobrol santai tentang kebutuhan, target, & budget Anda. <span class="text-green-400 font-semibold">GRATIS.</span></p>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="glass rounded-2xl p-6 h-full">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center mb-4 font-display text-2xl font-bold glow">02</div>
+          <h3 class="font-display text-lg font-bold mb-2">Desain Mockup</h3>
+          <p class="text-gray-400 text-sm">Tim desainer kami buat mockup di Figma. Revisi sampai Anda puas.</p>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="glass rounded-2xl p-6 h-full">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center mb-4 font-display text-2xl font-bold glow">03</div>
+          <h3 class="font-display text-lg font-bold mb-2">Development</h3>
+          <p class="text-gray-400 text-sm">Coding pakai teknologi terkini. Progress update tiap minggu via WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="glass rounded-2xl p-6 h-full">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center mb-4 font-display text-2xl font-bold glow">04</div>
+          <h3 class="font-display text-lg font-bold mb-2">Launch + Support</h3>
+          <p class="text-gray-400 text-sm">Go live! Garansi 3 bulan + maintenance opsional untuk ketenangan Anda.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="harga" class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+    <div class="text-center mb-16 reveal">
+      <span class="text-cyan-400 font-semibold uppercase tracking-[.25em] text-xs">Paket Harga</span>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Pilih Paket <span class="gradient-text">Sesuai Budget</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Harga transparan, tanpa biaya tersembunyi. Bisa juga custom sesuai kebutuhan.</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6">
 
-      <div class="service-card glass-gold rounded-2xl p-8 text-center reveal">
-        <div class="svc-icon w-20 h-20 mx-auto gradient-bg rounded-full flex items-center justify-center mb-5 glow-gold">
-          <i class="fa-solid fa-newspaper text-3xl text-[#D4A843]"></i>
+      <!-- Starter -->
+      <div class="price-card glass rounded-2xl p-8 reveal">
+        <div class="text-cyan-400 text-xs font-bold uppercase tracking-widest mb-3">Starter</div>
+        <h3 class="font-display text-2xl font-bold mb-2">UMKM & Freelancer</h3>
+        <p class="text-sm text-gray-400 mb-6">Cocok untuk bisnis baru yang butuh kehadiran online cepat.</p>
+        <div class="mb-6">
+          <span class="font-display text-5xl font-bold">Rp 4.9</span>
+          <span class="text-gray-400">Juta</span>
         </div>
-        <h3 class="font-display text-xl font-bold mb-3">Publikasi</h3>
-        <p class="text-gray-400 text-sm mb-5">Informasi kinerja keuangan bulanan & kuartalan.</p>
-        <a href="#" class="inline-flex items-center gap-2 text-[#D4A843] font-semibold text-sm hover:gap-3 transition-all">
-          Unduh Laporan <i class="fa-solid fa-download"></i>
+        <ul class="space-y-3 text-sm mb-8">
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Hingga 5 halaman</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Desain responsive (HP & desktop)</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Form kontak + WhatsApp</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Domain + hosting 1 tahun</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> SEO dasar</li>
+          <li class="flex items-start gap-2 text-gray-500"><i class="fa-solid fa-xmark mt-1"></i> Custom fitur</li>
+        </ul>
+        <a href="#kontak" class="block w-full glass text-center py-3 rounded-xl font-semibold hover:bg-white/10 transition">
+          Pilih Paket Ini
         </a>
       </div>
 
-      <div class="service-card glass rounded-2xl p-8 text-center reveal">
-        <div class="svc-icon w-20 h-20 mx-auto gradient-bg rounded-full flex items-center justify-center mb-5 glow-blue">
-          <i class="fa-solid fa-book-open text-3xl text-[#1B98E0]"></i>
+      <!-- Business (Popular) -->
+      <div class="price-card price-popular rounded-2xl p-8 reveal relative glow">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 gradient-bg text-xs font-bold px-4 py-1 rounded-full">PALING LARIS</div>
+        <div class="text-[#D4A843] text-xs font-bold uppercase tracking-widest mb-3">Business</div>
+        <h3 class="font-display text-2xl font-bold mb-2">Perusahaan & Brand</h3>
+        <p class="text-sm text-gray-400 mb-6">Untuk bisnis yang serius membangun brand & konversi.</p>
+        <div class="mb-6">
+          <span class="font-display text-5xl font-bold gradient-text">Rp 12.9</span>
+          <span class="text-gray-400">Juta</span>
         </div>
-        <h3 class="font-display text-xl font-bold mb-3">Laporan Tahunan</h3>
-        <p class="text-gray-400 text-sm mb-5">Kinerja & pencapaian tahunan secara komprehensif.</p>
-        <a href="#" class="inline-flex items-center gap-2 text-[#1B98E0] font-semibold text-sm hover:gap-3 transition-all">
-          Lihat Annual Report <i class="fa-solid fa-arrow-right"></i>
+        <ul class="space-y-3 text-sm mb-8">
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Hingga 15 halaman</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Desain premium custom</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> CMS (bisa update sendiri)</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Animasi & interaksi</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Integrasi payment gateway</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> SEO lanjutan + Analytics</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Support 3 bulan</li>
+        </ul>
+        <a href="#kontak" class="btn-shine block w-full gradient-bg text-center py-3 rounded-xl font-bold shadow-lg">
+          Pilih Paket Ini
         </a>
       </div>
 
-      <div class="service-card glass-gold rounded-2xl p-8 text-center reveal">
-        <div class="svc-icon w-20 h-20 mx-auto gradient-bg rounded-full flex items-center justify-center mb-5 glow-gold">
-          <i class="fa-solid fa-headset text-3xl text-[#D4A843]"></i>
+      <!-- Enterprise -->
+      <div class="price-card glass rounded-2xl p-8 reveal">
+        <div class="text-cyan-400 text-xs font-bold uppercase tracking-widest mb-3">Enterprise</div>
+        <h3 class="font-display text-2xl font-bold mb-2">Korporasi & Aplikasi</h3>
+        <p class="text-sm text-gray-400 mb-6">Website kompleks atau aplikasi mobile full custom.</p>
+        <div class="mb-6">
+          <span class="font-display text-5xl font-bold">Custom</span>
         </div>
-        <h3 class="font-display text-xl font-bold mb-3">Pengaduan</h3>
-        <p class="text-gray-400 text-sm mb-5">Sampaikan keluhan & masukan melalui saluran resmi.</p>
-        <a href="#" class="inline-flex items-center gap-2 text-[#D4A843] font-semibold text-sm hover:gap-3 transition-all">
-          Laporkan Keluhan <i class="fa-solid fa-arrow-right"></i>
+        <ul class="space-y-3 text-sm mb-8">
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Halaman & fitur unlimited</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Aplikasi mobile (iOS/Android)</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Sistem CRM/ERP custom</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Integrasi API pihak ketiga</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Dedicated project manager</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> SLA 24/7 support</li>
+          <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-1"></i> Maintenance 1 tahun</li>
+        </ul>
+        <a href="#kontak" class="block w-full glass text-center py-3 rounded-xl font-semibold hover:bg-white/10 transition">
+          Hubungi Sales
         </a>
       </div>
 
@@ -866,291 +691,314 @@
   </div>
 </section>
 
-<!-- ============ GALERI & KURS ============ -->
+<!-- ============ TESTIMONIALS ============ -->
 <section class="py-24 relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
+  <div class="max-w-7xl mx-auto px-6">
 
     <div class="text-center mb-16 reveal">
-      <span class="text-[#D4A843] font-semibold uppercase tracking-[.25em] text-xs">Galeri Informasi</span>
-      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Info <span class="gold-text">Terkini</span></h2>
-      <div class="gold-line mx-auto"></div>
+      <span class="text-cyan-400 font-semibold uppercase tracking-[.25em] text-xs">Testimoni</span>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Kata <span class="gradient-text">Klien Kami</span></h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="glass rounded-2xl p-8 reveal">
+        <div class="flex gap-1 text-yellow-400 mb-4">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="text-gray-200 mb-6 italic leading-relaxed">"Tim DIGITALPro beneran profesional. Website company profile kami sekarang jadi alat marketing utama. Lead naik 3x lipat dalam 2 bulan!"</p>
+        <div class="flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" class="w-12 h-12 rounded-full object-cover" alt="">
+          <div>
+            <div class="font-semibold">Sarah Wijaya</div>
+            <div class="text-xs text-gray-400">CEO, Beautica Skincare</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass rounded-2xl p-8 reveal">
+        <div class="flex gap-1 text-yellow-400 mb-4">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="text-gray-200 mb-6 italic leading-relaxed">"Aplikasi logistik yang dibuat stabil banget. Driver gampang pakai, admin juga enak ngontrol. Worth every rupiah!"</p>
+        <div class="flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" class="w-12 h-12 rounded-full object-cover" alt="">
+          <div>
+            <div class="font-semibold">Budi Santoso</div>
+            <div class="text-xs text-gray-400">Founder, LogiTrack ID</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass rounded-2xl p-8 reveal">
+        <div class="flex gap-1 text-yellow-400 mb-4">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="text-gray-200 mb-6 italic leading-relaxed">"E-commerce kami jauh lebih rapi sekarang. Check-out lancar, pelanggan happy, omzet naik 40%. Recommended banget!"</p>
+        <div class="flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" class="w-12 h-12 rounded-full object-cover" alt="">
+          <div>
+            <div class="font-semibold">Anisa Rahman</div>
+            <div class="text-xs text-gray-400">Owner, Kopi Nusantara</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="py-24 relative">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <span class="text-cyan-400 font-semibold uppercase tracking-[.25em] text-xs">FAQ</span>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Pertanyaan <span class="gradient-text">Umum</span></h2>
+      <p class="text-gray-400">Jawaban untuk hal-hal yang sering ditanyakan calon klien.</p>
+    </div>
+
+    <div class="space-y-3">
+
+      <div class="faq-item glass rounded-xl p-6 reveal cursor-pointer">
+        <div class="flex items-center justify-between">
+          <h3 class="font-display font-semibold">Berapa lama proses pembuatan website?</h3>
+          <i class="fa-solid fa-plus faq-icon text-cyan-400"></i>
+        </div>
+        <div class="faq-answer">
+          <p class="text-gray-400 text-sm mt-4 leading-relaxed">Tergantung kompleksitas. Website company profile biasanya <span class="text-white">2-4 minggu</span>, e-commerce 4-8 minggu, aplikasi mobile 2-4 bulan. Timeline detail diberikan setelah diskusi kebutuhan.</p>
+        </div>
+      </div>
+
+      <div class="faq-item glass rounded-xl p-6 reveal cursor-pointer">
+        <div class="flex items-center justify-between">
+          <h3 class="font-display font-semibold">Apakah saya bisa revisi desain?</h3>
+          <i class="fa-solid fa-plus faq-icon text-cyan-400"></i>
+        </div>
+        <div class="faq-answer">
+          <p class="text-gray-400 text-sm mt-4 leading-relaxed">Tentu! Paket Starter dapat <span class="text-white">2x revisi</span>, Business 5x revisi, Enterprise unlimited selama masa desain. Kami pastikan Anda puas sebelum lanjut development.</p>
+        </div>
+      </div>
+
+      <div class="faq-item glass rounded-xl p-6 reveal cursor-pointer">
+        <div class="flex items-center justify-between">
+          <h3 class="font-display font-semibold">Apakah saya bisa update konten sendiri?</h3>
+          <i class="fa-solid fa-plus faq-icon text-cyan-400"></i>
+        </div>
+        <div class="faq-answer">
+          <p class="text-gray-400 text-sm mt-4 leading-relaxed">Ya! Semua paket Business ke atas sudah termasuk <span class="text-white">CMS (Content Management System)</span>. Anda bisa update teks, gambar, dan produk sendiri tanpa perlu coding. Kami juga kasih training gratis.</p>
+        </div>
+      </div>
+
+      <div class="faq-item glass rounded-xl p-6 reveal cursor-pointer">
+        <div class="flex items-center justify-between">
+          <h3 class="font-display font-semibold">Bagaimana sistem pembayarannya?</h3>
+          <i class="fa-solid fa-plus faq-icon text-cyan-400"></i>
+        </div>
+        <div class="faq-answer">
+          <p class="text-gray-400 text-sm mt-4 leading-relaxed">DP 50% di awal untuk memulai project, pelunasan 50% setelah website live. Untuk project besar (di atas Rp 25 juta), bisa dibagi 3-4 termin sesuai milestone.</p>
+        </div>
+      </div>
+
+      <div class="faq-item glass rounded-xl p-6 reveal cursor-pointer">
+        <div class="flex items-center justify-between">
+          <h3 class="font-display font-semibold">Apakah dapat garansi?</h3>
+          <i class="fa-solid fa-plus faq-icon text-cyan-400"></i>
+        </div>
+        <div class="faq-answer">
+          <p class="text-gray-400 text-sm mt-4 leading-relaxed">Semua project dapat <span class="text-white">garansi 3 bulan</span> untuk bug fixing gratis. Jika ada error setelah live, kami perbaiki tanpa biaya tambahan. Maintenance bulanan juga tersedia.</p>
+        </div>
+      </div>
+
+      <div class="faq-item glass rounded-xl p-6 reveal cursor-pointer">
+        <div class="flex items-center justify-between">
+          <h3 class="font-display font-semibold">Bagaimana kalau saya di luar kota?</h3>
+          <i class="fa-solid fa-plus faq-icon text-cyan-400"></i>
+        </div>
+        <div class="faq-answer">
+          <p class="text-gray-400 text-sm mt-4 leading-relaxed">Tidak masalah! 70% klien kami dari luar kota. Komunikasi via <span class="text-white">Zoom, WhatsApp, dan email</span>. Progress report rutin tiap minggu. Hasil sama bagusnya dengan meeting tatap muka.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA + CONTACT ============ -->
+<section id="kontak" class="py-24 relative">
+  <div class="blob w-96 h-96 bg-cyan-500 top-0 -right-20"></div>
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+
+    <div class="text-center mb-12 reveal">
+      <span class="text-cyan-400 font-semibold uppercase tracking-[.25em] text-xs">Langkah Berikutnya</span>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-3 mb-4">Siap Mulai <span class="gradient-text">Project Anda?</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Konsultasi 30 menit <span class="text-white font-semibold">GRATIS</span>. Ceritakan ide Anda, kami kasih rekomendasi & estimasi budget.</p>
     </div>
 
     <div class="grid lg:grid-cols-2 gap-8">
 
-      <!-- Kurs -->
-      <div class="glass-gold rounded-2xl p-8 reveal">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center glow-gold">
-            <i class="fa-solid fa-coins text-[#D4A843] text-xl"></i>
+      <!-- Info -->
+      <div class="space-y-5 reveal">
+        <div class="glass rounded-2xl p-6 flex items-center gap-5">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center shrink-0 glow">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
           </div>
           <div>
-            <h3 class="font-display text-2xl font-bold">Kurs Mata Uang</h3>
-            <p class="text-xs text-gray-400">Nilai tukar terhadap Rupiah · Update: Hari ini</p>
+            <div class="text-sm text-gray-400">WhatsApp (Fast Response)</div>
+            <div class="font-semibold text-lg">+62 812-3456-7890</div>
           </div>
         </div>
 
-        <div class="overflow-x-auto">
-          <table class="kurs-table w-full text-sm">
-            <thead>
-              <tr class="border-b border-white/10 text-gray-400 text-xs uppercase">
-                <th class="py-3 text-left">Mata Uang</th>
-                <th class="py-3 text-right">Jual (IDR)</th>
-                <th class="py-3 text-right">Beli (IDR)</th>
-              </tr>
-            </thead>
-            <tbody class="text-gray-200">
-              <tr class="border-b border-white/5">
-                <td class="py-3 flex items-center gap-2"><span class="font-bold">🇺🇸 USD</span></td>
-                <td class="py-3 text-right text-[#D4A843] font-semibold">16.250</td>
-                <td class="py-3 text-right">16.180</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-3 flex items-center gap-2"><span class="font-bold">🇸🇬 SGD</span></td>
-                <td class="py-3 text-right text-[#D4A843] font-semibold">12.180</td>
-                <td class="py-3 text-right">12.100</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-3 flex items-center gap-2"><span class="font-bold">🇪🇺 EUR</span></td>
-                <td class="py-3 text-right text-[#D4A843] font-semibold">17.650</td>
-                <td class="py-3 text-right">17.520</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-3 flex items-center gap-2"><span class="font-bold">🇦🇺 AUD</span></td>
-                <td class="py-3 text-right text-[#D4A843] font-semibold">10.520</td>
-                <td class="py-3 text-right">10.440</td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-3 flex items-center gap-2"><span class="font-bold">🇯🇵 JPY*</span></td>
-                <td class="py-3 text-right text-[#D4A843] font-semibold">10.850</td>
-                <td class="py-3 text-right">10.770</td>
-              </tr>
-              <tr>
-                <td class="py-3 flex items-center gap-2"><span class="font-bold">🇲🇾 MYR</span></td>
-                <td class="py-3 text-right text-[#D4A843] font-semibold">3.620</td>
-                <td class="py-3 text-right">3.580</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="glass rounded-2xl p-6 flex items-center gap-5">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-envelope text-xl"></i>
+          </div>
+          <div>
+            <div class="text-sm text-gray-400">Email</div>
+            <div class="font-semibold text-lg">halo@digitalpro.id</div>
+          </div>
         </div>
-        <p class="text-[10px] text-gray-500 mt-4 italic">*JPY: kurs per 100 Yen Jepang. Kurs dapat berubah sewaktu-waktu.</p>
+
+        <div class="glass rounded-2xl p-6 flex items-center gap-5">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-clock text-xl"></i>
+          </div>
+          <div>
+            <div class="text-sm text-gray-400">Jam Operasional</div>
+            <div class="font-semibold text-lg">Senin–Sabtu, 09:00–18:00 WIB</div>
+          </div>
+        </div>
+
+        <div class="gradient-bg rounded-2xl p-6 reveal">
+          <div class="flex items-center gap-3 mb-3">
+            <i class="fa-solid fa-gift text-2xl"></i>
+            <h4 class="font-display font-bold text-lg">Bonus Konsultasi Hari Ini</h4>
+          </div>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-white mt-1"></i> Audit website lama GRATIS</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-white mt-1"></i> Mockup 1 halaman GRATIS</li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-white mt-1"></i> Diskon 15% untuk booking bulan ini</li>
+          </ul>
+        </div>
       </div>
 
-      <!-- Galeri -->
-      <div class="space-y-6 reveal">
-        <div class="glass rounded-2xl overflow-hidden group cursor-pointer">
-          <div class="flex gap-4 p-4">
-            <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=300&q=80" class="w-24 h-24 rounded-xl object-cover shrink-0 group-hover:scale-105 transition" alt="">
-            <div>
-              <div class="text-[10px] text-[#D4A843] uppercase tracking-widest font-bold">Aktivitas</div>
-              <h4 class="font-display font-bold mt-1">Peluncuran Nusantara Super App 2024</h4>
-              <p class="text-xs text-gray-400 mt-1">Aplikasi all-in-one untuk nasabah digital...</p>
-              <div class="text-[10px] text-gray-500 mt-2"><i class="fa-regular fa-calendar mr-1"></i> 15 Mar 2024</div>
-            </div>
+      <!-- Form -->
+      <form class="glass rounded-2xl p-8 space-y-5 reveal" onsubmit="event.preventDefault();alert('Terima kasih! Tim kami akan menghubungi Anda dalam 1x24 jam.');">
+        <div>
+          <label class="text-sm text-gray-300 mb-2 block">Nama Lengkap *</label>
+          <input type="text" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-cyan-400 focus:outline-none transition" placeholder="John Doe">
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm text-gray-300 mb-2 block">Email *</label>
+            <input type="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-cyan-400 focus:outline-none transition" placeholder="john@co.id">
+          </div>
+          <div>
+            <label class="text-sm text-gray-300 mb-2 block">WhatsApp *</label>
+            <input type="tel" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-cyan-400 focus:outline-none transition" placeholder="0812xxx">
           </div>
         </div>
-
-        <div class="glass rounded-2xl overflow-hidden group cursor-pointer">
-          <div class="flex gap-4 p-4">
-            <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=300&q=80" class="w-24 h-24 rounded-xl object-cover shrink-0 group-hover:scale-105 transition" alt="">
-            <div>
-              <div class="text-[10px] text-[#1B98E0] uppercase tracking-widest font-bold">CSR</div>
-              <h4 class="font-display font-bold mt-1">Program Literasi Keuangan Desa</h4>
-              <p class="text-xs text-gray-400 mt-1">Menjangkau 500+ desa di seluruh Indonesia...</p>
-              <div class="text-[10px] text-gray-500 mt-2"><i class="fa-regular fa-calendar mr-1"></i> 22 Feb 2024</div>
-            </div>
-          </div>
+        <div>
+          <label class="text-sm text-gray-300 mb-2 block">Jenis Project *</label>
+          <select required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-cyan-400 focus:outline-none transition">
+            <option class="bg-[#0A0A1F]">Website Company Profile</option>
+            <option class="bg-[#0A0A1F]">Toko Online / E-Commerce</option>
+            <option class="bg-[#0A0A1F]">Aplikasi Mobile</option>
+            <option class="bg-[#0A0A1F]">Sistem Custom (CRM/ERP)</option>
+            <option class="bg-[#0A0A1F]">Lainnya</option>
+          </select>
         </div>
-
-        <div class="glass rounded-2xl overflow-hidden group cursor-pointer">
-          <div class="flex gap-4 p-4">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&q=80" class="w-24 h-24 rounded-xl object-cover shrink-0 group-hover:scale-105 transition" alt="">
-            <div>
-              <div class="text-[10px] text-[#D4A843] uppercase tracking-widest font-bold">Video</div>
-              <h4 class="font-display font-bold mt-1">Laporan Kinerja Kuartal IV 2024</h4>
-              <p class="text-xs text-gray-400 mt-1">Pertumbuhan aset 18% year-on-year...</p>
-              <div class="text-[10px] text-gray-500 mt-2"><i class="fa-regular fa-calendar mr-1"></i> 10 Jan 2025</div>
-            </div>
-          </div>
+        <div>
+          <label class="text-sm text-gray-300 mb-2 block">Estimasi Budget</label>
+          <select class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-cyan-400 focus:outline-none transition">
+            <option class="bg-[#0A0A1F]">< Rp 10 Juta</option>
+            <option class="bg-[#0A0A1F]">Rp 10 - 25 Juta</option>
+            <option class="bg-[#0A0A1F]">Rp 25 - 50 Juta</option>
+            <option class="bg-[#0A0A1F]">> Rp 50 Juta</option>
+            <option class="bg-[#0A0A1F]">Belum tahu, minta saran</option>
+          </select>
         </div>
-
-        <a href="#" class="inline-flex items-center gap-2 text-[#D4A843] font-semibold text-sm hover:gap-3 transition-all">
-          Lihat Semua Berita <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ KARIR / BERGABUNG ============ -->
-<section id="karir" class="py-24 relative">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="gradient-bg rounded-3xl p-10 md:p-16 relative overflow-hidden reveal">
-      <div class="absolute top-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-      <div class="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
-
-      <div class="relative z-10 text-center">
-        <div class="inline-flex items-center gap-2 glass-gold px-4 py-2 rounded-full text-sm mb-6">
-          <i class="fa-solid fa-briefcase text-[#D4A843]"></i>
-          <span class="text-[#D4A843] font-bold">50+ Posisi Terbuka</span>
+        <div>
+          <label class="text-sm text-gray-300 mb-2 block">Ceritakan Project Anda *</label>
+          <textarea rows="4" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-cyan-400 focus:outline-none transition" placeholder="Contoh: Saya butuh toko online untuk jual sepatu..."></textarea>
         </div>
-        <h2 class="font-display text-3xl md:text-5xl font-bold mb-5">Bergabung <span class="gold-text">Bersama Kami</span></h2>
-        <p class="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">Kami mencari talenta terbaik yang bersemangat untuk tumbuh bersama. Jadilah bagian dari 12.000+ karyawan BANK NUSANTARA.</p>
+        <button type="submit" class="btn-shine w-full gradient-bg py-4 rounded-xl font-bold shadow-lg inline-flex items-center justify-center gap-2 pulse-ring">
+          Kirim & Jadwalkan Konsultasi <i class="fa-solid fa-paper-plane"></i>
+        </button>
+        <p class="text-xs text-gray-500 text-center">Kami akan balas dalam 1x24 jam. Data Anda aman, tidak kami bagikan.</p>
+      </form>
 
-        <div class="flex flex-wrap justify-center gap-6 mb-10 text-sm">
-          <div class="glass px-5 py-3 rounded-full"><i class="fa-solid fa-graduation-cap text-[#D4A843] mr-2"></i>Pengembangan Karir</div>
-          <div class="glass px-5 py-3 rounded-full"><i class="fa-solid fa-heart-pulse text-[#1B98E0] mr-2"></i>Asuransi Lengkap</div>
-          <div class="glass px-5 py-3 rounded-full"><i class="fa-solid fa-plane text-[#D4A843] mr-2"></i>Cuti & Travel</div>
-          <div class="glass px-5 py-3 rounded-full"><i class="fa-solid fa-laptop text-[#1B98E0] mr-2"></i>Hybrid Working</div>
-        </div>
-
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="#" class="btn-shine inline-flex items-center gap-2 bg-white text-[#0B1D3A] px-8 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition">
-            Lihat Lowongan <i class="fa-solid fa-arrow-right"></i>
-          </a>
-          <a href="#" class="inline-flex items-center gap-2 glass px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
-          </a>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer class="border-t border-white/10 pt-16 pb-8 mt-10">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-
-      <div>
-        <div class="flex items-center gap-3 font-display font-bold text-xl mb-4">
-          <div class="w-11 h-11 gradient-bg rounded-xl flex items-center justify-center">
-            <i class="fa-solid fa-landmark text-white"></i>
-          </div>
-          <div>
-            <span>BANK <span class="gold-text">NUSANTARA</span></span>
-            <div class="text-[10px] font-normal text-gray-400 tracking-widest uppercase">Since 1982</div>
-          </div>
-        </div>
-        <p class="text-sm text-gray-400 leading-relaxed mb-4">Lebih dari 40 tahun melayani masyarakat Indonesia dengan integritas dan inovasi.</p>
-        <div class="flex gap-3">
-          <a href="#" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:gradient-bg transition text-sm"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:gradient-bg transition text-sm"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:gradient-bg transition text-sm"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:gradient-bg transition text-sm"><i class="fa-brands fa-youtube"></i></a>
-          <a href="#" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:gradient-bg transition text-sm"><i class="fa-brands fa-linkedin-in"></i></a>
-        </div>
+<footer class="border-t border-white/10 py-10 mt-10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2 font-display font-bold text-xl">
+      <div class="w-9 h-9 gradient-bg rounded-lg flex items-center justify-center">
+        <i class="fa-solid fa-bolt text-white text-sm"></i>
       </div>
-
-      <div>
-        <h4 class="font-display font-bold mb-4 text-[#D4A843]">Produk</h4>
-        <ul class="space-y-2 text-sm text-gray-400">
-          <li><a href="#" class="hover:text-[#D4A843] transition">Tabungan</a></li>
-          <li><a href="#" class="hover:text-[#D4A843] transition">Deposito</a></li>
-          <li><a href="#" class="hover:text-[#D4A843] transition">Pinjaman</a></li>
-          <li><a href="#" class="hover:text-[#D4A843] transition">Kartu Kredit</a></li>
-          <li><a href="#" class="hover:text-[#D4A843] transition">Transfer & PPOB</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-display font-bold mb-4 text-[#1B98E0]">Perusahaan</h4>
-        <ul class="space-y-2 text-sm text-gray-400">
-          <li><a href="#" class="hover:text-[#1B98E0] transition">Tentang Kami</a></li>
-          <li><a href="#" class="hover:text-[#1B98E0] transition">Karir</a></li>
-          <li><a href="#" class="hover:text-[#1B98E0] transition">Laporan Tahunan</a></li>
-          <li><a href="#" class="hover:text-[#1B98E0] transition">CSR</a></li>
-          <li><a href="#" class="hover:text-[#1B98E0] transition">Kontak</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-display font-bold mb-4 text-[#D4A843]">Hubungi Kami</h4>
-        <ul class="space-y-3 text-sm text-gray-400">
-          <li class="flex items-start gap-3"><i class="fa-solid fa-phone text-[#D4A843] mt-1"></i> 1500-888 (24 Jam)</li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-envelope text-[#1B98E0] mt-1"></i> cs@banknusantara.co.id</li>
-          <li class="flex items-start gap-3"><i class="fa-solid fa-location-dot text-[#D4A843] mt-1"></i> Gedung Nusantara Tower, Jl. Sudirman, Jakarta Pusat</li>
-        </ul>
-      </div>
-
+      <span>DIGITAL<span class="gradient-text">Pro</span></span>
     </div>
-
-    <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-      <p>© 2025 BANK NUSANTARA. All rights reserved. Terdaftar & diawasi oleh OJK. Dijamin oleh LPS.</p>
-      <div class="flex gap-5">
-        <a href="#" class="hover:text-[#D4A843]">Privacy Policy</a>
-        <a href="#" class="hover:text-[#D4A843]">Terms of Service</a>
-        <a href="#" class="hover:text-[#D4A843]">Disclaimer</a>
-      </div>
+    <p class="text-sm text-gray-400 text-center">© 2025 DIGITALPro Agency. Crafted with 💜 in Indonesia.</p>
+    <div class="flex gap-4 text-gray-400">
+      <a href="#" class="hover:text-cyan-400 transition"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="hover:text-cyan-400 transition"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#" class="hover:text-cyan-400 transition"><i class="fa-brands fa-dribbble"></i></a>
+      <a href="#" class="hover:text-cyan-400 transition"><i class="fa-brands fa-tiktok"></i></a>
     </div>
   </div>
 </footer>
 
-<!-- ============ FLOATING BUTTONS ============ -->
-<a href="#" class="fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-br from-[#D4A843] to-[#F0D78C] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition z-50 glow-gold" title="Chat dengan Kami">
-  <i class="fa-solid fa-comments text-[#0B1D3A] text-2xl"></i>
-</a>
-
-<a href="#" class="fixed bottom-6 left-6 w-14 h-14 gradient-bg rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition z-50" title="Kembali ke atas" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
-  <i class="fa-solid fa-arrow-up text-white text-xl"></i>
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/6281234567890" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition z-50 pulse-ring">
+  <i class="fa-brands fa-whatsapp text-2xl"></i>
 </a>
 
 <script>
-  // ===== Mobile menu =====
+  // Mobile menu
   const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');
   menuBtn.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
   mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('open')));
 
-  // ===== Navbar scroll =====
+  // Navbar scroll
   const navbar=document.getElementById('navbar');
   window.addEventListener('scroll',()=>{
     navbar.classList.toggle('glass',window.scrollY>50);
     navbar.classList.toggle('shadow-lg',window.scrollY>50);
   });
 
-  // ===== Reveal on scroll =====
+  // Reveal
   const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')}),{threshold:.1});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-  // ===== Counter animation =====
-  const counters=document.querySelectorAll('.counter');
-  const counterObs=new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting){
-      const el=e.target, target=+el.dataset.target, dur=2000, start=performance.now();
-      const step=now=>{
-        const p=Math.min((now-start)/dur,1);
-        el.textContent=Math.floor(p*target).toLocaleString('id-ID')+'+';
-        if(p<1)requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-      counterObs.unobserve(el);
-    }
-  }),{threshold:.5});
-  counters.forEach(c=>counterObs.observe(c));
+  // Typewriter
+  const words=['Mengkonversi.','Menghasilkan.','Mempesona.','Tumbuh Pesat.'];
+  let wi=0,ci=0,del=false;
+  const typeEl=document.getElementById('typewriter');
+  function type(){
+    const c=words[wi];
+    typeEl.textContent=del?c.substring(0,ci--):c.substring(0,ci++);
+    let s=del?50:100;
+    if(!del&&ci===c.length+1){s=1800;del=true;}
+    else if(del&&ci===0){del=false;wi=(wi+1)%words.length;s=300;}
+    setTimeout(type,s);
+  }
+  type();
 
-  // ===== Smooth scroll =====
+  // FAQ
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    item.addEventListener('click',()=>item.classList.toggle('open'));
+  });
+
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click',function(e){
       const t=document.querySelector(this.getAttribute('href'));
       if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
     });
   });
-
-  // ===== Particles =====
-  const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
-  let w,h,particles=[];
-  function resize(){w=canvas.width=canvas.offsetWidth;h=canvas.height=canvas.offsetHeight;}
-  window.addEventListener('resize',resize);resize();
-  class P{
-    constructor(){this.x=Math.random()*w;this.y=Math.random()*h;this.vx=(Math.random()-.5)*.3;this.vy=(Math.random()-.5)*.3;this.r=Math.random()*2+.5;this.o=Math.random()*.5+.2;}
-    update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>w)this.vx*=-1;if(this.y<0||this.y>h)this.vy*=-1;}
-    draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=`rgba(212,168,67,${this.o})`;ctx.fill();}
-  }
-  for(let i=0;i<60;i++)particles.push(new P());
-  function loop(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(loop);}
-  loop();
 </script>
+
 </body>
 </html>
