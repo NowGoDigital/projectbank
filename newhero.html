@@ -137,9 +137,9 @@ body{font-family:'Inter','Segoe UI',Tahoma,sans-serif;color:var(--text-dark);lin
 .metric+.metric::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:1px;background:linear-gradient(180deg,transparent,rgba(200,169,81,.3),transparent)}
 .metric-val{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;background:linear-gradient(135deg,#c8a951,#e0c76a,#f0d97a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;line-height:1}
 .metric-lbl{font-size:10px;color:rgba(255,255,255,.35);margin-top:3px;font-weight:500;letter-spacing:.5px}
-.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;opacity:0;transform:translateX(60px) scale(.9);transition:all 1.2s cubic-bezier(.23,1,.32,1) .4s;perspective:1200px}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;opacity:0;transform:translateX(60px) scale(.9);transition:all 1.2s cubic-bezier(.23,1,.32,1) .4s;perspective:1200px;width:100%;height:100%}
 .hero-slide.active .hero-visual{opacity:1;transform:translateX(0) scale(1)}
-.visual-stage{position:relative;width:100%;max-width:500px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;transform-style:preserve-3d}
+.visual-stage{position:relative;width:100%;max-width:100%;height:100%;aspect-ratio:auto;display:flex;align-items:center;justify-content:center;transform-style:preserve-3d}
 .orbit{position:absolute;border-radius:50%;z-index:1}
 .orbit.o1{width:105%;height:105%;border:1px dashed rgba(200,169,81,.1);animation:spin 55s linear infinite}
 .orbit.o2{width:130%;height:130%;border:1px dotted rgba(200,169,81,.06);animation:spin 80s linear infinite reverse}
@@ -148,7 +148,7 @@ body{font-family:'Inter','Segoe UI',Tahoma,sans-serif;color:var(--text-dark);lin
 .orbit-dot{position:absolute;width:8px;height:8px;background:var(--secondary);border-radius:50%;box-shadow:0 0 15px rgba(200,169,81,.5)}
 .orbit.o1 .orbit-dot{top:0;left:50%;transform:translate(-50%,-50%)}
 .orbit.o3 .orbit-dot{bottom:10%;right:0;transform:translate(50%,0);background:var(--accent);box-shadow:0 0 15px rgba(30,136,229,.5)}
-.card-3d-wrapper{position:relative;width:400px;height:310px;z-index:5;transform-style:preserve-3d;transition:transform .4s ease}
+.card-3d-wrapper{position:relative;width:100%;height:100%;z-index:5;transform-style:preserve-3d;transition:transform .4s ease}
 .card-glow{position:absolute;width:65%;height:65%;border-radius:50%;background:radial-gradient(circle,rgba(200,169,81,.25) 0%,transparent 70%);filter:blur(60px);z-index:0}
 .buku-tabungan{position:absolute;width:320px;height:200px;border-radius:3px 12px 12px 3px;overflow:visible;backface-visibility:hidden;box-shadow:0 20px 50px rgba(0,0,0,.45),0 5px 15px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.08);transition:all .6s cubic-bezier(.23,1,.32,1);cursor:pointer}
 .buku-tabungan:hover{transform:scale(1.06) rotate(0deg)!important;z-index:10!important}
@@ -269,7 +269,7 @@ body{font-family:'Inter','Segoe UI',Tahoma,sans-serif;color:var(--text-dark);lin
 .pdm-bottom{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:3}
 .pdm-name{font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;opacity:.8}
 .pdm-badge{font-size:7px;opacity:.5;letter-spacing:.5px}
-.glass-card{position:absolute;z-index:8;background:rgba(255,255,255,.1);backdrop-filter:blur(20px) saturate(1.8);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:11px 15px;display:flex;align-items:center;gap:10px;box-shadow:0 15px 40px rgba(0,0,0,.3);color:#fff;transition:transform .3s}
+.glass-card{position:absolute;z-index:10;background:rgba(255,255,255,.1);backdrop-filter:blur(20px) saturate(1.8);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:11px 15px;display:flex;align-items:center;gap:10px;box-shadow:0 15px 40px rgba(0,0,0,.3);color:#fff;transition:transform .3s}
 .glass-card:hover{transform:scale(1.05)!important}
 .gc-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
 .gc-val{font-size:13px;font-weight:800;line-height:1.2}
@@ -2126,41 +2126,110 @@ div[style*="border-radius:20px"][style*="box-shadow:0 8px 35px"]:hover{
 <section class="hero" id="beranda"><div class="hero-mesh"><div class="mesh-blob b1"></div><div class="mesh-blob b2"></div><div class="mesh-blob b3"></div><div class="mesh-blob b4"></div></div><div class="hero-noise"></div><div class="hero-grid-bg"></div><div class="hero-particles" id="heroParticles"></div><div class="hero-slider">
 <div class="hero-slide active" data-slide="0"><div class="hero-container"><div class="hero-grid-layout"><div class="hero-text"><div class="hero-badge"><span class="badge-dot"></span>Terpercaya Sejak 1985 · OJK · LPS</div><h2 class="hero-title"><span class="t-line"><span class="t-inner">Simpanan <span class="gold-text">Aman</span> &</span></span><span class="t-line"><span class="t-inner">Menguntungkan</span></span></h2><p class="hero-desc">Tabungan & Deposito dengan bunga kompetitif, bebas biaya admin, dan dijamin LPS hingga Rp 2 Miliar. Wujudkan masa depan finansial Anda.</p><div class="hero-btns"><a href="#produk" class="btn btn-gold"><i class="fas fa-piggy-bank"></i> Buka Tabungan</a><a href="#produk" class="btn btn-glass"><i class="fas fa-chart-line"></i> Simulasi Deposito</a></div><div class="hero-metrics"><div class="metric"><span class="metric-val" data-count="5">0</span><span class="metric-lbl">Juta+ Nasabah</span></div><div class="metric"><span class="metric-val">5.5%</span><span class="metric-lbl">Bunga Deposito</span></div><div class="metric"><span class="metric-val" data-count="40">0</span><span class="metric-lbl">Tahun Pengalaman</span></div></div></div>
 <div class="hero-visual" id="parallaxTarget"><div class="visual-stage" id="cardStage"><div class="orbit o1"><div class="orbit-dot"></div></div><div class="orbit o2"></div><div class="orbit o3"><div class="orbit-dot"></div></div><div class="card-glow"></div><div class="card-3d-wrapper" id="card3d">
-<!-- Foto Gedung Kantor -->
-<div style="width:400px;height:310px;border-radius:18px;overflow:hidden;box-shadow:0 25px 55px rgba(0,0,0,.5),0 8px 20px rgba(0,0,0,.3);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5">
-    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop" 
-         alt="Kantor Pusat BANK NUSANTARA" 
-         style="width:100%;height:100%;object-fit:cover;display:block"
-         onerror="this.src='https://images.unsplash.com/photo-1554435493-93422e8220c8?w=800&h=600&fit=crop'">
-    <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:16px 20px;color:#fff">
-        <div style="font-family:'Playfair Display',serif;font-size:14px;font-weight:700;margin-bottom:2px">Kantor Pusat BANK NUSANTARA</div>
-        <div style="font-size:11px;opacity:.85"><i class="fas fa-map-marker-alt" style="margin-right:5px;color:#c8a951"></i>Jl. Imam Bonjol No. 7X, Gerung, Lombok Barat</div>
+<!-- Foto Gedung Kantor FULL -->
+    <div class="hero-building-photo">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=900&fit=crop" 
+             alt="Kantor Pusat BANK NUSANTARA"
+             onerror="this.src='https://images.unsplash.com/photo-1554435493-93422e8220c8?w=1200&h=900&fit=crop'">
+        <div class="photo-overlay">
+            <h4>Kantor Pusat BANK NUSANTARA</h4>
+            <p><i class="fas fa-map-marker-alt" style="margin-right:5px;color:#c8a951"></i>Jl. Imam Bonjol No. 7X, Gerung, Lombok Barat</p>
+        </div>
+    </div>
+
+    <!-- 3 Glass Card TETAP ADA -->
+    <div class="glass-card gc-1">
+        <i class="fas fa-shield-alt"></i>
+        <div>
+            <strong>Dijamin LPS</strong>
+            <span>s.d. Rp 2 Miliar</span>
+        </div>
+    </div>
+    <div class="glass-card gc-2">
+        <i class="fas fa-percent"></i>
+        <div>
+            <strong>5.5% p.a</strong>
+            <span>Bunga Kompetitif</span>
+        </div>
+    </div>
+    <div class="glass-card gc-3">
+        <i class="fas fa-wallet"></i>
+        <div>
+            <strong>Bebas Admin</strong>
+            <span>Tabungan Reguler</span>
+        </div>
     </div>
 </div></div><div class="glass-card gc-1"><div class="gc-icon"><i class="fas fa-shield-alt"></i></div><div><div class="gc-val">Dijamin LPS</div><div class="gc-lbl">Hingga Rp 2 Miliar</div></div></div><div class="glass-card gc-2"><div class="gc-icon"><i class="fas fa-chart-line"></i></div><div><div class="gc-val">5.5% p.a</div><div class="gc-lbl">Bunga Deposito</div></div></div><div class="glass-card gc-3"><div class="gc-icon"><i class="fas fa-piggy-bank"></i></div><div><div class="gc-val">Bebas Admin</div><div class="gc-lbl">Tabungan Reguler</div></div></div></div></div></div></div></div>
 <div class="hero-slide" data-slide="1"><div class="hero-container"><div class="hero-grid-layout"><div class="hero-text"><div class="hero-badge"><span class="badge-dot"></span>Solusi Pendanaan Terpercaya</div><h2 class="hero-title"><span class="t-line"><span class="t-inner">Pendanaan untuk</span></span><span class="t-line"><span class="t-inner"><span class="gold-text">Usaha</span> & Masa Depan</span></span></h2><p class="hero-desc">Modal Usaha untuk rintis & kembangkan bisnis. Kredit Konsumtif untuk rumah, kendaraan, dan pendidikan. Serta kredit Investasi untuk ekspansi aset produktif Anda.</p><div class="hero-btns"><a href="#produk" class="btn btn-gold"><i class="fas fa-hand-holding-usd"></i> Ajukan Pinjaman</a><a href="https://nowgodigital.github.io/projectbank/simulasi-pinjaman.html" class="btn btn-glass"><i class="fas fa-calculator"></i> Simulasi Angsuran</a></div><div class="hero-metrics"><div class="metric"><span class="metric-val">4.99%</span><span class="metric-lbl">Bunga KPR</span></div><div class="metric"><span class="metric-val">7 Hari</span><span class="metric-lbl">Proses Cepat</span></div><div class="metric"><span class="metric-val">20 Thn</span><span class="metric-lbl">Tenor Maks</span></div></div></div>
 <div class="hero-visual"><div class="visual-stage"><div class="orbit o1"><div class="orbit-dot"></div></div><div class="orbit o2"></div><div class="orbit o3"><div class="orbit-dot"></div></div><div class="card-glow"></div><div class="card-3d-wrapper">
-<!-- Foto Gedung Kantor Cabang -->
-<div style="width:400px;height:310px;border-radius:18px;overflow:hidden;box-shadow:0 25px 55px rgba(0,0,0,.5),0 8px 20px rgba(0,0,0,.3);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5">
-    <img src="https://images.unsplash.com/photo-1554435493-93422e8220c8?w=800&h=600&fit=crop" 
-         alt="Kantor Cabang BANK NUSANTARA" 
-         style="width:100%;height:100%;object-fit:cover;display:block"
-         onerror="this.src='https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=600&fit=crop'">
-    <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:16px 20px;color:#fff">
-        <div style="font-family:'Playfair Display',serif;font-size:14px;font-weight:700;margin-bottom:2px">Kantor Cabang Tanjung</div>
-        <div style="font-size:11px;opacity:.85"><i class="fas fa-map-marker-alt" style="margin-right:5px;color:#c8a951"></i>Pusat Pertokoan Jambianom, Lombok Utara</div>
+<!-- Foto Gedung Kantor FULL -->
+    <div class="hero-building-photo">
+        <img src="https://images.unsplash.com/photo-1554435493-93422e8220c8?w=1200&h=900&fit=crop" 
+             alt="Kantor Cabang Tanjung BANK NUSANTARA"
+             onerror="this.src='https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&h=900&fit=crop'">
+        <div class="photo-overlay">
+            <h4>Kantor Cabang Tanjung</h4>
+            <p><i class="fas fa-map-marker-alt" style="margin-right:5px;color:#c8a951"></i>Pusat Pertokoan Jambianom, Lombok Utara</p>
+        </div>
+    </div>
+
+    <!-- 3 Glass Card TETAP ADA -->
+    <div class="glass-card gc-1">
+        <i class="fas fa-briefcase"></i>
+        <div>
+            <strong>Modal Usaha</strong>
+            <span>s.d. Rp 5 Miliar</span>
+        </div>
+    </div>
+    <div class="glass-card gc-2">
+        <i class="fas fa-car"></i>
+        <div>
+            <strong>Kredit Mobil</strong>
+            <span>Mulai 4.99%</span>
+        </div>
+    </div>
+    <div class="glass-card gc-3">
+        <i class="fas fa-chart-line"></i>
+        <div>
+            <strong>Investasi</strong>
+            <span>s.d. Rp 50 Miliar</span>
+        </div>
     </div>
 </div></div><div class="glass-card gc-1"><div class="gc-icon"><i class="fas fa-store"></i></div><div><div class="gc-val">Modal Usaha</div><div class="gc-lbl">Hingga Rp 5 Miliar</div></div></div><div class="glass-card gc-2"><div class="gc-icon"><i class="fas fa-car"></i></div><div><div class="gc-val">Kredit Mobil</div><div class="gc-lbl">DP mulai 10%</div></div></div><div class="glass-card gc-3"><div class="gc-icon"><i class="fas fa-building"></i></div><div><div class="gc-val">Investasi</div><div class="gc-lbl">Grace Period 6 Bln</div></div></div></div></div></div></div></div>
 <div class="hero-slide" data-slide="2"><div class="hero-container"><div class="hero-grid-layout"><div class="hero-text"><div class="hero-badge"><span class="badge-dot"></span>Layanan Digital 24/7</div><h2 class="hero-title"><span class="t-line"><span class="t-inner">Bayar Tagihan &</span></span><span class="t-line"><span class="t-inner"><span class="gold-text">Transfer</span> Instan</span></span></h2><p class="hero-desc">Top up pulsa & data semua operator. Bayar listrik PLN, Telkom, PDAM, dan 200+ tagihan lainnya. Transfer BI-FAST antar bank 24/7 hanya Rp 2.500.</p><div class="hero-btns"><a href="#layanan" class="btn btn-gold"><i class="fas fa-mobile-alt"></i> Download App</a><a href="#layanan" class="btn btn-glass"><i class="fas fa-qrcode"></i> Scan & Pay</a></div><div class="hero-metrics"><div class="metric"><span class="metric-val">4.8★</span><span class="metric-lbl">Rating App</span></div><div class="metric"><span class="metric-val">200+</span><span class="metric-lbl">Jenis Tagihan</span></div><div class="metric"><span class="metric-val">24/7</span><span class="metric-lbl">Transfer Real-time</span></div></div></div>
 <div class="hero-visual"><div class="visual-stage"><div class="orbit o1"><div class="orbit-dot"></div></div><div class="orbit o2"></div><div class="orbit o3"><div class="orbit-dot"></div></div><div class="card-glow"></div><div class="card-3d-wrapper">
-<!-- Foto Gedung Kantor Cabang Manggis -->
-<div style="width:400px;height:310px;border-radius:18px;overflow:hidden;box-shadow:0 25px 55px rgba(0,0,0,.5),0 8px 20px rgba(0,0,0,.3);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5">
-    <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=600&fit=crop" 
-         alt="Kantor Cabang Manggis BANK NUSANTARA" 
-         style="width:100%;height:100%;object-fit:cover;display:block"
-         onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop'">
-    <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:16px 20px;color:#fff">
-        <div style="font-family:'Playfair Display',serif;font-size:14px;font-weight:700;margin-bottom:2px">Kantor Cabang Manggis</div>
-        <div style="font-size:11px;opacity:.85"><i class="fas fa-map-marker-alt" style="margin-right:5px;color:#c8a951"></i>Jl. Denpasar-Padangbai KM 53, Karangasem, Bali</div>
+<!-- Foto Gedung Kantor FULL -->
+    <div class="hero-building-photo">
+        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&h=900&fit=crop" 
+             alt="Kantor Cabang Manggis BANK NUSANTARA"
+             onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=900&fit=crop'">
+        <div class="photo-overlay">
+            <h4>Kantor Cabang Manggis</h4>
+            <p><i class="fas fa-map-marker-alt" style="margin-right:5px;color:#c8a951"></i>Jl. Denpasar-Padangbai KM 53, Karangasem, Bali</p>
+        </div>
+    </div>
+
+    <!-- 3 Glass Card TETAP ADA -->
+    <div class="glass-card gc-1">
+        <i class="fas fa-bolt"></i>
+        <div>
+            <strong>Transfer BI-FAST</strong>
+            <span>Rp 2.500</span>
+        </div>
+    </div>
+    <div class="glass-card gc-2">
+        <i class="fas fa-mobile-alt"></i>
+        <div>
+            <strong>Bebas Admin</strong>
+            <span>Transaksi Digital</span>
+        </div>
+    </div>
+    <div class="glass-card gc-3">
+        <i class="fas fa-piggy-bank"></i>
+        <div>
+            <strong>Tabungan Reguler</strong>
+            <span>Setoran Fleksibel</span>
+        </div>
     </div>
 </div></div></div></div></div></div></div>
 </div><div class="slide-counter"><span class="current">01</span> / 03</div><div class="hero-controls"><div class="slide-tab active" onclick="goToSlide(0)"><div class="tab-fill"></div></div><div class="slide-tab" onclick="goToSlide(1)"><div class="tab-fill"></div></div><div class="slide-tab" onclick="goToSlide(2)"><div class="tab-fill"></div></div></div><div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div></section>
