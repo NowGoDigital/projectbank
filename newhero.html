@@ -4230,6 +4230,43 @@ if (document.readyState === 'loading') {
 })();
 </script>
 
+<script>
+// Hero Slider
+(function(){
+const slides=document.querySelectorAll('.hero-slide');
+const dots=document.querySelectorAll('.hero-dot');
+let current=0,timer;
+function goTo(n){
+slides[current].classList.remove('active');
+dots[current].classList.remove('active');
+current=n;
+slides[current].classList.add('active');
+dots[current].classList.add('active');
+}
+function next(){goTo((current+1)%slides.length)}
+function startAuto(){timer=setInterval(next,5000)}
+function stopAuto(){clearInterval(timer)}
+dots.forEach(function(dot,i){
+dot.addEventListener('click',function(){
+stopAuto();goTo(i);startAuto();
+});
+});
+startAuto();
+// 3D Parallax effect
+const card3d=document.getElementById('card3d');
+if(card3d){
+document.querySelector('.hero').addEventListener('mousemove',function(e){
+const rect=this.getBoundingClientRect();
+const x=(e.clientX-rect.left)/rect.width-.5;
+const y=(e.clientY-rect.top)/rect.height-.5;
+card3d.style.transform='rotateY('+x*10+'deg) rotateX('+(-y*10)+'deg)';
+});
+document.querySelector('.hero').addEventListener('mouseleave',function(){
+card3d.style.transform='rotateY(0) rotateX(0)';
+});
+}
+})();
+</script>
 
 
 </body>
