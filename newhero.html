@@ -87,222 +87,127 @@ body{font-family:'Inter','Segoe UI',Tahoma,sans-serif;color:var(--text-dark);lin
 @keyframes waPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}50%{box-shadow:0 0 0 6px rgba(255,255,255,0)}}
 .hamburger{display:none;font-size:22px;cursor:pointer;color:var(--primary);padding:6px 10px;border-radius:6px;transition:var(--transition)}
 .hamburger:hover{background:var(--bg-light)}
-.hero{position:relative;height:100vh;min-height:600px;max-height:800px;overflow:hidden;display:flex;align-items:flex-start;background:#010e24}
-.hero-mesh{position:absolute;inset:0;z-index:0;overflow:hidden}
-.mesh-blob{position:absolute;border-radius:50%;filter:blur(120px);opacity:.6;will-change:transform}
-.mesh-blob.b1{width:700px;height:700px;background:radial-gradient(circle,rgba(2,59,150,.9),transparent 70%);top:-20%;left:-10%;animation:meshMove1 25s ease-in-out infinite}
-.mesh-blob.b2{width:500px;height:500px;background:radial-gradient(circle,rgba(200,169,81,.25),transparent 70%);top:20%;right:-5%;animation:meshMove2 20s ease-in-out infinite}
-.mesh-blob.b3{width:600px;height:600px;background:radial-gradient(circle,rgba(30,136,229,.2),transparent 70%);bottom:-15%;left:30%;animation:meshMove3 22s ease-in-out infinite}
-.mesh-blob.b4{width:400px;height:400px;background:radial-gradient(circle,rgba(200,169,81,.15),transparent 70%);top:50%;left:10%;animation:meshMove4 18s ease-in-out infinite}
-@keyframes meshMove1{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(80px,40px) scale(1.1)}50%{transform:translate(40px,80px) scale(.95)}75%{transform:translate(-30px,50px) scale(1.05)}}
-@keyframes meshMove2{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-60px,30px) scale(1.15)}66%{transform:translate(30px,-40px) scale(.9)}}
-@keyframes meshMove3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(50px,-30px) scale(1.1)}}
-@keyframes meshMove4{0%,100%{transform:translate(0,0)}25%{transform:translate(30px,-20px)}50%{transform:translate(-20px,30px)}75%{transform:translate(15px,15px)}}
-.hero-noise{position:absolute;inset:0;z-index:1;opacity:.03;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.hero-grid-bg{position:absolute;inset:0;z-index:1;opacity:.04;background-image:linear-gradient(rgba(200,169,81,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,81,.6) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,black 10%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,black 10%,transparent 70%)}
-.hero-particles{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
-.h-particle{position:absolute;border-radius:50%;opacity:0;animation:particleFloat linear infinite}
-@keyframes particleFloat{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:.6}90%{opacity:.6}100%{transform:translateY(-5vh) rotate(720deg);opacity:0}}
-.hero-slider{position:absolute;inset:0;z-index:3}
-.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s cubic-bezier(.4,0,.2,1);display:flex;align-items:flex-start;padding-top:8px;pointer-events:none}
-.hero-slide.active{opacity:1;pointer-events:auto}
-.hero-grid-layout{position:relative;z-index:10;display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center;width:100%}
-.hero-text{color:#fff;position:relative}
-.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(200,169,81,.08);border:1px solid rgba(200,169,81,.2);padding:5px 16px;border-radius:60px;font-size:11px;color:var(--secondary);font-weight:600;margin-bottom:8px;backdrop-filter:blur(10px);letter-spacing:.5px;opacity:0;transform:translateY(20px);transition:all .8s cubic-bezier(.23,1,.32,1) .15s}
-.hero-slide.active .hero-badge{opacity:1;transform:translateY(0)}
-.badge-dot{width:6px;height:6px;background:var(--secondary);border-radius:50%;animation:dotPulse 2s ease-in-out infinite}
-@keyframes dotPulse{0%,100%{box-shadow:0 0 0 0 rgba(200,169,81,.5)}50%{box-shadow:0 0 0 6px rgba(200,169,81,0)}}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.1;margin-bottom:8px;letter-spacing:-1px}
-.hero-title .t-line{display:block;overflow:hidden}
-.hero-title .t-inner{display:inline-block;opacity:0;transform:translateY(110%);transition:all .9s cubic-bezier(.23,1,.32,1)}
-.hero-slide.active .hero-title .t-line:nth-child(1) .t-inner{opacity:1;transform:translateY(0);transition-delay:.3s}
-.hero-slide.active .hero-title .t-line:nth-child(2) .t-inner{opacity:1;transform:translateY(0);transition-delay:.45s}
-.gold-text{background:linear-gradient(135deg,#c8a951 0%,#e0c76a 35%,#f5e08a 55%,#c8a951 80%,#b8943e 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:goldShimmer 4s linear infinite;filter:drop-shadow(0 0 25px rgba(200,169,81,.25))}
-@keyframes goldShimmer{to{background-position:200% center}}
-.hero-desc{font-size:14px;margin-bottom:14px;color:rgba(255,255,255,.7);line-height:1.6;max-width:520px;opacity:0;transform:translateY(20px);transition:all .8s cubic-bezier(.23,1,.32,1) .55s}
-.hero-slide.active .hero-desc{opacity:1;transform:translateY(0)}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;opacity:0;transform:translateY(20px);transition:all .8s cubic-bezier(.23,1,.32,1) .7s}
-.hero-slide.active .hero-btns{opacity:1;transform:translateY(0)}
-.hero-btns .btn{padding:12px 26px;font-size:13px;border-radius:50px;position:relative;overflow:hidden;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-weight:600;cursor:pointer;border:none;transition:all .4s cubic-bezier(.23,1,.32,1)}
-.hero-btns .btn-gold{background:linear-gradient(135deg,var(--secondary),var(--secondary-light));color:var(--primary);box-shadow:0 8px 30px rgba(200,169,81,.3)}
-.hero-btns .btn-gold::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transition:left .6s}
-.hero-btns .btn-gold:hover::after{left:100%}
-.hero-btns .btn-gold:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(200,169,81,.45)}
-.hero-btns .btn-glass{border:1.5px solid rgba(255,255,255,.15);color:rgba(255,255,255,.85);background:rgba(255,255,255,.04);backdrop-filter:blur(10px)}
-.hero-btns .btn-glass:hover{background:rgba(255,255,255,.1);border-color:var(--secondary);color:var(--secondary);transform:translateY(-3px)}
-.hero-metrics{display:flex;gap:0;opacity:0;transform:translateY(20px);transition:all .8s cubic-bezier(.23,1,.32,1) .85s}
-.hero-slide.active .hero-metrics{opacity:1;transform:translateY(0)}
-.metric{padding:0 20px;position:relative}
-.metric:first-child{padding-left:0}
-.metric+.metric::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:1px;background:linear-gradient(180deg,transparent,rgba(200,169,81,.3),transparent)}
-.metric-val{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;background:linear-gradient(135deg,#c8a951,#e0c76a,#f0d97a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;line-height:1}
-.metric-lbl{font-size:10px;color:rgba(255,255,255,.35);margin-top:3px;font-weight:500;letter-spacing:.5px}
+/* ====== HERO SECTION CSS ====== */
+.hero{position:relative;min-height:100vh;overflow:hidden;background:linear-gradient(135deg,#0a1628 0%,#0d1f3c 50%,#0a1628 100%)}
+.hero-bg-pattern{position:absolute;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle at 20% 50%,rgba(200,169,81,.06) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(200,169,81,.04) 0%,transparent 50%),radial-gradient(circle at 50% 80%,rgba(200,169,81,.03) 0%,transparent 50%);z-index:1}
+.hero-particles{position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;overflow:hidden}
+.hero-particles span{position:absolute;width:4px;height:4px;background:rgba(200,169,81,.4);border-radius:50%;animation:particleFloat 6s ease-in-out infinite}
+.hero-particles span:nth-child(1){left:10%;top:20%;animation-delay:0s}
+.hero-particles span:nth-child(2){left:20%;top:60%;animation-delay:1s}
+.hero-particles span:nth-child(3){left:35%;top:30%;animation-delay:2s}
+.hero-particles span:nth-child(4){left:50%;top:70%;animation-delay:.5s}
+.hero-particles span:nth-child(5){left:65%;top:40%;animation-delay:1.5s}
+.hero-particles span:nth-child(6){left:80%;top:65%;animation-delay:2.5s}
+.hero-particles span:nth-child(7){left:90%;top:25%;animation-delay:3s}
+.hero-particles span:nth-child(8){left:45%;top:15%;animation-delay:3.5s}
+@keyframes particleFloat{0%,100%{transform:translateY(0) scale(1);opacity:.4}50%{transform:translateY(-20px) scale(1.5);opacity:.8}}
+.hero-slider{position:relative;width:100%;z-index:5}
+.hero-slide{display:none;opacity:0;transition:opacity .8s cubic-bezier(.23,1,.32,1)}
+.hero-slide.active{display:block;opacity:1}
+.hero-grid-layout{position:relative;z-index:10;display:grid;grid-template-columns:6fr 4fr;gap:40px;align-items:center;max-width:1280px;margin:0 auto;padding:140px 40px 100px;min-height:100vh}
+.hero-content{opacity:0;transform:translateX(-60px);transition:all 1.2s cubic-bezier(.23,1,.32,1) .2s}
+.hero-slide.active .hero-content{opacity:1;transform:translateX(0)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,169,81,.15);border:1px solid rgba(200,169,81,.3);border-radius:50px;padding:8px 20px;font-size:13px;color:#c8a951;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+.hero-badge i{font-size:14px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,52px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:20px}
+.hero-title span{color:#c8a951}
+.hero-desc{font-size:16px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:30px;max-width:520px}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.hero-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:12px;font-size:15px;font-weight:600;text-decoration:none;transition:all .3s ease;cursor:pointer;border:none}
+.hero-btn-primary{background:linear-gradient(135deg,#c8a951,#a8873a);color:#fff;box-shadow:0 8px 25px rgba(200,169,81,.3)}
+.hero-btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(200,169,81,.4)}
+.hero-btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.3)}
+.hero-btn-outline:hover{border-color:#c8a951;color:#c8a951;transform:translateY(-3px)}
+.hero-metrics{display:flex;gap:30px;flex-wrap:wrap}
+.hero-metric{text-align:left}
+.hero-metric-value{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:#c8a951}
+.hero-metric-label{font-size:13px;color:rgba(255,255,255,.5);margin-top:4px}
 .hero-visual{position:relative;display:flex;justify-content:center;align-items:center;opacity:0;transform:translateX(60px) scale(.9);transition:all 1.2s cubic-bezier(.23,1,.32,1) .4s;perspective:1200px;width:100%;height:100%}
 .hero-slide.active .hero-visual{opacity:1;transform:translateX(0) scale(1)}
-.visual-stage{position:relative;width:100%;max-width:100%;height:100%;aspect-ratio:auto;display:flex;align-items:center;justify-content:center;transform-style:preserve-3d}
-.orbit{position:absolute;border-radius:50%;z-index:1}
-.orbit.o1{width:105%;height:105%;border:1px dashed rgba(200,169,81,.1);animation:spin 55s linear infinite}
-.orbit.o2{width:130%;height:130%;border:1px dotted rgba(200,169,81,.06);animation:spin 80s linear infinite reverse}
-.orbit.o3{width:85%;height:85%;border:1px solid rgba(30,136,229,.08);animation:spin 40s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.orbit-dot{position:absolute;width:8px;height:8px;background:var(--secondary);border-radius:50%;box-shadow:0 0 15px rgba(200,169,81,.5)}
-.orbit.o1 .orbit-dot{top:0;left:50%;transform:translate(-50%,-50%)}
-.orbit.o3 .orbit-dot{bottom:10%;right:0;transform:translate(50%,0);background:var(--accent);box-shadow:0 0 15px rgba(30,136,229,.5)}
-.card-3d-wrapper{position:relative;width:100%;height:100%;z-index:5;transform-style:preserve-3d;transition:transform .4s ease}
+.visual-stage{position:relative;width:100%;max-width:100%;aspect-ratio:auto;display:flex;align-items:center;justify-content:center;transform-style:preserve-3d}
+.card-3d-wrapper{position:relative;width:100%;height:400px;z-index:5;transform-style:preserve-3d;transition:transform .4s ease;overflow:hidden;border-radius:16px}
 .card-glow{position:absolute;width:65%;height:65%;border-radius:50%;background:radial-gradient(circle,rgba(200,169,81,.25) 0%,transparent 70%);filter:blur(60px);z-index:0}
-.buku-tabungan{position:absolute;width:320px;height:200px;border-radius:3px 12px 12px 3px;overflow:visible;backface-visibility:hidden;box-shadow:0 20px 50px rgba(0,0,0,.45),0 5px 15px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.08);transition:all .6s cubic-bezier(.23,1,.32,1);cursor:pointer}
-.buku-tabungan:hover{transform:scale(1.06) rotate(0deg)!important;z-index:10!important}
-.bt-binding{position:absolute;left:0;top:0;bottom:0;width:22px;z-index:10;background:linear-gradient(90deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,.12) 35%,rgba(0,0,0,.25) 100%)}
-.bt-binding::before{content:'';position:absolute;left:4px;top:8px;bottom:8px;width:12px;background:repeating-linear-gradient(180deg,transparent 0px,transparent 10px,rgba(255,255,255,.2) 10px,rgba(255,255,255,.2) 12px,transparent 12px,transparent 22px);border-radius:1px}
-.bt-binding::after{content:'';position:absolute;left:9px;top:4px;bottom:4px;width:1px;background:rgba(255,255,255,.06)}
-.bt-pages{position:absolute;right:-4px;top:6px;bottom:6px;width:6px;z-index:-1;border-radius:0 2px 2px 0;background:repeating-linear-gradient(180deg,#f5f0e1 0px,#f5f0e1 1.5px,#d4cbb3 1.5px,#d4cbb3 3px);box-shadow:1px 0 4px rgba(0,0,0,.15)}
-.bt-inner{position:absolute;left:22px;top:0;right:0;bottom:0;display:flex;flex-direction:column;padding:18px 20px 14px 16px;color:#fff}
-.bt-inner::before{content:'';position:absolute;inset:0;opacity:.04;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.5) 2px,rgba(255,255,255,.5) 3px)}
-.bt-inner::after{content:'';position:absolute;top:-60%;right:-40%;width:90%;height:120%;background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,.06) 50%,transparent 65%);pointer-events:none}
-.bt-header{display:flex;align-items:center;gap:10px;position:relative;z-index:2;margin-bottom:10px}
-.bt-logo{width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,var(--secondary),var(--secondary-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;letter-spacing:.5px;font-family:'Playfair Display',serif;color:var(--primary);box-shadow:0 3px 8px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.3)}
-.bt-bank-info{flex:1}
-.bt-bank-name{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;line-height:1.2;opacity:.95}
-.bt-bank-tagline{font-size:7.5px;letter-spacing:1px;opacity:.5;text-transform:uppercase;margin-top:1px;font-weight:500}
-.bt-emblem{width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700;letter-spacing:.3px;text-align:center;line-height:1;opacity:.4;transform:rotate(-8deg);flex-shrink:0}
-.bt-divider{height:1.5px;margin:0 0 10px;border-radius:1px;position:relative;z-index:2}
-.bt-1 .bt-divider{background:linear-gradient(90deg,var(--secondary),var(--secondary-light),transparent)}
-.bt-2 .bt-divider{background:linear-gradient(90deg,var(--primary),rgba(2,59,150,.3),transparent)}
-.bt-3 .bt-divider{background:linear-gradient(90deg,rgba(255,255,255,.4),rgba(255,255,255,.1),transparent)}
-.bt-title-area{text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;z-index:2}
-.bt-title-ornament{display:flex;align-items:center;gap:6px;margin-bottom:4px;width:100%}
-.bt-title-ornament span{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent)}
-.bt-title-ornament i{font-size:7px;color:var(--secondary-light);opacity:.7}
-.bt-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;letter-spacing:3px;text-transform:uppercase;line-height:1.15;text-shadow:0 1px 4px rgba(0,0,0,.2)}
-.bt-subtitle{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;opacity:.55;margin-top:3px;font-weight:600}
-.bt-footer{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:2;margin-top:8px}
-.bt-account-label{font-size:6.5px;letter-spacing:1.5px;text-transform:uppercase;opacity:.4;margin-bottom:1px;font-weight:600}
-.bt-account-num{font-size:12px;font-weight:600;letter-spacing:2px;font-family:'Courier New',monospace}
-.bt-account-name{font-size:9px;opacity:.6;margin-top:1px;font-weight:500}
-.bt-right-info{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:3px}
-.bt-lps{font-size:6.5px;letter-spacing:1px;text-transform:uppercase;opacity:.35;display:flex;align-items:center;gap:3px;font-weight:600}
-.bt-lps i{font-size:7px}
-.bt-year{font-size:8px;opacity:.25;font-weight:600;letter-spacing:1px}
-.bt-1{background:linear-gradient(160deg,#023b96 0%,#162d55 40%,#1a5bc7 100%)}
-.bt-2{background:linear-gradient(160deg,#7a5c12 0%,#c8a951 45%,#a88b30 100%);color:#023b96}
-.bt-2 .bt-logo{background:linear-gradient(135deg,#023b96,#1a5bc7);color:var(--secondary)}
-.bt-2 .bt-title-ornament i{color:#023b96;opacity:.5}
-.bt-2 .bt-title{color:#023b96;text-shadow:0 1px 2px rgba(255,255,255,.15)}
-.bt-2 .bt-lps,.bt-2 .bt-year,.bt-2 .bt-account-label,.bt-2 .bt-account-name{color:#023b96}
-.bt-2 .bt-emblem{border-color:rgba(2,59,150,.2);color:#023b96}
-.bt-3{background:linear-gradient(160deg,#0d3b2e 0%,#1a5c47 40%,#2e7d5c 100%)}
-.bt-pos-1{z-index:3;transform:rotate(-5deg) translateY(-5px)}
-.bt-pos-2{z-index:2;transform:rotate(4deg) translate(30px,25px)}
-.bt-pos-3{z-index:1;transform:rotate(-1deg) translate(-15px,50px)}
-.bt-bookmark{position:absolute;top:-2px;right:55px;width:14px;height:26px;z-index:11;background:linear-gradient(180deg,#c62828,#8e0000);clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%);box-shadow:0 2px 6px rgba(0,0,0,.3)}
-.loan-card{position:absolute;width:340px;height:215px;border-radius:18px;overflow:hidden;box-shadow:0 25px 55px rgba(0,0,0,.5),0 8px 20px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.1);transition:all .6s cubic-bezier(.23,1,.32,1);cursor:pointer;color:#fff;backface-visibility:hidden}
-.loan-card:hover{transform:scale(1.06) rotate(0deg)!important;z-index:10!important}
-.loan-card .lc-inner{position:absolute;inset:0;padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between;z-index:3}
-.loan-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 15% 85%,rgba(255,255,255,.1) 0%,transparent 50%),radial-gradient(circle at 85% 15%,rgba(255,255,255,.07) 0%,transparent 50%);pointer-events:none;z-index:1}
-.loan-card::after{content:'';position:absolute;top:-50%;right:-30%;width:80%;height:200%;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.08) 50%,transparent 70%);pointer-events:none;z-index:2}
-.lc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;position:relative;z-index:3}
-.lc-bank-name{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;opacity:.95}
-.lc-bank-sub{font-size:7.5px;letter-spacing:1.5px;opacity:.55;text-transform:uppercase;margin-top:2px;font-weight:600}
-.lc-icon-big{font-size:36px;opacity:.25;line-height:1}
-.lc-body{position:relative;z-index:3;flex:1;display:flex;flex-direction:column;justify-content:center}
-.lc-label{font-size:8px;letter-spacing:1.5px;opacity:.5;text-transform:uppercase;font-weight:600;margin-bottom:4px}
-.lc-value{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;line-height:1.1}
-.lc-value small{font-size:13px;opacity:.7;font-weight:400}
-.lc-sub{font-size:9px;opacity:.55;margin-top:4px;line-height:1.4}
-.lc-footer{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:3}
-.lc-ft-label{font-size:7px;letter-spacing:1.2px;text-transform:uppercase;opacity:.5;margin-bottom:2px;font-weight:600}
-.lc-ft-val{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
-.lc-ribbon{position:absolute;top:0;right:0;z-index:4;padding:5px 16px 5px 20px;font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;clip-path:polygon(12% 0,100% 0,100% 100%,0 100%)}
-.lc-usaha{background:linear-gradient(135deg,#023b96 0%,#023b96 50%,#2970d4 100%);z-index:3;transform:rotate(-3deg)}
-.lc-usaha .lc-ribbon{background:var(--secondary);color:var(--primary)}
-.lc-konsumtif{background:linear-gradient(135deg,#1b5e20 0%,#2e7d32 50%,#388e3c 100%);z-index:2;transform:rotate(5deg) translate(28px,30px)}
-.lc-konsumtif .lc-ribbon{background:#4caf50;color:#fff}
-.lc-investasi{background:linear-gradient(135deg,#4a148c 0%,#6a1b9a 50%,#8e24aa 100%);z-index:1;transform:rotate(-2deg) translate(-22px,55px)}
-.lc-investasi .lc-ribbon{background:linear-gradient(135deg,#c8a951,#e0c76a);color:var(--primary)}
-.lc-icon-grid{display:flex;gap:8px;margin-top:6px}
-.lc-icon-grid .lc-ig{width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:12px;border:1px solid rgba(255,255,255,.08)}
-.lc-watermark{position:absolute;right:15px;bottom:10px;font-size:70px;opacity:.06;z-index:1;pointer-events:none}
-.ppob-phone{position:absolute;width:180px;height:320px;background:linear-gradient(135deg,#1a1a2e,#2d2d44);border-radius:28px;box-shadow:0 30px 60px rgba(0,0,0,.55),0 10px 25px rgba(0,0,0,.35);z-index:5;border:2px solid rgba(255,255,255,.12);overflow:hidden;transition:all .6s cubic-bezier(.23,1,.32,1);cursor:pointer;left:50%;top:50%;transform:translate(-50%,-50%)}
-.ppob-phone:hover{transform:translate(-50%,-50%) scale(1.05)!important;z-index:11!important}
-.ppob-phone::before{content:'';position:absolute;top:10px;left:50%;transform:translateX(-50%);width:55px;height:5px;background:rgba(255,255,255,.2);border-radius:3px;z-index:5}
-.ppob-phone::after{content:'';position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:30px;height:30px;border:2px solid rgba(255,255,255,.15);border-radius:50%;z-index:5}
-.ppob-screen{position:absolute;inset:22px 10px 38px;background:linear-gradient(180deg,#012d73,#0a3d8f);border-radius:18px;padding:12px;display:flex;flex-direction:column;align-items:center;overflow:hidden}
-.ppob-header{width:100%;text-align:center;margin-bottom:8px}
-.ppob-header .ppob-logo{font-family:'Playfair Display',serif;font-size:11px;font-weight:800;color:var(--secondary);letter-spacing:1px}
-.ppob-header .ppob-sub{font-size:7px;color:rgba(255,255,255,.4);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
-.ppob-balance-box{width:100%;background:rgba(255,255,255,.06);border-radius:10px;padding:8px;margin-bottom:8px;border:1px solid rgba(255,255,255,.06)}
-.ppob-balance-box .pbb-label{font-size:7px;color:rgba(255,255,255,.4);letter-spacing:.5px}
-.ppob-balance-box .pbb-amount{font-size:14px;font-weight:800;color:#fff;font-family:'Playfair Display',serif;margin-top:2px}
-.ppob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:100%}
-.ppob-grid-item{background:rgba(255,255,255,.06);border-radius:8px;padding:7px 3px;text-align:center;border:1px solid rgba(255,255,255,.06);transition:all .3s}
-.ppob-grid-item:hover{background:rgba(200,169,81,.15);border-color:rgba(200,169,81,.2)}
-.ppob-grid-item i{font-size:13px;display:block;margin-bottom:3px}
-.ppob-grid-item span{font-size:6.5px;color:rgba(255,255,255,.6);letter-spacing:.3px}
-.ppob-grid-item:nth-child(1) i{color:#42a5f5}
-.ppob-grid-item:nth-child(2) i{color:#66bb6a}
-.ppob-grid-item:nth-child(3) i{color:#ffa726}
-.ppob-grid-item:nth-child(4) i{color:#ef5350}
-.ppob-grid-item:nth-child(5) i{color:#ab47bc}
-.ppob-grid-item:nth-child(6) i{color:#26c6da}
-.ppob-float-card{position:absolute;z-index:6;background:rgba(255,255,255,.12);backdrop-filter:blur(20px) saturate(1.8);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 15px 40px rgba(0,0,0,.35);color:#fff;transition:transform .3s}
-.ppob-float-card:hover{transform:scale(1.08)!important}
-.pfc-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.pfc-val{font-size:13px;font-weight:800;line-height:1.2}
-.pfc-lbl{font-size:8.5px;opacity:.65;font-weight:500}
-.pfc-pulsa{top:2%;left:-8%;animation:gcFloat1 7s ease-in-out infinite}
-.pfc-pulsa .pfc-icon{background:linear-gradient(135deg,rgba(66,165,245,.3),rgba(66,165,245,.1));color:#42a5f5}
-.pfc-listrik{top:38%;right:-10%;animation:gcFloat2 8s ease-in-out infinite .5s}
-.pfc-listrik .pfc-icon{background:linear-gradient(135deg,rgba(255,167,38,.3),rgba(255,167,38,.1));color:#ffa726}
-.pfc-transfer{bottom:5%;left:-5%;animation:gcFloat3 9s ease-in-out infinite .3s}
-.pfc-transfer .pfc-icon{background:linear-gradient(135deg,rgba(76,175,80,.3),rgba(76,175,80,.1));color:#66bb6a}
-.ppob-debit-mini{position:absolute;width:200px;height:126px;border-radius:14px;overflow:hidden;box-shadow:0 20px 45px rgba(0,0,0,.45),0 6px 15px rgba(0,0,0,.25);z-index:2;cursor:pointer;color:#fff;transition:all .6s cubic-bezier(.23,1,.32,1)}
-.ppob-debit-mini:hover{transform:scale(1.06) rotate(0deg)!important;z-index:10!important}
-.pdm-inner{position:absolute;inset:0;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;z-index:3}
-.ppob-debit-mini::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 15% 85%,rgba(255,255,255,.08) 0%,transparent 50%);pointer-events:none;z-index:1}
-.ppob-debit-mini::after{content:'';position:absolute;top:-50%;right:-30%;width:80%;height:200%;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.06) 50%,transparent 70%);pointer-events:none;z-index:2}
-.pdm-pd{background:linear-gradient(135deg,#3e2723 0%,#5d4037 40%,#8d6e63 100%);bottom:0;left:-10%;transform:rotate(6deg);z-index:2}
-.pdm-pdam{background:linear-gradient(135deg,#01579b 0%,#0277bd 50%,#0288d1 100%);bottom:15%;right:-8%;transform:rotate(-4deg);z-index:1}
-.pdm-top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:3}
-.pdm-bank{font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;opacity:.9}
-.pdm-type{font-size:7px;opacity:.5;letter-spacing:1px;text-transform:uppercase}
-.pdm-num{font-family:'Orbitron','Courier New',monospace;font-size:11px;font-weight:700;letter-spacing:2px;opacity:.85;position:relative;z-index:3}
-.pdm-bottom{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:3}
-.pdm-name{font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;opacity:.8}
-.pdm-badge{font-size:7px;opacity:.5;letter-spacing:.5px}
-.glass-card{position:absolute;z-index:10;background:rgba(255,255,255,.1);backdrop-filter:blur(20px) saturate(1.8);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:11px 15px;display:flex;align-items:center;gap:10px;box-shadow:0 15px 40px rgba(0,0,0,.3);color:#fff;transition:transform .3s}
-.glass-card:hover{transform:scale(1.05)!important}
-.gc-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
-.gc-val{font-size:13px;font-weight:800;line-height:1.2}
-.gc-lbl{font-size:9px;opacity:.7;font-weight:500}
-.gc-1{bottom:5%;left:-5%;animation:gcFloat1 7s ease-in-out infinite}
-.gc-1 .gc-icon{background:linear-gradient(135deg,rgba(200,169,81,.3),rgba(200,169,81,.1));color:var(--secondary)}
-.gc-2{top:5%;right:-5%;animation:gcFloat2 8s ease-in-out infinite 1s}
-.gc-2 .gc-icon{background:linear-gradient(135deg,rgba(30,136,229,.3),rgba(30,136,229,.1));color:#42a5f5}
-.gc-3{top:42%;right:-8%;animation:gcFloat3 9s ease-in-out infinite .5s}
-.gc-3 .gc-icon{background:linear-gradient(135deg,rgba(76,175,80,.3),rgba(76,175,80,.1));color:#66bb6a}
-@keyframes gcFloat1{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(1deg)}}
-@keyframes gcFloat2{0%,100%{transform:translateY(0) rotate(1deg)}50%{transform:translateY(-8px) rotate(-1deg)}}
-@keyframes gcFloat3{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-7px) rotate(-2deg)}}
-.hero-controls{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10;align-items:center}
-.slide-tab{position:relative;width:60px;height:4px;border-radius:4px;background:rgba(255,255,255,.15);cursor:pointer;overflow:hidden;transition:all .4s}
-.slide-tab:hover{background:rgba(255,255,255,.25)}
-.slide-tab.active{width:80px;background:rgba(255,255,255,.15)}
-.slide-tab .tab-fill{position:absolute;top:0;left:0;height:100%;width:0;background:linear-gradient(90deg,var(--secondary),var(--secondary-light));border-radius:4px;transition:width .1s linear}
-.slide-tab.active .tab-fill{width:100%;transition:width 5s linear}
-.slide-counter{position:absolute;bottom:22px;left:30px;z-index:10;color:rgba(255,255,255,.3);font-size:13px;font-weight:600;letter-spacing:2px}
-.slide-counter .current{color:var(--secondary);font-size:18px;font-weight:800}
-.scroll-hint{position:absolute;bottom:18px;right:30px;z-index:10;display:flex;flex-direction:column;align-items:center;gap:5px}
-.scroll-line{width:1px;height:35px;background:linear-gradient(180deg,rgba(200,169,81,.4),transparent);position:relative;overflow:hidden}
-.scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:50%;background:var(--secondary);animation:scrollLine 2s ease infinite}
-@keyframes scrollLine{0%{top:-50%}100%{top:150%}}
-.scroll-hint span{font-size:9px;color:rgba(200,169,81,.4);letter-spacing:2px;text-transform:uppercase;font-weight:600;writing-mode:vertical-rl}
-.btn{padding:14px 32px;border:none;border-radius:30px;font-size:15px;font-weight:600;cursor:pointer;transition:var(--transition);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
-.btn-primary{background:linear-gradient(135deg,var(--secondary),var(--secondary-light));color:var(--primary)}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(200,169,81,.4)}
-.btn-outline{background:transparent;border:2px solid var(--primary);color:var(--primary)}
-.btn-outline:hover{background:var(--primary);color:#fff;transform:translateY(-3px)}
-.btn-dark{background:var(--primary);color:#fff}
-.btn-dark:hover{background:var(--primary-light);transform:translateY(-3px);box-shadow:0 8px 25px rgba(2,59,150,.3)}
+.hero-building-img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:1}
+.hero-building-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.65));z-index:2}
+.hero-building-caption{position:absolute;bottom:16px;left:18px;right:18px;z-index:3;color:#fff}
+.hero-building-caption h4{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;margin:0 0 3px}
+.hero-building-caption p{font-size:11px;opacity:.9;margin:0}
+.glass-card{position:absolute;z-index:20;background:rgba(255,255,255,.15);backdrop-filter:blur(20px) saturate(1.8);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:11px 15px;display:flex;align-items:center;gap:10px;box-shadow:0 15px 40px rgba(0,0,0,.4);color:#fff;transition:transform .3s}
+.glass-card:hover{transform:scale(1.05)}
+.glass-card .gc-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#c8a951,#a8873a);display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;flex-shrink:0}
+.glass-card .gc-val{font-size:13px;font-weight:700;color:#fff;line-height:1.2}
+.glass-card .gc-lbl{font-size:11px;color:rgba(255,255,255,.7);margin-top:1px}
+.glass-card.gc-1{top:12%;left:5%;animation:gcFloat1 4s ease-in-out infinite}
+.glass-card.gc-2{bottom:18%;right:3%;animation:gcFloat2 5s ease-in-out infinite}
+.glass-card.gc-3{top:50%;right:-2%;animation:gcFloat3 4.5s ease-in-out infinite .5s}
+@keyframes gcFloat1{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes gcFloat2{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes gcFloat3{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.hero-slider-dots{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:20}
+.hero-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .3s ease;border:2px solid transparent}
+.hero-dot.active{background:#c8a951;border-color:#c8a951;transform:scale(1.2)}
+.hero-dot:hover{background:rgba(200,169,81,.6)}
+/* ====== HERO SECTION CSS ====== */
+.hero{position:relative;min-height:100vh;overflow:hidden;background:linear-gradient(135deg,#0a1628 0%,#0d1f3c 50%,#0a1628 100%)}
+.hero-bg-pattern{position:absolute;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle at 20% 50%,rgba(200,169,81,.06) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(200,169,81,.04) 0%,transparent 50%),radial-gradient(circle at 50% 80%,rgba(200,169,81,.03) 0%,transparent 50%);z-index:1}
+.hero-particles{position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;overflow:hidden}
+.hero-particles span{position:absolute;width:4px;height:4px;background:rgba(200,169,81,.4);border-radius:50%;animation:particleFloat 6s ease-in-out infinite}
+.hero-particles span:nth-child(1){left:10%;top:20%;animation-delay:0s}
+.hero-particles span:nth-child(2){left:20%;top:60%;animation-delay:1s}
+.hero-particles span:nth-child(3){left:35%;top:30%;animation-delay:2s}
+.hero-particles span:nth-child(4){left:50%;top:70%;animation-delay:.5s}
+.hero-particles span:nth-child(5){left:65%;top:40%;animation-delay:1.5s}
+.hero-particles span:nth-child(6){left:80%;top:65%;animation-delay:2.5s}
+.hero-particles span:nth-child(7){left:90%;top:25%;animation-delay:3s}
+.hero-particles span:nth-child(8){left:45%;top:15%;animation-delay:3.5s}
+@keyframes particleFloat{0%,100%{transform:translateY(0) scale(1);opacity:.4}50%{transform:translateY(-20px) scale(1.5);opacity:.8}}
+.hero-slider{position:relative;width:100%;z-index:5}
+.hero-slide{display:none;opacity:0;transition:opacity .8s cubic-bezier(.23,1,.32,1)}
+.hero-slide.active{display:block;opacity:1}
+.hero-grid-layout{position:relative;z-index:10;display:grid;grid-template-columns:6fr 4fr;gap:40px;align-items:center;max-width:1280px;margin:0 auto;padding:140px 40px 100px;min-height:100vh}
+.hero-content{opacity:0;transform:translateX(-60px);transition:all 1.2s cubic-bezier(.23,1,.32,1) .2s}
+.hero-slide.active .hero-content{opacity:1;transform:translateX(0)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,169,81,.15);border:1px solid rgba(200,169,81,.3);border-radius:50px;padding:8px 20px;font-size:13px;color:#c8a951;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+.hero-badge i{font-size:14px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,52px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:20px}
+.hero-title span{color:#c8a951}
+.hero-desc{font-size:16px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:30px;max-width:520px}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.hero-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:12px;font-size:15px;font-weight:600;text-decoration:none;transition:all .3s ease;cursor:pointer;border:none}
+.hero-btn-primary{background:linear-gradient(135deg,#c8a951,#a8873a);color:#fff;box-shadow:0 8px 25px rgba(200,169,81,.3)}
+.hero-btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(200,169,81,.4)}
+.hero-btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.3)}
+.hero-btn-outline:hover{border-color:#c8a951;color:#c8a951;transform:translateY(-3px)}
+.hero-metrics{display:flex;gap:30px;flex-wrap:wrap}
+.hero-metric{text-align:left}
+.hero-metric-value{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:#c8a951}
+.hero-metric-label{font-size:13px;color:rgba(255,255,255,.5);margin-top:4px}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;opacity:0;transform:translateX(60px) scale(.9);transition:all 1.2s cubic-bezier(.23,1,.32,1) .4s;perspective:1200px;width:100%;height:100%}
+.hero-slide.active .hero-visual{opacity:1;transform:translateX(0) scale(1)}
+.visual-stage{position:relative;width:100%;max-width:100%;aspect-ratio:auto;display:flex;align-items:center;justify-content:center;transform-style:preserve-3d}
+.card-3d-wrapper{position:relative;width:100%;height:400px;z-index:5;transform-style:preserve-3d;transition:transform .4s ease;overflow:hidden;border-radius:16px}
+.card-glow{position:absolute;width:65%;height:65%;border-radius:50%;background:radial-gradient(circle,rgba(200,169,81,.25) 0%,transparent 70%);filter:blur(60px);z-index:0}
+.hero-building-img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:1}
+.hero-building-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.65));z-index:2}
+.hero-building-caption{position:absolute;bottom:16px;left:18px;right:18px;z-index:3;color:#fff}
+.hero-building-caption h4{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;margin:0 0 3px}
+.hero-building-caption p{font-size:11px;opacity:.9;margin:0}
+.glass-card{position:absolute;z-index:20;background:rgba(255,255,255,.15);backdrop-filter:blur(20px) saturate(1.8);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:11px 15px;display:flex;align-items:center;gap:10px;box-shadow:0 15px 40px rgba(0,0,0,.4);color:#fff;transition:transform .3s}
+.glass-card:hover{transform:scale(1.05)}
+.glass-card .gc-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#c8a951,#a8873a);display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;flex-shrink:0}
+.glass-card .gc-val{font-size:13px;font-weight:700;color:#fff;line-height:1.2}
+.glass-card .gc-lbl{font-size:11px;color:rgba(255,255,255,.7);margin-top:1px}
+.glass-card.gc-1{top:12%;left:5%;animation:gcFloat1 4s ease-in-out infinite}
+.glass-card.gc-2{bottom:18%;right:3%;animation:gcFloat2 5s ease-in-out infinite}
+.glass-card.gc-3{top:50%;right:-2%;animation:gcFloat3 4.5s ease-in-out infinite .5s}
+@keyframes gcFloat1{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes gcFloat2{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes gcFloat3{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.hero-slider-dots{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:20}
+.hero-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .3s ease;border:2px solid transparent}
+.hero-dot.active{background:#c8a951;border-color:#c8a951;transform:scale(1.2)}
+.hero-dot:hover{background:rgba(200,169,81,.6)}
+/* ====== AKHIR HERO CSS ====== */
 .quick-access{margin-top:-50px;position:relative;z-index:10;padding-bottom:60px}
 .quick-access-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .quick-access-card{background:#fff;border-radius:16px;padding:30px 25px;text-align:center;box-shadow:var(--shadow);transition:var(--transition);cursor:pointer;text-decoration:none;color:var(--text-dark)}
@@ -2123,116 +2028,159 @@ div[style*="border-radius:20px"][style*="box-shadow:0 8px 35px"]:hover{
 <div class="preloader" id="preloader"><div class="preloader-logo"><div class="pl-ring"></div><div class="pl-ring"></div><div class="pl-ring"></div><div class="pl-text">BN</div></div><div class="preloader-bar"><div class="preloader-bar-fill"></div></div><div class="preloader-text">BANK NUSANTARA</div></div>
 <div class="top-bar"><div class="container"><div class="top-bar-left"><span><i class="fas fa-phone"></i> 1500-888</span><span><i class="fas fa-envelope"></i> info@banknusantara.co.id</span></div><div class="top-bar-right"><a href="#lelang"><i class="fas fa-map-marker-alt"></i> Temukan Kantor Kami</a><a href="#pelaporan"><i class="fas fa-headset"></i> Bantuan</a><a href="#"><i class="fas fa-globe"></i> EN | ID</a></div></div></div>
 <header class="header" id="mainHeader"><div class="container"><a href="#beranda" class="logo"><div class="logo-icon">BN</div><div class="logo-text"><h1>BANK NUSANTARA</h1><span>Trusted Since 1985</span></div></a><nav class="nav"><ul class="nav-menu" id="navMenu"><li><a href="#beranda" class="nav-link active" data-section="beranda"><i class="fas fa-home"></i> Beranda</a></li><li><a href="#tentang" class="nav-link" data-section="tentang">Tentang Kami <i class="fas fa-chevron-down" style="font-size:9px"></i></a><div class="dropdown"><a href="#tentang" data-tab="profil"><i class="fas fa-building"></i> Profil</a><a href="#tentang" data-tab="visi"><i class="fas fa-bullseye"></i> Visi & Misi</a><a href="#tentang" data-tab="budaya"><i class="fas fa-heart"></i> Budaya</a><a href="#tentang" data-tab="manajemen"><i class="fas fa-user-tie"></i> Manajemen</a><a href="#tentang" data-tab="karir"><i class="fas fa-briefcase"></i> Karir</a></div></li><li><a href="#produk" class="nav-link" data-section="produk">Produk <i class="fas fa-chevron-down" style="font-size:9px"></i></a><div class="dropdown"><a href="#produk" data-product="tabungan"><i class="fas fa-piggy-bank"></i> Tabungan</a><a href="#produk" data-product="deposito"><i class="fas fa-chart-line"></i> Deposito</a><a href="#produk" data-product="pinjaman"><i class="fas fa-hand-holding-usd"></i> Pinjaman</a><a href="#layanan"><i class="fas fa-concierge-bell"></i> Digital</a></div></li><li><a href="#lelang" class="nav-link" data-section="lelang"><i class="fas fa-gavel"></i> Lelang</a></li><li><a href="#pelaporan" class="nav-link" data-section="pelaporan">Pelaporan <i class="fas fa-chevron-down" style="font-size:9px"></i></a><div class="dropdown"><a href="#pelaporan" data-report="publikasi"><i class="fas fa-newspaper"></i> Publikasi</a><a href="#pelaporan" data-report="tahunan"><i class="fas fa-book"></i> Tahunan</a><a href="#pelaporan" data-report="pengaduan"><i class="fas fa-comment-dots"></i> Pengaduan</a></div></li><li><a href="https://wa.me/6281234567890" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Chat CS <span class="wa-pulse"></span></a></li></ul><div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div></nav></div></header>
-<section class="hero" id="beranda"><div class="hero-mesh"><div class="mesh-blob b1"></div><div class="mesh-blob b2"></div><div class="mesh-blob b3"></div><div class="mesh-blob b4"></div></div><div class="hero-noise"></div><div class="hero-grid-bg"></div><div class="hero-particles" id="heroParticles"></div><div class="hero-slider">
-<div class="hero-slide active" data-slide="0"><div class="hero-container"><div class="hero-grid-layout"><div class="hero-text"><div class="hero-badge"><span class="badge-dot"></span>Terpercaya Sejak 1985 · OJK · LPS</div><h2 class="hero-title"><span class="t-line"><span class="t-inner">Simpanan <span class="gold-text">Aman</span> &</span></span><span class="t-line"><span class="t-inner">Menguntungkan</span></span></h2><p class="hero-desc">Tabungan & Deposito dengan bunga kompetitif, bebas biaya admin, dan dijamin LPS hingga Rp 2 Miliar. Wujudkan masa depan finansial Anda.</p><div class="hero-btns"><a href="#produk" class="btn btn-gold"><i class="fas fa-piggy-bank"></i> Buka Tabungan</a><a href="#produk" class="btn btn-glass"><i class="fas fa-chart-line"></i> Simulasi Deposito</a></div><div class="hero-metrics"><div class="metric"><span class="metric-val" data-count="5">0</span><span class="metric-lbl">Juta+ Nasabah</span></div><div class="metric"><span class="metric-val">5.5%</span><span class="metric-lbl">Bunga Deposito</span></div><div class="metric"><span class="metric-val" data-count="40">0</span><span class="metric-lbl">Tahun Pengalaman</span></div></div></div>
-<div class="hero-visual" id="parallaxTarget"><div class="visual-stage" id="cardStage"><div class="orbit o1"><div class="orbit-dot"></div></div><div class="orbit o2"></div><div class="orbit o3"><div class="orbit-dot"></div></div><div class="card-glow"></div><div class="card-3d-wrapper" id="card3d">
-<!-- Foto Gedung Kantor FULL -->
-    <div class="hero-building-photo">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=900&fit=crop" 
-             alt="Kantor Pusat BANK NUSANTARA"
-             onerror="this.src='https://images.unsplash.com/photo-1554435493-93422e8220c8?w=1200&h=900&fit=crop'">
-        <div class="photo-overlay">
-            <h4>Kantor Pusat BANK NUSANTARA</h4>
-            <p><i class="fas fa-map-marker-alt" style="margin-right:5px;color:#c8a951"></i>Jl. Imam Bonjol No. 7X, Gerung, Lombok Barat</p>
-        </div>
-    </div>
+<!-- ====== HERO SECTION ====== -->
+<section class="hero" id="beranda">
+<div class="hero-bg-pattern"></div>
+<div class="hero-particles">
+<span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span>
+</div>
+<div class="hero-slider" id="heroSlider">
 
-    <!-- 3 Glass Card TETAP ADA -->
-    <div class="glass-card gc-1">
-        <i class="fas fa-shield-alt"></i>
-        <div>
-            <strong>Dijamin LPS</strong>
-            <span>s.d. Rp 2 Miliar</span>
-        </div>
-    </div>
-    <div class="glass-card gc-2">
-        <i class="fas fa-percent"></i>
-        <div>
-            <strong>5.5% p.a</strong>
-            <span>Bunga Kompetitif</span>
-        </div>
-    </div>
-    <div class="glass-card gc-3">
-        <i class="fas fa-wallet"></i>
-        <div>
-            <strong>Bebas Admin</strong>
-            <span>Tabungan Reguler</span>
-        </div>
-    </div>
-</div></div><div class="glass-card gc-1"><div class="gc-icon"><i class="fas fa-shield-alt"></i></div><div><div class="gc-val">Dijamin LPS</div><div class="gc-lbl">Hingga Rp 2 Miliar</div></div></div><div class="glass-card gc-2"><div class="gc-icon"><i class="fas fa-chart-line"></i></div><div><div class="gc-val">5.5% p.a</div><div class="gc-lbl">Bunga Deposito</div></div></div><div class="glass-card gc-3"><div class="gc-icon"><i class="fas fa-piggy-bank"></i></div><div><div class="gc-val">Bebas Admin</div><div class="gc-lbl">Tabungan Reguler</div></div></div></div></div></div></div></div>
-<div class="hero-slide" data-slide="1"><div class="hero-container"><div class="hero-grid-layout"><div class="hero-text"><div class="hero-badge"><span class="badge-dot"></span>Solusi Pendanaan Terpercaya</div><h2 class="hero-title"><span class="t-line"><span class="t-inner">Pendanaan untuk</span></span><span class="t-line"><span class="t-inner"><span class="gold-text">Usaha</span> & Masa Depan</span></span></h2><p class="hero-desc">Modal Usaha untuk rintis & kembangkan bisnis. Kredit Konsumtif untuk rumah, kendaraan, dan pendidikan. Serta kredit Investasi untuk ekspansi aset produktif Anda.</p><div class="hero-btns"><a href="#produk" class="btn btn-gold"><i class="fas fa-hand-holding-usd"></i> Ajukan Pinjaman</a><a href="https://nowgodigital.github.io/projectbank/simulasi-pinjaman.html" class="btn btn-glass"><i class="fas fa-calculator"></i> Simulasi Angsuran</a></div><div class="hero-metrics"><div class="metric"><span class="metric-val">4.99%</span><span class="metric-lbl">Bunga KPR</span></div><div class="metric"><span class="metric-val">7 Hari</span><span class="metric-lbl">Proses Cepat</span></div><div class="metric"><span class="metric-val">20 Thn</span><span class="metric-lbl">Tenor Maks</span></div></div></div>
-<div class="hero-visual"><div class="visual-stage"><div class="orbit o1"><div class="orbit-dot"></div></div><div class="orbit o2"></div><div class="orbit o3"><div class="orbit-dot"></div></div><div class="card-glow"></div><div class="card-3d-wrapper">
-<!-- Foto Gedung Kantor FULL -->
-    <div class="hero-building-photo">
-        <img src="https://images.unsplash.com/photo-1554435493-93422e8220c8?w=1200&h=900&fit=crop" 
-             alt="Kantor Cabang Tanjung BANK NUSANTARA"
-             onerror="this.src='https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&h=900&fit=crop'">
-        <div class="photo-overlay">
-            <h4>Kantor Cabang Tanjung</h4>
-            <p><i class="fas fa-map-marker-alt" style="margin-right:5px;color:#c8a951"></i>Pusat Pertokoan Jambianom, Lombok Utara</p>
-        </div>
-    </div>
+<!-- SLIDE 1: Simpanan -->
+<div class="hero-slide active" data-slide="0">
+<div class="hero-grid-layout">
+<div class="hero-content">
+<div class="hero-badge"><i class="fas fa-university"></i> BANK NUSANTARA</div>
+<h1 class="hero-title">Simpanan <span>Aman</span> &amp; Menguntungkan</h1>
+<p class="hero-desc">Percayakan dana Anda pada kami. Nikmati bunga kompetitif, dijamin LPS hingga Rp 2 Miliar, dan kemudahan transaksi di seluruh jaringan kami.</p>
+<div class="hero-buttons">
+<a href="#produk" class="hero-btn hero-btn-primary"><i class="fas fa-piggy-bank"></i> Buka Rekening</a>
+<a href="#tentang" class="hero-btn hero-btn-outline"><i class="fas fa-info-circle"></i> Pelajari Lebih</a>
+</div>
+<div class="hero-metrics">
+<div class="hero-metric"><div class="hero-metric-value">4.5%</div><div class="hero-metric-label">Bunga Tabungan</div></div>
+<div class="hero-metric"><div class="hero-metric-value">6.5%</div><div class="hero-metric-label">Bunga Deposito</div></div>
+<div class="hero-metric"><div class="hero-metric-value">Rp 2M</div><div class="hero-metric-label">Jaminan LPS</div></div>
+</div>
+</div>
+<div class="hero-visual">
+<div class="visual-stage">
+<div class="card-glow"></div>
+<div class="card-3d-wrapper" id="card3d">
+<img class="hero-building-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&h=600&fit=crop" alt="Kantor Pusat BANK NUSANTARA" onerror="this.src='https://images.unsplash.com/photo-1554435493-93422e8220c8?w=900&h=600&fit=crop'">
+<div class="hero-building-overlay"></div>
+<div class="hero-building-caption">
+<h4>Kantor Pusat BANK NUSANTARA</h4>
+<p><i class="fas fa-map-marker-alt" style="margin-right:5px;color:#c8a951"></i>Jl. Imam Bonjol No. 7X, Gerung, Lombok Barat</p>
+</div>
+<div class="glass-card gc-1">
+<div class="gc-icon"><i class="fas fa-shield-alt"></i></div>
+<div><div class="gc-val">Dijamin LPS</div><div class="gc-lbl">s.d. Rp 2 Miliar</div></div>
+</div>
+<div class="glass-card gc-2">
+<div class="gc-icon"><i class="fas fa-percent"></i></div>
+<div><div class="gc-val">5.5% p.a</div><div class="gc-lbl">Bunga Kompetitif</div></div>
+</div>
+<div class="glass-card gc-3">
+<div class="gc-icon"><i class="fas fa-wallet"></i></div>
+<div><div class="gc-val">Bebas Admin</div><div class="gc-lbl">Tabungan Reguler</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-    <!-- 3 Glass Card TETAP ADA -->
-    <div class="glass-card gc-1">
-        <i class="fas fa-briefcase"></i>
-        <div>
-            <strong>Modal Usaha</strong>
-            <span>s.d. Rp 5 Miliar</span>
-        </div>
-    </div>
-    <div class="glass-card gc-2">
-        <i class="fas fa-car"></i>
-        <div>
-            <strong>Kredit Mobil</strong>
-            <span>Mulai 4.99%</span>
-        </div>
-    </div>
-    <div class="glass-card gc-3">
-        <i class="fas fa-chart-line"></i>
-        <div>
-            <strong>Investasi</strong>
-            <span>s.d. Rp 50 Miliar</span>
-        </div>
-    </div>
-</div></div><div class="glass-card gc-1"><div class="gc-icon"><i class="fas fa-store"></i></div><div><div class="gc-val">Modal Usaha</div><div class="gc-lbl">Hingga Rp 5 Miliar</div></div></div><div class="glass-card gc-2"><div class="gc-icon"><i class="fas fa-car"></i></div><div><div class="gc-val">Kredit Mobil</div><div class="gc-lbl">DP mulai 10%</div></div></div><div class="glass-card gc-3"><div class="gc-icon"><i class="fas fa-building"></i></div><div><div class="gc-val">Investasi</div><div class="gc-lbl">Grace Period 6 Bln</div></div></div></div></div></div></div></div>
-<div class="hero-slide" data-slide="2"><div class="hero-container"><div class="hero-grid-layout"><div class="hero-text"><div class="hero-badge"><span class="badge-dot"></span>Layanan Digital 24/7</div><h2 class="hero-title"><span class="t-line"><span class="t-inner">Bayar Tagihan &</span></span><span class="t-line"><span class="t-inner"><span class="gold-text">Transfer</span> Instan</span></span></h2><p class="hero-desc">Top up pulsa & data semua operator. Bayar listrik PLN, Telkom, PDAM, dan 200+ tagihan lainnya. Transfer BI-FAST antar bank 24/7 hanya Rp 2.500.</p><div class="hero-btns"><a href="#layanan" class="btn btn-gold"><i class="fas fa-mobile-alt"></i> Download App</a><a href="#layanan" class="btn btn-glass"><i class="fas fa-qrcode"></i> Scan & Pay</a></div><div class="hero-metrics"><div class="metric"><span class="metric-val">4.8★</span><span class="metric-lbl">Rating App</span></div><div class="metric"><span class="metric-val">200+</span><span class="metric-lbl">Jenis Tagihan</span></div><div class="metric"><span class="metric-val">24/7</span><span class="metric-lbl">Transfer Real-time</span></div></div></div>
-<div class="hero-visual"><div class="visual-stage"><div class="orbit o1"><div class="orbit-dot"></div></div><div class="orbit o2"></div><div class="orbit o3"><div class="orbit-dot"></div></div><div class="card-glow"></div><div class="card-3d-wrapper">
-<!-- Foto Gedung Kantor FULL -->
-    <div class="hero-building-photo">
-        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&h=900&fit=crop" 
-             alt="Kantor Cabang Manggis BANK NUSANTARA"
-             onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=900&fit=crop'">
-        <div class="photo-overlay">
-            <h4>Kantor Cabang Manggis</h4>
-            <p><i class="fas fa-map-marker-alt" style="margin-right:5px;color:#c8a951"></i>Jl. Denpasar-Padangbai KM 53, Karangasem, Bali</p>
-        </div>
-    </div>
+<!-- SLIDE 2: Pinjaman -->
+<div class="hero-slide" data-slide="1">
+<div class="hero-grid-layout">
+<div class="hero-content">
+<div class="hero-badge"><i class="fas fa-hand-holding-usd"></i> BANK NUSANTARA</div>
+<h1 class="hero-title">Pinjaman <span>Mudah</span> &amp; Cepat Cair</h1>
+<p class="hero-desc">Wujudkan impian usaha Anda dengan fasilitas kredit yang fleksibel. Proses cepat, bunga ringan, dan tenor hingga 20 tahun.</p>
+<div class="hero-buttons">
+<a href="#produk" class="hero-btn hero-btn-primary"><i class="fas fa-file-alt"></i> Ajukan Pinjaman</a>
+<a href="#layanan" class="hero-btn hero-btn-outline"><i class="fas fa-calculator"></i> Simulasi Kredit</a>
+</div>
+<div class="hero-metrics">
+<div class="hero-metric"><div class="hero-metric-value">4.99%</div><div class="hero-metric-label">Bunga Mulai</div></div>
+<div class="hero-metric"><div class="hero-metric-value">Rp 5M</div><div class="hero-metric-label">Plafon Maksimal</div></div>
+<div class="hero-metric"><div class="hero-metric-value">20 Thn</div><div class="hero-metric-label">Tenor Maksimal</div></div>
+</div>
+</div>
+<div class="hero-visual">
+<div class="visual-stage">
+<div class="card-glow"></div>
+<div class="card-3d-wrapper">
+<img class="hero-building-img" src="https://images.unsplash.com/photo-1554435493-93422e8220c8?w=900&h=600&fit=crop" alt="Kantor Cabang Tanjung" onerror="this.src='https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900&h=600&fit=crop'">
+<div class="hero-building-overlay"></div>
+<div class="hero-building-caption">
+<h4>Kantor Cabang Tanjung</h4>
+<p><i class="fas fa-map-marker-alt" style="margin-right:5px;color:#c8a951"></i>Pusat Pertokoan Jambianom, Lombok Utara</p>
+</div>
+<div class="glass-card gc-1">
+<div class="gc-icon"><i class="fas fa-briefcase"></i></div>
+<div><div class="gc-val">Modal Usaha</div><div class="gc-lbl">s.d. Rp 5 Miliar</div></div>
+</div>
+<div class="glass-card gc-2">
+<div class="gc-icon"><i class="fas fa-car"></i></div>
+<div><div class="gc-val">Kredit Mobil</div><div class="gc-lbl">Mulai 4.99%</div></div>
+</div>
+<div class="glass-card gc-3">
+<div class="gc-icon"><i class="fas fa-chart-line"></i></div>
+<div><div class="gc-val">Investasi</div><div class="gc-lbl">s.d. Rp 50 Miliar</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-    <!-- 3 Glass Card TETAP ADA -->
-    <div class="glass-card gc-1">
-        <i class="fas fa-bolt"></i>
-        <div>
-            <strong>Transfer BI-FAST</strong>
-            <span>Rp 2.500</span>
-        </div>
-    </div>
-    <div class="glass-card gc-2">
-        <i class="fas fa-mobile-alt"></i>
-        <div>
-            <strong>Bebas Admin</strong>
-            <span>Transaksi Digital</span>
-        </div>
-    </div>
-    <div class="glass-card gc-3">
-        <i class="fas fa-piggy-bank"></i>
-        <div>
-            <strong>Tabungan Reguler</strong>
-            <span>Setoran Fleksibel</span>
-        </div>
-    </div>
-</div></div></div></div></div></div></div>
-</div><div class="slide-counter"><span class="current">01</span> / 03</div><div class="hero-controls"><div class="slide-tab active" onclick="goToSlide(0)"><div class="tab-fill"></div></div><div class="slide-tab" onclick="goToSlide(1)"><div class="tab-fill"></div></div><div class="slide-tab" onclick="goToSlide(2)"><div class="tab-fill"></div></div></div><div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div></section>
+<!-- SLIDE 3: Layanan Digital -->
+<div class="hero-slide" data-slide="2">
+<div class="hero-grid-layout">
+<div class="hero-content">
+<div class="hero-badge"><i class="fas fa-mobile-alt"></i> BANK NUSANTARA</div>
+<h1 class="hero-title">Layanan <span>Digital</span> Tanpa Batas</h1>
+<p class="hero-desc">Nikmati kemudahan transaksi digital. Transfer BI-FAST hanya Rp 2.500, bayar tagihan PPOB, dan beli pulsa langsung dari genggaman Anda.</p>
+<div class="hero-buttons">
+<a href="#layanan" class="hero-btn hero-btn-primary"><i class="fas fa-rocket"></i> Coba Sekarang</a>
+<a href="#galeri" class="hero-btn hero-btn-outline"><i class="fas fa-play-circle"></i> Lihat Demo</a>
+</div>
+<div class="hero-metrics">
+<div class="hero-metric"><div class="hero-metric-value">Rp 2.5K</div><div class="hero-metric-label">Transfer BI-FAST</div></div>
+<div class="hero-metric"><div class="hero-metric-value">24/7</div><div class="hero-metric-label">Layanan Online</div></div>
+<div class="hero-metric"><div class="hero-metric-value">Gratis</div><div class="hero-metric-label">Admin Transaksi</div></div>
+</div>
+</div>
+<div class="hero-visual">
+<div class="visual-stage">
+<div class="card-glow"></div>
+<div class="card-3d-wrapper">
+<img class="hero-building-img" src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900&h=600&fit=crop" alt="Kantor Cabang Manggis" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&h=600&fit=crop'">
+<div class="hero-building-overlay"></div>
+<div class="hero-building-caption">
+<h4>Kantor Cabang Manggis</h4>
+<p><i class="fas fa-map-marker-alt" style="margin-right:5px;color:#c8a951"></i>Jl. Denpasar-Padangbai KM 53, Karangasem, Bali</p>
+</div>
+<div class="glass-card gc-1">
+<div class="gc-icon"><i class="fas fa-bolt"></i></div>
+<div><div class="gc-val">Transfer BI-FAST</div><div class="gc-lbl">Antar Bank Rp 2.500</div></div>
+</div>
+<div class="glass-card gc-2">
+<div class="gc-icon"><i class="fas fa-mobile-alt"></i></div>
+<div><div class="gc-val">Bebas Admin</div><div class="gc-lbl">Transaksi Digital</div></div>
+</div>
+<div class="glass-card gc-3">
+<div class="gc-icon"><i class="fas fa-piggy-bank"></i></div>
+<div><div class="gc-val">Tabungan Reguler</div><div class="gc-lbl">Setoran Fleksibel</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<!-- Dots Navigation -->
+<div class="hero-slider-dots">
+<div class="hero-dot active" data-slide="0"></div>
+<div class="hero-dot" data-slide="1"></div>
+<div class="hero-dot" data-slide="2"></div>
+</div>
+</section>
+<!-- ====== AKHIR HERO SECTION ====== -->
 <section class="quick-access"><div class="container"><div class="quick-access-grid"><a href="#produk" class="quick-access-card" data-product="tabungan"><div class="icon"><i class="fas fa-university"></i></div><h4>Tabungan</h4><p>Buka rekening baru dengan mudah</p></a><a href="#produk" class="quick-access-card" data-product="pinjaman"><div class="icon"><i class="fas fa-hand-holding-usd"></i></div><h4>Pinjaman</h4><p>Modal Kerja, Konsumtif dan Investasi</p></a><a href="#produk" class="quick-access-card" data-product="deposito"><div class="icon"><i class="fas fa-piggy-bank"></i></div><h4>Deposito</h4><p>Bunga kompetitif hingga penjaminan LPS</p></a><a href="#lelang" class="quick-access-card"><div class="icon"><i class="fas fa-gavel"></i></div><h4>Lelang Agunan</h4><p>Properti & kendaraan harga miring</p></a></div></div></section>
 <section class="about-section" id="tentang"><div class="container"><div class="section-title"><div class="st-badge"><i class="fas fa-building"></i> Tentang Kami</div><h2>Mengenal BANK NUSANTARA</h2><p>Lebih dari 40 tahun melayani masyarakat Indonesia dengan integritas dan inovasi</p><div class="underline"></div></div><div class="about-tabs"><div class="about-tab active" data-tab-btn="profil" onclick="switchTab('profil')"><i class="fas fa-building"></i> Profil</div><div class="about-tab" data-tab-btn="visi" onclick="switchTab('visi')"><i class="fas fa-bullseye"></i> Visi & Misi</div><div class="about-tab" data-tab-btn="budaya" onclick="switchTab('budaya')"><i class="fas fa-heart"></i> Budaya</div><div class="about-tab" data-tab-btn="manajemen" onclick="switchTab('manajemen')"><i class="fas fa-user-tie"></i> Manajemen</div><div class="about-tab" data-tab-btn="karir" onclick="switchTab('karir')"><i class="fas fa-briefcase"></i> Karir</div></div>
 
